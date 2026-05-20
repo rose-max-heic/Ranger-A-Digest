@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Adab Makan & Halal-Haram — Rangkuman Belajar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8E7;
+    --maroon: #930500;
+    --maroon-light: #b30600;
+    --maroon-pale: #fdecea;
+    --blue: #95BBEA;
+    --blue-dark: #5a8fc7;
+    --blue-pale: #e8f1fb;
+    --text: #2a1a1a;
+    --text-muted: #7a5a5a;
+    --border: #e8d5c0;
+    --white: #ffffff;
+    --gold: #c9a227;
+    --green: #2d6a4f;
+    --green-pale: #e8f5ee;
+    --orange: #d4621a;
+    --orange-pale: #fdf0e8;
+    --purple: #6a4c93;
+    --purple-pale: #f0ebfa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ===== HEADER ===== */
+  .hero {
+    background: var(--maroon);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(149,187,234,0.15);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 20%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,248,231,0.08);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(149,187,234,0.3);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(149,187,234,0.4);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--blue); }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.8;
+    max-width: 600px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--maroon);
+    padding: 0 30px;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    box-shadow: 0 3px 15px rgba(147,5,0,0.3);
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    color: white;
+    border-bottom-color: var(--blue);
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--maroon);
+    margin-bottom: 6px;
+  }
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(147,5,0,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .card:hover { box-shadow: 0 6px 24px rgba(147,5,0,0.1); transform: translateY(-1px); }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--maroon);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-title .icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ===== TAGS ===== */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin: 2px;
+  }
+  .tag-red { background: var(--maroon-pale); color: var(--maroon); }
+  .tag-blue { background: var(--blue-pale); color: var(--blue-dark); }
+  .tag-green { background: var(--green-pale); color: var(--green); }
+  .tag-orange { background: var(--orange-pale); color: var(--orange); }
+  .tag-purple { background: var(--purple-pale); color: var(--purple); }
+  .tag-gold { background: #fdf6e3; color: #8a6d1a; }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    background: var(--maroon);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  td { padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdfaf5; }
+  tr:hover td { background: var(--blue-pale); }
+
+  /* ===== ALERTS ===== */
+  .alert {
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+  .alert-red { background: var(--maroon-pale); border-left: 4px solid var(--maroon); color: #6a0400; }
+  .alert-blue { background: var(--blue-pale); border-left: 4px solid var(--blue-dark); color: #2a4a6a; }
+  .alert-green { background: var(--green-pale); border-left: 4px solid var(--green); color: #1a4a35; }
+  .alert-gold { background: #fdf6e3; border-left: 4px solid var(--gold); color: #6a4a00; }
+  .alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); color: #3a2060; }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ===== COLUMNS ===== */
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media(max-width: 640px) { .cols-2, .cols-3 { grid-template-columns: 1fr; } }
+
+  /* ===== MINI CARDS ===== */
+  .mini-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .mini-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: var(--maroon);
+    margin-bottom: 8px;
+  }
+  .mini-card p, .mini-card li { font-size: 13px; color: var(--text-muted); }
+  .mini-card ul { padding-left: 16px; }
+  .mini-card li { margin-bottom: 3px; }
+
+  /* ===== COLLAPSIBLE ===== */
+  .collapse-btn {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    font-family: inherit;
+  }
+  .collapse-btn .chevron { transition: transform 0.25s; font-size: 12px; color: var(--text-muted); }
+  .collapse-btn.open .chevron { transform: rotate(180deg); }
+  .collapse-content { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .collapse-content.open { display: block; }
+
+  /* ===== QUIZ ===== */
+  .quiz-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .quiz-num {
+    position: absolute;
+    top: -14px; left: 24px;
+    background: var(--maroon);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 10px;
+  }
+  .quiz-vignette {
+    background: var(--blue-pale);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    border-left: 4px solid var(--blue-dark);
+    color: #1a3a5a;
+  }
+  .quiz-question {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option {
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .quiz-option:hover { border-color: var(--blue); background: var(--blue-pale); }
+  .quiz-option.correct { background: var(--green-pale); border-color: var(--green); color: var(--green); }
+  .quiz-option.wrong { background: var(--maroon-pale); border-color: var(--maroon); color: var(--maroon); }
+  .quiz-option.disabled { cursor: default; }
+  .quiz-option .opt-letter {
+    font-weight: 700; font-size: 12px;
+    min-width: 20px; height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 1.5px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px; flex-shrink: 0;
+  }
+  .explanation {
+    background: var(--green-pale);
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    margin-top: 14px;
+    color: #1a4a35;
+    display: none;
+    line-height: 1.7;
+  }
+  .explanation.show { display: block; animation: fadeIn 0.3s ease; }
+  .quiz-score-card {
+    background: var(--maroon);
+    color: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 30px;
+    display: none;
+  }
+  .quiz-score-card.show { display: block; animation: fadeIn 0.4s ease; }
+  .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--blue);
+  }
+
+  /* ===== SKDI BADGE ===== */
+  .skdi {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .skdi-4a { background: #d4edda; color: #155724; }
+  .skdi-3b { background: #fff3cd; color: #856404; }
+  .skdi-3a { background: #cce5ff; color: #004085; }
+  .skdi-2 { background: #e2e3e5; color: #383d41; }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-bar { background: rgba(149,187,234,0.3); border-radius: 10px; height: 6px; margin: 20px 0; }
+  .progress-fill { background: var(--blue); height: 100%; border-radius: 10px; transition: width 0.5s ease; }
+
+  /* ===== CLINICAL REASONING BOX ===== */
+  .reasoning-box {
+    background: linear-gradient(135deg, #fff8e7 0%, #fdecea 100%);
+    border: 2px solid var(--maroon);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin: 20px 0;
+  }
+  .reasoning-box h4 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--maroon);
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* ===== MNEMONIC BOX ===== */
+  .mnemonic-box {
+    background: linear-gradient(135deg, #e8f1fb 0%, #f0ebfa 100%);
+    border: 2px solid var(--purple);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .mnemonic-box h4 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--purple);
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .mnemonic-main {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--purple);
+    background: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 8px 0;
+    border: 1.5px solid var(--purple-pale);
+  }
+  .mnemonic-explain { font-size: 13px; color: #3a2060; margin-top: 6px; line-height: 1.7; }
+
+  /* ===== DIVIDER ===== */
+  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+  /* ===== LIST STYLE ===== */
+  .styled-list { list-style: none; padding: 0; }
+  .styled-list li {
+    padding: 7px 0 7px 22px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    position: relative;
+  }
+  .styled-list li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--maroon);
+    font-size: 11px;
+    top: 10px;
+  }
+  .styled-list li:last-child { border-bottom: none; }
+
+  /* ===== FAB ===== */
+  .fab {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--maroon);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 22px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(147,5,0,0.4);
+    display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+    z-index: 200;
+  }
+  .fab:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(147,5,0,0.5); }
+
+  /* ===== COMPARE GRID ===== */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .compare-col { border-radius: 12px; padding: 16px 18px; }
+  .compare-col-green { background: var(--green-pale); border: 1.5px solid #a5d6a7; }
+  .compare-col-red { background: var(--maroon-pale); border: 1.5px solid #ef9a9a; }
+  .compare-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+  .compare-col-green h4 { color: var(--green); }
+  .compare-col-red h4 { color: var(--maroon); }
+  .compare-col li { font-size: 13px; margin-bottom: 5px; }
+
+  /* ===== BANGKAI GRID ===== */
+  .bangkai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+  .bangkai-card { background: var(--purple-pale); border: 1.5px solid #ce93d8; border-radius: 10px; padding: 12px 14px; }
+  .bangkai-card .no { font-weight: 700; color: var(--purple); font-size: 16px; }
+  .bangkai-card .arab { font-weight: 700; color: #5c3d8a; font-size: 13.5px; margin: 2px 0; }
+  .bangkai-card .def { font-size: 12.5px; color: var(--text-muted); }
+  @media(max-width:640px) { .bangkai-grid { grid-template-columns: 1fr 1fr; } .compare-grid { grid-template-columns: 1fr; } }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .sticky-nav, .fab { display: none !important; }
+    .section { display: block !important; page-break-inside: avoid; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 600px) {
+    .hero { padding: 40px 20px 36px; }
+    .container { padding: 28px 16px; }
+    .card { padding: 18px 20px; }
+    .bangkai-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">📖 Blok Digestive · FK UMS · 2026</div>
+  <h1>Adab Makan &<br><span>Makanan Halal-Haram</span></h1>
+  <p class="hero-sub">Dari kuliah dr. Erna Herawati, Sp.K.J. — diperkaya korelasi klinis, SKDI, mnemonic, dan soal latihan vignette UKMPPD.</p>
+  <div class="hero-meta">
+    <span class="hero-badge">🍽️ Adab Makan Islami</span>
+    <span class="hero-badge">⚖️ Halal vs Haram</span>
+    <span class="hero-badge">🧠 Mnemonic & Tabel</span>
+    <span class="hero-badge">📝 10 Soal Quiz</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav">
+  <button class="nav-btn active" onclick="showSection('intro')">🏠 Intro</button>
+  <button class="nav-btn" onclick="showSection('adab')">🍽️ Adab Makan</button>
+  <button class="nav-btn" onclick="showSection('halal')">✅ Halal & Thayyib</button>
+  <button class="nav-btn" onclick="showSection('haram')">🚫 Haram & Bangkai</button>
+  <button class="nav-btn" onclick="showSection('skdi')">🏥 SKDI & Bioetika</button>
+  <button class="nav-btn" onclick="showSection('quiz')">🧠 Quiz</button>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+<!-- ===== INTRO ===== -->
+<div id="intro" class="section active">
+  <h2 class="section-title">Peta Materi & Panduan Belajar</h2>
+  <p class="section-desc">Materi dari dr. Erna Herawati, Sp.K.J. (FK UMS 2026) — fokus pada adab makan Islami dan fiqih makanan halal-haram yang relevan untuk dokter muslim dan edukasi pasien.</p>
+
+  <div class="alert alert-gold">
+    <span class="alert-icon">💡</span>
+    <div><strong>Pesan Kunci dari dr. Erna:</strong> Allah menciptakan sistem digestif kita — kita tidak punya kekuasaan atas sistem sendiri (contoh: diare tidak bisa dihentikan sesuka kita). Maka Allah yang paling tahu mana makanan yang baik dan buruk untuk tubuh kita. Makan halal = ibadah, bukan sekadar aturan.</div>
+  </div>
+
+  <div class="cols-2">
+    <div class="mini-card" style="border-left: 4px solid var(--maroon);">
+      <h4>🎯 Topik Utama</h4>
+      <ul>
+        <li>Adab makan: sebelum, saat, sesudah</li>
+        <li>Pengertian Halal & Haram</li>
+        <li>Kaidah fiqih muamalah (makanan)</li>
+        <li>Klasifikasi hewan halal/haram</li>
+        <li>Haram Lidzatihi vs Lighairihi</li>
+        <li>9 Jenis bangkai + 3 Pengecualian</li>
+        <li>Korelasi klinis & SKDI</li>
+      </ul>
+    </div>
+    <div class="mini-card" style="border-left: 4px solid var(--blue-dark);">
+      <h4>📌 Kata Kunci yang Sering Keluar di Soal</h4>
+      <ul>
+        <li>Prinsip 1/3 porsi makan (Hadis Tirmidzi)</li>
+        <li>Halalan Thayyiban (QS. Al-Baqarah: 168)</li>
+        <li>Minuman panas >65°C → IARC Grup 2A</li>
+        <li>Kodok = satu-satunya hewan dua alam yang haram</li>
+        <li>Haram Lidzatihi vs Haram Lighairihi</li>
+        <li>Khamr → pengharaman 3 tahap</li>
+        <li>Posisi makan tegak → cegah GERD</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">📊</span> Relevansi Materi dengan Kompetensi Dokter</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Aspek</th><th>Relevansi Klinis</th><th>Contoh Aplikasi</th></tr>
+        <tr><td>Porsi makan 1/3</td><td>Edukasi gizi DM, obesitas, GERD</td><td>Konseling portion control berbasis Islami</td></tr>
+        <tr><td>Larangan meniup minuman panas</td><td>Pencegahan kanker esofagus (IARC 2A)</td><td>Edukasi preventif di FKTP</td></tr>
+        <tr><td>Posisi duduk saat makan</td><td>Pencegahan GERD, aspirasi</td><td>Edukasi perilaku makan pasien</td></tr>
+        <tr><td>Halal obat/suplemen</td><td>Informed consent, otonomi pasien</td><td>Kehalalan gelatin, alkohol dalam obat</td></tr>
+        <tr><td>Larangan khamr</td><td>Alkohol → sirosis, pankreatitis, AUD</td><td>Brief intervention pada pasien alkohol</td></tr>
+        <tr><td>Makanan bermudharat = haram</td><td>Non-maleficence & hifdzun nafs</td><td>Dasar etis edukasi gizi preventif</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>Ingat 3 Konsekuensi Makan yang Haram:</strong> (1) Tubuh tumbuh dari yang haram → neraka lebih dekat baginya. (2) Doa tidak dikabulkan — hadis musafir yang berdoa tapi makanan & minumannya haram (HR. Muslim). (3) Hati menjadi keras — sulit diajak kepada kebaikan.</div>
+  </div>
+</div>
+
+<!-- ===== ADAB MAKAN ===== -->
+<div id="adab" class="section">
+  <h2 class="section-title">🍽️ Adab Makan dalam Islam</h2>
+  <p class="section-desc">Tuntunan Nabi ﷺ yang bukan sekadar ritual — mengandung hikmah kesehatan yang ilmiah dan relevan untuk praktik klinis.</p>
+
+  <div class="alert alert-gold">
+    <span class="alert-icon">🎯</span>
+    <div><strong>Tujuan Makan bagi Muslim:</strong> Memelihara kesehatan agar bisa melaksanakan ibadah kepada Allah dengan baik — bukan untuk kesenangan nafsu semata. Makan = ibadah jika diniatkan dengan benar.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">🙏</span> Adab Sebelum Makan</div>
+    <ul class="styled-list">
+      <li><strong>Cuci tangan</strong> sebelum makan — kebersihan dan hygiene</li>
+      <li><strong>Baca Basmalah:</strong> "Bismillahirrahmanirrahim" di awal makan (sabda kepada Umar bin Abi Salamah, HR. Bukhari-Muslim)</li>
+      <li><strong>Jika lupa baca Basmalah</strong>, ucapkan di tengah makan: <em>"Bismillaahi awwalahu wa aakhirahu"</em> (HR. Abu Dawud & Tirmidzi)</li>
+      <li><strong>Gunakan tangan kanan</strong> untuk makan & minum — setan makan dengan tangan kiri (HR. Muslim, Ahmad, Ibnu Majah)</li>
+      <li><strong>Ambil makanan dari yang terdekat</strong> — jangan meraih dari sisi jauh piring (sabda kepada Umar bin Abi Salamah)</li>
+    </ul>
+    <div class="alert alert-blue" style="margin-top:14px;">
+      <span class="alert-icon">📝</span>
+      <div><strong>Kisah Nyata Tentang Tangan Kanan:</strong> Seorang lelaki makan di sisi Nabi ﷺ dengan tangan kiri karena sombong — Nabi bersabda "Kau tidak bisa!" — sejak saat itu ia tidak pernah bisa mengangkat tangan kanannya ke mulut untuk selama-lamanya. (HR. Muslim)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">🍽️</span> Adab Saat Makan</div>
+    <div class="cols-2">
+      <ul class="styled-list">
+        <li><strong>Duduk tegak</strong> — bukan bersandar miring, bukan tengkurap (HR. Bukhari; HR. Abu Dawud)</li>
+        <li><strong>3 jari</strong> saat makan: ibu jari, telunjuk, tengah (HR. Muslim no. 3790)</li>
+        <li>Makan dari <strong>tepi piring ke tengah</strong> — berkah turun di tengah makanan (HR. Abu Dawud & Tirmidzi)</li>
+        <li>Tidak berlebihan — prinsip <strong>1/3 makanan, 1/3 minuman, 1/3 napas</strong> (HR. Tirmidzi)</li>
+        <li><strong>Makan bersama</strong> — menambah berkah, makanan 1 cukup untuk 2 (HR. Muslim, Ahmad, Tirmidzi)</li>
+      </ul>
+      <ul class="styled-list">
+        <li>Tidak minum langsung dari <strong>mulut teko/ceret</strong> (HR. Bukhari & Muslim)</li>
+        <li>Tidak <strong>meniup minuman panas</strong> — tunggu dingin sendiri (HR. Ahmad, Tirmidzi)</li>
+        <li>Makan setelah <strong>panasnya berkurang</strong> — lebih besar berkahnya (HR. Ad-Darimi; syarah Imam Nawawi)</li>
+        <li><strong>Tidak mencela makanan</strong> — Nabi ﷺ tidak pernah mencela; suka dimakan, tidak suka ditinggalkan (HR. Bukhari-Muslim)</li>
+        <li><strong>Haram</strong> duduk di meja yang ada khamr (HR. Abu Dawud)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--orange-pale)">✅</span> Adab Setelah Makan</div>
+    <ul class="styled-list">
+      <li><strong>Jilati jari</strong> sebelum mengelap tangan — sunah, bukan menjijikkan (HR. Muslim; HR. Bukhari)</li>
+      <li><strong>Usap piring</strong> dan makan sisanya — menghargai keberkahan makanan</li>
+      <li>Ambil <strong>suapan yang jatuh</strong> dan makan (jika belum kotor)</li>
+      <li><strong>Baca Hamdalah:</strong> "Alhamdulillahilladzi at'amani hadza wa rozaqanihi min ghoiri haulin minni wala quwwah" → diampuni dosa-dosa yang lalu (HR. Tirmidzi, hasan)</li>
+      <li>Minum <strong>3 tegukan</strong>, napas di luar gelas — tidak bernafas/meniup di dalam bejana</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--maroon-pale)">🚫</span> Larangan Khusus — Tabel Anjuran vs Larangan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Aspek</th><th>✅ Anjuran (Sunnah)</th><th>❌ Larangan (Haram/Makruh)</th><th>Dalil</th></tr>
+        <tr>
+          <td><strong>Doa</strong></td>
+          <td>Basmalah awal; Hamdalah akhir</td>
+          <td>Makan tanpa menyebut Allah</td>
+          <td>HR. Bukhari-Muslim; HR. Tirmidzi</td>
+        </tr>
+        <tr>
+          <td><strong>Tangan</strong></td>
+          <td>Tangan kanan</td>
+          <td>Tangan kiri (syaitan makan dengan kiri)</td>
+          <td>HR. Muslim, Ahmad, Ibnu Majah</td>
+        </tr>
+        <tr>
+          <td><strong>Posisi</strong></td>
+          <td>Duduk tegak</td>
+          <td>Berdiri (minum), Tengkurap, Bersandar miring</td>
+          <td>HR. Muslim; HR. Abu Dawud; HR. Bukhari</td>
+        </tr>
+        <tr>
+          <td><strong>Cara ambil</strong></td>
+          <td>Dari terdekat; dari tepi piring</td>
+          <td>Meraih dari jauh; ambil dari tengah duluan</td>
+          <td>HR. Bukhari-Muslim; HR. Abu Dawud-Tirmidzi</td>
+        </tr>
+        <tr>
+          <td><strong>Cara makan</strong></td>
+          <td>3 jari (ibu jari, telunjuk, tengah)</td>
+          <td>Makan rakus / penuh-penuh</td>
+          <td>HR. Muslim no. 3790; HR. Tirmidzi</td>
+        </tr>
+        <tr>
+          <td><strong>Wadah</strong></td>
+          <td>Wadah biasa; tuang ke gelas dulu</td>
+          <td>Piring/gelas emas & perak; langsung dari mulut teko</td>
+          <td>HR. Bukhari; HR. Bukhari-Muslim</td>
+        </tr>
+        <tr>
+          <td><strong>Minuman panas</strong></td>
+          <td>Tunggu dingin sendiri; 3 tegukan di luar bejana</td>
+          <td>Meniup minuman; bernafas di dalam gelas</td>
+          <td>HR. Ahmad, Tirmidzi; HR. Ad-Darimi</td>
+        </tr>
+        <tr>
+          <td><strong>Porsi</strong></td>
+          <td>Secukupnya (1/3-1/3-1/3); makan bersama</td>
+          <td>Berlebihan (israf); makan selalu sendiri-sendiri</td>
+          <td>HR. Tirmidzi; HR. Muslim-Ahmad-Tirmidzi</td>
+        </tr>
+        <tr>
+          <td><strong>Sikap</strong></td>
+          <td>Tidak mencela makanan; bersyukur</td>
+          <td>Mencela makanan yang dihidangkan</td>
+          <td>HR. Bukhari-Muslim-Ahmad-Tirmidzi</td>
+        </tr>
+        <tr>
+          <td><strong>Lingkungan</strong></td>
+          <td>Meja bebas khamr; izin tuan rumah jika tamu tambahan</td>
+          <td>Duduk di meja ada khamr; ambil jatah dobel tanpa izin</td>
+          <td>HR. Abu Dawud; Muttafaq 'alaih</td>
+        </tr>
+        <tr>
+          <td><strong>Prioritas</strong></td>
+          <td>Dahulukan makan jika makanan sudah siap saat iqamat</td>
+          <td>Terburu-buru tinggalkan makan saat hidangan baru siap</td>
+          <td>HR. Bukhari-Muslim-Tirmidzi</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="mnemonic-box">
+    <h4>🧠 Mnemonic — Urutan Adab Makan</h4>
+    <div class="mnemonic-main">"BAJI TERIMA KASIH"</div>
+    <div class="mnemonic-explain">
+      <strong>B</strong>asmalah dulu &nbsp;|&nbsp; <strong>A</strong>mbil dari yang dekat &nbsp;|&nbsp; <strong>J</strong>ari 3 untuk makan &nbsp;|&nbsp; <strong>I</strong>ngat makan dari tepi &nbsp;|&nbsp;
+      <strong>TE</strong>ngkurap &amp; berdiri dilarang &nbsp;|&nbsp; <strong>RI</strong>ba &amp; emas dilarang pakai &nbsp;|&nbsp; <strong>MA</strong>kan bersama (berjamaah) &nbsp;|&nbsp;
+      <strong>KA</strong>si waktu minuman dingin &nbsp;|&nbsp; <strong>SI</strong>sa dijilati &amp; piring diusap &nbsp;|&nbsp; <strong>H</strong>amdalah setelah selesai
+    </div>
+  </div>
+
+  <div class="mnemonic-box">
+    <h4>🧠 Mnemonic — 3T yang Dilarang Saat Minum</h4>
+    <div class="mnemonic-main">"3T: Tengkurap – Teko langsung – Tiup minuman"</div>
+    <div class="mnemonic-explain">Tiga larangan cara minum yang sering terlupakan. Jika ada soal tentang posisi/cara minum yang salah → pilih salah satu dari 3T ini.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">🏥</span> Relevansi Klinis Adab Makan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Adab Islami</th><th>Hikmah Klinis / Ilmiah</th><th>Penyakit yang Dicegah</th></tr>
+        <tr>
+          <td>Duduk tegak saat makan</td>
+          <td>Posisi tegak optimal untuk motilitas GI, mencegah refluks</td>
+          <td>GERD, Aspirasi, Pneumonia aspirasi</td>
+        </tr>
+        <tr>
+          <td>Tidak meniup / tunggu dingin</td>
+          <td>WHO IARC 2016: minuman >65°C = karsinogen Grup 2A</td>
+          <td>Kanker esofagus (kerusakan mukosa kronik)</td>
+        </tr>
+        <tr>
+          <td>Prinsip 1/3 porsi</td>
+          <td>Sinyal kenyang (leptin/CCK) butuh ~20 menit. Overdistensi lambung meningkatkan refluks</td>
+          <td>Obesitas, DM tipe 2, GERD, Dispepsia</td>
+        </tr>
+        <tr>
+          <td>Makan perlahan dari tepi</td>
+          <td>Mindful eating — waktu cukup untuk sinyal kenyang, mencegah overeating</td>
+          <td>Obesitas, Binge Eating Disorder</td>
+        </tr>
+        <tr>
+          <td>Makan bersama (berjamaah)</td>
+          <td>Efek psikososial positif, mindful eating, mengurangi makan impulsif/emosional</td>
+          <td>Eating disorder, Depresi (loneliness eating)</td>
+        </tr>
+        <tr>
+          <td>Tidak minum dari mulut teko</td>
+          <td>Hygiene — mencegah kontaminasi silang, infeksi gastrointestinal</td>
+          <td>Gastroenteritis, Infeksi saluran cerna</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HALAL & THAYYIB ===== -->
+<div id="halal" class="section">
+  <h2 class="section-title">✅ Halal, Thayyib & Klasifikasi Makanan</h2>
+  <p class="section-desc">Pengertian halal-haram, kaidah fiqih, dan klasifikasi lengkap binatang halal — termasuk hewan dua alam dan pengecualian kodok.</p>
+
+  <div class="cols-2">
+    <div class="mini-card" style="border-left: 4px solid var(--green); background: var(--green-pale);">
+      <h4>✅ HALAL</h4>
+      <p>Apa-apa yang Allah halalkan dalam kitab-Nya → BOLEH DIMAKAN.</p>
+      <p style="margin-top:6px; font-size:12px;"><em>"Al-halaalu maa ahallallaahu fii kitaabih"</em><br>(HR. Tirmidzi & Ibnu Majah dari Salman Al-Farisi)</p>
+    </div>
+    <div class="mini-card" style="border-left: 4px solid var(--maroon); background: var(--maroon-pale);">
+      <h4>🚫 HARAM</h4>
+      <p>Apa-apa yang Allah haramkan dalam kitab-Nya → TIDAK BOLEH DIMAKAN.</p>
+      <p style="margin-top:6px; font-size:12px;"><em>"Daging yang tumbuh dari yang haram → neraka lebih dekat baginya"</em> (Hadis Nabi ﷺ)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:#fdf6e3">⚖️</span> Kaidah Fiqih Muamalah (Makanan)</div>
+    <div class="reasoning-box">
+      <h4>📌 Kaidah Emas</h4>
+      <p style="font-size:16px; font-weight:700; color:var(--maroon); text-align:center; margin:10px 0;">"Hukum asal segala sesuatu (makanan, binatang) adalah HALAL, kecuali ada dalil syar'i yang mengharamkannya."</p>
+      <ul style="font-size:13.5px; margin-top:10px; padding-left:18px;">
+        <li>QS. Al-Baqarah: 29 → Allah menciptakan segala di bumi untuk manusia</li>
+        <li>QS. Al-An'am: 119 → Allah telah menjelaskan yang diharamkan, kecuali kondisi darurat (<em>idhthirar</em>)</li>
+        <li>QS. Al-Maidah: 87–88 → Jangan haramkan yang Allah halalkan</li>
+      </ul>
+    </div>
+    <div class="alert alert-blue">
+      <span class="alert-icon">💊</span>
+      <div><strong>Prinsip Darurat:</strong> Dalam kondisi terpaksa (nyawa terancam tanpa ada alternatif), makanan/obat yang haram boleh dikonsumsi sebatas yang diperlukan untuk menyelamatkan nyawa (<em>hifdzun nafs</em>). Ini adalah pengecualian, bukan izin umum.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">🌿</span> Makanan Nabati (Tumbuhan & Cairan)</div>
+    <div class="alert alert-green">
+      <span class="alert-icon">✅</span>
+      <div><strong>Prinsip Umum:</strong> Semua makanan dari tumbuhan dan cairan adalah HALAL, kecuali yang mengandung mudarat terhadap kesehatan (khamr, racun, zat berbahaya).</div>
+    </div>
+    <p style="font-size:13.5px; font-weight:600; margin-bottom:8px;">Contoh makanan yang disebutkan halalnya dalam nash:</p>
+    <div class="cols-3">
+      <div style="font-size:13px;">
+        <span class="tag tag-green">Kurma (barni & ajwah)</span>
+        <span class="tag tag-green">Madu</span>
+        <span class="tag tag-green">Cuka</span>
+        <span class="tag tag-green">Zaitun</span>
+        <span class="tag tag-green">Minyak zaitun</span>
+      </div>
+      <div style="font-size:13px;">
+        <span class="tag tag-green">Labu</span>
+        <span class="tag tag-green">Keju</span>
+        <span class="tag tag-green">Jamur</span>
+        <span class="tag tag-green">Susu</span>
+        <span class="tag tag-green">Bubur gandum</span>
+      </div>
+      <div style="font-size:13px;">
+        <span class="tag tag-green">Air Zamzam</span>
+        <span class="tag tag-green">Garam</span>
+        <span class="tag tag-green">Manisan</span>
+        <span class="tag tag-green">Roti kuah</span>
+        <span class="tag tag-green">Belalang</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--orange-pale)">🐄</span> Klasifikasi Hewan & Hukumnya</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kategori</th><th>Jenis</th><th>Hukum</th><th>Syarat / Catatan</th></tr>
+        <tr>
+          <td rowspan="3"><strong>Hewan Darat</strong></td>
+          <td>Jinak (sapi, kambing, ayam, dll.)</td>
+          <td><span class="tag tag-green">HALAL</span></td>
+          <td>Harus disembelih syar'i; baca basmalah</td>
+        </tr>
+        <tr>
+          <td>Liar (rusa, kijang, zebra/himarul wahsy, kelinci)</td>
+          <td><span class="tag tag-green">HALAL</span></td>
+          <td>Harus disembelih / ditangkap halal; kecuali bertaring/bercakar</td>
+        </tr>
+        <tr>
+          <td>Keledai jinak (himar ahliyy)</td>
+          <td><span class="tag tag-red">HARAM LIDZATIHI</span></td>
+          <td>Berbeda dengan zebra (himarul wahsy) yang halal!</td>
+        </tr>
+        <tr>
+          <td><strong>Hewan Air Murni</strong></td>
+          <td>Hidup di air — keluar → segera mati (ikan, udang laut, cumi)</td>
+          <td><span class="tag tag-green">HALAL MUTLAK</span></td>
+          <td>Bangkainya pun halal! "Laut itu suci airnya dan halal bangkainya" (HR. Ahmad)</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>Hewan Dua Alam</strong></td>
+          <td>Buaya, kepiting, kura-kura, udang air tawar</td>
+          <td><span class="tag tag-green">HALAL</span></td>
+          <td>Pendapat terkuat Asy-Syafi'iyah: halal baik hidup maupun bangkainya</td>
+        </tr>
+        <tr>
+          <td>Kodok (dhifda')</td>
+          <td><span class="tag tag-red">HARAM</span></td>
+          <td>Satu-satunya pengecualian! Ada hadis khusus yang mengharamkan kodok.</td>
+        </tr>
+        <tr>
+          <td><strong>Khusus</strong></td>
+          <td>Biawak</td>
+          <td><span class="tag tag-green">HALAL</span></td>
+          <td>Nabi ﷺ tidak memakannya, tapi tidak mengharamkannya</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🎯</span>
+      <div><strong>KUNCI yang Sering Keluar:</strong> Hewan dua alam → HALAL semua (kecuali KODOK). Jangan terjebak: taring pada buaya tidak menjadikannya haram karena buaya masuk kategori hewan air/dua alam, bukan "buas darat bertaring". Prinsip "bertaring = haram" hanya untuk hewan DARAT.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--purple-pale)">📜</span> 2 Bangkai & 2 Darah yang Dihalalkan</div>
+    <div class="alert alert-purple">
+      <span class="alert-icon">📖</span>
+      <div>"Dihalalkan untuk kita dua bangkai dan dua darah. Dua bangkai = <strong>ikan</strong> dan <strong>belalang</strong>. Dua darah = <strong>hati (kabd)</strong> dan <strong>limpa (thihal)</strong>." (HR. Ahmad & Ibnu Majah, dishahihkan Al-Albani)</div>
+    </div>
+    <div class="cols-2">
+      <div class="mini-card" style="border-left:4px solid var(--green);">
+        <h4>🐟 Ikan (bangkai halal ke-1)</h4>
+        <p>Seluruh hewan air halal bangkainya. Ikan masuk kategori ini. Berlaku untuk ikan laut maupun tawar.</p>
+      </div>
+      <div class="mini-card" style="border-left:4px solid var(--green);">
+        <h4>🦗 Belalang (bangkai halal ke-2)</h4>
+        <p>Belalang mati (bangkai) pun halal dimakan. Bergizi tinggi (protein), sering ada di daerah terpencil.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon" style="background:var(--green-pale)">👶</span> Janin dalam Perut Hewan yang Disembelih</div>
+      <p style="font-size:13.5px;">"<em>Dzakatul janini dzakatu ummihi</em>" — Penyembelihan janin adalah penyembelihan induknya. (HR. Ahmad, Abu Daud, Tirmidzi, Ibnu Majah). Jika induk disembelih syar'i, janin di perutnya langsung halal tanpa perlu disembelih tersendiri.</p>
+    </div>
+  </div>
+
+  <div class="mnemonic-box">
+    <h4>🧠 Mnemonic — Hewan Air</h4>
+    <div class="mnemonic-main">"LAUT = Suci airnya + Halal bangkainya. Kecuali 1: KODOK"</div>
+    <div class="mnemonic-explain">
+      Hewan air murni → halal mutlak (termasuk bangkainya).<br>
+      Hewan dua alam → halal (pendapat Asy-Syafi'iyah terkuat), KECUALI <strong>KODOK</strong>.<br>
+      2 bangkai halal: <strong>IKAN + BELALANG</strong>. 2 darah halal: <strong>HATI + LIMPA</strong>.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--orange-pale)">🍷</span> Khamr — Pengharaman 3 Tahap</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tahap</th><th>Isi</th><th>Status</th><th>Referensi</th></tr>
+        <tr>
+          <td><strong>Tahap 1</strong></td>
+          <td>Ada dosa besar DAN manfaat, tapi dosa lebih besar dari manfaatnya</td>
+          <td><span class="tag tag-gold">Belum diharamkan</span></td>
+          <td>QS. Al-Baqarah: 219</td>
+        </tr>
+        <tr>
+          <td><strong>Tahap 2</strong></td>
+          <td>Jangan shalat dalam keadaan mabuk</td>
+          <td><span class="tag tag-orange">Dibatasi</span></td>
+          <td>QS. An-Nisa: 43</td>
+        </tr>
+        <tr>
+          <td><strong>Tahap 3</strong></td>
+          <td>Khamr & maisir = perbuatan setan, rijs — jauhilah! Sahabat langsung membuang khamr ke jalan-jalan Madinah</td>
+          <td><span class="tag tag-red">HARAM MUTLAK</span></td>
+          <td>QS. Al-Maidah: 90–91</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HARAM & BANGKAI ===== -->
+<div id="haram" class="section">
+  <h2 class="section-title">🚫 Haram Lidzatihi, Lighairihi & Jenis Bangkai</h2>
+  <p class="section-desc">Dua kategori keharaman yang berbeda — kenali perbedaannya karena implikasinya berbeda secara fiqih dan klinis.</p>
+
+  <div class="compare-grid">
+    <div class="compare-col compare-col-red">
+      <h4>🔴 Haram Lidzatihi</h4>
+      <ul class="styled-list">
+        <li>Haram karena zatnya sendiri</li>
+        <li>Hukum asal makanan itu memang sudah haram</li>
+        <li>Contoh: babi, darah, khamr, binatang buas bertaring</li>
+        <li>Tidak berubah meski cara pengolahan berbeda</li>
+      </ul>
+    </div>
+    <div class="compare-col compare-col-green">
+      <h4>🟡 Haram Lighairihi</h4>
+      <ul class="styled-list">
+        <li>Haram karena faktor eksternal</li>
+        <li>Hukum asal makanan itu halal, berubah haram karena sebab lain</li>
+        <li>Contoh: bangkai dari hewan halal, makanan dari uang hasil korupsi</li>
+        <li>Bisa berubah kembali halal jika sebab eksternalnya hilang</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--maroon-pale)">📋</span> Tabel Komparasi Lengkap Lidzatihi vs Lighairihi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Aspek</th><th>Haram Lidzatihi</th><th>Haram Lighairihi</th></tr>
+        <tr>
+          <td><strong>Definisi</strong></td>
+          <td>Zat makanannya sendiri mengandung keharaman intrinsik</td>
+          <td>Makanannya halal, tapi ada sebab eksternal yang mengubahnya menjadi haram</td>
+        </tr>
+        <tr>
+          <td><strong>Contoh utama</strong></td>
+          <td>Darah, daging babi, khamr, binatang buas bertaring, burung bercakar, keledai jinak, anjing, binatang jijik, blasteran halal-haram, yang bermudharat</td>
+          <td>Bangkai hewan halal, makanan dari mencuri, dari uang korupsi, transaksi riba, upah pelacuran, sesajen perdukunan, disembelih untuk berhala</td>
+        </tr>
+        <tr>
+          <td><strong>Dalil</strong></td>
+          <td>QS. Al-Maidah: 3; Hadis larangan binatang bertaring/bercakar (HR. Muslim)</td>
+          <td>QS. Al-Maidah: 3 (disembelih untuk berhala); HR. Muslim (doa tidak dikabul karena makanan haram)</td>
+        </tr>
+        <tr>
+          <td><strong>Contoh kasus klinis</strong></td>
+          <td>
+            • Suplemen mengandung gelatin babi → haram lidzatihi<br>
+            • Kapsul obat dari gelatin babi → diskusi darurat vs alternatif
+          </td>
+          <td>
+            • Sapi halal mati karena disetrum → bangkai → haram lighairihi<br>
+            • Ayam halal dibeli dari uang korupsi → haram lighairihi<br>
+            • Hewan disembelih sengaja tanpa basmalah → haram lighairihi
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Apakah bisa berubah halal?</strong></td>
+          <td>Tidak — zat babi tetap haram meskipun diolah (kecuali istihalah sempurna, masih khilaf)</td>
+          <td>Bisa — jika sebab eksternalnya hilang (misal: hewan hampir mati tapi sempat disembelih syar'i)</td>
+        </tr>
+        <tr>
+          <td><strong>Implikasi dokter</strong></td>
+          <td>Periksa kandungan obat/suplemen. Kondisi darurat → boleh, tapi jelaskan prinsip darurat ke pasien</td>
+          <td>Sumber pembiayaan tidak mengubah status obat, tapi relevan untuk aspek spiritual. Edukasi harta halal</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--maroon-pale)">🐾</span> 12 Kategori Haram Lidzatihi</div>
+    <ul class="styled-list">
+      <li><strong>Darah</strong> — QS. Al-Maidah: 3. Pengecualian: hati & limpa dihalalkan secara khusus</li>
+      <li><strong>Daging babi</strong> (seluruh bagian tubuhnya) — QS. Al-Maidah: 3; Al-Baqarah: 173</li>
+      <li><strong>Khamr</strong> (semua yang memabukkan) — QS. Al-Maidah: 90–91. "Setiap yang memabukkan adalah khamr dan haram"</li>
+      <li><strong>Binatang buas bertaring</strong> — yang dengan taringnya memangsa mangsanya (singa, harimau, serigala, beruang)</li>
+      <li><strong>Burung bercakar</strong> — yang dengan cakarnya menyerang mangsa (elang, rajawali, burung hantu besar)</li>
+      <li><strong>Binatang yang diperintahkan untuk dibunuh</strong> — seperti ular, kalajengking → haram dibunuh = haram dimakan</li>
+      <li><strong>Binatang yang dilarang untuk dibunuh</strong> — lebah, burung hud-hud → dilarang bunuh = dilarang makan</li>
+      <li><strong>Keledai jinak</strong> (himar ahliyy) — berbeda dengan zebra (himarul wahsy) yang halal!</li>
+      <li><strong>Binatang jijik / menjijikkan</strong> (al-khabaits) — tikus, kecoa, cacing tanah</li>
+      <li><strong>Anjing</strong> — haram dimakan</li>
+      <li><strong>Binatang blasteran</strong> — perkawinan hewan halal × haram → ikut yang haram</li>
+      <li><strong>Makanan bermudharat</strong> — semua yang berbahaya bagi kesehatan, apalagi yang bisa membunuh (baik segera maupun perlahan)</li>
+    </ul>
+    <div class="mnemonic-box">
+      <h4>🧠 Mnemonic — 12 Haram Lidzatihi</h4>
+      <div class="mnemonic-main">"DARAH–BABI–KHAMR = 3 BESAR" + 9 Tambahan</div>
+      <div class="mnemonic-explain">
+        <strong>3 Besar (wajib hafal):</strong> Darah | Babi | Khamr<br>
+        <strong>9 Tambahan:</strong> Buas bertaring | Burung bercakar | Binatang wajib bunuh | Binatang dilarang bunuh | Keledai jinak | Binatang jijik | Anjing | Blasteran | Bermudharat kesehatan
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--purple-pale)">💀</span> 9 Jenis Bangkai (Haram Dimakan)</div>
+    <div class="bangkai-grid">
+      <div class="bangkai-card">
+        <div class="no">1.</div>
+        <div class="arab">Al-Munkhoniqoh</div>
+        <div class="def">Mati karena tercekik (tali, jeratan)</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">2.</div>
+        <div class="arab">Al-Mauqudzah</div>
+        <div class="def">Mati karena pukulan keras / benda tumpul</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">3.</div>
+        <div class="arab">Al-Mutaroddiyah</div>
+        <div class="def">Mati karena jatuh dari tempat tinggi</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">4.</div>
+        <div class="arab">An-Nathihah</div>
+        <div class="def">Mati karena ditanduk oleh hewan lain</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">5.</div>
+        <div class="arab">Dimangsa Buas</div>
+        <div class="def">Mati karena diterkam / dimakan binatang buas</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">6.</div>
+        <div class="arab">Tanpa Sembelih</div>
+        <div class="def">Mati tanpa disembelih (termasuk disetrum listrik)</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">7.</div>
+        <div class="arab">Sengaja Tanpa Basmalah</div>
+        <div class="def">Disembelih dengan sengaja tidak baca basmalah</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">8.</div>
+        <div class="arab">Disembelih untuk Selain Allah</div>
+        <div class="def">Untuk berhala / sesajen — walaupun baca basmalah tetap haram</div>
+      </div>
+      <div class="bangkai-card">
+        <div class="no">9.</div>
+        <div class="arab">Bagian Tubuh Terpisah</div>
+        <div class="def">Bagian tubuh hewan yang terpotong saat masih hidup</div>
+      </div>
+    </div>
+    <div class="alert alert-blue" style="margin-top:14px;">
+      <span class="alert-icon">📖</span>
+      <div><strong>QS. Al-Maidah: 3</strong> menyebut 5 jenis pertama secara eksplisit: bangkai, dipukul (mauqudzah), jatuh (mutaroddiyah), ditanduk (nathihah), dimangsa buas. Jenis 6-9 dari hadis dan ijtihad ulama.</div>
+    </div>
+    <div class="mnemonic-box">
+      <h4>🧠 Mnemonic — 9 Jenis Bangkai: "5 dari Al-Maidah:3 + 4 Tambahan"</h4>
+      <div class="mnemonic-main">CE-kik | PU-kul | JA-tuh | TAN-duk | TER-kam | SETRUM | Tanpa Basmalah | Untuk Selain Allah | Bagian Terpisah</div>
+      <div class="mnemonic-explain">5 pertama langsung dari QS. Al-Maidah: 3 (hafal ayat → hafal 5 jenis). 4 sisanya: disetrum, sengaja tanpa basmalah, untuk selain Allah, bagian tubuh terpisah.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">✅</span> 3 Perkecualian Bangkai yang HALAL</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Bangkai Halal</th><th>Alasan</th><th>Dalil</th><th>Catatan</th></tr>
+        <tr>
+          <td><strong>🐟 Ikan</strong></td>
+          <td>Hewan air — seluruh hewan air halal bangkainya kecuali kodok</td>
+          <td>"Laut suci airnya halal bangkainya" (HR. Ahmad); Hadis 2 bangkai & 2 darah</td>
+          <td>Ikan laut & tawar; bangkainya halal</td>
+        </tr>
+        <tr>
+          <td><strong>🦗 Belalang</strong></td>
+          <td>Disebutkan eksplisit dalam hadis sebagai bangkai yang dihalalkan</td>
+          <td>HR. Ahmad & Ibnu Majah, dishahihkan Al-Albani</td>
+          <td>Bangkai belalang pun halal; bergizi tinggi</td>
+        </tr>
+        <tr>
+          <td><strong>👶 Janin dalam perut induk yang disembelih</strong></td>
+          <td>Penyembelihan induk = penyembelihan janin</td>
+          <td>"Dzakatul janini dzakatu ummihi" (HR. Ahmad, Abu Daud, Tirmidzi, Ibnu Majah)</td>
+          <td>Janin tidak perlu disembelih sendiri; berlaku jika janin sudah sempurna</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-gold">
+      <span class="alert-icon">💡</span>
+      <div><strong>2 Darah yang Juga Dihalalkan:</strong> Hati/Liver (kabd) dan Limpa/Spleen (thihal) — meski organ ini penuh darah, keduanya secara khusus dihalalkan. Darah yang mengalir dari pembuluh (dam masful) tetap haram.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SKDI & BIOETIKA ===== -->
+<div id="skdi" class="section">
+  <h2 class="section-title">🏥 Korelasi SKDI & Bioetika Islam</h2>
+  <p class="section-desc">Bagaimana materi adab makan & halal-haram berkaitan dengan kompetensi dokter, bioetika, dan praktik klinis sehari-hari.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">🏛️</span> Maqashid Syariah & Gizi Islami</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Maqashid</th><th>Bahasa Arab</th><th>Relevansi Gizi & Kedokteran</th></tr>
+        <tr>
+          <td><strong>Menjaga Agama</strong> (Hifdzu Ad-Din)</td>
+          <td>حفظ الدين</td>
+          <td>Mengonsumsi halal = ibadah. Dokter muslim wajib pertimbangkan kehalalan obat yang diresepkan.</td>
+        </tr>
+        <tr>
+          <td><strong>Menjaga Jiwa</strong> (Hifdzu An-Nafs)</td>
+          <td>حفظ النفس</td>
+          <td>Larangan makanan bermudharat. Prinsip darurat boleh konsumsi haram jika nyawa terancam dan tidak ada alternatif.</td>
+        </tr>
+        <tr>
+          <td><strong>Menjaga Akal</strong> (Hifdzu Al-'Aql)</td>
+          <td>حفظ العقل</td>
+          <td>Pengharaman khamr & NAPZA → menjaga fungsi kognitif. Edukasi bahaya alkohol berbasis agama.</td>
+        </tr>
+        <tr>
+          <td><strong>Menjaga Keturunan</strong> (Hifdzu An-Nasl)</td>
+          <td>حفظ النسل</td>
+          <td>Gizi ibu hamil & menyusui yang halal-thayyib → tumbuh kembang anak optimal. Cegah stunting & wasting.</td>
+        </tr>
+        <tr>
+          <td><strong>Menjaga Harta</strong> (Hifdzu Al-Mal)</td>
+          <td>حفظ المال</td>
+          <td>Larangan israf (QS. Al-A'raf: 31). Makanan dari harta haram = mudarat ganda. Efisiensi konsumsi.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📊</span> Tabel Korelasi Materi dengan Kompetensi SKDI</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Topik</th><th>Korelasi Klinis</th><th>SKDI</th><th>Relevansi Ujian</th></tr>
+        <tr>
+          <td>Porsi makan 1/3</td>
+          <td>Edukasi gizi DM tipe 2, obesitas, GERD, sindrom metabolik</td>
+          <td><span class="skdi skdi-4a">4A</span></td>
+          <td>Konseling gizi di FKTP; manajemen penyakit metabolik</td>
+        </tr>
+        <tr>
+          <td>Larangan makan berdiri / posisi makan</td>
+          <td>Fisiologi digestif: posisi tegak → cegah GERD & aspirasi</td>
+          <td><span class="skdi skdi-3b">3B</span></td>
+          <td>Edukasi perilaku pasien GERD, anak risiko aspirasi</td>
+        </tr>
+        <tr>
+          <td>Tidak meniup minuman panas</td>
+          <td>WHO IARC 2016: minuman >65°C = Grup 2A karsinogen → kanker esofagus</td>
+          <td><span class="skdi skdi-3b">3B</span></td>
+          <td>Pencegahan primer kanker esofagus; edukasi FKTP</td>
+        </tr>
+        <tr>
+          <td>Prinsip halal-thayyib dalam gizi</td>
+          <td>Konseling gizi komprehensif — aspek nutrisi + kehalalan untuk pasien muslim</td>
+          <td><span class="skdi skdi-4a">4A</span></td>
+          <td>Komunikasi budaya-agama; pendekatan holistik</td>
+        </tr>
+        <tr>
+          <td>Larangan khamr</td>
+          <td>Alcohol Use Disorder; sirosis hepatis; pankreatitis kronik</td>
+          <td><span class="skdi skdi-4a">4A</span></td>
+          <td>Diagnosis & manajemen AUD; brief intervention (FRAMES)</td>
+        </tr>
+        <tr>
+          <td>Kehalalan obat/suplemen</td>
+          <td>Informed consent kandungan bahan obat; otonomi pasien</td>
+          <td><span class="skdi skdi-4a">4A</span></td>
+          <td>Etika kedokteran; komunikasi dokter-pasien</td>
+        </tr>
+        <tr>
+          <td>Makan bersama & mindful eating</td>
+          <td>Psikiatri: eating disorder, lonely eating sebagai faktor risiko depresi</td>
+          <td><span class="skdi skdi-3b">3B</span></td>
+          <td>Edukasi pasien gangguan makan; pendekatan psikososial</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--purple-pale)">⚖️</span> 4 Prinsip Bioetika & Korelasi Islami</div>
+    <div class="cols-2">
+      <div class="mini-card" style="border-left:4px solid var(--blue-dark);">
+        <h4>Beneficence (Berbuat Baik)</h4>
+        <p>Meresepkan obat yang efektif DAN mempertimbangkan kehalalan → tidak hanya baik secara farmakologis, tapi juga secara agama pasien.</p>
+      </div>
+      <div class="mini-card" style="border-left:4px solid var(--maroon);">
+        <h4>Non-Maleficence (Tidak Merugikan)</h4>
+        <p>Makanan bermudharat = haram lidzatihi. Dokter wajib mencegah pasien dari konsumsi yang merusak kesehatan (hifdzun nafs).</p>
+      </div>
+      <div class="mini-card" style="border-left:4px solid var(--green);">
+        <h4>Autonomy (Otonomi)</h4>
+        <p>Pasien muslim berhak menolak obat mengandung bahan haram jika ada alternatif halal. Wajib informed consent tentang kandungan bahan obat.</p>
+      </div>
+      <div class="mini-card" style="border-left:4px solid var(--purple);">
+        <h4>Justice (Keadilan)</h4>
+        <p>Akses terhadap obat dan makanan halal sebagai hak pasien muslim. Tidak diskriminasi berdasarkan preferensi dietary agama.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--orange-pale)">💼</span> Skenario Klinis — Etika & Fiqih Terapan</div>
+
+    <button class="collapse-btn" onclick="toggleCollapse(this)">
+      <span style="font-size:14px; font-weight:600; color:var(--maroon);">Skenario 1: Obat Kapsul Gelatin Babi</span>
+      <span class="chevron">▼</span>
+    </button>
+    <div class="collapse-content">
+      <p style="font-size:13.5px;">Pasien epilepsi muslim menolak fenitoin kapsul yang mengandung gelatin babi. Kondisi tidak darurat. Tindakan terbaik dokter: Jelaskan situasi → cari alternatif sediaan halal (fenitoin tablet, sirup, atau injeksi) → utamakan otonomi pasien. Jika darurat & tidak ada alternatif → boleh dengan penjelasan prinsip darurat (<em>hifdzun nafs</em>).</p>
+      <div class="alert alert-blue"><span class="alert-icon">✅</span><div><strong>Jawaban:</strong> C — Jelaskan, cari alternatif halal, hormati otonomi pasien. Jangan paksa jika bukan darurat.</div></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="collapse-btn" onclick="toggleCollapse(this)">
+      <span style="font-size:14px; font-weight:600; color:var(--maroon);">Skenario 2: Edukasi Gizi Pasien DM Tipe 2</span>
+      <span class="chevron">▼</span>
+    </button>
+    <div class="collapse-content">
+      <p style="font-size:13.5px;">Pasien DM tipe 2 obesitas, makan banyak, tidak teratur. Edukasi gizi holistik: Gunakan prinsip 1/3 porsi hadis Tirmidzi. Integrasikan nilai agama: makan untuk bisa ibadah, bukan untuk nafsu. Makan perlahan, dari tepi piring, bersama keluarga. Ini meningkatkan kepatuhan karena berbasis nilai yang diyakini pasien.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="collapse-btn" onclick="toggleCollapse(this)">
+      <span style="font-size:14px; font-weight:600; color:var(--maroon);">Skenario 3: Hewan Mati Karena Disetrum</span>
+      <span class="chevron">▼</span>
+    </button>
+    <div class="collapse-content">
+      <p style="font-size:13.5px;">Ayam mati karena disetrum di pabrik (tanpa disembelih terlebih dahulu) → termasuk bangkai jenis ke-6 (mati tanpa penyembelihan) → <strong>haram</strong>. Berbeda dengan stunning yang benar: hewan dipingsankan → langsung disembelih basmalah → jantung masih berdetak saat penyembelihan → <strong>halal</strong> menurut mayoritas ulama kontemporer & MUI.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="quiz" class="section">
+  <h2 class="section-title">🧠 Quiz Latihan UKMPPD</h2>
+  <p class="section-desc">10 soal vignette gaya UKMPPD — setara dan lebih sulit. Klik jawaban untuk melihat pembahasan.</p>
+
+  <div style="background:white; border-radius:14px; padding:20px 24px; margin-bottom:24px; border:1px solid var(--border);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+      <span style="font-size:13px; font-weight:600;">Progress</span>
+      <span style="font-size:13px; color:var(--text-muted);" id="progressText">0 / 10 dijawab</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-num">Soal 1</div>
+    <div class="quiz-vignette">Seorang laki-laki, 52 tahun, datang dengan keluhan sering kembung dan tidak nyaman setelah makan. Pasien mengaku selalu makan sampai sangat kenyang. Pemeriksaan fisik dalam batas normal. Dokter ingin memberikan edukasi perubahan perilaku makan. Berdasarkan prinsip Islami yang berlandaskan hadis Nabi ﷺ (HR. Tirmidzi), komposisi ideal isi lambung saat makan adalah:</div>
+    <p class="quiz-question">Komposisi porsi makan ideal menurut hadis?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q1',true,'A')"><span class="opt-letter">A</span> 1/3 makanan, 1/3 minuman, 1/3 napas</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'B')"><span class="opt-letter">B</span> 1/2 makanan, 1/4 minuman, 1/4 napas</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'C')"><span class="opt-letter">C</span> 2/3 makanan, 1/3 minuman</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'D')"><span class="opt-letter">D</span> 1/4 makanan, 1/2 minuman, 1/4 napas</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'E')"><span class="opt-letter">E</span> Penuh selagi masih bisa masuk</button>
+    </div>
+    <div class="explanation" id="exp-q1">
+      ✅ <strong>A. 1/3 makanan, 1/3 minuman, 1/3 napas</strong><br><br>
+      Hadis riwayat At-Tirmidzi: "Manusia tidak memenuhi wadah yang lebih buruk dari perut. Cukuplah beberapa suapan yang menegakkan tulang punggungnya. Jika harus lebih, maka 1/3 untuk makanannya, 1/3 untuk minumannya, dan 1/3 untuk nafasnya." Secara ilmiah: overdistensi lambung meningkatkan risiko GERD; sinyal kenyang (CCK, leptin) butuh ~20 menit. Makan perlahan + tidak penuh = pencegahan berbasis sunah yang evidence-based.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-num">Soal 2</div>
+    <div class="quiz-vignette">Ny. R, 35 tahun, muslimah taat, didiagnosis epilepsi dan memerlukan fenitoin kapsul. Apoteker memberitahu bahwa kapsul fenitoin di RS mengandung gelatin babi (tidak halal). Pasien menolak. Kondisi pasien stabil, tidak darurat, masih ada sediaan tablet fenitoin yang tersedia.</div>
+    <p class="quiz-question">Tindakan dokter yang paling sesuai prinsip bioetika?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q2',false,'A')"><span class="opt-letter">A</span> Memaksa pasien minum obat karena medis lebih penting dari agama</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'B')"><span class="opt-letter">B</span> Menghentikan terapi epilepsi karena tidak ada obat halal</button>
+      <button class="quiz-option" onclick="answer(this,'q2',true,'C')"><span class="opt-letter">C</span> Menjelaskan situasi, beralih ke fenitoin tablet (sediaan halal tersedia), mengedepankan otonomi pasien</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'D')"><span class="opt-letter">D</span> Langsung ganti obat tanpa diskusi dengan pasien</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'E')"><span class="opt-letter">E</span> Merujuk ke psikiater karena pasien dianggap tidak kooperatif</button>
+    </div>
+    <div class="explanation" id="exp-q2">
+      ✅ <strong>C. Jelaskan situasi, beralih ke fenitoin tablet, hormati otonomi pasien</strong><br><br>
+      Prinsip bioetika: (1) <strong>Otonomi</strong> — pasien berhak menolak obat yang bertentangan dengan agama jika TIDAK dalam kondisi darurat. (2) <strong>Beneficence</strong> — cari alternatif setara efektivitas. Ada sediaan tablet → wajib diberikan. Prinsip darurat (<em>hifdzun nafs</em>) hanya berlaku jika benar-benar tidak ada alternatif sama sekali dan nyawa terancam. Memaksa (A) melanggar otonomi. Menghentikan terapi (B) melanggar non-maleficence.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-num">Soal 3</div>
+    <div class="quiz-vignette">Seorang wanita, 45 tahun, datang dengan nyeri menelan dan rasa terbakar di esofagus sejak 6 bulan. Endoskopi: Barrett's esophagus. Pada anamnesis lanjut: pasien minum teh panas (estimasi >70°C) 3–4 kali sehari sejak 20 tahun, sering meniup teh sebelum diminum. Pasien juga makan sambil berbaring di sofa.</div>
+    <p class="quiz-question">Faktor risiko utama Barrett's esophagus yang sekaligus berkaitan dengan larangan dalam Islam?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q3',false,'A')"><span class="opt-letter">A</span> Makan sambil berbaring di sofa saja</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'B')"><span class="opt-letter">B</span> Jenis teh yang diminum</button>
+      <button class="quiz-option" onclick="answer(this,'q3',true,'C')"><span class="opt-letter">C</span> Konsumsi minuman sangat panas kronik (>65°C) — sesuai larangan Islam untuk tidak meniup dan tidak minum dalam keadaan sangat panas</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'D')"><span class="opt-letter">D</span> Tidak ada kaitan dengan kebiasaan makan</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'E')"><span class="opt-letter">E</span> Makan sambil berbaring sebagai faktor utama Barrett's esophagus</button>
+    </div>
+    <div class="explanation" id="exp-q3">
+      ✅ <strong>C. Konsumsi minuman sangat panas kronik (>65°C)</strong><br><br>
+      WHO/IARC 2016: minuman sangat panas (>65°C) = karsinogen <strong>Grup 2A</strong> (probably carcinogenic) untuk kanker esofagus. Konsumsi kronik → iritasi berulang mukosa esofagus → metaplasia → Barrett's → risiko adenokarsinoma. Islam melarang meniup minuman dan menganjurkan menunggu dingin sendiri (HR. Ahmad, Tirmidzi; HR. Ad-Darimi) → secara tidak langsung mencegah konsumsi minuman sangat panas. Berbaring → GERD, tapi bukan penyebab utama Barrett's.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-num">Soal 4</div>
+    <div class="quiz-vignette">Seorang dokter bertugas di daerah pesisir terpencil. Warga menemukan seekor buaya muara mati terdampar di pantai. Warga bertanya kepada dokter yang juga dikenal memahami fiqih: apakah bangkai buaya tersebut halal dimakan?</div>
+    <p class="quiz-question">Jawaban yang paling tepat berdasarkan pendapat fiqih terkuat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q4',false,'A')"><span class="opt-letter">A</span> Haram, karena buaya adalah hewan buas yang memiliki taring</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'B')"><span class="opt-letter">B</span> Haram, karena semua bangkai adalah haram dimakan</button>
+      <button class="quiz-option" onclick="answer(this,'q4',true,'C')"><span class="opt-letter">C</span> Halal, karena buaya adalah hewan dua alam dan menurut Asy-Syafi'iyah seluruh hewan dua alam halal — baik hidup maupun bangkainya — kecuali kodok</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'D')"><span class="opt-letter">D</span> Halal hanya jika disembelih terlebih dahulu</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'E')"><span class="opt-letter">E</span> Syubhat, sebaiknya dihindari</button>
+    </div>
+    <div class="explanation" id="exp-q4">
+      ✅ <strong>C. Halal — hewan dua alam, menurut Asy-Syafi'iyah halal termasuk bangkainya, kecuali kodok</strong><br><br>
+      Buaya adalah hewan yang hidup di dua alam. Pendapat terkuat (Asy-Syafi'iyah): seluruh hewan dua alam — hidup maupun bangkai — adalah halal, KECUALI KODOK (ada hadis khusus mengharamkan). Prinsip "bertaring = haram" hanya untuk hewan DARAT. Buaya masuk kategori hewan air/dua alam → tidak berlaku prinsip tersebut. Jangan terjebak dengan penampilan fisik buaya yang terlihat "buas"!
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-num">Soal 5</div>
+    <div class="quiz-vignette">Seorang mahasiswi, 20 tahun, dibawa orang tuanya dengan keluhan makan sangat sedikit dan takut gemuk. BB 38 kg, TB 162 cm (IMT 14,5 kg/m²). Pasien makan sendiri di kamar, menghindari makan bersama keluarga. Menstruasi tidak ada selama 8 bulan. Tampak lemas dan pucat. Dokter jaga mengenali kondisi ini.</div>
+    <p class="quiz-question">Diagnosis dan tatalaksana utama yang tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q5',false,'A')"><span class="opt-letter">A</span> Bulimia nervosa; psikoterapi CBT saja</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'B')"><span class="opt-letter">B</span> Gangguan depresif mayor; antidepresan SSRI</button>
+      <button class="quiz-option" onclick="answer(this,'q5',true,'C')"><span class="opt-letter">C</span> Anorexia nervosa; rawat inap untuk rehab nutrisi + psikoterapi + monitoring medis ketat (risiko refeeding syndrome, aritmia)</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'D')"><span class="opt-letter">D</span> Gangguan cemas; ansiolitik dan edukasi gizi</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'E')"><span class="opt-letter">E</span> Malnutrisi primer; suplementasi nutrisi oral saja</button>
+    </div>
+    <div class="explanation" id="exp-q5">
+      ✅ <strong>C. Anorexia Nervosa (AN); rawat inap untuk rehab nutrisi + psikoterapi</strong><br><br>
+      AN: (1) pembatasan asupan kalori ekstrem, (2) ketakutan intens terhadap kenaikan BB, (3) gangguan citra tubuh, (4) amenore (8 bulan). IMT 14,5 = sangat kurus → <strong>indikasi rawat inap</strong>. Tatalaksana: re-feeding bertahap (awasi refeeding syndrome: hipofosfatemia, aritmia) + CBT atau Family-Based Treatment (FBT). Aspek Islami: menghindari makan bersama keluarga bertentangan dengan sunnah makan berjamaah — ini bisa menjadi pintu masuk pendekatan spiritual dalam terapi.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-num">Soal 6</div>
+    <div class="quiz-vignette">Sebuah peternakan menggunakan metode stunning (captive bolt pistol) sebelum penyembelihan. Hewan dipingsankan, lalu langsung disembelih oleh penyembelih muslim yang membaca basmalah. Saat pisau memotong pembuluh darah, jantung hewan masih berdetak.</div>
+    <p class="quiz-question">Pernyataan yang paling tepat tentang status kehalalan daging ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q6',false,'A')"><span class="opt-letter">A</span> Haram mutlak karena semua metode stunning menghasilkan bangkai</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'B')"><span class="opt-letter">B</span> Halal tanpa syarat karena sudah disebut basmalah</button>
+      <button class="quiz-option" onclick="answer(this,'q6',true,'C')"><span class="opt-letter">C</span> Halal, karena stunning tidak menyebabkan kematian sebelum penyembelihan — jantung masih berdetak saat disembelih, penyembelih muslim, basmalah dibaca. Syarat terpenuhi.</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'D')"><span class="opt-letter">D</span> Haram karena tidak ada dalil yang membolehkan stunning dalam Islam</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'E')"><span class="opt-letter">E</span> Syubhat — sebaiknya dihindari meski syarat terpenuhi</button>
+    </div>
+    <div class="explanation" id="exp-q6">
+      ✅ <strong>C. Halal — stunning benar + jantung masih berdetak + penyembelih muslim + basmalah</strong><br><br>
+      Mayoritas ulama kontemporer dan MUI: stunning diperbolehkan dengan syarat: (1) stunning tidak mematikan hewan sebelum disembelih, (2) jantung masih berdetak saat penyembelihan, (3) penyembelih muslim membaca basmalah. Jika stunning mematikan SEBELUM pisau → menjadi bangkai → haram. Secara medis: penyembelihan halal dengan pengeluaran darah sempurna lebih higienis (darah = media pertumbuhan bakteri).
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-num">Soal 7</div>
+    <div class="quiz-vignette">Seorang ibu membawa balitanya, 2 tahun, dengan keluhan BB tidak naik sejak 1 tahun. Pemeriksaan: TB 75 cm (sangat pendek untuk usianya), BB 7 kg. Riwayat: keluarga berpenghasilan rendah, makan hanya nasi dan tempe setiap hari. Ibu bertanya apakah ada makanan bergizi yang halal dan terjangkau.</div>
+    <p class="quiz-question">Sumber protein halal terjangkau yang paling tepat direkomendasikan untuk mencegah perburukan?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q7',false,'A')"><span class="opt-letter">A</span> Daging sapi impor karena kandungan protein tertinggi</button>
+      <button class="quiz-option" onclick="answer(this,'q7',true,'B')"><span class="opt-letter">B</span> Telur, ikan, tempe, tahu — sumber protein halal bergizi tinggi yang terjangkau</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'C')"><span class="opt-letter">C</span> Suplemen protein komersial saja</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'D')"><span class="opt-letter">D</span> Hanya susu formula saja</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'E')"><span class="opt-letter">E</span> Tidak perlu tambahan protein; nasi dan tempe sudah cukup</button>
+    </div>
+    <div class="explanation" id="exp-q7">
+      ✅ <strong>B. Telur, ikan, tempe, tahu — protein halal bergizi tinggi dan terjangkau</strong><br><br>
+      Anak ini mengalami stunting (TB sangat rendah) + kemungkinan wasting. Prinsip halal-thayyib tidak berarti mahal. Sumber protein halal terjangkau: telur (complete protein, murah), ikan (termasuk ikan sarden kaleng), tempe (protein nabati + probiotik), tahu. Belalang pun halal dan bergizi tinggi — tapi mungkin sulit diterima secara budaya. Edukasi berbasis 1000 Hari Pertama Kehidupan (HPK). Ajaran makan bersama keluarga (berjamaah) juga membantu anak makan lebih konsisten.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8">
+    <div class="quiz-num">Soal 8</div>
+    <div class="quiz-vignette">Seorang laki-laki, 40 tahun, datang dengan benjolan keras di leher bawah kanan yang muncul saat makan dan mengecil setelah makan sejak 3 bulan. Nyeri periodik. Pada palpasi: teraba massa keras berbatas jelas di regio submandibular kanan.</div>
+    <p class="quiz-question">Diagnosis yang paling mungkin?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q8',false,'A')"><span class="opt-letter">A</span> Sialadenitis akut</button>
+      <button class="quiz-option" onclick="answer(this,'q8',true,'B')"><span class="opt-letter">B</span> Sialolithiasis (batu kelenjar saliva)</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'C')"><span class="opt-letter">C</span> Pleomorphic adenoma</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'D')"><span class="opt-letter">D</span> Mucoepidermoid carcinoma</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'E')"><span class="opt-letter">E</span> Sindrom Sjögren</button>
+    </div>
+    <div class="explanation" id="exp-q8">
+      ✅ <strong>B. Sialolithiasis (batu ludah)</strong><br><br>
+      Ciri khas sialolithiasis: <strong>bengkak muncul SAAT MAKAN</strong> (stimulasi saliva → tersumbat batu → bengkak) dan <strong>mengecil setelah makan</strong>. Lokasi submandibular sangat tipikal — 80% batu ludah ada di kelenjar submandibular karena duktus Wharton yang panjang dan berliku. Ini soal dari materi kelenjar saliva yang berkaitan dengan konteks digestif. Koneksi menarik: adab Islam menganjurkan minum yang cukup dan tidak makan tergesa — kebiasaan minum cukup berkaitan dengan pencegahan dehidrasi yang memicu sialolithiasis.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="q9">
+    <div class="quiz-num">Soal 9</div>
+    <div class="quiz-vignette">Seorang laki-laki, 45 tahun, pekerja kantoran dengan riwayat merokok 20 bungkus/tahun. Datang dengan keluhan bercak putih tebal di pipi kiri dan lidah sisi kiri sejak 4 bulan. Bercak tidak nyeri. Pada pemeriksaan: plak putih keabu-abuan yang TIDAK BISA DIKEROK. Tidak ada demam.</div>
+    <p class="quiz-question">Tatalaksana yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q9',false,'A')"><span class="opt-letter">A</span> Nystatin topikal</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'B')"><span class="opt-letter">B</span> Kortikosteroid topikal</button>
+      <button class="quiz-option" onclick="answer(this,'q9',true,'C')"><span class="opt-letter">C</span> Rujuk untuk biopsi — curiga leukoplakia dengan risiko premaligna</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'D')"><span class="opt-letter">D</span> Antibiotik oral + analgetik</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'E')"><span class="opt-letter">E</span> Observasi saja, tunggu 1 bulan</button>
+    </div>
+    <div class="explanation" id="exp-q9">
+      ✅ <strong>C. Rujuk untuk biopsi — curiga leukoplakia premaligna</strong><br><br>
+      Kunci membedakan: Plak putih <strong>BISA dikerok</strong> = Candida pseudomembranous (obati dengan antijamur). Plak putih <strong>TIDAK BISA dikerok</strong> + perokok berat = <strong>Leukoplakia</strong> → lesi premalignant (SKDI 2: diagnosis + rujuk). Tatalaksana leukoplakia: biopsi untuk gradasi displasia → jika displasia berat → eksisi bedah. Kortikosteroid kontraindikasi (memperburuk jika ada infeksi tersembunyi). Nystatin tidak akan efektif karena bukan jamur.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="q10">
+    <div class="quiz-num">Soal 10 <span class="tag tag-red">Sangat Sulit</span></div>
+    <div class="quiz-vignette">Tn. A, 40 tahun, peternak ayam, didiagnosis limfoma non-Hodgkin stadium II. Memerlukan kemoterapi. Biaya terbatas. Tetangga menawarkan ayam-ayamnya untuk dijual guna membiayai pengobatan — namun ayam tersebut dimatikan menggunakan alat setrum listrik tanpa disembelih terlebih dahulu. Dari perspektif fiqih, pernyataan yang BENAR tentang ayam tersebut adalah:</div>
+    <p class="quiz-question">Status ayam yang disetrum tanpa disembelih dan implikasi bagi dokter?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q10',false,'A')"><span class="opt-letter">A</span> Halal karena kondisi darurat medis mengizinkan semua yang haram</button>
+      <button class="quiz-option" onclick="answer(this,'q10',true,'B')"><span class="opt-letter">B</span> Ayam yang disetrum tanpa disembelih syar'i = bangkai (haram); dokter dapat menginformasikan ini dan membantu pasien mencari sumber pembiayaan halal (BPJS, lembaga zakat)</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'C')"><span class="opt-letter">C</span> Halal karena disetrum tidak menyebabkan rasa sakit pada hewan</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'D')"><span class="opt-letter">D</span> Dokter tidak perlu membahas aspek ini karena bukan ranah kedokteran</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'E')"><span class="opt-letter">E</span> Haram, tapi prinsip darurat membolehkan karena untuk biaya pengobatan</button>
+    </div>
+    <div class="explanation" id="exp-q10">
+      ✅ <strong>B. Bangkai (haram) — dokter informasikan dan bantu cari alternatif halal</strong><br><br>
+      <strong>Fiqih:</strong> Ayam disetrum tanpa disembelih = mati tanpa penyembelihan syar'i → <strong>bangkai jenis ke-6 → haram</strong>. Prinsip darurat (<em>idhthirar</em>) berlaku untuk KONSUMSI makanan haram saat nyawa terancam tanpa alternatif — bukan untuk membenarkan jual-beli hewan bangkai guna membiayai pengobatan.<br><br>
+      <strong>Etika dokter:</strong> Dokter yang baik membantu pasien secara holistik — termasuk menginformasikan status halal makanan (jika relevan) dan mengarahkan ke sumber pembiayaan halal: BPJS Kesehatan, SKTM, program JKN, lembaga zakat, infak komunitas. Pendampingan sosial adalah bagian dari pelayanan komprehensif.
+    </div>
+  </div>
+
+  <!-- Score Card -->
+  <div class="quiz-score-card" id="scoreCard">
+    <div style="font-size:32px; margin-bottom:12px;">🎉</div>
+    <div class="score-num" id="finalScore">0</div>
+    <div style="font-size:18px; margin: 8px 0; opacity:0.8;">/ 10</div>
+    <div id="scoreMessage" style="font-size:15px; opacity:0.85; margin-top:8px; line-height:1.6;"></div>
+    <button onclick="resetQuiz()" style="margin-top:24px; background:white; color:var(--maroon); border:none; padding:12px 28px; border-radius:30px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit;">🔁 Ulangi Quiz</button>
+  </div>
+
+</div><!-- end quiz section -->
+
+</div><!-- end container -->
+
+<!-- FAB -->
+<button class="fab" onclick="downloadFile()">
+  📥 Download HTML
+</button>
+
+<script>
+  // ===== NAV =====
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== COLLAPSE =====
+  function toggleCollapse(btn) {
+    btn.classList.toggle('open');
+    const content = btn.nextElementSibling;
+    content.classList.toggle('open');
+  }
+
+  // ===== DOWNLOAD =====
+  function downloadFile() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Adab_Makan_Halal_Haram_StudyGuide.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ===== QUIZ =====
+  let score = 0;
+  let answered = 0;
+
+  function answer(btn, qId, isCorrect, letter) {
+    const card = document.getElementById(qId);
+    const allBtns = card.querySelectorAll('.quiz-option');
+    const exp = document.getElementById('exp-' + qId);
+    if (card.dataset.answered) return;
+    card.dataset.answered = 'true';
+
+    allBtns.forEach(b => { b.classList.add('disabled'); b.onclick = null; });
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      allBtns.forEach(b => {
+        if (b.querySelector('.opt-letter') && b !== btn) {
+          // will be marked by rebind mapping
+        }
+      });
+    }
+
+    exp.classList.add('show');
+    answered++;
+    updateProgress();
+    if (answered === 10) { setTimeout(showScore, 600); }
+  }
+
+  function updateProgress() {
+    document.getElementById('progressText').textContent = answered + ' / 10 dijawab';
+    document.getElementById('progressFill').style.width = (answered * 10) + '%';
+  }
+
+  function showScore() {
+    const card = document.getElementById('scoreCard');
+    card.classList.add('show');
+    document.getElementById('finalScore').textContent = score;
+    let msg = '';
+    if (score >= 9) msg = 'Luar biasa! Kamu sangat siap menghadapi ujian! 🔥';
+    else if (score >= 7) msg = 'Bagus sekali! Sedikit lagi sempurna. Review yang salah ya! 💪';
+    else if (score >= 5) msg = 'Lumayan! Masih perlu lebih banyak belajar. Jangan menyerah! 📚';
+    else msg = 'Jangan patah semangat! Baca ulang rangkumannya dan coba lagi. Kamu pasti bisa! 🌱';
+    document.getElementById('scoreMessage').textContent = msg;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    score = 0; answered = 0;
+    updateProgress();
+    document.getElementById('scoreCard').classList.remove('show');
+    for (let i = 1; i <= 10; i++) {
+      const card = document.getElementById('q' + i);
+      delete card.dataset.answered;
+      card.querySelectorAll('.quiz-option').forEach(btn => {
+        btn.classList.remove('correct', 'wrong', 'disabled');
+        btn.onclick = null;
+      });
+      document.getElementById('exp-q' + i).classList.remove('show');
+    }
+    rebindQuiz();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function rebindQuiz() {
+    const bindings = [
+      ['q1',  [true,false,false,false,false]],
+      ['q2',  [false,false,true,false,false]],
+      ['q3',  [false,false,true,false,false]],
+      ['q4',  [false,false,true,false,false]],
+      ['q5',  [false,false,true,false,false]],
+      ['q6',  [false,false,true,false,false]],
+      ['q7',  [false,true,false,false,false]],
+      ['q8',  [false,true,false,false,false]],
+      ['q9',  [false,false,true,false,false]],
+      ['q10', [false,true,false,false,false]],
+    ];
+    const letters = ['A','B','C','D','E'];
+    bindings.forEach(([qId, correctArr]) => {
+      const card = document.getElementById(qId);
+      const btns = card.querySelectorAll('.quiz-option');
+      btns.forEach((btn, i) => {
+        btn.onclick = () => answer(btn, qId, correctArr[i], letters[i]);
+      });
+    });
+  }
+
+  // Init
+  rebindQuiz();
+</script>
+</body>
+</html>

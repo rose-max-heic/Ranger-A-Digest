@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hernia — Study Guide Komprehensif</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: #a2b9d5;
+    --steel-light: #c8d8ea;
+    --steel-pale: #eaf1f8;
+    --parchment: #f4f2e2;
+    --parchment-dark: #e8e5cc;
+    --sage: #aaccb1;
+    --sage-dark: #7aaa87;
+    --sage-pale: #e4f0e6;
+    --ink: #2a2d35;
+    --ink-mid: #4a5060;
+    --ink-light: #7a8090;
+    --crimson: #c0392b;
+    --crimson-pale: #fdf0ee;
+    --amber: #c9822a;
+    --amber-pale: #fdf4e8;
+    --white: #ffffff;
+    --shadow: rgba(42,45,53,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--parchment);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    min-height: 280px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(162,185,213,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(170,204,177,0.12) 0%, transparent 60%);
+  }
+
+  /* Subtle anatomical line art in background */
+  .hero-art {
+    position: absolute;
+    right: 0; top: 0;
+    width: 420px; height: 100%;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 280'%3E%3Cellipse cx='280' cy='140' rx='100' ry='120' fill='none' stroke='%23a2b9d5' stroke-width='1.5'/%3E%3Cellipse cx='280' cy='140' rx='70' ry='90' fill='none' stroke='%23aaccb1' stroke-width='1'/%3E%3Ccircle cx='200' cy='140' r='50' fill='none' stroke='%23a2b9d5' stroke-width='1.5'/%3E%3Cpath d='M180 80 Q230 100 250 140 Q230 180 180 200' fill='none' stroke='%23a2b9d5' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 3.5rem 3rem;
+    max-width: 780px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--sage);
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+  }
+
+  .hero h1 em {
+    color: var(--steel-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    color: var(--ink-light);
+    font-size: 0.9rem;
+    font-weight: 300;
+    max-width: 540px;
+    line-height: 1.65;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 1.6rem;
+  }
+
+  .hero-tag {
+    background: rgba(162,185,213,0.15);
+    border: 1px solid rgba(162,185,213,0.3);
+    color: var(--steel-light);
+    font-size: 0.75rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 400;
+  }
+
+  /* ── STICKY NAV ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    border-bottom: 2px solid rgba(162,185,213,0.2);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 1.5rem;
+    gap: 2px;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 13px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -2px;
+  }
+
+  .nav-btn:hover, .nav-btn.active {
+    color: var(--steel-light);
+    border-bottom-color: var(--steel);
+  }
+
+  /* ── LAYOUT ── */
+  .main {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    display: none;
+    animation: fadeUp 0.35s ease;
+  }
+  .section.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1.5px solid var(--parchment-dark);
+  }
+
+  .section-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    color: var(--ink-light);
+    font-size: 0.88rem;
+    margin-top: 6px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin-bottom: 22px;
+    border: 1px solid var(--parchment-dark);
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+
+  .card-header {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .icon-steel { background: var(--steel-pale); }
+  .icon-sage { background: var(--sage-pale); }
+  .icon-amber { background: var(--amber-pale); }
+  .icon-crimson { background: var(--crimson-pale); }
+
+  /* ── PILLS / BADGES ── */
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  .pill-skdi { background: var(--sage-pale); color: var(--sage-dark); border: 1px solid var(--sage); }
+  .pill-keluar { background: var(--steel-pale); color: #4a6d8c; border: 1px solid var(--steel); }
+  .pill-penting { background: var(--amber-pale); color: var(--amber); border: 1px solid #e8c090; }
+  .pill-emergency { background: var(--crimson-pale); color: var(--crimson); border: 1px solid #e0b0ab; }
+  .pill-tutorial { background: #f0f0ff; color: #5050c0; border: 1px solid #c0c0f0; font-style: italic; }
+
+  /* ── ALERTS ── */
+  .alert {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    display: flex;
+    gap: 12px;
+  }
+
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  .alert-steel { background: var(--steel-pale); border-left: 3px solid var(--steel); color: #2a4060; }
+  .alert-sage { background: var(--sage-pale); border-left: 3px solid var(--sage-dark); color: #1a3a22; }
+  .alert-amber { background: var(--amber-pale); border-left: 3px solid var(--amber); color: #5a3a10; }
+  .alert-crimson { background: var(--crimson-pale); border-left: 3px solid var(--crimson); color: #5a1a10; }
+  .alert-purple { background: #f0ebfa; border-left: 3px solid #7a4ac0; color: #3a1a60; }
+
+  /* ── TABLES ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--parchment-dark);
+    margin: 12px 0;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+
+  th {
+    background: var(--ink);
+    color: var(--white);
+    padding: 11px 16px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  th:first-child { border-radius: 11px 0 0 0; }
+  th:last-child { border-radius: 0 11px 0 0; }
+
+  td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--parchment-dark);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(244,242,226,0.5); }
+  tr:hover td { background: var(--steel-pale); transition: background 0.15s; }
+
+  /* ── COLUMNS ── */
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  @media (max-width: 640px) {
+    .cols-2, .cols-3 { grid-template-columns: 1fr; }
+    .hero-content { padding: 2rem 1.5rem; }
+    .main { padding: 24px 14px 60px; }
+    .card { padding: 18px 18px; }
+  }
+
+  /* ── MINI CARD ── */
+  .mini-card {
+    background: var(--parchment);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .mini-card h4 {
+    font-family: 'Lora', serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .mini-card p, .mini-card li {
+    font-size: 0.84rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  .mini-card ul { padding-left: 14px; }
+  .mini-card li { margin-bottom: 3px; }
+
+  /* ── LIST STYLE ── */
+  .dot-list { list-style: none; padding: 0; }
+  .dot-list li {
+    padding: 7px 0 7px 22px;
+    position: relative;
+    border-bottom: 1px solid rgba(244,242,226,0.8);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .dot-list li:last-child { border-bottom: none; }
+  .dot-list li::before {
+    content: '▸';
+    position: absolute; left: 2px; top: 9px;
+    color: var(--steel);
+    font-size: 10px;
+  }
+
+  /* ── CLINICAL REASONING BOX ── */
+  .reasoning {
+    background: linear-gradient(135deg, var(--steel-pale) 0%, var(--sage-pale) 100%);
+    border: 1.5px solid var(--steel);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 18px 0;
+  }
+
+  .reasoning h4 {
+    font-family: 'Lora', serif;
+    color: #2a4060;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .reasoning ol {
+    padding-left: 20px;
+    counter-reset: step;
+    list-style: none;
+  }
+
+  .reasoning ol li {
+    counter-increment: step;
+    padding: 7px 0 7px 10px;
+    font-size: 0.87rem;
+    line-height: 1.65;
+    border-bottom: 1px solid rgba(162,185,213,0.25);
+    position: relative;
+  }
+
+  .reasoning ol li:last-child { border-bottom: none; }
+
+  .reasoning ol li::before {
+    content: counter(step);
+    position: absolute; left: -18px;
+    width: 18px; height: 18px;
+    background: var(--steel);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex; align-items: center; justify-content: center;
+    top: 9px;
+  }
+
+  /* ── COMPARISON GRID ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+
+  .compare-col {
+    border-radius: 12px;
+    padding: 18px;
+    border: 1.5px solid;
+  }
+
+  .compare-col.col-a {
+    background: var(--steel-pale);
+    border-color: var(--steel);
+  }
+
+  .compare-col.col-b {
+    background: var(--amber-pale);
+    border-color: #e8c090;
+  }
+
+  .compare-col h4 {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .compare-col.col-a h4 { color: #2a4a70; }
+  .compare-col.col-b h4 { color: var(--amber); }
+
+  .compare-row {
+    display: flex;
+    gap: 8px;
+    font-size: 0.83rem;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    line-height: 1.5;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row span:first-child { opacity: 0.65; min-width: 80px; flex-shrink: 0; }
+
+  /* ── COLLAPSIBLE ── */
+  .collapse-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .chevron {
+    color: var(--ink-light);
+    font-size: 11px;
+    transition: transform 0.25s;
+  }
+
+  .collapse-btn.open .chevron { transform: rotate(180deg); }
+  .collapse-content { display: none; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--parchment-dark); }
+  .collapse-content.open { display: block; }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: var(--white);
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  .quiz-num {
+    position: absolute;
+    top: -13px; left: 22px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 8px;
+  }
+
+  .quiz-vignette {
+    background: var(--steel-pale);
+    border-left: 3px solid var(--steel);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    font-size: 0.87rem;
+    line-height: 1.75;
+    color: #2a3a4a;
+  }
+
+  .quiz-q {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quiz-opt {
+    background: var(--parchment);
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 9px;
+    padding: 11px 16px;
+    font-size: 0.86rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    transition: all 0.18s;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  .quiz-opt:hover:not([disabled]) {
+    border-color: var(--steel);
+    background: var(--steel-pale);
+  }
+
+  .quiz-opt .ol {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 22px; height: 22px;
+    border-radius: 6px;
+    background: rgba(42,45,53,0.08);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .quiz-opt.correct {
+    background: var(--sage-pale) !important;
+    border-color: var(--sage-dark) !important;
+    color: #1a4a22 !important;
+  }
+
+  .quiz-opt.correct .ol { background: var(--sage-dark); color: white; }
+
+  .quiz-opt.wrong {
+    background: var(--crimson-pale) !important;
+    border-color: var(--crimson) !important;
+    color: #5a1a10 !important;
+  }
+
+  .quiz-opt.wrong .ol { background: var(--crimson); color: white; }
+
+  .quiz-explanation {
+    display: none;
+    margin-top: 14px;
+    background: var(--sage-pale);
+    border: 1px solid var(--sage);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #1a3a22;
+  }
+
+  .quiz-explanation.show { display: block; animation: fadeUp 0.3s ease; }
+
+  .score-card {
+    background: var(--ink);
+    color: white;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 28px;
+    display: none;
+  }
+
+  .score-card.show { display: block; animation: fadeUp 0.4s ease; }
+
+  .score-big {
+    font-family: 'Lora', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--steel-light);
+    line-height: 1;
+    margin: 12px 0;
+  }
+
+  .btn-restart {
+    margin-top: 20px;
+    background: var(--steel);
+    color: var(--ink);
+    border: none;
+    border-radius: 24px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .btn-restart:hover { transform: translateY(-2px); }
+
+  /* ── PROGRESS ── */
+  .progress-bar { background: rgba(162,185,213,0.2); border-radius: 8px; height: 5px; margin: 18px 0; }
+  .progress-fill { background: var(--steel); height: 100%; border-radius: 8px; transition: width 0.5s ease; }
+
+  /* ── ANATOMY FIGURE ── */
+  .anatomy-figure {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--parchment-dark);
+    padding: 20px;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  .anatomy-figure figcaption {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--parchment-dark); margin: 24px 0; }
+
+  /* ── MNEMONIC ── */
+  .mnemonic {
+    background: linear-gradient(135deg, var(--amber-pale), var(--parchment));
+    border: 1.5px solid #e8c090;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .mnemonic-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .mnemonic-main {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+
+  .mnemonic-explain {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    margin-top: 8px;
+    line-height: 1.65;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow { display: flex; flex-direction: column; gap: 0; align-items: center; margin: 16px 0; }
+  .flow-box {
+    background: white;
+    border: 1.5px solid var(--steel);
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+  }
+  .flow-arrow {
+    text-align: center;
+    color: var(--steel);
+    font-size: 18px;
+    margin: 3px 0;
+    line-height: 1;
+  }
+  .flow-box.danger { border-color: var(--crimson); background: var(--crimson-pale); }
+
+  /* ── TUTORIAL LABEL ── */
+  .tutorial-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f0ff;
+    color: #5050b0;
+    border: 1px solid #c0c0e0;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-style: italic;
+    padding: 2px 8px;
+    margin-left: 6px;
+  }
+
+  .dr-linda-note {
+    background: var(--sage-pale);
+    border: 1px dashed var(--sage-dark);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.84rem;
+    color: #1a3a22;
+    margin: 10px 0;
+    line-height: 1.65;
+  }
+
+  .dr-linda-note::before {
+    content: '🩺 dr. Linda: ';
+    font-weight: 600;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-art"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Blok Digestive · dr. Linda Jana, SpB, FINACS, FICS</div>
+    <h1>Rangkuman <em>Hernia</em><br>Blok Digestive 2026</h1>
+    <p class="hero-sub">Dari PPT kuliah + rekaman dr. Linda, dilengkapi SKDI 2012, clinical reasoning, dan soal vignet. Siap ujian! 💪</p>
+    <div class="hero-tags">
+      <span class="hero-tag">📌 Klasifikasi Lengkap</span>
+      <span class="hero-tag">🔬 Pemeriksaan Fisik Khas</span>
+      <span class="hero-tag">🚨 Clinical Reasoning</span>
+      <span class="hero-tag">📝 10 Soal Quiz Vignet</span>
+      <span class="hero-tag">⚠️ Pesan dr. Linda</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar" id="mainNav">
+  <button class="nav-btn active" onclick="show('intro')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('definisi')">📖 Definisi & Anatomi</button>
+  <button class="nav-btn" onclick="show('klasifikasi')">🗂️ Klasifikasi</button>
+  <button class="nav-btn" onclick="show('pf')">🤲 Pemeriksaan Fisik</button>
+  <button class="nav-btn" onclick="show('jenis')">📍 Hernia Inguinal</button>
+  <button class="nav-btn" onclick="show('lainnya')">📌 Hernia Lainnya</button>
+  <button class="nav-btn" onclick="show('tatalaksana')">💊 Tatalaksana</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</nav>
+
+<div class="main">
+
+<!-- ─────────────────── INTRO ─────────────────── -->
+<div id="intro" class="section active">
+  <div class="section-header">
+    <h2>🗺️ Peta Materi & Tips Belajar</h2>
+    <p>Hernia hampir tiap hari ditemukan di klinis — dr. Linda bahkan operasi 2 pasien hernia sebelum kuliah ini! 😄</p>
+  </div>
+
+  <div class="alert alert-amber">
+    <span class="alert-icon">💡</span>
+    <div><strong>Mindset Kuliah dr. Linda:</strong> "Anamnesis dan pemeriksaan fisik itu harus. Penunjang itu nanti-nanti saja. Tanganmu itu lebih berharga daripada pemeriksaan penunjang." Hafalkan finger test, thumb test, dan ziemann test — ini yang paling penting!</div>
+  </div>
+
+  <div class="alert alert-sage">
+    <span class="alert-icon">📌</span>
+    <div><strong>Catatan Sumber:</strong> Materi dari PPT dr. Linda (SpB, FINACS, FICS) + rekaman kuliah. Bagian yang ditandai <span class="tutorial-source">📚 tutorial</span> berasal dari rangkuman tutorial berbasis jurnal — tidak tercampur dengan materi kuliah.</div>
+  </div>
+
+  <div class="cols-2">
+    <div class="mini-card" style="border-left: 3px solid var(--steel);">
+      <h4>🎯 Prioritas SKDI</h4>
+      <ul>
+        <li>Hernia inguinalis reponibel/irreponibel <span class="pill pill-skdi">SKDI 2</span></li>
+        <li>Hernia strangulata/inkarserata <span class="pill pill-skdi">SKDI 3B</span></li>
+        <li>Hernia umbilikalis <span class="pill pill-skdi">SKDI 3A</span></li>
+        <li>Hernia diafragmatika <span class="pill pill-skdi">SKDI 2</span></li>
+      </ul>
+      <p style="font-size:0.75rem;color:var(--ink-light);margin-top:10px;">Dokter umum: identifikasi + tatalaksana awal + rujuk</p>
+    </div>
+    <div class="mini-card" style="border-left: 3px solid var(--sage-dark);">
+      <h4>⚡ Kata Kunci Paling Sering</h4>
+      <ul>
+        <li>Lokus minoris resistensi</li>
+        <li>Reponibel / Irreponibel / Inkarserata / Strangulata</li>
+        <li>Direct vs Indirect (medialis vs lateralis)</li>
+        <li>Finger test → ujung vs sisi jari</li>
+        <li>Thumb test → tutup anulus internus</li>
+        <li>Ziemann test → 3 jari, 3 diagnosis</li>
+        <li>Kongenital vs Acquired</li>
+        <li>Pantaloon hernia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 18px;">
+    <div class="card-header">
+      <span class="card-icon icon-steel">📊</span>
+      Epidemiologi Penting
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe Hernia</th><th>Proporsi</th><th>Subtipe</th></tr>
+        <tr><td><strong>Hernia Inguinalis</strong></td><td><strong>75–80%</strong> dari seluruh hernia abdomen</td><td>Lateralis (60%) · Medialis (25%) · Femoralis (15%)</td></tr>
+        <tr><td>Jenis kelamin</td><td>Laki-laki 85%</td><td>Wanita lebih rentan hernia femoralis</td></tr>
+        <tr><td>Hernia femoralis</td><td>Lebih sering pada wanita</td><td>Di bawah ligamentum inguinal</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── DEFINISI & ANATOMI ─────────────────── -->
+<div id="definisi" class="section">
+  <div class="section-header">
+    <h2>📖 Definisi, Anatomi & Komponen</h2>
+    <p>Fondasi yang harus kamu kuasai sebelum memahami klasifikasi dan pemeriksaan fisik</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">📝</span> Definisi (PPT dr. Linda)</div>
+    <div class="alert alert-steel" style="margin: 0 0 14px;">
+      <span class="alert-icon">💬</span>
+      <div><strong>Hernia</strong> = benjolan yang diakibatkan karena adanya <em>protrusi (penonjolan)</em> dari organ yang diliputi oleh peritoneum, bagian atau jaringan, melalui <strong>defek atau bagian lemah dari dinding berongga</strong>.</div>
+    </div>
+    <div class="dr-linda-note">
+      "Intinya hernia itu segala sesuatu yang menonjol pada <strong>lokus minoris resistensi</strong> — tempat yang lebih rapuh daripada bagian lain. Bahasa awamnya: ketedun (Jawa)."
+    </div>
+    <div class="reasoning" style="margin-top: 14px;">
+      <h4>🧠 Clinical Reasoning: Kenapa Bisa Hernia?</h4>
+      <ol>
+        <li><strong>Ada lokus minoris resistensi</strong> — daerah dinding yang secara anatomis lebih lemah (inguinal, umbilikus, diafragma, bekas operasi)</li>
+        <li><strong>Ada tekanan dari dalam</strong> — meningkatnya tekanan intraabdominal (ngeden, batuk kronis, asites, kehamilan, BPH)</li>
+        <li><strong>Organ menonjol keluar</strong> melalui celah yang lemah tadi → hernia terbentuk</li>
+        <li>Pada anak: penyebabnya penutupan prosesus vaginalis yang tidak sempurna (kongenital), bukan karena kelemahan otot!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">🔍</span> 3 Komponen Hernia (Wajib Hafal!)</div>
+    <div class="cols-3">
+      <div class="mini-card" style="border-top: 3px solid var(--steel); text-align:center;">
+        <h4 style="font-size:1.3rem; margin-bottom:4px;">🎒</h4>
+        <h4>Kantong (Sak)</h4>
+        <p>Lapisan peritoneum yang membungkus isi hernia. Terbentuk dari peritoneum parietal.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--sage-dark); text-align:center;">
+        <h4 style="font-size:1.3rem; margin-bottom:4px;">🫀</h4>
+        <h4>Isi</h4>
+        <p>Organ yang masuk ke kantong — usus (paling sering), omentum, atau organ lain.</p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--crimson); text-align:center;">
+        <h4 style="font-size:1.3rem; margin-bottom:4px;">⭕</h4>
+        <h4>Cincin (Ring)</h4>
+        <p>Tepi defek yang menjerat hernia. <strong>Cincin ini yang menyebabkan nyeri!</strong></p>
+      </div>
+    </div>
+    <div class="alert alert-crimson" style="margin-top: 14px;">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Kunci dr. Linda:</strong> "Cincin ini yang membuat nyeri." Jika terasa sangat nyeri → pikirkan cincin yang menjerat isi hernia (→ inkarserata/strangulata). Jika tidak nyeri → mungkin masih reponibel/irreponibel.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">🗺️</span> Lokus Minoris Resistensi di Tubuh Kita</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Lokasi</th><th>Nama Hernia</th><th>Ket.</th></tr>
+        <tr><td>Daerah inguinal (tempat funikulus spermatikus keluar)</td><td><strong>Hernia Inguinalis</strong></td><td>Tersering!</td></tr>
+        <tr><td>Cincin umbilikus</td><td><strong>Hernia Umbilikalis</strong></td><td>Bayi + orang tua</td></tr>
+        <tr><td>Diafragma (foramen Bochdalek, Morgagni)</td><td><strong>Hernia Diafragmatika</strong></td><td>Bayi → distres napas</td></tr>
+        <tr><td>Hiatus esofagus di diafragma</td><td><strong>Hernia Hiatal</strong></td><td>→ GERD</td></tr>
+        <tr><td>Bekas sayatan operasi</td><td><strong>Hernia Insisional/Sikatrikalis</strong></td><td>Pasca operasi</td></tr>
+        <tr><td>Foramen obturator</td><td><strong>Hernia Obturatoria</strong></td><td>Internal, terlihat saat laparotomi</td></tr>
+        <tr><td>Trigonum Hasselbach</td><td><strong>Hernia Inguinalis Medialis (Direct)</strong></td><td>Langsung menonjol ke depan</td></tr>
+      </table>
+    </div>
+    <div class="dr-linda-note">
+      "Kalau misalnya ketemu pasien hernia, kamu harus mencari tahu: kok bisa pasien ini hernia? Apa faktor risikonya? Soalnya kalau penyakit utamanya tidak ditangani, dia bisa residif (kambuh)."
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-amber">⚠️</span> Faktor Risiko — Mengapa Tekanan Intraabdominal Meningkat?</div>
+    <div class="cols-2">
+      <ul class="dot-list">
+        <li><strong>Batuk kronis</strong> — PPOK, TBC → tekanan naik tiap batuk</li>
+        <li><strong>BPH / prostat</strong> — mengedan saat kencing bertahun-tahun</li>
+        <li><strong>Asites</strong> — sirosis hepatis → perut terisi cairan → tekanan ↑</li>
+        <li><strong>Kehamilan</strong> — janin menekan ke segala arah</li>
+        <li><strong>Angkat beban berat</strong> — pekerja keras</li>
+      </ul>
+      <ul class="dot-list">
+        <li><strong>Konstipasi kronik</strong> — sering mengejan BAB</li>
+        <li><strong>Obesitas</strong> — lemak > otot dinding abdomen</li>
+        <li><strong>Kongenital</strong> — pada bayi/anak: prosesus vaginalis tidak menutup sempurna</li>
+        <li><em>Sering disertai hemoroid!</em> (karena sama-sama suka mengedan)</li>
+      </ul>
+    </div>
+    <div class="alert alert-amber">
+      <span class="alert-icon">💡</span>
+      <div><strong>dr. Linda:</strong> "BPH pada pasien usia tua yang pipisnya tidak lancar bertahun-tahun itu bisa menyebabkan ketedun. Dan sering disertai dengan hemoroid juga, karena mengedan terus. Jadi jangan sampai miss!"</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── KLASIFIKASI ─────────────────── -->
+<div id="klasifikasi" class="section">
+  <div class="section-header">
+    <h2>🗂️ Klasifikasi Hernia</h2>
+    <p>Berdasarkan lokasi, sifat, dan istilah-istilah khusus yang wajib diketahui</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">📍</span> 1. Klasifikasi Berdasarkan Lokasi</div>
+    <div class="compare-grid">
+      <div class="compare-col col-a">
+        <h4>🔵 Hernia EKSTERNA</h4>
+        <div class="compare-row"><span>Artinya:</span> Menonjol keluar, terlihat dari luar</div>
+        <div class="compare-row"><span>Contoh:</span> Hernia Inguinalis, Umbilikalis, Femoralis, Insisional</div>
+        <div class="compare-row"><span>Diagnosis:</span> Bisa dari pemeriksaan fisik saja!</div>
+      </div>
+      <div class="compare-col col-b">
+        <h4>🟠 Hernia INTERNA</h4>
+        <div class="compare-row"><span>Artinya:</span> Di dalam, tidak terlihat dari luar</div>
+        <div class="compare-row"><span>Contoh:</span> Hernia Obturatoria, Hernia Diafragmatika</div>
+        <div class="compare-row"><span>Diagnosis:</span> Butuh pemeriksaan penunjang / laparotomi</div>
+      </div>
+    </div>
+    <div class="alert alert-steel" style="margin-top:14px;">
+      <span class="alert-icon">💬</span>
+      <div>dr. Linda: "Hernia internal itu dari luar kelihatannya oke-oke aja, enggak ada benjolannya. Baru ketahuan kalau sudah laparotomi — seperti hernia obturatoria yang ternyata jadi penyebab ileus obstruksi."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-crimson">🚦</span> 2. Klasifikasi Berdasarkan Sifat <span class="pill pill-keluar">Paling Sering Diuji!</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Sifat</th>
+          <th>Bisa Masuk-Keluar?</th>
+          <th>Nyeri?</th>
+          <th>Obstruksi Usus?</th>
+          <th>Emergensi?</th>
+        </tr>
+        <tr>
+          <td><strong>Reponibel / Reducible</strong></td>
+          <td>✅ Bisa (keluar saat ngeden, masuk saat rileks)</td>
+          <td>❌ Tidak nyeri</td>
+          <td>❌ Tidak</td>
+          <td>Tidak (tapi segera program operasi!)</td>
+        </tr>
+        <tr>
+          <td><strong>Irreponibel / Akreta</strong></td>
+          <td>❌ Tidak bisa kembali (perlengketan dengan kantong)</td>
+          <td>❌ Tidak nyeri</td>
+          <td>❌ Tidak</td>
+          <td>Tidak (tapi urgen)</td>
+        </tr>
+        <tr>
+          <td><strong>Inkarserata</strong></td>
+          <td>❌ Terjepit</td>
+          <td>✅ Nyeri</td>
+          <td>✅ Ya! (gangguan pasase) — muntah, susah BAB, susah flatus</td>
+          <td><strong>YA — darurat!</strong></td>
+        </tr>
+        <tr style="background: #fdf0ee;">
+          <td><strong>Strangulata</strong></td>
+          <td>❌ Terjepit</td>
+          <td>✅✅ Sangat nyeri</td>
+          <td>✅ + gangguan vaskular → iskemia → nekrosis!</td>
+          <td><strong>YA — GAWAT DARURAT!</strong></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="reasoning">
+      <h4>🧠 Clinical Reasoning: Inkarserata vs Strangulata</h4>
+      <ol>
+        <li><strong>Inkarserata</strong> = isi hernia (usus) terjepit cincin → <em>gangguan pasase</em> (obstruksi mekanik). Usus terjepit = anginnya/isinya tidak bisa jalan.</li>
+        <li><strong>Strangulata</strong> = yang terjepit adalah <em>pembuluh darah</em> → gangguan vaskular → iskemia → nekrosis → infeksi → sepsis!</li>
+        <li>Bayangkan: seperti karet gelang yang terlalu kencang melingkari jari. Pertama jari terasa sesak (inkarserata), lama-lama mati rasa dan menghitam (strangulata).</li>
+        <li>Strangulata jauh lebih berbahaya → <strong>kasus gawat darurat bedah!</strong></li>
+      </ol>
+    </div>
+
+    <div class="alert alert-crimson">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Dari Anamnesis Saja Bisa Curiga!</strong> Pasien datang: "Benjolan saya sakit banget, dari pagi tidak bisa kentut, tidak bisa BAB, muntah-muntah" → langsung pikirkan inkarserata/strangulata. Segera tatalaksana awal + rujuk!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-amber">📚</span> 3. Istilah Khusus yang Wajib Diketahui</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Nama</th><th>Artinya</th><th>Ingat Lewat...</th></tr>
+        <tr>
+          <td><strong>Pantaloon Hernia</strong></td>
+          <td>HIL dan HIM terdapat dalam 1 pasien, 1 sisi (seperti celana panjang)</td>
+          <td>Pantalon = celana panjang. Dua hernia dalam satu "celana"</td>
+        </tr>
+        <tr>
+          <td><strong>Hernia Littre</strong></td>
+          <td>Isi hernia berupa divertikulum Meckel</td>
+          <td>"L" → Littre, Meckeℓ</td>
+        </tr>
+        <tr>
+          <td><strong>Spigelia Hernia</strong></td>
+          <td>Berisi lemak retroperitoneal</td>
+          <td>Spigelia = tepi lateral otot rektus abdominis</td>
+        </tr>
+        <tr>
+          <td><strong>Richter Hernia</strong> <span class="pill pill-penting">Khas Soal!</span></td>
+          <td>Hanya berisi <em>sebagian</em> dinding usus (bukan seluruh lumen!)</td>
+          <td>Richter = "separuh". Sisi lain masih bisa pasase, tapi yang terjepit bisa iskemia!</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-amber">
+      <span class="alert-icon">💡</span>
+      <div><strong>Richter Hernia — Kenapa Berbahaya?</strong> Karena hanya sebagian dinding usus yang terjepit, pasase usus masih bisa berlangsung (tidak ada gejala ileus klasik). Tapi bagian yang terjepit bisa iskemia tanpa disadari → nekrosis → perforasi. Diagnosis bisa terlambat!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── PEMERIKSAAN FISIK ─────────────────── -->
+<div id="pf" class="section">
+  <div class="section-header">
+    <h2>🤲 Pemeriksaan Fisik Hernia</h2>
+    <p>Tiga tes khas yang harus kamu kuasai untuk diagnosa tanpa penunjang!</p>
+  </div>
+
+  <div class="alert alert-sage">
+    <span class="alert-icon">🩺</span>
+    <div><strong>dr. Linda:</strong> "Pada pemeriksaan hernia eksterna, kita tidak memerlukan pemeriksaan penunjang. Dari pemeriksaan fisik saja kita sudah bisa menegakkan diagnosis. Jangan mengandalkan penunjang — tanganmu lebih berharga!"</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">☝️</span> 1. Finger Test (Tes Jari Telunjuk) <span class="pill pill-keluar">Paling Penting!</span></div>
+
+    <div class="anatomy-figure">
+      <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" style="max-width:500px; width:100%;">
+        <!-- Groin area schematic -->
+        <rect x="0" y="0" width="500" height="200" fill="#f4f2e2" rx="8"/>
+        <!-- Body outline -->
+        <ellipse cx="250" cy="80" rx="180" ry="60" fill="#e8e5cc" stroke="#a2b9d5" stroke-width="1.5"/>
+        <!-- Scrotal area -->
+        <ellipse cx="210" cy="155" rx="30" ry="25" fill="#e8e5cc" stroke="#a2b9d5" stroke-width="1.5"/>
+        <ellipse cx="265" cy="155" rx="30" ry="25" fill="#e8e5cc" stroke="#a2b9d5" stroke-width="1.5"/>
+        <!-- Inguinal canal representation -->
+        <path d="M190 100 Q210 120 210 135" fill="none" stroke="#c9822a" stroke-width="2" stroke-dasharray="5,3"/>
+        <path d="M270 98 Q270 120 265 135" fill="none" stroke="#c9822a" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- Labels -->
+        <text x="120" y="75" font-family="DM Sans" font-size="11" fill="#2a4060">Kanalis Inguinalis</text>
+        <text x="140" y="175" font-family="DM Sans" font-size="11" fill="#4a5060">Skrotum</text>
+        <!-- Finger indication -->
+        <path d="M195 165 L175 150 L180 125 L185 105" fill="none" stroke="#7aaa87" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="120" y="120" font-family="DM Sans" font-size="10" fill="#1a4a22">← Jari dimasukkan</text>
+        <text x="120" y="133" font-family="DM Sans" font-size="10" fill="#1a4a22">melalui anulus</text>
+        <text x="120" y="146" font-family="DM Sans" font-size="10" fill="#1a4a22">eksternus</text>
+        <!-- HIL vs HIM labels -->
+        <text x="320" y="95" font-family="DM Sans" font-size="10" fill="#c0392b" font-weight="bold">→ Ujung jari = HIL</text>
+        <text x="320" y="108" font-family="DM Sans" font-size="10" fill="#c9822a">→ Sisi jari = HIM</text>
+      </svg>
+      <figcaption>Skema finger test hernia inguinalis (ilustrasi)</figcaption>
+    </div>
+
+    <div class="cols-2" style="margin-top: 14px;">
+      <div class="mini-card">
+        <h4>📋 Cara Melakukan</h4>
+        <ul>
+          <li>Tangan kanan pemeriksa untuk sisi kanan pasien (dan sebaliknya)</li>
+          <li>Jari telunjuk dimasukkan melalui <strong>anulus eksternus</strong> kanalis inguinalis → ke arah anulus internus</li>
+          <li>Pada laki-laki: masukkan jari lewat skrotum bagian atas (tempat funikulus spermatikus keluar)</li>
+          <li>Pasien diminta <strong>mengedan</strong></li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>📊 Interpretasi</h4>
+        <ul>
+          <li>Pendesakan di <strong>ujung jari</strong> → <span style="color:var(--crimson); font-weight:600;">HIL (Lateralis/Indirect)</span></li>
+          <li>Pendesakan di <strong>sisi jari</strong> → <span style="color:var(--amber); font-weight:600;">HIM (Medialis/Direct)</span></li>
+        </ul>
+        <div class="alert alert-steel" style="margin-top:10px; padding:10px 14px;">
+          <span class="alert-icon">🧠</span>
+          <div><strong>Cara Ingat:</strong> HIL masuk lewat <em>kanal</em> (indirect) → datang dari ujung (dari dalam kanal). HIM langsung menonjol (direct) → dari samping.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dr-linda-note">
+      "Ini akan kamu pakai selamanya sampai nanti kamu jadi dokter. Mau kamu praktik gimana pasti kamu akan nemuin ini karena saking banyaknya kasus ini."
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">👍</span> 2. Thumb Test (Tes Ibu Jari)</div>
+    <div class="cols-2">
+      <div>
+        <h4 style="font-size:0.9rem; font-weight:600; margin-bottom:8px; color:var(--ink-mid);">Cara Melakukan</h4>
+        <ul class="dot-list">
+          <li>Ibu jari <strong>ditutupkan</strong> pada anulus internus</li>
+          <li>Lokasi: pertengahan antara SIAS dan pubis ±2 cm di atasnya (di atas ligamentum inguinal)</li>
+          <li>Pasien diminta mengedan</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size:0.9rem; font-weight:600; margin-bottom:8px; color:var(--ink-mid);">Interpretasi</h4>
+        <ul class="dot-list">
+          <li>Benjolan <strong>tidak keluar</strong> (tertahan) → <strong>HIL</strong> — karena anulus internusnya sudah ditutup ibu jari, herniayang lewat kanal tidak bisa keluar</li>
+          <li>Benjolan <strong>masih keluar</strong> → <strong>HIM</strong> — karena HIM tidak lewat kanalis, tidak terpengaruh tutupan ibu jari di anulus internus</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mnemonic" style="margin-top:14px;">
+      <div class="mnemonic-label">🧠 Cara Ingat</div>
+      <div class="mnemonic-main">Tutup pintu depan → yang lewat pintu depan tidak bisa masuk</div>
+      <div class="mnemonic-explain">Anulus internus = "pintu depan" kanalis inguinalis. Kalau ditutup ibu jari dan hernia tetap keluar → dia tidak lewat pintu itu (direct/medialis). Kalau tidak keluar → dia memang lewat pintu itu (indirect/lateralis).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-amber">🖐️</span> 3. Ziemann Test (Three Finger Test) <span class="pill pill-penting">3 Jari, 3 Diagnosis!</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jari</th><th>Posisi</th><th>Jika Terasa Benjolan</th></tr>
+        <tr><td><strong>Telunjuk (index)</strong></td><td>Anulus internus (deep)</td><td>→ HIL (Hernia Inguinalis Lateralis / Indirect)</td></tr>
+        <tr><td><strong>Tengah (middle)</strong></td><td>Anulus eksternus (superficial)</td><td>→ HIM (Hernia Inguinalis Medialis / Direct)</td></tr>
+        <tr><td><strong>Manis (ring)</strong></td><td>Fossa ovalis</td><td>→ Hernia Femoralis</td></tr>
+      </table>
+    </div>
+    <div class="dr-linda-note">
+      "Tangan kanan pemeriksa untuk sisi kanan pasien. Mau pegang dari depan atau dari samping, terserah — yang penting tiga jari ini menutup tiga tempat sekaligus. Pasien disuruh mengedan, dan kita lihat jari mana yang merasakan tekanan."
+    </div>
+    <div class="alert alert-steel">
+      <span class="alert-icon">💡</span>
+      <div><strong>Satu tes, tiga diagnosis!</strong> Ziemann test bisa sekaligus membedakan HIL, HIM, dan Hernia Femoralis dalam satu manuver. Ini yang paling efisien untuk dipakai di IGD atau Puskesmas.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">💡</span> Ringkasan 3 Tes Pemeriksaan Fisik</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tes</th><th>Tangan</th><th>Cara</th><th>Kegunaan</th></tr>
+        <tr><td><strong>Finger Test</strong></td><td>Jari telunjuk</td><td>Dimasukkan ke kanalis melalui anulus eksternus</td><td>Bedakan HIL vs HIM</td></tr>
+        <tr><td><strong>Thumb Test</strong></td><td>Ibu jari</td><td>Menutup anulus internus</td><td>Konfirmasi HIL vs HIM</td></tr>
+        <tr><td><strong>Ziemann Test</strong></td><td>3 jari (telunjuk, tengah, manis)</td><td>Menutup 3 titik sekaligus</td><td>Bedakan HIL, HIM, Femoralis</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── HERNIA INGUINAL ─────────────────── -->
+<div id="jenis" class="section">
+  <div class="section-header">
+    <h2>📍 Hernia Inguinalis — Deep Dive</h2>
+    <p>75-80% hernia abdomen. Paling sering kamu temukan di klinik dan di soal ujian!</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">🔬</span> Anatomi Kanalis Inguinalis</div>
+    <div class="alert alert-steel">
+      <span class="alert-icon">📐</span>
+      <div>Kanalis inguinalis = saluran panjang yang dibatasi oleh 4 dinding. Di dalamnya ada funikulus spermatikus (laki-laki) atau ligamentum rotundum (perempuan).</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Dinding/Batas</th><th>Struktur Anatomi</th></tr>
+        <tr><td>Anterior</td><td>Aponeurosis MOE + MOI (sisi lateral)</td></tr>
+        <tr><td>Posterior (dasar)</td><td>Aponeurosis MTA + fascia transversalis (lateral) + aponeurosis MOI (medial)</td></tr>
+        <tr><td>Superior (atap)</td><td>Tepi bawah MOI + aponeurosis MTA</td></tr>
+        <tr><td>Inferior</td><td>Ligamentum inguinal + lakuna</td></tr>
+        <tr><td>Ujung lateral-superior</td><td>Anulus inguinalis internus (dalam)</td></tr>
+        <tr><td>Ujung medial-inferior</td><td>Anulus inguinalis eksternus (luar)</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+    <h4 style="font-size:0.9rem; font-weight:600; margin-bottom:10px;">Isi Kanalis Inguinalis:</h4>
+    <div class="cols-2">
+      <div class="mini-card">
+        <h4>♂️ Laki-laki: Funikulus Spermatikus</h4>
+        <ul>
+          <li>Vas deferens</li>
+          <li>A. spermatica interna (testicularis), a. deferentialis, a. spermatica externa (cremasterica)</li>
+          <li>Plexus pampiniformis</li>
+          <li>Cab. genital n. genitofemoralis</li>
+          <li>N. ilioinguinalis + serabut simpatis</li>
+          <li>3 lapis fascia: spermatica externa, kremaster, spermatica interna</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>♀️ Perempuan: Ligamentum Rotundum</h4>
+        <ul>
+          <li>Ligamentum rotundum uteri</li>
+          <li>Cab. genital n. genitofemoralis</li>
+          <li>Arteri dan vena cremasterica</li>
+          <li>N. ilioinguinalis</li>
+        </ul>
+        <p style="margin-top:8px; font-size:0.78rem; color:var(--ink-light);">Pada wanita: saluran ini disebut "canal of Nuck." Wanita juga bisa hernia inguinalis!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-crimson">⚖️</span> HIL vs HIM vs Femoralis <span class="pill pill-keluar">Khas Ujian!</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>HIL (Lateralis) — Indirect</th>
+          <th>HIM (Medialis) — Direct</th>
+          <th>Femoralis</th>
+        </tr>
+        <tr>
+          <td>Jalur</td>
+          <td>Lewat kanalis inguinalis (indirect = tidak langsung)</td>
+          <td>Langsung menembus dinding abdomen (trigonum Hasselbach)</td>
+          <td>Lewat femoral canal, di bawah lig. inguinal</td>
+        </tr>
+        <tr>
+          <td>Posisi terhadap lig. inguinal</td>
+          <td>Di atas</td>
+          <td>Di atas</td>
+          <td><strong>Di bawah</strong> (berbeda!)</td>
+        </tr>
+        <tr>
+          <td>Finger test</td>
+          <td>Ujung jari terasa</td>
+          <td>Sisi jari terasa</td>
+          <td>Ring finger (jari manis) terasa</td>
+        </tr>
+        <tr>
+          <td>Turun ke skrotum?</td>
+          <td>✅ Bisa sampai skrotum (scrotal hernia)</td>
+          <td>❌ Biasanya tidak</td>
+          <td>❌ Tidak, ke femoral triangle</td>
+        </tr>
+        <tr>
+          <td>Proporsi</td>
+          <td>60% dari hernia inguinalis</td>
+          <td>25%</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td>Sering pada</td>
+          <td>Anak-anak + dewasa muda</td>
+          <td>Laki-laki tua</td>
+          <td>Wanita lebih sering</td>
+        </tr>
+        <tr>
+          <td>Kongenital?</td>
+          <td>✅ Bisa (PV tidak nutup)</td>
+          <td>❌ Acquired</td>
+          <td>❌ Acquired</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="reasoning">
+      <h4>🧠 Kenapa HIL Disebut "Indirect" dan HIM "Direct"?</h4>
+      <ol>
+        <li>HIL = melewati kanalis inguinalis (jalur tidak langsung) → "indirect." Bayangkan: daripada langsung tembus ke depan, dia muter dulu lewat terowongan (kanalis). Bisa sampai ke skrotum.</li>
+        <li>HIM = langsung menembus dinding abdomen tanpa lewat kanal (jalur langsung) → "direct." Bayangkan: bola yang langsung menembus dinding, tidak lewat jalan.</li>
+        <li>Hernia femoralis: melewati <em>canalis femoralis</em>, di bawah ligamentum inguinal → lokasinya berbeda!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">👶</span> Hernia Anak vs Dewasa</div>
+    <div class="compare-grid">
+      <div class="compare-col col-a">
+        <h4>👶 Anak / Bayi</h4>
+        <div class="compare-row"><span>Jenis:</span> Kongenital</div>
+        <div class="compare-row"><span>Penyebab:</span> Prosesus vaginalis peritonei tidak menutup sempurna</div>
+        <div class="compare-row"><span>Kelemahan otot?</span> ❌ Tidak ada</div>
+        <div class="compare-row"><span>Operasi:</span> Cukup tutup kantong saja (tanpa mesh!)</div>
+        <div class="compare-row"><span>Timing:</span> Bisa tunggu sampai usia 1,5 tahun (kalau hidrokel murni)</div>
+      </div>
+      <div class="compare-col col-b">
+        <h4>🧑 Dewasa / Tua</h4>
+        <div class="compare-row"><span>Jenis:</span> Acquired</div>
+        <div class="compare-row"><span>Penyebab:</span> Peningkatan tekanan intraabdominal</div>
+        <div class="compare-row"><span>Kelemahan otot?</span> ✅ Ada kelemahan dinding abdomen</div>
+        <div class="compare-row"><span>Operasi:</span> Tutup kantong + PASANG MESH (untuk penguat!)</div>
+        <div class="compare-row"><span>Timing:</span> Segera program operasi (urgen/sito)</div>
+      </div>
+    </div>
+
+    <div class="alert alert-sage" style="margin-top:14px;">
+      <span class="alert-icon">💡</span>
+      <div><strong>Hernia + Hidrokel pada Bayi:</strong> Kalau hanya cairan yang turun (tidak ada usus) → hidrokel. Diagnosis: transiluminasi (senter HP di skrotum → jernih = cairan = hidrokel). Kalau ada usus → hernia. Tunggu sampai 1,5 tahun, kalau belum nutup sendiri → operasi.</div>
+    </div>
+
+    <div class="dr-linda-note">
+      "Kalau anak-anak itu kita masih bisa ada waktu untuk menunggu, bisa ditunggu dulu selama isinya cuman cairan aja (hidrokel). Pakai transiluminasi — taruh senter HP di skrotumnya. Kalau jernih = cairan. Kalau ada bayangan = ada organ padat = hernia."
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── HERNIA LAINNYA ─────────────────── -->
+<div id="lainnya" class="section">
+  <div class="section-header">
+    <h2>📌 Hernia Lainnya</h2>
+    <p>Hernia diafragmatika, hiatal, umbilikalis, insisional, dan obturatoria</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">🫁</span> Hernia Diafragmatika <span class="pill pill-skdi">SKDI 2</span></div>
+    <div class="cols-2">
+      <div>
+        <p><strong>Definisi:</strong> Defek pada diafragma → organ abdomen masuk ke rongga toraks</p>
+        <p style="margin-top:8px;"><strong>Gejala:</strong> Distres pernapasan (pada bayi baru lahir) — khas!</p>
+        <p style="margin-top:8px;"><strong>Penyebab utama:</strong> Kelainan kongenital</p>
+      </div>
+      <div>
+        <p><strong>Jenis:</strong></p>
+        <ul class="dot-list">
+          <li><strong>Hernia Bochdalek</strong> — defek posterior (paling sering)</li>
+          <li><strong>Hernia Morgagni</strong> — defek anterior/retrosternum</li>
+        </ul>
+        <div class="alert alert-crimson" style="margin-top:10px; padding:10px 14px;">
+          <span class="alert-icon">🚨</span>
+          <div>Bayi lahir dengan distres napas berat → pikirkan hernia diafragmatika! Emergensi bedah.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-amber">🍽️</span> Hernia Hiatal <span class="pill pill-skdi">SKDI 2</span></div>
+    <div class="alert alert-amber">
+      <span class="alert-icon">📌</span>
+      <div><strong>Definisi:</strong> Penonjolan lambung melalui <em>hiatus esofagus</em> (celah di diafragma tempat esofagus lewat) masuk ke rongga toraks.</div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col col-a">
+        <h4>🔵 Sliding Hernia</h4>
+        <div class="compare-row"><span>Artinya:</span> Seluruh gastroesofageal junction + lambung bergeser masuk ke hiatus</div>
+        <div class="compare-row"><span>Gejala:</span> GERD, nyeri dada, regurgitasi</div>
+        <div class="compare-row"><span>Frekuensi:</span> Lebih sering (95%)</div>
+      </div>
+      <div class="compare-col col-b">
+        <h4>🟠 Paraesofageal Hernia</h4>
+        <div class="compare-row"><span>Artinya:</span> Lambung menonjol di samping esofagus (GEJ tetap di posisi)</div>
+        <div class="compare-row"><span>Gejala:</span> GERD, nyeri dada, bisa asimtomatik</div>
+        <div class="compare-row"><span>Frekuensi:</span> Lebih jarang</div>
+      </div>
+    </div>
+    <div class="alert alert-steel" style="margin-top:14px;">
+      <span class="alert-icon">💡</span>
+      <div><strong>Cara Membedakan:</strong> Sliding = seluruh gastroesofageal junction geser masuk (kayak "geser"/slide). Para-esofageal = lambung ada di <em>samping</em> (para = di sebelah) esofagus. GEJ masih di tempat. Tidak kelihatan dari luar → diagnosis dengan kontras/endoskopi!</div>
+    </div>
+    <div class="dr-linda-note">
+      "Hernia hiatal ini enggak kelihatan dari luar ya. Tahunya itu di dalam ketika pemeriksaan penunjang dengan kontras atau endoskopi. Gejalanya GERD dan nyeri dada."
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">⭕</span> Hernia Umbilikalis, Insisional & Obturatoria</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis</th><th>Deskripsi</th><th>Poin Penting</th><th>SKDI</th></tr>
+        <tr>
+          <td><strong>Umbilikalis</strong></td>
+          <td>Menonjol melalui cincin umbilikus</td>
+          <td>Bayi (kongenital) atau dewasa tua (kelemahan + obesitas + angkat berat). Khas: benjolan di pusar!</td>
+          <td>SKDI 3A</td>
+        </tr>
+        <tr>
+          <td><strong>Insisional / Sikatrikalis</strong></td>
+          <td>Muncul di bekas luka operasi</td>
+          <td>Fasia bekas operasi lebih tipis/jahitan tidak sempurna → melemah → hernia. Bisa muncul bertahun-tahun setelah operasi.</td>
+          <td>SKDI 2</td>
+        </tr>
+        <tr>
+          <td><strong>Obturatoria</strong></td>
+          <td>Masuk melalui foramen obturator</td>
+          <td>Hernia internal! Tidak terlihat dari luar. Sering datang sebagai <strong>ileus obstruksi</strong> dan baru ketahuan saat laparotomi.</td>
+          <td>SKDI 2</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-amber">
+      <span class="alert-icon">💡</span>
+      <div><strong>Hernia Obturatoria — Jebakan Klinis!</strong> Pasien datang dengan ileus obstruksi tanpa ada benjolan terlihat → bisa jadi penyebabnya hernia obturatoria. Saat laparotomi, usus dilihat satu per satu → ditemukan bagian yang tercepit di foramen obturator.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── TATALAKSANA ─────────────────── -->
+<div id="tatalaksana" class="section">
+  <div class="section-header">
+    <h2>💊 Tatalaksana Hernia</h2>
+    <p>Kapan urgen vs sito, dan apa yang dilakukan dokter umum di Puskesmas</p>
+  </div>
+
+  <div class="alert alert-amber">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>Prinsip Utama (dr. Linda):</strong> Operasi hernia sifatnya ada dua: <strong>urgen</strong> atau <strong>sito</strong>. Tidak ada yang elektif! Walaupun masih reponibel, tetap urgen karena kita tidak tahu kapan ususnya akan terjepit.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-sage">🏥</span> Alur Tatalaksana di Puskesmas / IGD</div>
+    <div class="reasoning">
+      <h4>🧠 Apa yang Dilakukan Dokter Umum?</h4>
+      <ol>
+        <li><strong>Anamnesis + pemeriksaan fisik</strong> — tentukan: ada gejala ileus tidak? (flatus, BAB, mual-muntah)</li>
+        <li><strong>Nilai kondisi hernia</strong> — reponibel, irreponibel, inkarserata, atau strangulata?</li>
+        <li>Jika belum ada tanda ileus (masih reponibel/irreponibel) → edukasi, segera rujuk ke rumah sakit untuk diprogram operasi (urgen)</li>
+        <li>Jika sudah ada tanda ileus/inkarserata/strangulata → <strong>tatalaksana awal DULU, baru rujuk!</strong></li>
+      </ol>
+    </div>
+
+    <div class="divider"></div>
+    <h4 style="font-size:0.95rem; font-weight:600; margin-bottom:14px;">🚨 Tatalaksana Awal pada Inkarserata/Strangulata:</h4>
+
+    <div class="flow">
+      <div class="flow-box">
+        <strong>1. Posisikan Trendelenburg</strong><br>
+        <small>Pantat lebih tinggi dari kepala → gravitasi membantu isi hernia masuk kembali</small>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">
+        <strong>2. Analgetik</strong> — kurangi nyeri dulu, baru bisa rileks
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">
+        <strong>3. Dekompresi</strong><br>
+        <small>Pasang NGT + alirkan (ke urin bag/wadah) → empeskan isi lambung/usus<br>Pasang DC (Foley catheter) → dekompresi kandung kemih</small>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">
+        <strong>4. Rehidrasi + Koreksi Elektrolit</strong><br>
+        <small>Pasang infus — inkarserata sering ada gangguan elektrolit! Pasien dipuasakan.</small>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">
+        <strong>5. Antibiotik + Analgetik</strong>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box danger">
+        <strong>6. Konsul + Rujuk segera untuk OPERASI</strong>
+      </div>
+    </div>
+
+    <div class="dr-linda-note">
+      "NGT-nya itu disambungkan ke urin bag atau tempat lain — bukan dihubungkan sama makanan ya. Dialirkan. Nanti kalau pasang NGT kemudian dialirkan, udaranya dari abdomen bisa keluar lewat situ. Kita mengempeskan dulu — dekompresi."
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-steel">🔪</span> Operasi Hernia</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Sifat Operasi</th><th>Teknik</th></tr>
+        <tr>
+          <td>Reponibel/Irreponibel</td>
+          <td><strong>Urgen</strong> (program segera)</td>
+          <td>Herniotomi (buka + tutup kantong) + Hernioplasty/Herniorrhaphy (perkuat dinding)</td>
+        </tr>
+        <tr>
+          <td>Inkarserata/Strangulata</td>
+          <td><strong>Sito</strong> (darurat, secepatnya)</td>
+          <td>Sama + jika ada nekrosis → reseksi usus</td>
+        </tr>
+        <tr>
+          <td>Anak-anak</td>
+          <td>Urgen (tapi bisa sedikit ditunggu kalau kongenital stabil)</td>
+          <td>Herniotomi saja — <strong>tidak perlu mesh!</strong></td>
+        </tr>
+        <tr>
+          <td>Dewasa</td>
+          <td>Urgen</td>
+          <td>Herniotomi + Hernioplasty dengan <strong>mesh</strong> (penguat agar tidak residif)</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-sage">
+      <span class="alert-icon">💡</span>
+      <div><strong>Kenapa Anak Tidak Perlu Mesh?</strong> Pada anak, hernia disebabkan prosesus vaginalis yang tidak nutup — bukan kelemahan otot. Jadi cukup tutup kantongnya saja, tidak perlu diperkuat dengan mesh. Pada dewasa, ada kelemahan dinding abdomen → butuh mesh.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><span class="card-icon icon-crimson">📊</span> Ringkasan SKDI — Kompetensi Dokter Umum</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Penyakit</th><th>SKDI</th><th>Yang Harus Bisa</th></tr>
+        <tr><td>Hernia Inguinalis (reponibel, irreponibel)</td><td>SKDI 2</td><td>Diagnosis + rujuk</td></tr>
+        <tr><td>Hernia Umbilikalis</td><td>SKDI 3A</td><td>Diagnosis + tatalaksana awal + rujuk non-emergensi</td></tr>
+        <tr><td>Hernia Strangulata/Inkarserata</td><td>SKDI 3B</td><td>Diagnosis + tatalaksana awal emergensi + rujuk segera</td></tr>
+        <tr><td>Hernia Diafragmatika, Insisional, Femoralis, Obturatoria, Hiatal</td><td>SKDI 2</td><td>Diagnosis + rujuk</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-steel">
+      <span class="alert-icon">📌</span>
+      <div><strong>SKDI 3B</strong> = kompetensi life-saving. Dokter umum HARUS bisa tatalaksana awal emergensi untuk inkarserata/strangulata sebelum dirujuk. Jangan langsung rujuk tanpa tatalaksana awal!</div>
+    </div>
+  </div>
+
+  <!-- TUTORIAL SOURCE SECTION -->
+  <div class="card" style="border: 1.5px dashed #c0c0e0;">
+    <div class="card-header">
+      <span class="tutorial-source">📚 tutorial</span>
+      <span style="margin-left:8px; font-family:'Lora',serif; font-size:1rem;">Catatan dari Tutorial (Sumber: Jurnal)</span>
+    </div>
+    <div class="alert alert-purple">
+      <span class="alert-icon">📌</span>
+      <div>Bagian ini dari rangkuman tutorial berbasis jurnal (Sabiston, Schwartz, Nelson) — bukan dari kuliah dr. Linda. Ditandai dengan label <span class="tutorial-source">📚 tutorial</span> agar tidak tercampur materi kuliah.</div>
+    </div>
+
+    <div class="collapse-btn" onclick="toggleCollapse(this)">
+      <div style="font-size:0.9rem; font-weight:600; color:var(--ink-mid);">Hernia Inguinalis Inkarserata — Detail Patofisiologi <span class="tutorial-source">📚 tutorial</span></div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="collapse-content">
+      <ul class="dot-list">
+        <li><strong>Inkarserata</strong>: isi hernia terjepit di cincin hernia → obstruksi lumen usus → gas/cairan tidak bisa lewat → distensi proksimal</li>
+        <li><strong>Strangulata</strong>: kompresi vaskular pada mesenterium → gangguan aliran vena → edema dinding usus → oklusi arteri → iskemia → nekrosis → perforasi → peritonitis</li>
+        <li><strong>Urutan iskemia</strong>: vena terganggu dulu (karena tekanan lebih rendah) → arteri → nekrosis (6-12 jam setelah strangulasi komplet)</li>
+        <li><strong>Gold standard treatment</strong>: operasi. Tidak ada teknik non-invasif yang definitif untuk strangulata.</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="collapse-btn" onclick="toggleCollapse(this)">
+      <div style="font-size:0.9rem; font-weight:600; color:var(--ink-mid);">Teknik Operasi Hernia <span class="tutorial-source">📚 tutorial</span></div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="collapse-content">
+      <div class="table-wrap">
+        <table>
+          <tr><th>Teknik</th><th>Deskripsi</th></tr>
+          <tr><td>Herniotomi</td><td>Buka + ligasi + eksisi kantong hernia</td></tr>
+          <tr><td>Herniorrhaphy (Bassini, Shouldice)</td><td>Perbaikan dinding belakang kanalis inguinalis dengan jaringan sendiri</td></tr>
+          <tr><td>Hernioplasty (Lichtenstein)</td><td>Perbaikan dinding dengan mesh prostetik — tension-free, rekurensi rendah</td></tr>
+          <tr><td>Laparoskopi (TEP, TAPP)</td><td>Minimal invasif, recovery cepat</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────── QUIZ ─────────────────── -->
+<div id="quiz" class="section">
+  <div class="section-header">
+    <h2>🧠 Quiz — Uji Pemahamanmu!</h2>
+    <p>10 soal vignet bergaya ujian blok. Jawab, lihat penjelasan, dan catat yang kamu masih bingung!</p>
+  </div>
+
+  <div style="margin-bottom:24px;">
+    <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--ink-light); margin-bottom:6px;">
+      <span>Progress</span>
+      <span id="progressText">0 / 10 dijawab</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-num">SOAL 01 · DEFINISI</div>
+    <div class="quiz-vignette">Seorang laki-laki 58 tahun datang ke Puskesmas dengan keluhan benjolan di selangkangan kanan sejak 2 tahun. Benjolan muncul saat berdiri dan menghilang saat berbaring. Tidak ada nyeri. Riwayat bekerja sebagai kuli panggul selama 30 tahun.</div>
+    <p class="quiz-q">Apakah istilah yang paling tepat untuk menggambarkan kondisi hernia pada pasien ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q1',this,false)"><span class="ol">A</span> Hernia inkarserata</button>
+      <button class="quiz-opt" onclick="answerQ('q1',this,true)"><span class="ol">B</span> Hernia reponibel</button>
+      <button class="quiz-opt" onclick="answerQ('q1',this,false)"><span class="ol">C</span> Hernia strangulata</button>
+      <button class="quiz-opt" onclick="answerQ('q1',this,false)"><span class="ol">D</span> Hernia irreponibel</button>
+      <button class="quiz-opt" onclick="answerQ('q1',this,false)"><span class="ol">E</span> Hernia obturatoria</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q1">
+      ✅ <strong>B. Hernia Reponibel</strong><br><br>
+      Ciri khas: benjolan <strong>muncul saat tekanan meningkat</strong> (berdiri, aktivitas) dan <strong>masuk sendiri saat istirahat/berbaring</strong> — ini adalah definisi klasik hernia reponibel (reducible). Tidak ada nyeri, tidak ada gangguan BAB/flatus.<br><br>
+      ❌ Inkarserata/Strangulata = ada nyeri + gangguan pasase/vaskular. ❌ Irreponibel = tidak bisa masuk sama sekali karena ada perlengketan (akreta). ❌ Obturatoria = internal, tidak terlihat dari luar.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-num">SOAL 02 · PEMERIKSAAN FISIK</div>
+    <div class="quiz-vignette">Seorang dokter sedang memeriksa hernia pada laki-laki 45 tahun. Saat jari telunjuk dimasukkan melalui anulus eksternus ke arah anulus internus dan pasien diminta mengedan, dokter merasakan tekanan pada <strong>ujung jari telunjuknya</strong>.</div>
+    <p class="quiz-q">Apakah diagnosis yang paling sesuai berdasarkan temuan finger test ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q2',this,true)"><span class="ol">A</span> Hernia Inguinalis Lateralis (Indirect)</button>
+      <button class="quiz-opt" onclick="answerQ('q2',this,false)"><span class="ol">B</span> Hernia Inguinalis Medialis (Direct)</button>
+      <button class="quiz-opt" onclick="answerQ('q2',this,false)"><span class="ol">C</span> Hernia Femoralis</button>
+      <button class="quiz-opt" onclick="answerQ('q2',this,false)"><span class="ol">D</span> Hernia Umbilikalis</button>
+      <button class="quiz-opt" onclick="answerQ('q2',this,false)"><span class="ol">E</span> Hernia Obturatoria</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q2">
+      ✅ <strong>A. Hernia Inguinalis Lateralis (HIL)</strong><br><br>
+      <strong>Finger test:</strong> Ujung jari terasa tekanan → HIL. Sisi jari terasa tekanan → HIM.<br><br>
+      Logika: HIL masuk lewat kanalis inguinalis (indirect), sehingga isi hernianya datang dari arah dalam kanal dan menyentuh <em>ujung</em> jari yang masuk ke dalam kanal. HIM langsung menembus dinding (direct/medialis), sehingga tekanannya dari samping → terasa di <em>sisi</em> jari.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-num">SOAL 03 · DARURAT!</div>
+    <div class="quiz-vignette">Seorang pria 67 tahun dibawa ke IGD oleh keluarganya. Sejak tadi pagi tidak bisa flatus dan BAB, perut kembung, muntah-muntah. Memiliki riwayat benjolan di selangkangan kanan sejak 5 tahun. Pemeriksaan fisik: benjolan di inguinal kanan, tegang, tidak bisa didorong masuk, sangat nyeri tekan. Akral dingin, nadi 110x/menit, TD 90/60 mmHg.</div>
+    <p class="quiz-q">Apakah tatalaksana yang paling tepat SEGERA diberikan di IGD sebelum dirujuk?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q3',this,false)"><span class="ol">A</span> Langsung dorong hernia masuk dan observasi</button>
+      <button class="quiz-opt" onclick="answerQ('q3',this,false)"><span class="ol">B</span> Langsung konsul bedah tanpa tatalaksana awal</button>
+      <button class="quiz-opt" onclick="answerQ('q3',this,true)"><span class="ol">C</span> Posisi Trendelenburg + pasang NGT dialirkan + DC + infus + analgetik + antibiotik + rujuk</button>
+      <button class="quiz-opt" onclick="answerQ('q3',this,false)"><span class="ol">D</span> Berikan laksatif oral untuk melancarkan BAB</button>
+      <button class="quiz-opt" onclick="answerQ('q3',this,false)"><span class="ol">E</span> USG abdomen dulu untuk konfirmasi</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q3">
+      ✅ <strong>C. Tatalaksana awal lengkap sebelum rujuk</strong><br><br>
+      Ini adalah <strong>hernia inkarserata/strangulata</strong> dengan gejala ileus (tidak bisa flatus/BAB, muntah) + tanda syok (akral dingin, hipotensi, takikardia). Gawat darurat!<br><br>
+      Urutan tatalaksana: (1) Posisi Trendelenburg (2) Analgetik → rileks (3) NGT → dialirkan (dekompresi) (4) DC → dekompresi VU (5) Infus → rehidrasi + koreksi elektrolit (6) Antibiotik (7) Rujuk operasi sito.<br><br>
+      ❌ Langsung dorong (A) berbahaya karena ada strangulata. ❌ Tanpa tatalaksana awal (B) tidak bertanggung jawab. ❌ Laksatif (D) tidak ada indikasi pada obstruksi mekanik!
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-num">SOAL 04 · KLASIFIKASI</div>
+    <div class="quiz-vignette">Pada pemeriksaan Ziemann test, jari manis dokter merasakan tekanan saat pasien mengedan. Jari telunjuk dan jari tengah tidak merasakan tekanan.</div>
+    <p class="quiz-q">Apakah diagnosis yang paling sesuai?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q4',this,false)"><span class="ol">A</span> Hernia Inguinalis Lateralis</button>
+      <button class="quiz-opt" onclick="answerQ('q4',this,false)"><span class="ol">B</span> Hernia Inguinalis Medialis</button>
+      <button class="quiz-opt" onclick="answerQ('q4',this,true)"><span class="ol">C</span> Hernia Femoralis</button>
+      <button class="quiz-opt" onclick="answerQ('q4',this,false)"><span class="ol">D</span> Hernia Umbilikalis</button>
+      <button class="quiz-opt" onclick="answerQ('q4',this,false)"><span class="ol">E</span> Hernia Obturatoria</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q4">
+      ✅ <strong>C. Hernia Femoralis</strong><br><br>
+      Ziemann test (three finger test):<br>
+      • Telunjuk merasakan → HIL (anulus internus = deep inguinal ring)<br>
+      • Tengah merasakan → HIM (anulus eksternus = superficial inguinal ring)<br>
+      • <strong>Manis merasakan → Hernia Femoralis</strong> (fossa ovalis = pintu canalis femoralis)<br><br>
+      Hernia femoralis terletak di <em>bawah</em> ligamentum inguinal (beda dengan HIL dan HIM yang di atas), dan lebih sering pada wanita.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-num">SOAL 05 · ISTILAH</div>
+    <div class="quiz-vignette">Seorang pasien ditemukan memiliki hernia inguinalis lateralis dan hernia inguinalis medialis yang terjadi bersamaan pada sisi kanan dalam satu pasien.</div>
+    <p class="quiz-q">Istilah apakah yang paling tepat untuk kondisi ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q5',this,false)"><span class="ol">A</span> Richter Hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q5',this,false)"><span class="ol">B</span> Littre Hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q5',this,true)"><span class="ol">C</span> Pantaloon Hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q5',this,false)"><span class="ol">D</span> Spigelia Hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q5',this,false)"><span class="ol">E</span> Sliding Hernia</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q5">
+      ✅ <strong>C. Pantaloon Hernia</strong><br><br>
+      Pantaloon hernia = HIL dan HIM terdapat dalam <em>satu sisi</em> pada <em>satu pasien</em>. Namanya seperti celana panjang (pantalon) yang menutupi dua area sekaligus.<br><br>
+      ❌ Richter = hanya sebagian dinding usus yang masuk (bukan seluruh lumen). ❌ Littre = isi hernia berupa divertikulum Meckel. ❌ Spigelia = isi berupa lemak retroperitoneal. ❌ Sliding = jenis hernia hiatal.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-num">SOAL 06 · ANAK</div>
+    <div class="quiz-vignette">Bayi laki-laki 8 bulan dibawa ibunya karena skrotum kanan membesar sejak 2 minggu. Tidak tampak tanda-tanda inflamasi. Dokter melakukan transiluminasi dengan senter HP di skrotum kanan — tampak transparan seperti cahaya yang tembus merata.</div>
+    <p class="quiz-q">Apakah diagnosis dan tatalaksana yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q6',this,false)"><span class="ol">A</span> Hernia inguinalis — operasi segera</button>
+      <button class="quiz-opt" onclick="answerQ('q6',this,true)"><span class="ol">B</span> Hidrokel — observasi, bisa tunggu sampai usia 1,5 tahun</button>
+      <button class="quiz-opt" onclick="answerQ('q6',this,false)"><span class="ol">C</span> Orkitis — antibiotik</button>
+      <button class="quiz-opt" onclick="answerQ('q6',this,false)"><span class="ol">D</span> Tumor testis — rujuk segera</button>
+      <button class="quiz-opt" onclick="answerQ('q6',this,false)"><span class="ol">E</span> Torsio testis — operasi darurat</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q6">
+      ✅ <strong>B. Hidrokel — observasi dulu</strong><br><br>
+      <strong>Transiluminasi (+)</strong> = jernih, cahaya tembus merata → isinya cairan → <strong>Hidrokel</strong>. Berbeda dengan hernia yang isinya usus/organ padat (transiluminasi negatif/bayangan).<br><br>
+      Bayi usia 8 bulan → masih bisa observasi. Prosesus vaginalis yang tidak nutup bisa nutup sendiri. Jika usia >1,5 tahun masih ada → operasi.<br><br>
+      ❌ Orkitis biasanya ada tanda inflamasi (merah, nyeri, demam). ❌ Torsio testis sangat nyeri, akut, tanpa transiluminasi positif.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-num">SOAL 07 · KONGENITAL VS ACQUIRED</div>
+    <div class="quiz-vignette">Seorang pria 70 tahun penderita BPH sejak 5 tahun datang dengan benjolan di selangkangan kiri. Pasien juga mengeluh sering harus mengedan saat buang air kecil. Sejak setahun terakhir juga sering susah BAB dan didapatkan hemoroid.</div>
+    <p class="quiz-q">Apa mekanisme yang paling mendasari terjadinya hernia inguinalis pada pasien ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q7',this,false)"><span class="ol">A</span> Penutupan prosesus vaginalis yang tidak sempurna</button>
+      <button class="quiz-opt" onclick="answerQ('q7',this,true)"><span class="ol">B</span> Peningkatan tekanan intraabdominal kronis akibat mengedan</button>
+      <button class="quiz-opt" onclick="answerQ('q7',this,false)"><span class="ol">C</span> Infeksi bakteri pada dinding abdomen</button>
+      <button class="quiz-opt" onclick="answerQ('q7',this,false)"><span class="ol">D</span> Kelainan genetik kongenital</button>
+      <button class="quiz-opt" onclick="answerQ('q7',this,false)"><span class="ol">E</span> Trauma langsung pada daerah inguinal</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q7">
+      ✅ <strong>B. Peningkatan tekanan intraabdominal kronis</strong><br><br>
+      Ini hernia <em>acquired</em> pada orang dewasa. BPH → obstruksi jalan kencing → mengedan saat BAK bertahun-tahun → tekanan intraabdominal terus-menerus meningkat → dinding abdomen melemah → hernia. Ditambah hemoroid yang juga merupakan manifestasi sering mengedan.<br><br>
+      ❌ Penutupan prosesus vaginalis (A) = mekanisme pada bayi/kongenital. ❌ Infeksi/genetik (C,D) bukan penyebab utama hernia acquired.<br><br>
+      <em>Lesson: Temukan dan obati penyakit dasarnya (BPH), atau hernia bisa residif pasca operasi!</em>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8">
+    <div class="quiz-num">SOAL 08 · HERNIA SPESIAL</div>
+    <div class="quiz-vignette">Seorang wanita 72 tahun datang dengan gejala ileus obstruksi (tidak bisa BAB dan flatus 2 hari, muntah, perut kembung). Tidak ada massa yang teraba dari luar perut. Saat laparotomi eksplorasi, ditemukan sebagian kecil dinding usus yang terjepit di foramen obturator, namun usus masih bisa dilalui (pasase parsial).</div>
+    <p class="quiz-q">Istilah apakah yang paling tepat untuk temuan pada kondisi jepitan di foramen obturator ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q8',this,false)"><span class="ol">A</span> Hernia Littre</button>
+      <button class="quiz-opt" onclick="answerQ('q8',this,false)"><span class="ol">B</span> Hernia Pantaloon</button>
+      <button class="quiz-opt" onclick="answerQ('q8',this,true)"><span class="ol">C</span> Hernia Richter pada Hernia Obturatoria</button>
+      <button class="quiz-opt" onclick="answerQ('q8',this,false)"><span class="ol">D</span> Hernia Spigelia</button>
+      <button class="quiz-opt" onclick="answerQ('q8',this,false)"><span class="ol">E</span> Hernia Morgagni</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q8">
+      ✅ <strong>C. Hernia Richter pada Hernia Obturatoria</strong><br><br>
+      Dua konsep penting di sini:<br>
+      1. <strong>Hernia Obturatoria</strong> = hernia internal yang masuk lewat foramen obturator → tidak terlihat dari luar, sering jadi penyebab ileus obstruksi yang tidak jelas<br>
+      2. <strong>Hernia Richter</strong> = hanya sebagian dinding usus yang terjepit (bukan seluruh lumen) → usus masih bisa dilalui sebagian, tapi bagian yang terjepit bisa iskemia<br><br>
+      ❌ Littre = isi berupa divertikulum Meckel. ❌ Morgagni = hernia diafragmatika anterior.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="q9">
+    <div class="quiz-num">SOAL 09 · HERNIA HIATAL</div>
+    <div class="quiz-vignette">Pasien 55 tahun mengeluh nyeri dada dan rasa terbakar di dada yang memburuk saat makan besar dan membungkuk. Dari pemeriksaan kontras barium, ditemukan bahwa gastroesofageal junction (GEJ) dan sebagian lambung berada di dalam rongga toraks melewati hiatus esofagus.</div>
+    <p class="quiz-q">Apakah jenis hernia hiatal yang paling sesuai dengan gambaran tersebut?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q9',this,true)"><span class="ol">A</span> Sliding hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q9',this,false)"><span class="ol">B</span> Paraesofageal hernia</button>
+      <button class="quiz-opt" onclick="answerQ('q9',this,false)"><span class="ol">C</span> Hernia Bochdalek</button>
+      <button class="quiz-opt" onclick="answerQ('q9',this,false)"><span class="ol">D</span> Hernia Morgagni</button>
+      <button class="quiz-opt" onclick="answerQ('q9',this,false)"><span class="ol">E</span> Hernia inkarserata</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q9">
+      ✅ <strong>A. Sliding Hernia</strong><br><br>
+      Kunci: <strong>GEJ ikut bergeser masuk ke rongga toraks</strong> → ini adalah sliding hernia (GEJ "slide" ke atas). Gejalanya GERD klasik karena sfingter esofagus bawah (LES) tidak berfungsi optimal.<br><br>
+      Paraesofageal hernia (B) = GEJ tetap di tempat, yang menonjol ke atas adalah fundus lambung di <em>samping</em> esofagus. GEJ tidak ikut bergeser.<br><br>
+      ❌ Bochdalek/Morgagni = hernia diafragmatika kongenital (bukan hiatal). ❌ Inkarserata = kondisi, bukan jenis hernia hiatal.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="q10">
+    <div class="quiz-num">SOAL 10 · TATALAKSANA + THUMB TEST</div>
+    <div class="quiz-vignette">Seorang dokter melakukan thumb test dengan menutup anulus internus menggunakan ibu jarinya pada sisi kanan pasien. Saat pasien mengedan, benjolan tetap keluar walau ibu jari sudah menutup anulus internus.</div>
+    <p class="quiz-q">Apakah interpretasi yang paling tepat dari hasil thumb test ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-opt" onclick="answerQ('q10',this,false)"><span class="ol">A</span> Hernia Inguinalis Lateralis — benjolan lewat kanalis yang sudah ditutup</button>
+      <button class="quiz-opt" onclick="answerQ('q10',this,true)"><span class="ol">B</span> Hernia Inguinalis Medialis — benjolan tidak melewati kanalis sehingga tetap keluar</button>
+      <button class="quiz-opt" onclick="answerQ('q10',this,false)"><span class="ol">C</span> Hernia Femoralis — benjolan melewati foramen di bawah lig. inguinal</button>
+      <button class="quiz-opt" onclick="answerQ('q10',this,false)"><span class="ol">D</span> Hernia Umbilikalis — benjolan di sekitar cincin umbilikus</button>
+      <button class="quiz-opt" onclick="answerQ('q10',this,false)"><span class="ol">E</span> Test tidak valid — perlu diulang</button>
+    </div>
+    <div class="quiz-explanation" id="exp-q10">
+      ✅ <strong>B. Hernia Inguinalis Medialis (HIM)</strong><br><br>
+      <strong>Thumb test:</strong> Ibu jari menutup anulus internus.<br>
+      • Benjolan tidak keluar → HIL (karena jalurnya lewat kanalis yang sudah ditutup ibu jari)<br>
+      • <strong>Benjolan tetap keluar → HIM</strong> — karena HIM langsung menembus dinding (direct), tidak lewat kanalis inguinalis. Menutup anulus internus tidak menghalangi HIM untuk menonjol.<br><br>
+      Ingat: HIM = direct = langsung tembus = tidak melalui kanalis = tidak terpengaruh penutupan anulus internus.
+    </div>
+  </div>
+
+  <!-- Score Card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:2.5rem; margin-bottom:10px;">🎉</div>
+    <div style="font-family:'Lora',serif; font-size:1rem; opacity:0.7; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;">Total Benar</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="opacity:0.7; font-size:0.9rem; margin-bottom:4px;">dari 10 soal</div>
+    <div id="scoreMsgEl" style="font-size:0.95rem; opacity:0.85; margin-top:12px; line-height:1.6;"></div>
+    <button class="btn-restart" onclick="resetQuiz()">🔄 Ulangi Quiz</button>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<script>
+  // ── NAV ──
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── COLLAPSE ──
+  function toggleCollapse(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+  // ── QUIZ ──
+  let score = 0;
+  let answered = 0;
+  const total = 10;
+
+  function answerQ(qId, btn, isCorrect) {
+    const card = document.getElementById(qId);
+    if (card.dataset.answered) return;
+    card.dataset.answered = '1';
+
+    card.querySelectorAll('.quiz-opt').forEach(b => {
+      b.disabled = true;
+      b.style.cursor = 'default';
+    });
+
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+    // If wrong, highlight correct
+    if (!isCorrect) {
+      card.querySelectorAll('.quiz-opt').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) {
+          b.classList.add('correct');
+        }
+      });
+    }
+
+    // Show explanation
+    document.getElementById('exp-' + qId).classList.add('show');
+
+    if (isCorrect) score++;
+    answered++;
+
+    // Progress
+    document.getElementById('progressText').textContent = answered + ' / ' + total + ' dijawab';
+    document.getElementById('progressFill').style.width = (answered / total * 100) + '%';
+
+    if (answered === total) {
+      setTimeout(showScore, 700);
+    }
+  }
+
+  function showScore() {
+    const card = document.getElementById('scoreCard');
+    card.classList.add('show');
+    document.getElementById('scoreNum').textContent = score;
+
+    const pct = score / total * 100;
+    let msg = '';
+    if (pct === 100) msg = 'Sempurna! Kamu sangat siap menghadapi ujian blok! 🌟 dr. Linda pasti bangga.';
+    else if (pct >= 80) msg = 'Bagus sekali! Sedikit lagi sempurna. Review yang salah, kamu pasti bisa! 💪';
+    else if (pct >= 60) msg = 'Lumayan! Review poin yang masih bingung, terutama klasifikasi dan pemeriksaan fisik. 📚';
+    else msg = 'Semangat! Baca ulang materi, terutama bagian pemeriksaan fisik dan klasifikasi hernia. Kamu pasti bisa! 🌸';
+
+    document.getElementById('scoreMsgEl').textContent = msg;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    score = 0;
+    answered = 0;
+    document.getElementById('progressText').textContent = '0 / 10 dijawab';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('scoreCard').classList.remove('show');
+
+    for (let i = 1; i <= total; i++) {
+      const card = document.getElementById('q' + i);
+      delete card.dataset.answered;
+      card.querySelectorAll('.quiz-opt').forEach(b => {
+        b.classList.remove('correct','wrong');
+        b.disabled = false;
+        b.style.cursor = 'pointer';
+      });
+      document.getElementById('exp-q' + i).classList.remove('show');
+    }
+
+    window.scrollTo({ top: document.getElementById('quiz').offsetTop, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

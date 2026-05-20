@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelainan Kongenital GIT Bawah — dr. Linda JS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f4;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --border: #e8e0f0;
+    --text: #2d2640;
+    --muted: #8b7fa8;
+    --accent1: #38b2a0; /* teal */
+    --accent2: #d4800a; /* amber */
+    --accent3: #d05a6a; /* coral/rose */
+    --accent4: #7c5cbf; /* purple */
+    --accent5: #3a9a60; /* green */
+    --accent6: #3a7ecf; /* blue */
+    --glow: rgba(124,92,191,0.08);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, #f0eafb 0%, #faf7f4 50%, #e8f4f0 100%);
+    padding: 60px 40px 50px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,92,191,0.06), transparent);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(124,92,191,0.10);
+    border: 1px solid rgba(124,92,191,0.25);
+    color: var(--accent4);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #2d2640 0%, #7c5cbf 50%, #38b2a0 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle {
+    color: #8b7fa8;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .subtitle strong { color: var(--accent2); }
+
+  /* ─── NAV ─── */
+  nav {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(124,92,191,0.06);
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 16px 18px;
+    white-space: nowrap;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    color: var(--accent1);
+    border-bottom-color: var(--accent1);
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 30px; }
+  section { display: none; animation: fadeIn 0.3s ease; }
+  section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 12px rgba(45,38,64,0.05);
+  }
+  .card:hover { border-color: rgba(124,92,191,0.3); box-shadow: 0 4px 24px rgba(124,92,191,0.08); }
+  .card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  .card.teal { background: #f0faf7; border-color: #b8e8dc; }
+  .card.teal::before { background: var(--accent1); }
+  .card.amber { background: #fffbf0; border-color: #f5d89a; }
+  .card.amber::before { background: var(--accent2); }
+  .card.coral { background: #fff2f3; border-color: #f5b8c0; }
+  .card.coral::before { background: var(--accent3); }
+  .card.purple { background: #f5f0ff; border-color: #d4bef5; }
+  .card.purple::before { background: var(--accent4); }
+  .card.green { background: #f0faf2; border-color: #b8e8c8; }
+  .card.green::before { background: var(--accent5); }
+  .card.blue { background: #eff6ff; border-color: #b8d8f8; }
+  .card.blue::before { background: var(--accent6); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-title .num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+  .teal .num { background: rgba(56,178,160,0.15); color: var(--accent1); }
+  .amber .num { background: rgba(212,128,10,0.15); color: var(--accent2); }
+  .coral .num { background: rgba(208,90,106,0.15); color: var(--accent3); }
+  .purple .num { background: rgba(124,92,191,0.15); color: var(--accent4); }
+  .green .num { background: rgba(58,154,96,0.15); color: var(--accent5); }
+  .blue .num { background: rgba(58,126,207,0.15); color: var(--accent6); }
+
+  h2.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .section-sub { color: var(--muted); margin-bottom: 32px; font-size: 14px; }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+  /* ─── PILLS / TAGS ─── */
+  .pill {
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .pill.teal { background: rgba(56,178,160,0.12); color: #1a7a6a; border: 1px solid rgba(56,178,160,0.3); }
+  .pill.amber { background: rgba(212,128,10,0.12); color: #8a5200; border: 1px solid rgba(212,128,10,0.3); }
+  .pill.coral { background: rgba(208,90,106,0.12); color: #963040; border: 1px solid rgba(208,90,106,0.3); }
+  .pill.purple { background: rgba(124,92,191,0.12); color: #5a3da0; border: 1px solid rgba(124,92,191,0.3); }
+  .pill.green { background: rgba(58,154,96,0.12); color: #1a6a40; border: 1px solid rgba(58,154,96,0.3); }
+  .pill.blue { background: rgba(58,126,207,0.12); color: #1a4e8f; border: 1px solid rgba(58,126,207,0.3); }
+
+  /* ─── LISTS ─── */
+  ul.styled { list-style: none; }
+  ul.styled li { padding: 7px 0; padding-left: 20px; position: relative; border-bottom: 1px solid rgba(42,52,72,0.5); }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li::before { content: '▸'; position: absolute; left: 0; color: var(--accent1); font-size: 11px; top: 9px; }
+
+  /* ─── MNEMONIC BOX ─── */
+  .mnemonic {
+    background: linear-gradient(135deg, rgba(124,92,191,0.07), rgba(56,178,160,0.05));
+    border: 1px solid rgba(124,92,191,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .mnemonic-title {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent4);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mnemonic-title::before { content: '✦'; }
+  .mnemonic-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mnemonic-item {
+    background: rgba(124,92,191,0.08);
+    border: 1px solid rgba(124,92,191,0.18);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: #4a3580;
+  }
+  .mnemonic-item strong { color: var(--accent4); font-size: 18px; font-family: 'Playfair Display', serif; }
+
+  /* ─── CLINICAL REASONING ─── */
+  .reasoning {
+    background: rgba(212,128,10,0.06);
+    border: 1px solid rgba(212,128,10,0.2);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+  .reasoning-title {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .reasoning-title::before { content: '⚡'; }
+
+  /* ─── FLOW CHART ─── */
+  .flow {
+    display: flex; flex-direction: column; gap: 0;
+    margin: 16px 0;
+  }
+  .flow-step {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .flow-left { display: flex; flex-direction: column; align-items: center; }
+  .flow-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+  }
+  .flow-line { width: 2px; flex: 1; min-height: 20px; background: var(--border); }
+  .flow-content { padding: 4px 0 20px; flex: 1; }
+  .flow-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .flow-content p { font-size: 13px; color: var(--muted); }
+
+  /* ─── TABLE ─── */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  .compare-table th {
+    background: rgba(124,92,191,0.08);
+    color: var(--accent4);
+    padding: 10px 16px; text-align: left;
+    border-bottom: 2px solid rgba(124,92,191,0.15);
+    font-size: 12px; letter-spacing: 0.5px;
+  }
+  .compare-table td {
+    padding: 9px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(124,92,191,0.03); }
+
+  /* ─── QUIZ ─── */
+  .quiz-container { margin-top: 10px; }
+  .quiz-question {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+    box-shadow: 0 2px 10px rgba(45,38,64,0.04);
+  }
+  .quiz-question.answered { border-color: rgba(56,178,160,0.3); }
+  .q-num {
+    font-size: 11px; color: var(--accent4); font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .q-vignette {
+    background: rgba(58,126,207,0.05);
+    border-left: 3px solid var(--accent6);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: #3a4a6a;
+  }
+  .q-stem { font-size: 15px; font-weight: 500; margin-bottom: 14px; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-btn {
+    background: rgba(45,38,64,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 16px;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .option-btn:hover:not(:disabled) {
+    background: rgba(124,92,191,0.06);
+    border-color: rgba(124,92,191,0.3);
+  }
+  .option-btn.correct { background: rgba(58,154,96,0.08); border-color: var(--accent5); color: #1a6a40; }
+  .option-btn.wrong { background: rgba(208,90,106,0.08); border-color: var(--accent3); color: #963040; }
+  .option-btn:disabled { cursor: default; }
+  .opt-letter {
+    width: 22px; height: 22px; border-radius: 6px;
+    background: #e8e0f0; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    color: #6a5a8a;
+  }
+  .option-btn.correct .opt-letter { background: var(--accent5); color: #fff; }
+  .option-btn.wrong .opt-letter { background: var(--accent3); color: #fff; }
+  .explanation {
+    margin-top: 14px;
+    background: rgba(56,178,160,0.06);
+    border: 1px solid rgba(56,178,160,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    display: none;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .explanation.show { display: block; }
+  .exp-title { color: var(--accent1); font-weight: 600; margin-bottom: 6px; font-size: 12px; letter-spacing: 0.5px; }
+
+  /* score */
+  .score-bar {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(45,38,64,0.04);
+  }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--accent4); }
+  .score-label { color: var(--muted); font-size: 13px; }
+
+  .key-fact {
+    background: rgba(208,90,106,0.06);
+    border: 1px solid rgba(208,90,106,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    margin: 12px 0;
+    display: flex; gap: 10px; align-items: flex-start;
+    color: #7a2030;
+  }
+  .key-fact::before { content: '🔑'; flex-shrink: 0; }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .ov-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(45,38,64,0.04);
+  }
+  .ov-card:hover { border-color: rgba(124,92,191,0.3); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,92,191,0.1); }
+  .ov-icon { font-size: 26px; margin-bottom: 8px; }
+  .ov-name { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .ov-label { font-size: 13px; font-weight: 700; margin-top: 4px; }
+
+  mark { background: rgba(212,128,10,0.15); color: #7a5000; border-radius: 3px; padding: 0 3px; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(124,92,191,0.08);
+    padding: 2px 7px; border-radius: 5px;
+    font-size: 12px;
+    color: var(--accent4);
+  }
+
+  h3 { font-size: 16px; font-weight: 600; margin: 16px 0 8px; color: var(--accent1); }
+  p { margin-bottom: 10px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  ul.styled li::before { content: '▸'; position: absolute; left: 0; color: var(--accent4); font-size: 11px; top: 9px; }
+
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px; }
+    header { padding: 40px 20px 36px; }
+    nav { padding: 0 16px; }
+    .card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Blok Digestif · Bedah Anak</div>
+  <h1>Kelainan Kongenital GIT Bawah</h1>
+  <p class="subtitle">dr. Linda Jana, SpB, FINACS, FICS &nbsp;·&nbsp; <strong>FK UMS 2026</strong></p>
+</header>
+
+<nav>
+  <button class="nav-btn active" onclick="showTab('overview')">🗺 Overview</button>
+  <button class="nav-btn" onclick="showTab('obstruksi')">🔴 Obstruksi</button>
+  <button class="nav-btn" onclick="showTab('dinding')">🟡 Dinding Abdomen</button>
+  <button class="nav-btn" onclick="showTab('embrional')">🟢 Sisa Embrional</button>
+  <button class="nav-btn" onclick="showTab('umbilikus')">🔵 Umbilikus</button>
+  <button class="nav-btn" onclick="showTab('lain')">🟣 Lain-lain</button>
+  <button class="nav-btn" onclick="showTab('perbandingan')">📊 Perbandingan</button>
+  <button class="nav-btn" onclick="showTab('quiz')">✏️ Quiz</button>
+</nav>
+
+<!-- ══════════════════════════════════ OVERVIEW ══════════════════════════════════ -->
+<div class="container">
+<section id="overview" class="active">
+  <h2 class="section-heading">Peta Materi</h2>
+  <p class="section-sub">Klik kartu untuk langsung ke materi. Hafal klasifikasi ini dulu — semua soal pasti berangkat dari sini!</p>
+
+  <div class="overview-grid">
+    <div class="ov-card" onclick="showTab('obstruksi')">
+      <div class="ov-icon">🚫</div>
+      <div class="ov-name">Obstruksi</div>
+      <div class="ov-label" style="color:var(--accent3)">3 Penyakit</div>
+    </div>
+    <div class="ov-card" onclick="showTab('dinding')">
+      <div class="ov-icon">🧱</div>
+      <div class="ov-name">Dinding Abdomen</div>
+      <div class="ov-label" style="color:var(--accent2)">2 Penyakit</div>
+    </div>
+    <div class="ov-card" onclick="showTab('embrional')">
+      <div class="ov-icon">🧬</div>
+      <div class="ov-name">Sisa Embrional</div>
+      <div class="ov-label" style="color:var(--accent5)">1 Penyakit</div>
+    </div>
+    <div class="ov-card" onclick="showTab('umbilikus')">
+      <div class="ov-icon">🔗</div>
+      <div class="ov-name">Umbilikus</div>
+      <div class="ov-label" style="color:var(--accent6)">2 Kondisi</div>
+    </div>
+    <div class="ov-card" onclick="showTab('lain')">
+      <div class="ov-icon">🏥</div>
+      <div class="ov-name">Lain-lain</div>
+      <div class="ov-label" style="color:var(--accent4)">2 Penyakit</div>
+    </div>
+  </div>
+
+  <div class="card teal">
+    <div class="card-title"><div class="num teal">!</div>Logika Besar — INGAT INI</div>
+    <div class="reasoning">
+      <div class="reasoning-title">Clinical Reasoning Utama</div>
+      <p>Pada bayi/neonatus dengan <mark>distensi abdomen + muntah</mark>, SELALU pikirkan kelainan kongenital. Kuncinya ada di <strong>warna muntah</strong> dan <strong>lokasi sumbatan</strong>:</p>
+      <div class="flow" style="margin-top:14px">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(79,209,197,0.2);color:var(--accent1)">1</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4>Muntah non-bilious (putih/kuning keruh)</h4><p>Sumbatan DI ATAS Ampula Vateri → SPH (pilorus)</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(246,173,85,0.2);color:var(--accent2)">2</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4>Muntah bilious (hijau)</h4><p>Sumbatan DI BAWAH Ampula Vateri → Atresia/stenosis duodenum, dsb.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(159,122,234,0.2);color:var(--accent4)">3</div></div>
+          <div class="flow-content"><h4>Mekonium tidak keluar >24–48 jam</h4><p>Curiga Hirschsprung atau Atresia Ani</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic Klasifikasi GIT Kongenital</div>
+      <p style="font-size:13px;margin-bottom:12px;color:var(--muted)"><strong>"O-DE-SU-UK-EL"</strong> — Oke, Dek, Susun, Umbilikus, Ekstra</p>
+      <div class="mnemonic-grid">
+        <div class="mnemonic-item"><strong>O</strong>bstruksi (SPH, HD, Atresia Ani)</div>
+        <div class="mnemonic-item"><strong>D</strong>inding Abdomen (Omphalocele, Gastroschisis)</div>
+        <div class="mnemonic-item"><strong>Su</strong>rgical Sisa (Meckel)</div>
+        <div class="mnemonic-item"><strong>Uk</strong>uran Umbilikus (Fistula, Infeksi)</div>
+        <div class="mnemonic-item"><strong>El</strong>se (Atresia Bilier, Ektopia)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card amber">
+    <div class="card-title"><div class="num amber">📍</div>Tips Ujian dari Rekaman Kuliah</div>
+    <ul class="styled">
+      <li><strong>Single bubble sign</strong> → SPH (1 gelembung = lambung saja)</li>
+      <li><strong>Double bubble sign</strong> → Atresia duodenum (2 gelembung = lambung + duodenum)</li>
+      <li><strong>String sign</strong> → SPH pada barium meal (saluran pilorus kecil & panjang)</li>
+      <li><strong>Bird of prey sign</strong> → Volvulus sigmoid pada CIL</li>
+      <li>Gold standard Hirschsprung → <mark>Biopsi rektum</mark></li>
+      <li>Foto invertogram untuk Atresia Ani → tunggu <mark>>24 jam</mark> setelah lahir</li>
+      <li>Sindrom VACTERL selalu tanyakan pada pasien Atresia Ani</li>
+      <li>Omphalocele vs Gastroschisis → kunci: <mark>ada/tidak membran</mark></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ OBSTRUKSI ══════════════════════════════════ -->
+<section id="obstruksi">
+  <h2 class="section-heading">A. Kelainan Obstruksi</h2>
+  <p class="section-sub">Tiga penyakit utama — masing-masing punya ciri khas yang harus dihafalkan</p>
+
+  <!-- SPH -->
+  <div class="card teal">
+    <div class="pill teal">1 · Stenosis Pilorus Hipertrofi (SPH)</div>
+    <div class="card-title"><div class="num teal">SPH</div>Stenosis Pylorus Hypertrophy</div>
+
+    <h3>Definisi & Patofisiologi</h3>
+    <p>Penebalan otot pilorus → penyempitan kanal pilorus → kompresi lipatan longitudinal mukosa → <strong>obstruksi lambung</strong>. Sumbatan terjadi SEBELUM Ampula Vateri.</p>
+
+    <div class="reasoning">
+      <div class="reasoning-title">Alur Logika Gejala Klinis</div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(79,209,197,0.2);color:var(--accent1)">1</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4 style="color:var(--accent1)">Pilorus tersumbat</h4><p>Makanan dari lambung tidak bisa masuk duodenum</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(246,173,85,0.2);color:var(--accent2)">2</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4 style="color:var(--accent2)">Tekanan lambung ↑↑</h4><p>→ <mark>Muntah proyektil / nyemprot</mark>, non-bilious (belum terwarnai empedu)</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(252,129,129,0.2);color:var(--accent3)">3</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4 style="color:var(--accent3)">Tidak ada intake masuk</h4><p>→ Dehidrasi berat → Gangguan elektrolit → Alkalosis metabolik (karena hilang HCl)</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(159,122,234,0.2);color:var(--accent4)">4</div></div>
+          <div class="flow-content"><h4 style="color:var(--accent4)">Tidak ada yang turun ke usus</h4><p>→ Konstipasi + Anak rewel karena lapar</p></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Gejala Klinis</h3>
+    <ul class="styled">
+      <li><strong>Muntah non-bilious + proyektil</strong> (nyemprot, seperti disemprot)</li>
+      <li>Dehidrasi berat + gangguan elektrolit</li>
+      <li>Alkalosis metabolik hipokloremik</li>
+      <li>Konstipasi</li>
+      <li>Anak rewel, lapar terus</li>
+    </ul>
+
+    <h3>Pemeriksaan Fisik</h3>
+    <ul class="styled">
+      <li><strong>Olive sign</strong> → benjolan keras seperti buah zaitun teraba di epigastrium/hipokondria dekstra = otot pilorus menebal</li>
+      <li>Contour dan peristaltik lambung terlihat dari dinding perut bagian atas</li>
+    </ul>
+
+    <h3>Pemeriksaan Penunjang</h3>
+    <ul class="styled">
+      <li><code>USG</code> → <mark>Donut sign / Target sign</mark></li>
+      <li><code>Barium meal</code> → <mark>String sign</mark> (saluran pilorus kecil panjang)</li>
+    </ul>
+
+    <h3>Tatalaksana</h3>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:rgba(79,209,197,0.2);color:var(--accent1)">1</div><div class="flow-line"></div></div>
+        <div class="flow-content"><h4>Preoperatif: Koreksi dulu!</h4><p>Rehidrasi cairan + koreksi elektrolit + koreksi asam-basa → pastikan kondisi optimal</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:rgba(104,211,145,0.2);color:var(--accent5)">2</div></div>
+        <div class="flow-content"><h4>Operasi: Piloromiotomi (Fredet-Ramstedt)</h4><p>Insisi longitudinal otot pilorus tanpa menembus mukosa → pilorus terbuka</p></div>
+      </div>
+    </div>
+
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic SPH</div>
+      <div class="mnemonic-grid">
+        <div class="mnemonic-item"><strong>S</strong>emprot (muntah proyektil)</div>
+        <div class="mnemonic-item"><strong>P</strong>utih (non-bilious)</div>
+        <div class="mnemonic-item"><strong>H</strong>ilang cairan (dehidrasi)</div>
+        <div class="mnemonic-item"><strong>O</strong>live sign</div>
+        <div class="mnemonic-item"><strong>S</strong>tring sign (barium)</div>
+        <div class="mnemonic-item"><strong>D</strong>onut sign (USG)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hirschsprung -->
+  <div class="card amber">
+    <div class="pill amber">2 · Hirschsprung Disease</div>
+    <div class="card-title"><div class="num amber">HD</div>Megacolon Kongenital / Hirschsprung Disease</div>
+
+    <h3>Definisi & Patofisiologi</h3>
+    <p>Tidak adanya sel ganglion pada usus distal akibat <strong>gangguan migrasi neural crest cells</strong> dari hindgut. Segmen aganglionik tidak bisa relaksasi → usus menguncup → terjadi obstruksi fungsional.</p>
+
+    <div class="reasoning">
+      <div class="reasoning-title">Logika Gambar Radiologis CIL</div>
+      <p>Pada CIL (Colon in Loop) terlihat 3 zona: <br>
+      <strong>1) Segmen aganglionik</strong> (menyempit, tidak bergerak) → <strong>2) Zona transisional</strong> (peralihan) → <strong>3) Segmen ganglionik</strong> (melebar/dilatasi = kolon yang "menumpuk")
+      </p>
+    </div>
+
+    <h3>Gejala Klinis</h3>
+    <ul class="styled">
+      <li>Mekonium tidak keluar <mark>>48 jam</mark> setelah lahir (normal: <24 jam, prematur <48 jam)</li>
+      <li>Distensi abdomen (perut kembung)</li>
+      <li>Konstipasi kronis (BAB 3-6 hari sekali → cek ada tidaknya anamnesis ini!)</li>
+      <li>Enterokolitis (komplikasi berbahaya akibat stasis bakteri)</li>
+      <li>Muntah</li>
+    </ul>
+
+    <h3>Pemeriksaan</h3>
+    <ul class="styled">
+      <li><code>Colon in Loop (CIL)</code> → tampak zona sempit aganglionik + dilatasi proksimal</li>
+      <li><code>Biopsi rektum</code> → <mark>GOLD STANDARD</mark> (tidak ada sel ganglion pada submukosa)</li>
+    </ul>
+
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Reseksi segmen aganglionik</li>
+      <li>Operasi PSARP (Posterior Sagittal Anorectoplasty) atau pull-through</li>
+      <li>Jika belum siap operasi definitif → Kolostomi sementara</li>
+    </ul>
+
+    <div class="key-fact">Anamnesis PENTING: "Kapan mekonium pertama kali keluar?" Jika >24 jam → waspada Hirschsprung!</div>
+
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic HIRSCHSPRUNG</div>
+      <p style="font-size:13px;color:var(--muted)">"<strong>Tidak Ada Ganglion, Dilatasi Mengancam</strong>"<br>
+      T = Tidak ada mekonium &gt;48 jam<br>A = Aganglionik segmen distal<br>G = Gangguan migrasi neural crest<br>D = Distensi abdomen<br>M = Mekonium terlambat</p>
+    </div>
+  </div>
+
+  <!-- Atresia Ani -->
+  <div class="card coral">
+    <div class="pill coral">3 · Atresia Ani / Anus Imperforata</div>
+    <div class="card-title"><div class="num coral">AA</div>Atresia Ani / Anus Imperforata</div>
+
+    <h3>Definisi</h3>
+    <p>Kelainan kongenital berupa tidak adanya anus atau anus tidak sempurna. Insidens <strong>1:5000 kelahiran</strong>. Sering disertai anomali lain (sindrom VACTERL).</p>
+
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic VACTERL — "VACa TERLambat"</div>
+      <div class="mnemonic-grid">
+        <div class="mnemonic-item"><strong>V</strong>ertebra Defect</div>
+        <div class="mnemonic-item"><strong>A</strong>nal Atresia</div>
+        <div class="mnemonic-item"><strong>C</strong>ardiac Defect</div>
+        <div class="mnemonic-item"><strong>T</strong>racheo-<strong>E</strong>sophageal Fistula</div>
+        <div class="mnemonic-item"><strong>R</strong>enal Abnormalities</div>
+        <div class="mnemonic-item"><strong>L</strong>imb Defect</div>
+      </div>
+    </div>
+
+    <h3>Klasifikasi Melbourne</h3>
+    <table class="compare-table">
+      <thead><tr><th>Tipe</th><th>Posisi Akhiran Usus</th><th>Tatalaksana</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rendah (Low)</strong></td><td>Di bawah garis os ischii</td><td>Anoplasty langsung</td></tr>
+        <tr><td><strong>Sedang (Intermediate)</strong></td><td>Antara os ischii dan os pubis</td><td>Kolostomi dulu → PSARP → tutup kolostomi</td></tr>
+        <tr><td><strong>Tinggi (High)</strong></td><td>Di atas os pubis</td><td>Kolostomi dulu → PSARP → tutup kolostomi</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Tipe Fistel</h3>
+    <p>Jika ada fistel, usus terhubung dengan organ sekitarnya:</p>
+    <ul class="styled">
+      <li><strong>Recto-Vesical</strong> → feses/udara keluar lewat urin</li>
+      <li><strong>Recto-Vaginal</strong> → feses keluar lewat vagina</li>
+      <li><strong>Recto-Vestibular</strong> → fistel di vestibulum vagina</li>
+      <li><strong>Recto-Perineal</strong> → fistel di perineum</li>
+      <li><strong>Recto-Urethral</strong> → feses keluar saat BAK</li>
+    </ul>
+
+    <div class="reasoning">
+      <div class="reasoning-title">Cara Deteksi Fistel</div>
+      <p>Tanya ibu: "Apakah warna air kencing bayinya ada campuran kehijauan/coklat seperti mekonium?" → jika ya, kemungkinan besar ada fistel recto-vesical atau recto-urethral.</p>
+    </div>
+
+    <h3>Pemeriksaan Fisik</h3>
+    <ul class="styled">
+      <li>Tidak ada lubang anus → cek ada/tidak fistel</li>
+      <li>Mekonium tidak keluar >24–48 jam</li>
+      <li>Perut kembung, distensi abdomen</li>
+    </ul>
+
+    <h3>Pemeriksaan Penunjang</h3>
+    <ul class="styled">
+      <li><code>X-Ray Invertogram</code> → posisi knee-chest, marker di lokasi anus → lihat akhiran udara → tunggu <mark>>24 jam</mark> agar udara sudah turun</li>
+      <li>Tentukan letak: tinggi/sedang/rendah berdasarkan posisi udara vs garis ischii-pubis</li>
+    </ul>
+
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>JANGAN masukkan apapun per oral</li>
+      <li>Infus + koreksi elektrolit (selalu dehidrasi)</li>
+      <li>Letak rendah → Anoplasty</li>
+      <li>Letak sedang/tinggi → Kolostomi → (3 bulan) → PSARP → tutup kolostomi</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ DINDING ABDOMEN ══════════════════════════════════ -->
+<section id="dinding">
+  <h2 class="section-heading">C. Kelainan Dinding Abdomen</h2>
+  <p class="section-sub">Dua kondisi ini SERING diuji bersama — kuncinya ada di membran!</p>
+
+  <div class="card amber">
+    <div class="pill amber">Omphalocele</div>
+    <div class="card-title"><div class="num amber">OM</div>Omphalocele (Omfalokel)</div>
+    <h3>Definisi</h3>
+    <p>Herniasi organ abdomen melalui cincin umbilikus ke dalam kantong yang <mark>MASIH DILIPUTI MEMBRAN</mark> (terdiri dari peritoneum, Wharton's jelly, dan amnion).</p>
+    <ul class="styled">
+      <li>Isi: Hati + usus (bisa keduanya)</li>
+      <li>Lokasi: <strong>DI TENGAH</strong> (tepat di umbilikus)</li>
+      <li>Ada umbilikusnya yang terhubung ke membran</li>
+      <li>Sering disertai kelainan kromosom (Trisomi 13, 18, 21)</li>
+    </ul>
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Operasi bertahap (tidak bisa langsung ditutup → organ terlalu besar)</li>
+      <li>Silo technique jika defek besar</li>
+    </ul>
+  </div>
+
+  <div class="card coral">
+    <div class="pill coral">Gastroschisis</div>
+    <div class="card-title"><div class="num coral">GS</div>Gastroschisis</div>
+    <h3>Definisi</h3>
+    <p>Defek dinding abdomen <mark>TANPA MEMBRAN PENUTUP</mark> — usus langsung terekspos ke udara luar.</p>
+    <ul class="styled">
+      <li>Isi: Usus saja (bukan hati)</li>
+      <li>Lokasi: <strong>SEBELAH KANAN</strong> umbilikus (umbilikusnya tetap ada, normal)</li>
+      <li>Risiko tinggi: dehidrasi, hipotermia, infeksi (karena tidak ada tutup)</li>
+    </ul>
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Operasi segera (lebih gawat dari omphalocele)</li>
+      <li>Hangatkan bayi, tutup usus dengan plastik steril sementara</li>
+      <li>Prognosis lebih BAIK dari omphalocele (tidak ada kelainan kromosom)</li>
+    </ul>
+  </div>
+
+  <div class="card teal">
+    <div class="card-title"><div class="num teal">⚖</div>Perbandingan Omphalocele vs Gastroschisis</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Fitur</th><th>Omphalocele</th><th>Gastroschisis</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Membran</strong></td><td style="color:var(--accent5)">Ada ✓</td><td style="color:var(--accent3)">Tidak Ada ✗</td></tr>
+        <tr><td><strong>Lokasi defek</strong></td><td>Tengah (umbilikus)</td><td>Kanan umbilikus</td></tr>
+        <tr><td><strong>Isi</strong></td><td>Hati + Usus</td><td>Usus saja</td></tr>
+        <tr><td><strong>Kelainan kromosom</strong></td><td style="color:var(--accent3)">Sering (+)</td><td style="color:var(--accent5)">Jarang (-)</td></tr>
+        <tr><td><strong>Prognosis</strong></td><td style="color:var(--accent3)">Lebih Buruk</td><td style="color:var(--accent5)">Lebih Baik</td></tr>
+        <tr><td><strong>Gawat Darurat</strong></td><td>Sedang</td><td style="color:var(--accent3)">Sangat Gawat (terekspos)</td></tr>
+      </tbody>
+    </table>
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic Bedanya</div>
+      <p style="font-size:13px;color:var(--muted)">
+        <strong>Om(phalocele)</strong> = punya Om/Membran, di tengah, isi banyak (hati juga)<br>
+        <strong>Gas(troschisis)</strong> = Gasss (terekspos), Geser ke kanan, cuma usus
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ EMBRIONAL ══════════════════════════════════ -->
+<section id="embrional">
+  <h2 class="section-heading">B. Kelainan Sisa Embrional</h2>
+  <p class="section-sub">Diverticle Meckel — "Rule of 2" yang wajib hafal!</p>
+
+  <div class="card green">
+    <div class="pill green">Diverticle Meckel</div>
+    <div class="card-title"><div class="num green">DM</div>Diverticle Meckel</div>
+
+    <h3>Definisi</h3>
+    <p>Sisa <strong>duktus omfalomesenterikus</strong> (duktus vitelinus) yang normalnya seharusnya regresi saat janin berkembang. Merupakan tonjolan pada ileum yang mengandung mukosa ektopik (mukosa lambung atau pankreas).</p>
+
+    <div class="mnemonic">
+      <div class="mnemonic-title">Rule of 2 — WAJIB HAFAL!</div>
+      <div class="mnemonic-grid">
+        <div class="mnemonic-item"><strong>2%</strong> populasi umum</div>
+        <div class="mnemonic-item"><strong>2</strong> tahun (terutama &lt;2 tahun)</div>
+        <div class="mnemonic-item"><strong>2x</strong> lebih banyak pada laki-laki</div>
+        <div class="mnemonic-item"><strong>2</strong> inch panjangnya</div>
+        <div class="mnemonic-item"><strong>2</strong> kaki dari katup ileosekal</div>
+        <div class="mnemonic-item"><strong>2</strong> jenis mukosa ektopik (lambung/pankreas)</div>
+      </div>
+    </div>
+
+    <h3>Gejala Klinis</h3>
+    <ul class="styled">
+      <li><strong>Asimptomatik</strong> sepanjang hidup (mayoritas)</li>
+      <li><mark>Perdarahan tanpa nyeri</mark> (mukosa lambung ektopik → ulkus → bleeding)</li>
+      <li>Obstruksi usus (bisa lead point intususepsi atau volvulus)</li>
+      <li>Ileus obstruksi (paling sering presentasi akut)</li>
+    </ul>
+
+    <div class="reasoning">
+      <div class="reasoning-title">Mekanisme Komplikasi</div>
+      <p>Peristaltik usus → bagian proksimal bisa "masuk ke dalam" divertikulum → <strong>intususepsi</strong>. Atau kontraksi menyebabkan pemuntiran usus → <strong>volvulus</strong>. Sering baru ketahuan saat laparotomi atas indikasi ileus!</p>
+    </div>
+
+    <h3>Pemeriksaan Penunjang</h3>
+    <ul class="styled">
+      <li><code>Meckel Scan (Tc-99m pertechnetate)</code> → mendeteksi mukosa lambung ektopik</li>
+    </ul>
+
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Reseksi bedah (potong divertikulum + sambung usus)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ UMBILIKUS ══════════════════════════════════ -->
+<section id="umbilikus">
+  <h2 class="section-heading">D. Kelainan Umbilikus</h2>
+  <p class="section-sub">Dua kondisi berbeda tapi mudah dibedakan dari gejalanya</p>
+
+  <div class="card blue">
+    <div class="pill blue">1 · Fistula Umbilikal</div>
+    <div class="card-title"><div class="num blue">FU</div>Fistula Umbilikal</div>
+    <h3>Jenis</h3>
+    <ul class="styled">
+      <li><strong>Patent Urachus</strong> → saluran antara kandung kemih (VU) dan umbilikus tidak menutup → <mark>urin keluar dari umbilikus</mark></li>
+      <li><strong>Patent Vitelline Duct</strong> → duktus omfalomesenterikus tidak menutup → <mark>feses keluar dari umbilikus</mark></li>
+    </ul>
+    <h3>Gejala</h3>
+    <ul class="styled">
+      <li>Umbilikus tidak kering setelah lahir</li>
+      <li>Keluar cairan dari umbilikus (urin/feses)</li>
+      <li>Berbau</li>
+    </ul>
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Eksisi bedah</li>
+    </ul>
+  </div>
+
+  <div class="card purple">
+    <div class="pill purple">2 · Omphalitis (Infeksi Umbilikus)</div>
+    <div class="card-title"><div class="num purple">OP</div>Omphalitis</div>
+    <h3>Definisi</h3>
+    <p>Infeksi pada tali pusat (umbilikus) — kondisi yang berbahaya pada neonatus karena mudah sepsis.</p>
+    <h3>Gejala (Trio Infeksi)</h3>
+    <ul class="styled">
+      <li><mark>Eritema</mark> (kemerahan di sekitar umbilikus)</li>
+      <li><mark>Pus/nanah</mark> keluar</li>
+      <li><mark>Berbau</mark></li>
+    </ul>
+    <h3>Komplikasi</h3>
+    <ul class="styled">
+      <li><strong>Sepsis</strong> — berbahaya, neonatus imunnya lemah</li>
+    </ul>
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li>Antibiotik IV</li>
+      <li>Debridement jika perlu</li>
+      <li>Jaga kebersihan, keringkan umbilikus</li>
+    </ul>
+    <div class="mnemonic">
+      <div class="mnemonic-title">Mnemonic Omphalitis</div>
+      <p style="font-size:13px;color:var(--muted)">"<strong>E-P-B-S</strong>" = Eritema, Pus, Bau, Sepsis (komplikasi)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ LAIN-LAIN ══════════════════════════════════ -->
+<section id="lain">
+  <h2 class="section-heading">E. Kelainan Lain</h2>
+  <p class="section-sub">Atresia Bilier & Ektopia — penting tapi sering luput!</p>
+
+  <div class="card amber">
+    <div class="pill amber">1 · Atresia Bilier</div>
+    <div class="card-title"><div class="num amber">AB</div>Atresia Bilier</div>
+
+    <h3>Definisi & Patofisiologi</h3>
+    <p>Obstruksi progresif saluran empedu ekstrahepatik akibat inflamasi dan fibrosis pada masa perinatal. Empedu tidak bisa mengalir ke usus.</p>
+
+    <div class="reasoning">
+      <div class="reasoning-title">Logika Ikterus pada Atresia Bilier</div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(246,173,85,0.2);color:var(--accent2)">1</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4>Saluran empedu tersumbat</h4><p>Bilirubin direk tidak bisa mengalir ke usus</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(246,173,85,0.2);color:var(--accent2)">2</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4>Bilirubin masuk darah</h4><p>→ Ikterus (kuning) + Urin gelap seperti teh</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(246,173,85,0.2);color:var(--accent2)">3</div><div class="flow-line"></div></div>
+          <div class="flow-content"><h4>Tidak ada empedu di usus</h4><p>→ Feses tidak terwarnai → <mark>Feses pucat / acholic</mark></p></div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left"><div class="flow-dot" style="background:rgba(252,129,129,0.2);color:var(--accent3)">4</div></div>
+          <div class="flow-content"><h4>Lama-lama</h4><p>→ Fibrosis progresif → Sirosis hepatis</p></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Gejala Klinis</h3>
+    <ul class="styled">
+      <li><mark>Ikterus >2 minggu</mark> (neonatal jaundice yang persisten → curiga atresia bilier!)</li>
+      <li>Feses pucat / acholic (tidak berwarna)</li>
+      <li>Urin gelap (seperti teh/air kopi)</li>
+      <li>Hepatomegali (liver teraba membesar)</li>
+      <li>Gangguan tumbuh kembang</li>
+    </ul>
+
+    <div class="key-fact">Pasang ikterus >2 minggu pada neonatus = WASPADA atresia bilier! Normal ikterus fisiologis hanya sampai 2 minggu.</div>
+
+    <h3>Pemeriksaan Penunjang</h3>
+    <ul class="styled">
+      <li>Lab: Bilirubin <strong>direk</strong> meningkat (post-hepatal obstruction)</li>
+      <li>USG / Kolangiogram</li>
+      <li>Biopsi hati</li>
+    </ul>
+
+    <h3>Tatalaksana</h3>
+    <ul class="styled">
+      <li><strong>Operasi Kasai (Hepatoportoenterostomy)</strong> → hati disambungkan langsung ke usus</li>
+      <li>Jika sudah sirosis → Transplantasi hati</li>
+    </ul>
+
+    <h3>Klasifikasi Tipe</h3>
+    <table class="compare-table">
+      <thead><tr><th>Tipe</th><th>Yang Tersumbat</th></tr></thead>
+      <tbody>
+        <tr><td>Type I</td><td>CBD (Common Bile Duct)</td></tr>
+        <tr><td>Type IIa</td><td>Common hepatic duct</td></tr>
+        <tr><td>Type IIb</td><td>Cystic duct + CBD + CHD</td></tr>
+        <tr><td>Type III</td><td>Semua duktus (intra + ekstra hepatik) → paling berat</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card purple">
+    <div class="pill purple">2 · Ektopia Organ</div>
+    <div class="card-title"><div class="num purple">EK</div>Ektopia Organ</div>
+    <h3>Definisi</h3>
+    <p>Letak organ tidak pada posisi normal akibat gangguan migrasi embrional.</p>
+    <h3>Contoh Klinis</h3>
+    <ul class="styled">
+      <li><strong>Ektopia cordis</strong> → jantung di luar rongga dada</li>
+      <li><strong>Apendiks ektopik</strong> → apendiks tidak di fosa iliaka kanan, bisa di epigastrik atau hipogastrik</li>
+    </ul>
+    <div class="key-fact">Jika pasien peritonitis tapi nyeri di lokasi tidak biasa → selalu pertimbangkan ektopia organ!</div>
+    <h3>Manifestasi</h3>
+    <p style="color:var(--muted)">Tergantung organ yang terkena. Diagnosis sering tertukar karena letak tidak normal.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ PERBANDINGAN ══════════════════════════════════ -->
+<section id="perbandingan">
+  <h2 class="section-heading">📊 Tabel Perbandingan Cepat</h2>
+  <p class="section-sub">Ringkasan semua penyakit untuk review last-minute!</p>
+
+  <div class="card teal">
+    <div class="card-title"><div class="num teal">🔍</div>Perbandingan Semua Kelainan Obstruksi</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Fitur</th><th>SPH</th><th>Hirschsprung</th><th>Atresia Ani</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Usia presentasi</strong></td><td>2–6 minggu</td><td>Neonatus–anak</td><td>Neonatus (langsung)</td></tr>
+        <tr><td><strong>Gejala khas</strong></td><td>Muntah proyektil non-bilious</td><td>Mekonium terlambat, konstipasi</td><td>Tidak ada lubang anus</td></tr>
+        <tr><td><strong>Pemfis khas</strong></td><td>Olive sign</td><td>RT: colok dubur ada semburan feses</td><td>Tidak ada lubang anus</td></tr>
+        <tr><td><strong>Radiologi</strong></td><td>Donut sign (USG), String sign</td><td>CIL: zona sempit–transisi–melebar</td><td>Invertogram</td></tr>
+        <tr><td><strong>Gold standard Dx</strong></td><td>USG / Barium meal</td><td>Biopsi rektum</td><td>Invertogram + klinis</td></tr>
+        <tr><td><strong>Operasi</strong></td><td>Piloromiotomi Fredet-Ramstedt</td><td>Reseksi + Pull-through/PSARP</td><td>Anoplasty / PSARP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card amber">
+    <div class="card-title"><div class="num amber">💡</div>Bilirubin — Cara Membaca untuk Ujian</div>
+    <table class="compare-table">
+      <thead><tr><th>Bilirubin</th><th>Letak Masalah</th><th>Contoh Penyakit</th></tr></thead>
+      <tbody>
+        <tr><td>Indirek ↑, Direk normal</td><td>Pre-hepatal (hemolisis)</td><td>Anemia hemolitik</td></tr>
+        <tr><td>Indirek ↑ + Direk ↑</td><td>Hepatal (kerusakan sel hati)</td><td>Hepatitis</td></tr>
+        <tr><td>Direk ↑↑, Indirek normal/sedikit ↑</td><td>Post-hepatal (obstruksi)</td><td><mark>Atresia bilier, batu empedu</mark></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card green">
+    <div class="card-title"><div class="num green">📸</div>Tanda Radiologis — Ringkasan</div>
+    <table class="compare-table">
+      <thead><tr><th>Tanda</th><th>Modalitas</th><th>Penyakit</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Donut/Target sign</strong></td><td>USG</td><td>SPH</td></tr>
+        <tr><td><strong>String sign</strong></td><td>Barium meal</td><td>SPH</td></tr>
+        <tr><td><strong>Single bubble sign</strong></td><td>X-Ray polos</td><td>SPH (obstruksi lambung saja)</td></tr>
+        <tr><td><strong>Double bubble sign</strong></td><td>X-Ray polos</td><td>Atresia duodenum</td></tr>
+        <tr><td><strong>Zona sempit-transisi-melebar</strong></td><td>CIL</td><td>Hirschsprung disease</td></tr>
+        <tr><td><strong>Invertogram</strong></td><td>X-Ray</td><td>Atresia ani (letak tinggi/rendah)</td></tr>
+        <tr><td><strong>Meckel scan (Tc-99m)</strong></td><td>Skintigrafi</td><td>Diverticle Meckel</td></tr>
+        <tr><td><strong>Bird of prey sign</strong></td><td>CIL</td><td>Volvulus sigmoid</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ QUIZ ══════════════════════════════════ -->
+<section id="quiz">
+  <h2 class="section-heading">✏️ Quiz Ujian</h2>
+  <p class="section-sub">10 soal vignette setara UKMPPD — kerjakan dulu sebelum lihat jawaban!</p>
+
+  <div class="score-bar">
+    <div>
+      <div class="score-num" id="scoreNum">0/10</div>
+      <div class="score-label">Jawaban benar</div>
+    </div>
+    <div style="flex:1">
+      <div style="background:var(--border);border-radius:10px;height:8px;overflow:hidden">
+        <div id="scoreBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent1),var(--accent4));transition:width 0.5s;border-radius:10px"></div>
+      </div>
+    </div>
+    <button onclick="resetQuiz()" style="background:rgba(124,92,191,0.10);border:1px solid rgba(124,92,191,0.25);color:var(--accent4);padding:10px 20px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600">Reset Quiz</button>
+  </div>
+
+  <div class="quiz-container" id="quizContainer"></div>
+</section>
+
+</div><!-- /container -->
+
+<script>
+// ── NAV ──
+function showTab(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const btns = document.querySelectorAll('.nav-btn');
+  const map = {overview:0,obstruksi:1,dinding:2,embrional:3,umbilikus:4,lain:5,perbandingan:6,quiz:7};
+  btns[map[id]]?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── QUIZ DATA ──
+const questions = [
+  {
+    num: 1,
+    vignette: "Bayi laki-laki, usia 4 minggu, dibawa ke IGD dengan keluhan muntah-muntah terus-menerus sejak 1 minggu terakhir. Ibu mengatakan muntahnya seperti disemprot, warnanya putih kekuningan. Bayi tampak kehausan, turgor kulit menurun. Pada palpasi epigastrium teraba massa keras sebesar buah zaitun. Pemeriksaan USG dilakukan.",
+    stem: "Apakah tanda khas yang diharapkan pada pemeriksaan USG bayi ini?",
+    options: ["A. Double bubble sign", "B. Bird of prey sign", "C. Donut sign / Target sign", "D. String sign", "E. Invertogram sign"],
+    correct: 2,
+    explanation: "Donut/Target sign pada USG merupakan tanda khas Stenosis Pilorus Hipertrofi (SPH). Tampak penebalan otot pilorus yang memberikan gambaran seperti donat. String sign adalah pada Barium meal SPH. Double bubble sign adalah untuk atresia duodenum. Bird of prey sign untuk volvulus sigmoid."
+  },
+  {
+    num: 2,
+    vignette: "Bayi perempuan, lahir 2 hari lalu, dirujuk ke IGD karena belum BAB. Pemeriksaan fisik: tidak ditemukan lubang anus, perut kembung, bayi rewel. Ibu menyampaikan bahwa urin bayinya kadang berwarna sedikit kehijauan. Dokter merencanakan pemeriksaan X-ray.",
+    stem: "Berapa lama bayi harus ditunggu sebelum dilakukan foto invertogram, dan mengapa?",
+    options: ["A. 6 jam, agar bayi cukup beristirahat", "B. 12 jam, agar mekonium mengisi rektum", "C. >24 jam, agar udara cukup turun hingga ujung kantong usus", "D. Langsung saat lahir, karena lebih akurat", "E. 48 jam, agar terbentuk fistula terlebih dahulu"],
+    correct: 2,
+    explanation: "Invertogram harus ditunggu minimal >24 jam setelah lahir agar udara dari mulut bisa turun hingga ke ujung kantong usus buntu (blind pouch). Jika dilakukan terlalu cepat, udara belum mencapai ujung bawah sehingga akan memberikan gambaran yang salah (seolah-olah letaknya tinggi padahal rendah). Urin kehijauan pada soal ini mengisyaratkan ada fistula recto-vesical."
+  },
+  {
+    num: 3,
+    vignette: "Anak laki-laki, 3 tahun, dibawa ke UGD dengan keluhan perut kembung dan nyeri mendadak. Anamnesis: sejak bayi BAB tidak rutin, biasanya 4–5 hari sekali. Sekarang sudah 1 minggu tidak BAB. Pada pemeriksaan colok dubur, saat jari dikeluarkan, feses keluar seperti semburan (squirt sign). Dokter merencanakan pemeriksaan Colon in Loop.",
+    stem: "Gambaran radiologis apakah yang paling mungkin ditemukan pada pemeriksaan Colon in Loop pasien ini?",
+    options: ["A. Single bubble sign di lambung", "B. String sign pada pilorus", "C. Segmen sempit distal – zona transisi – dilatasi proksimal", "D. Double bubble sign di duodenum", "E. Free air subdiafragma"],
+    correct: 2,
+    explanation: "Gambaran khas Hirschsprung pada CIL adalah adanya tiga zona: (1) segmen aganglionik yang sempit di distal, (2) zona transisi, dan (3) dilatasi kolon di proksimal. Squirt sign pada colok dubur juga sangat khas Hirschsprung. Gold standard tetap biopsi rektum (tidak ada sel ganglion)."
+  },
+  {
+    num: 4,
+    vignette: "Neonatus laki-laki, lahir normal, langsung tampak kelainan di dinding abdomen. Terlihat usus terekspos keluar tanpa penutup apapun, terletak di sebelah kanan tali pusat. Tali pusat tampak normal dan terpisah dari usus yang keluar. Tidak ada kelainan kromosom.",
+    stem: "Apakah diagnosis yang paling tepat dan apa langkah pertama tatalaksana?",
+    options: ["A. Omphalocele; tutup dengan membran segera", "B. Gastroschisis; tutup dengan kassa steril hangat + operasi segera", "C. Omphalocele; operasi bertahap sesuai ukuran defek", "D. Gastroschisis; tunggu kondisi bayi stabil lalu operasi elektif", "E. Hernia umbilikalis; tidak perlu tindakan segera"],
+    correct: 1,
+    explanation: "Ini adalah Gastroschisis: defek dinding abdomen TANPA membran, terletak di KANAN umbilikus, isi hanya usus, tidak berhubungan dengan kelainan kromosom. Pertama, tutup usus dengan kassa steril hangat atau plastik steril untuk mencegah kehilangan cairan dan hipotermia, lalu operasi segera. Berbeda dengan Omphalocele yang masih punya membran dan bisa ditunggu lebih lama."
+  },
+  {
+    num: 5,
+    vignette: "Anak laki-laki, 2 tahun, datang ke UGD dengan keluhan BAB berdarah sejak 1 hari. Darahnya berwarna merah segar dan cukup banyak, namun anaknya tidak tampak kesakitan (perdarahan tanpa nyeri). Tidak ada riwayat trauma. Pemeriksaan fisik tidak tampak kelainan bermakna.",
+    stem: "Diagnosis yang paling mungkin dan pemeriksaan penunjang yang tepat adalah?",
+    options: ["A. Hemoroid interna; pemeriksaan anoskopi", "B. Polip rekti; pemeriksaan kolonoskopi", "C. Diverticle Meckel; Meckel scan (Tc-99m pertechnetate)", "D. Kolitis ulseratif; biopsi mukosa", "E. Intususepsi; USG abdomen"],
+    correct: 2,
+    explanation: "Perdarahan tanpa nyeri pada anak <2 tahun sangat khas untuk Diverticle Meckel. Mukosa ektopik lambung di dalam divertikulum memproduksi asam → ulkus → perdarahan. Pemeriksaan pilihan adalah Meckel scan menggunakan Tc-99m pertechnetate yang akan terakumulasi di mukosa lambung ektopik. Rule of 2 harus diingat: 2%, <2 tahun, 2x ♂, 2 inch, 2 kaki dari katup ileosekal."
+  },
+  {
+    num: 6,
+    vignette: "Bayi perempuan, lahir 3 minggu lalu, dibawa karena masih tampak kuning. Ibu menyampaikan bahwa tinja bayinya sangat pucat seperti dempul, dan air kencingnya berwarna gelap seperti teh. Pada pemeriksaan, tampak ikterik di seluruh tubuh, hati teraba 3 cm di bawah arkus kosta. Lab: Bilirubin direk sangat meningkat.",
+    stem: "Diagnosis dan tatalaksana operatif yang paling tepat adalah?",
+    options: ["A. Hepatitis neonatal; terapi suportif", "B. Atresia bilier; Operasi Kasai (hepatoportoenterostomy)", "C. Ikterus fisiologis; fototerapi", "D. Kolestasis intrahepatal; transplantasi langsung", "E. Hemolisis; transfusi darah"],
+    correct: 1,
+    explanation: "Trias Atresia Bilier: (1) Ikterus >2 minggu, (2) Feses acholic/pucat, (3) Urin gelap. Bilirubin direk yang meningkat menunjukkan obstruksi post-hepatal. Tatalaksana adalah Operasi Kasai (hepatoportoenterostomy) yang menghubungkan langsung parenkim hati ke usus untuk membypass saluran empedu yang tersumbat. Jika sudah sirosis, perlu transplantasi hati."
+  },
+  {
+    num: 7,
+    vignette: "Bayi laki-laki, lahir normal, usia 5 hari, dibawa karena tali pusat tidak kering dan keluar cairan dari umbilikus. Ibu mengatakan cairannya berbau dan kadang seperti urin. Tidak ada demam. Pemeriksaan: daerah sekitar umbilikus kemerahan, basah.",
+    stem: "Komponen dari sindrom VACTERL yang menjadi nama kelainan pada bayi ini adalah?",
+    options: ["A. Anal atresia", "B. Kelainan ini bukan bagian VACTERL, diagnosis kemungkinan Patent Urachus", "C. Vertebra defect", "D. Renal abnormalities", "E. Limb defect"],
+    correct: 1,
+    explanation: "Keluar urin dari umbilikus menunjukkan Patent Urachus — sisa saluran antara kandung kemih dan umbilikus yang tidak menutup sempurna saat janin berkembang. Ini bukan bagian dari sindrom VACTERL. Kondisi ini berbeda dari Omphalocele/Gastroschisis. Tatalaksana: eksisi bedah saluran yang tidak menutup tersebut. Omphalitis (infeksi umbilikus) juga bisa ada bersamaan, tapi diagnosis utamanya adalah Patent Urachus."
+  },
+  {
+    num: 8,
+    vignette: "Seorang anak laki-laki 4 tahun dibawa orang tuanya dengan keluhan kembung dan muntah sejak kemarin. Riwayat: sejak bayi BAB tidak rutin, biasanya 5–6 hari sekali. Dokter merencanakan biopsi rektum. Hasil biopsi menunjukkan tidak adanya sel ganglion pada lapisan submukosa dan myenteric plexus.",
+    stem: "Pertanyaan anamnesis apakah yang paling penting ditanyakan kepada orang tua terkait riwayat neonatal?",
+    options: ["A. Apakah anak mendapat ASI eksklusif?", "B. Apakah mekonium keluar dalam 24 jam pertama?", "C. Apakah anak pernah demam tinggi sebelumnya?", "D. Apakah ibu mengonsumsi obat-obatan saat hamil?", "E. Apakah anak sering jajan sembarangan?"],
+    correct: 1,
+    explanation: "Pertanyaan paling penting untuk Hirschsprung Disease adalah waktu keluarnya mekonium pertama. Normal: mekonium keluar <24 jam (atau <48 jam pada prematur). Jika >48 jam, sangat curiga Hirschsprung. Ini adalah red flag neonatal yang harus selalu ditanyakan. Biopsi rektum yang menunjukkan tidak adanya sel ganglion adalah gold standard diagnosis."
+  },
+  {
+    num: 9,
+    vignette: "Bayi laki-laki baru lahir dengan defek dinding abdomen. Tampak kantong besar berisi hati dan usus keluar dari pusar, seluruhnya dibungkus membran tipis yang masih utuh. Tidak ada kelainan di tempat lain yang terlihat sekilas, namun dokter memesan pemeriksaan kromosom.",
+    stem: "Mengapa pemeriksaan kromosom penting pada kasus ini?",
+    options: ["A. Untuk menentukan jenis operasi yang tepat", "B. Karena Omphalocele sering berhubungan dengan kelainan kromosom seperti Trisomi 13, 18, 21", "C. Karena Gastroschisis selalu disertai kelainan kromosom", "D. Untuk memastikan gender bayi", "E. Untuk menentukan golongan darah bayi"],
+    correct: 1,
+    explanation: "Omphalocele (bukan Gastroschisis) sering berhubungan dengan kelainan kromosom, termasuk Trisomi 13 (Patau), Trisomi 18 (Edward), dan Trisomi 21 (Down syndrome). Ciri khas: ada membran penutup, letak di tengah, isi bisa hati+usus. Sebaliknya, Gastroschisis lebih jarang berasosiasi dengan kelainan kromosom dan secara umum prognosisnya lebih baik."
+  },
+  {
+    num: 10,
+    vignette: "Seorang dokter di IGD menerima bayi laki-laki 3 minggu dengan keluhan muntah-muntah terus sejak 4 hari. Ibunya menggambarkan muntahnya keluar 'seperti disemprot jauh'. Warna muntahan putih susu. Pemeriksaan menunjukkan dehidrasi berat. Dokter akan melakukan tatalaksana segera.",
+    stem: "Manakah urutan tatalaksana yang paling tepat untuk pasien ini?",
+    options: ["A. Langsung operasi piloromiotomi tanpa persiapan", "B. Barium meal dulu, lalu USG, lalu langsung operasi", "C. Koreksi dehidrasi dan elektrolit DULU → kondisi optimal → baru operasi piloromiotomi", "D. Pasang NGT → drainase lambung → operasi darurat", "E. Berikan PPI intravena → tunggu gejala membaik → operasi elektif"],
+    correct: 2,
+    explanation: "Pada SPH, operasi TIDAK boleh dilakukan sebelum kondisi dioptimalkan. Muntah proyektil terus-menerus menyebabkan kehilangan HCl → alkalosis metabolik hipokloremik → hipokalemia. Kondisi elektrolit harus dikoreksi dulu karena anestesi pada kondisi alkalosis sangat berbahaya. Urutan: Rehidrasi + koreksi elektrolit + koreksi asam basa → kondisi optimal → piloromiotomi Fredet-Ramstedt."
+  }
+];
+
+let correct = 0, answered = 0;
+
+function renderQuiz() {
+  const c = document.getElementById('quizContainer');
+  c.innerHTML = questions.map((q, qi) => `
+    <div class="quiz-question" id="qq${qi}">
+      <div class="q-num">Soal ${q.num} dari 10</div>
+      <div class="q-vignette">${q.vignette}</div>
+      <div class="q-stem">${q.stem}</div>
+      <div class="options" id="opts${qi}">
+        ${q.options.map((o, oi) => `
+          <button class="option-btn" onclick="answer(${qi},${oi})" id="opt${qi}_${oi}">
+            <span class="opt-letter">${String.fromCharCode(65+oi)}</span>
+            <span>${o.substring(3)}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="explanation" id="exp${qi}">
+        <div class="exp-title">💡 Penjelasan</div>
+        ${q.explanation}
+      </div>
+    </div>
+  `).join('');
+}
+
+function answer(qi, oi) {
+  const q = questions[qi];
+  const opts = document.querySelectorAll(`#opts${qi} .option-btn`);
+  opts.forEach(b => b.disabled = true);
+
+  if (oi === q.correct) {
+    opts[oi].classList.add('correct');
+    correct++;
+  } else {
+    opts[oi].classList.add('wrong');
+    opts[q.correct].classList.add('correct');
+  }
+
+  document.getElementById(`exp${qi}`).classList.add('show');
+  document.getElementById(`qq${qi}`).classList.add('answered');
+  answered++;
+  updateScore();
+}
+
+function updateScore() {
+  document.getElementById('scoreNum').textContent = `${correct}/${answered}`;
+  document.getElementById('scoreBar').style.width = `${(correct/10)*100}%`;
+}
+
+function resetQuiz() {
+  correct = 0; answered = 0;
+  updateScore();
+  renderQuiz();
+}
+
+renderQuiz();
+</script>
+</body>
+</html>

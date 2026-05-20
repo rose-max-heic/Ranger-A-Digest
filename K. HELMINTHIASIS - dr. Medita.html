@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helminthiasis – Interactive Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Palette per kategori */
+  --mint:       #b8f0d8;
+  --mint-mid:   #6edbb4;
+  --mint-dark:  #1a7a58;
+  --blue:       #b8d8f8;
+  --blue-mid:   #5eaef0;
+  --blue-dark:  #1a4a7a;
+  --peach:      #ffd8b8;
+  --peach-mid:  #f0945e;
+  --peach-dark: #7a3a1a;
+  --lilac:      #e0c8f8;
+  --lilac-mid:  #b46ef0;
+  --lilac-dark: #4a1a7a;
+  --yellow:     #fef0b0;
+  --yellow-mid: #f0c83a;
+  --yellow-dark:#6a4e00;
+
+  --bg:    #f9f8f5;
+  --card:  #ffffff;
+  --text:  #1a1a2e;
+  --muted: #6b6b8a;
+  --border:#e2e2ee;
+  --shadow: 0 4px 24px rgba(26,26,46,.07);
+  --r: 16px;
+  --r-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, #1a7a58 0%, #1a4a7a 60%, #4a1a7a 100%);
+  color: #fff;
+  padding: 60px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero .badge {
+  display:inline-block; background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:999px; padding:4px 14px;
+  font-size:12px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; margin-bottom:16px;
+}
+.hero h1 {
+  font-family:'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight:400; line-height:1.15;
+  margin-bottom:12px;
+}
+.hero p { font-size:1rem; opacity:.8; max-width:580px; margin:0 auto; }
+
+/* ─── LAYOUT ─── */
+.container { max-width:960px; margin:0 auto; padding:40px 20px; }
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:24px; margin-top:48px;
+}
+.section-header .dot {
+  width:12px; height:12px; border-radius:50%; flex-shrink:0;
+}
+.section-header h2 {
+  font-family:'DM Serif Display', serif;
+  font-size:1.6rem; font-weight:400;
+}
+
+/* ─── DASHBOARD CARDS ─── */
+.dash-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap:16px; margin-bottom:32px;
+}
+.dash-card {
+  background:var(--card); border-radius:var(--r);
+  padding:20px; box-shadow:var(--shadow);
+  border-top:4px solid transparent;
+}
+.dash-card .label { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.dash-card .value { font-size:1.05rem; font-weight:600; }
+
+/* ─── CONTENT CARD ─── */
+.card {
+  background:var(--card); border-radius:var(--r);
+  box-shadow:var(--shadow); padding:28px;
+  margin-bottom:20px;
+}
+
+/* ─── TABLE ─── */
+.tbl-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; }
+th {
+  background: linear-gradient(135deg, #1a7a58, #1a4a7a);
+  color:#fff; padding:10px 14px; text-align:left; font-weight:600; font-size:12px; letter-spacing:.04em;
+}
+td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:#fafafa; }
+td code { font-family:'JetBrains Mono', monospace; font-size:12px; background:#f0f0f8; padding:2px 6px; border-radius:4px; }
+
+/* ─── CACING CARDS ─── */
+.worm-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:20px;
+}
+.worm-card {
+  border-radius:var(--r); padding:24px;
+  position:relative; overflow:hidden;
+}
+.worm-card::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:100px; height:100px; border-radius:50%;
+  background:rgba(255,255,255,.18); pointer-events:none;
+}
+.worm-card h3 { font-size:1rem; font-weight:700; margin-bottom:4px; }
+.worm-card .sci { font-size:11.5px; opacity:.75; font-style:italic; margin-bottom:14px; }
+.worm-card .row { display:flex; gap:8px; margin-bottom:6px; align-items:flex-start; }
+.worm-card .lbl { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; flex-shrink:0; min-width:82px; opacity:.8; }
+.worm-card .val { font-size:13px; }
+.tag {
+  display:inline-block; border-radius:999px;
+  padding:2px 10px; font-size:11px; font-weight:700;
+  background:rgba(255,255,255,.35); margin-right:4px; margin-bottom:4px;
+}
+
+/* Colors for worm cards */
+.wc-mint  { background:linear-gradient(135deg,#b8f0d8,#6edbb4); color:#0a3d2b; }
+.wc-blue  { background:linear-gradient(135deg,#b8d8f8,#5eaef0); color:#0a2a4a; }
+.wc-peach { background:linear-gradient(135deg,#ffd8b8,#f0945e); color:#4a1a00; }
+.wc-lilac { background:linear-gradient(135deg,#e0c8f8,#b46ef0); color:#2a0a4a; }
+.wc-yellow{ background:linear-gradient(135deg,#fef0b0,#f0c83a); color:#3a2a00; }
+.wc-rose  { background:linear-gradient(135deg,#ffc8d8,#f06e8e); color:#4a0a1a; }
+.wc-sky   { background:linear-gradient(135deg,#c8e8ff,#5ec8f0); color:#0a2a3a; }
+.wc-sage  { background:linear-gradient(135deg,#c8f0c0,#6ed880); color:#0a2a0a; }
+
+/* ─── MNEMONIC BOX ─── */
+.mnemonic {
+  background:linear-gradient(135deg,#fef0b0,#ffd8b8);
+  border-radius:var(--r); padding:24px; margin:20px 0;
+  border-left:5px solid var(--yellow-mid);
+}
+.mnemonic .mne-label { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#7a5000; margin-bottom:8px; }
+.mnemonic h4 { font-size:1.05rem; font-weight:700; color:#5a3a00; margin-bottom:8px; }
+.mnemonic p, .mnemonic li { color:#4a2a00; font-size:13.5px; }
+.mnemonic ul { padding-left:20px; }
+
+/* ─── ALERT BOXES ─── */
+.alert { border-radius:var(--r-sm); padding:16px 20px; margin:16px 0; font-size:13.5px; border-left:4px solid; }
+.alert-red    { background:#fff0f2; border-color:#f06e8e; color:#4a0a1a; }
+.alert-green  { background:#f0fef5; border-color:#6edbb4; color:#0a3d2b; }
+.alert-blue   { background:#f0f8ff; border-color:#5eaef0; color:#0a2a4a; }
+.alert-yellow { background:#fffde8; border-color:#f0c83a; color:#3a2a00; }
+.alert strong { font-weight:700; }
+
+/* ─── ACCORDION ─── */
+.accordion { border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:12px; }
+.acc-head {
+  background:var(--card); width:100%; text-align:left;
+  padding:16px 20px; cursor:pointer; font-weight:600; font-size:14px;
+  display:flex; justify-content:space-between; align-items:center;
+  border:none; color:var(--text);
+  transition:background .2s;
+}
+.acc-head:hover { background:#f5f5ff; }
+.acc-head .arrow { transition:transform .3s; font-size:18px; }
+.acc-head.open .arrow { transform:rotate(180deg); }
+.acc-body { display:none; padding:20px; border-top:1px solid var(--border); font-size:13.5px; }
+.acc-body.show { display:block; }
+
+/* ─── QUIZ ─── */
+.quiz-section { margin-top:48px; }
+.quiz-title { font-family:'DM Serif Display',serif; font-size:1.8rem; font-weight:400; margin-bottom:8px; }
+.quiz-subtitle { color:var(--muted); font-size:13.5px; margin-bottom:32px; }
+
+.q-card {
+  background:var(--card); border-radius:var(--r);
+  box-shadow:var(--shadow); padding:28px; margin-bottom:24px;
+}
+.q-num {
+  display:inline-block; background:linear-gradient(135deg,#1a7a58,#1a4a7a);
+  color:#fff; font-size:11px; font-weight:700; letter-spacing:.06em;
+  padding:3px 12px; border-radius:999px; margin-bottom:12px;
+}
+.q-text { font-size:14.5px; font-weight:500; line-height:1.65; margin-bottom:18px; }
+.q-options { display:flex; flex-direction:column; gap:10px; }
+.opt {
+  background:#f7f7fc; border:2px solid var(--border);
+  border-radius:var(--r-sm); padding:13px 16px;
+  cursor:pointer; font-size:13.5px; text-align:left;
+  transition: border-color .2s, background .2s, transform .15s;
+  user-select:none;
+}
+.opt:hover:not(.locked) { border-color: var(--blue-mid); background:#f0f8ff; transform:translateX(4px); }
+.opt.correct  { background:#e8fef2; border-color:#1a7a58; color:#0a3d2b; }
+.opt.wrong    { background:#fef0f2; border-color:#f06e8e; color:#4a0a1a; }
+.opt.locked   { cursor:default; }
+.opt .opt-icon { font-weight:700; margin-right:8px; }
+
+.q-expl {
+  margin-top:16px; border-radius:var(--r-sm);
+  padding:16px 20px; font-size:13.5px;
+  animation: fadeIn .4s ease;
+  display:none;
+}
+.q-expl.show { display:block; }
+.q-expl.expl-correct { background:#e8fef2; border-left:4px solid #1a7a58; color:#0a3d2b; }
+.q-expl.expl-wrong   { background:#fef0f2; border-left:4px solid #f06e8e; color:#4a0a1a; }
+.q-expl .expl-head   { font-weight:700; margin-bottom:6px; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── SCORE ─── */
+.score-bar {
+  background: linear-gradient(135deg,#1a7a58,#1a4a7a);
+  color:#fff; border-radius:var(--r); padding:24px 28px;
+  display:none; text-align:center; margin-top:32px;
+}
+.score-bar.show { display:block; animation:fadeIn .5s; }
+.score-bar h3 { font-family:'DM Serif Display',serif; font-size:1.8rem; margin-bottom:4px; }
+.score-bar p { opacity:.8; font-size:14px; }
+
+/* ─── FOOTER ─── */
+footer { text-align:center; padding:40px 20px; color:var(--muted); font-size:13px; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:600px){
+  .worm-grid { grid-template-columns:1fr; }
+  .dash-grid { grid-template-columns:1fr 1fr; }
+  .hero h1 { font-size:1.8rem; }
+}
+
+/* ─── NAV ─── */
+.nav-tabs {
+  display:flex; flex-wrap:wrap; gap:8px;
+  background:var(--card); border-radius:var(--r);
+  padding:12px; box-shadow:var(--shadow);
+  position:sticky; top:0; z-index:10;
+  margin-bottom:32px;
+}
+.nav-tab {
+  padding:7px 16px; border-radius:999px;
+  font-size:12.5px; font-weight:600;
+  cursor:pointer; border:none;
+  background:#f0f0f8; color:var(--muted);
+  transition:all .2s; text-decoration:none;
+}
+.nav-tab:hover, .nav-tab.active {
+  background:linear-gradient(135deg,#1a7a58,#1a4a7a);
+  color:#fff;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">🪱 Digestive Block · SKDI 4A</div>
+  <h1>Helminthiasis</h1>
+  <p>Interactive Study Guide — dr. Medita Prasetyo, Sp.A<br>Nematoda · Trematoda · Cestoda · Kuis UKMPPD</p>
+</div>
+
+<div class="container">
+
+<!-- NAV -->
+<nav class="nav-tabs">
+  <a class="nav-tab" href="#dashboard">📊 Dashboard</a>
+  <a class="nav-tab" href="#nematoda-jaringan">🦟 Filariasis</a>
+  <a class="nav-tab" href="#nematoda-usus">🔬 Nematoda Usus</a>
+  <a class="nav-tab" href="#trematoda">🍃 Trematoda</a>
+  <a class="nav-tab" href="#cestoda">🎗️ Cestoda</a>
+  <a class="nav-tab" href="#table-summary">📋 Ringkasan</a>
+  <a class="nav-tab" href="#quiz">📝 Quiz UKMPPD</a>
+</nav>
+
+<!-- ══════════════════ DASHBOARD ══════════════════ -->
+<div id="dashboard">
+  <div class="section-header">
+    <div class="dot" style="background:#1a7a58"></div>
+    <h2>Quick Overview Dashboard</h2>
+  </div>
+
+  <div class="dash-grid">
+    <div class="dash-card" style="border-color:#6edbb4">
+      <div class="label">Tingkat Kemampuan SKDI</div>
+      <div class="value">4A — Mandiri & Tuntas</div>
+    </div>
+    <div class="dash-card" style="border-color:#5eaef0">
+      <div class="label">Definisi Kompetensi</div>
+      <div class="value">Diagnosis + Terapi mandiri, lulusan dokter</div>
+    </div>
+    <div class="dash-card" style="border-color:#b46ef0">
+      <div class="label">Obat Pilihan Umum</div>
+      <div class="value">Albendazol 400 mg / Mebendazol / Pirantel</div>
+    </div>
+    <div class="dash-card" style="border-color:#f0945e">
+      <div class="label">Pemeriksaan Utama</div>
+      <div class="value">Pemeriksaan Feses (Tinja)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <b>🎯 Learning Outcomes setelah membaca materi ini:</b>
+    <ol style="margin-top:10px;padding-left:20px;font-size:14px;line-height:2">
+      <li>Klasifikasi helminthiasis (Nematoda vs Plathelminthes)</li>
+      <li>Siklus hidup, fase infektif & fase diagnostik tiap cacing</li>
+      <li>Gejala klinis KHAS (red flag) tiap cacing</li>
+      <li>Pemeriksaan penunjang yang tepat</li>
+      <li>Tata laksana (nama obat + dosis)</li>
+      <li>Pencegahan infeksi cacing</li>
+    </ol>
+  </div>
+
+  <div class="alert alert-yellow">
+    <strong>⚠️ Mnemonic Dosis Benzimidazol:</strong>
+    Albend<strong>A</strong>zol → huruf A seperti angka <strong>4</strong> → <strong>400 mg</strong> single dose. 
+    Mebendazol 2×100 mg/3 hari <em>atau</em> 500 mg single dose.
+  </div>
+</div>
+
+<!-- ══════════════════ FILARIASIS ══════════════════ -->
+<div id="nematoda-jaringan">
+  <div class="section-header">
+    <div class="dot" style="background:#5eaef0"></div>
+    <h2>Nematoda Jaringan — Filariasis</h2>
+  </div>
+
+  <div class="alert alert-blue">
+    <strong>Tiga serangkai Filaria Limfatik:</strong> Wuchereria bancrofti · Brugia malayi · Brugia timori
+    <br>Vektor: <strong>nyamuk</strong> (Anopheles, Culex, Mansonia, dll). Hospes definitif: manusia.
+  </div>
+
+  <div class="worm-grid">
+    <div class="worm-card wc-blue">
+      <h3>Wuchereria bancrofti</h3>
+      <div class="sci">Cacing filaria paling umum</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva L3</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Mikrofilaria (darah, ambil malam hari pukul 22.00–02.00)</span></div>
+      <div class="row"><span class="lbl">Rasio Kepala:Badan</span><span class="val">1 : 1</span></div>
+      <div class="row"><span class="lbl">Inti di ekor</span><span class="val">❌ Tidak ada</span></div>
+      <div class="row"><span class="lbl">Gejala khas</span><span class="val">Elefantiasis tungkai + <strong>skrotum</strong>; kiluria (urin putih susu)</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">DEC (Diethylcarbamazine) 2 mg/kgBB/8 jam, 10–30 hari</span></div>
+    </div>
+    <div class="worm-card wc-sky">
+      <h3>Brugia malayi</h3>
+      <div class="sci">Filariasis Melayu</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva L3</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Mikrofilaria (darah malam hari)</span></div>
+      <div class="row"><span class="lbl">Rasio Kepala:Badan</span><span class="val">2 : 1</span></div>
+      <div class="row"><span class="lbl">Inti di ekor</span><span class="val">✅ 2–5 inti, berserakan</span></div>
+      <div class="row"><span class="lbl">Gejala khas</span><span class="val">Elefantiasis tungkai saja (tidak skrotum)</span></div>
+      <div class="row"><span class="lbl">Pewarnaan</span><span class="val">Merah; belokan tegas</span></div>
+    </div>
+    <div class="worm-card wc-mint">
+      <h3>Brugia timori</h3>
+      <div class="sci">Filariasis Timor</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva L3</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Mikrofilaria (darah malam hari)</span></div>
+      <div class="row"><span class="lbl">Rasio Kepala:Badan</span><span class="val">3 : 1</span></div>
+      <div class="row"><span class="lbl">Inti di ekor</span><span class="val">✅ 5+ inti, lebih padat</span></div>
+      <div class="row"><span class="lbl">Gejala khas</span><span class="val">Elefantiasis tungkai saja</span></div>
+    </div>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mne-label">🧠 Mnemonic</div>
+    <h4>Rasio Kepala:Badan Filaria → "B-M-T = 1-2-3"</h4>
+    <p>Ban<strong>c</strong>rofti = <strong>1</strong>:1 | Ma<strong>l</strong>ayi = <strong>2</strong>:1 | <strong>T</strong>imori = <strong>3</strong>:1<br>
+    "Bancroft satu-satu, Malayi dua-satu, Timori tiga-satu"<br><br>
+    <strong>Kiluria</strong> (urin putih susu) = <em>hanya Wuchereria bancrofti</em> karena menyerang vesika urinaria.<br>
+    <strong>Bengkak skrotum</strong> = hanya Bancrofti. Malayi & Timori hanya tungkai.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════ NEMATODA USUS ══════════════════ -->
+<div id="nematoda-usus">
+  <div class="section-header">
+    <div class="dot" style="background:#6edbb4"></div>
+    <h2>Nematoda Usus (STH & Lainnya)</h2>
+  </div>
+
+  <div class="worm-grid">
+
+    <!-- Askaris -->
+    <div class="worm-card wc-mint">
+      <h3>Ascaris lumbricoides</h3>
+      <div class="sci">Cacing Gelang / Askariasis</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Telur berembrio (dinding tebal 3 lapis)</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur (+ cacing dewasa di tinja/mulut/hidung)</span></div>
+      <div class="row"><span class="lbl">Telur Khas</span><span class="val"><code>Mamillated outer coat, 3 lapis, dinding tebal</code></span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Sindrom Loeffler (demam, batuk, eosinofilia); ileus obstruktif</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Pirantel pamoat 10 mg/kgBB single dose; Albendazol 400 mg</span></div>
+      <div class="tag">⚠️ Tidak boleh Albendazol pada ibu hamil → ganti Pirantel/Mebendazol</div>
+    </div>
+
+    <!-- Trichuris -->
+    <div class="worm-card wc-peach">
+      <h3>Trichuris trichiura</h3>
+      <div class="sci">Cacing Cambuk / Trikuriasis</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Telur matang (6 minggu di tanah)</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur</span></div>
+      <div class="row"><span class="lbl">Telur Khas</span><span class="val"><code>Berbentuk tong/tempayan, kutub dua = "barrel-shaped"</code></span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Prolaps rekti (pada anak dengan infeksi berat); sindrom disentri; anemia</span></div>
+      <div class="row"><span class="lbl">Predileksi</span><span class="val">Sekum & kolon ascenden</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Mebendazol 2×100 mg/3 hari <em>atau</em> Albendazol 400 mg</span></div>
+    </div>
+
+    <!-- Enterobius -->
+    <div class="worm-card wc-yellow">
+      <h3>Enterobius vermicularis</h3>
+      <div class="sci">Cacing Kremi / Oksiurasis</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Telur (infeksi fecal-oral; inhalasi debu)</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur (Adhesive tape / Graham's scotch tape — pagi hari)</span></div>
+      <div class="row"><span class="lbl">Telur Khas</span><span class="val"><code>Asimetris, sisi datar seperti huruf D</code></span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val"><strong>Pruritus ani nokturnal</strong> (gatal malam hari di perianal); ekskoriasi anus</span></div>
+      <div class="row"><span class="lbl">Mekanisme</span><span class="val">Cacing betina gravid bermigrasi malam hari ke perianal → bertelur</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Mebendazol 100 mg single dose; Albendazol 400 mg; Pirantel pamoat</span></div>
+    </div>
+
+    <!-- Strongyloides -->
+    <div class="worm-card wc-sage">
+      <h3>Strongyloides stercoralis</h3>
+      <div class="sci">Cacing Benang</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva filariform (L3) — menembus kulit</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Larva rhabditiform di feses</span></div>
+      <div class="row"><span class="lbl">Larva Khas</span><span class="val"><code>Ekor larva filariform berbentuk huruf U/M (bercabang)</code></span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Creeping eruption; nyeri epigastrium tertusuk; mual; imunodefisiensi → hiperinfeksi fatal</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Ivermektin (pilihan utama); Albendazol 400 mg</span></div>
+    </div>
+
+    <!-- Necator/Ancylostoma -->
+    <div class="worm-card wc-lilac">
+      <h3>Necator americanus & Ancylostoma duodenale</h3>
+      <div class="sci">Cacing Tambang / Hookworm</div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva filariform (L3) — menembus kulit telanjang kaki</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur di feses</span></div>
+      <div class="row"><span class="lbl">Larva Khas</span><span class="val">Ekor runcing (beda dengan Strongyloides yang U/M)</span></div>
+      <div class="row"><span class="lbl">Beda Spesies</span><span class="val">Necator (N) → bentuk "huruf S" & seperti huruf T (giginya). A. duodenale (AD) → bentuk "huruf C" + taring (lebih banyak hisap darah)</span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Ground itch (larva masuk kulit); anemia mikrositik hipokromik defisiensi besi (A. duodenale lebih berat); Harada-Mori test</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Mebendazol / Albendazol 400 mg</span></div>
+    </div>
+
+  </div>
+
+  <div class="mnemonic">
+    <div class="mne-label">🧠 Mnemonic Creeping Eruption</div>
+    <h4>"Larva yang Tersesat" — Ancylostoma braziliense / caninum</h4>
+    <p>Larva hewan (anjing/kucing) menembus kulit manusia namun <strong>tidak bisa berkembang menjadi dewasa</strong>, akhirnya tersesat di saluran limfe → membentuk terowongan merah berkelok-kelok gatal = <strong>Cutaneous Larva Migrans (CLM)</strong>.<br>
+    Terapi: Albendazol + TCA (Trichloro Acetic Acid) topikal untuk "membunuh cacing yang tersesat."</p>
+  </div>
+</div>
+
+<!-- ══════════════════ TREMATODA ══════════════════ -->
+<div id="trematoda">
+  <div class="section-header">
+    <div class="dot" style="background:#f0945e"></div>
+    <h2>Trematoda (Cacing Daun)</h2>
+  </div>
+
+  <div class="worm-grid">
+    <div class="worm-card wc-peach">
+      <h3>Fasciola hepatica</h3>
+      <div class="sci">Cacing Hati Sapi / Fasciolasis</div>
+      <div class="row"><span class="lbl">Hospes Perantara</span><span class="val">Keong air tawar (Lymnaea)</span></div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Metaserkaria</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur di feses</span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Akut: mual, muntah. Kronik: <strong>ikterik</strong> (migrasi ke empedu → sirosis biliaris)</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Triclabendazole / Bithionol</span></div>
+    </div>
+
+    <div class="worm-card wc-rose">
+      <h3>Schistosoma spp.</h3>
+      <div class="sci">Bilharzia / Schistosomiasis</div>
+      <div class="row"><span class="lbl">Endemik Indonesia</span><span class="val"><strong>Danau Lindu & Napu, Sulawesi Tengah</strong></span></div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Serkaria (menembus kulit saat berenang)</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur di feses/urin</span></div>
+      <div class="row"><span class="lbl">Telur Khas</span><span class="val"><code>Japonicum: bulat (bendera Jepang)</code> · <code>Haematobium: spina terminal (tetesan darah)</code> · <code>Mansoni: spina lateral (seperti komik)</code></span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Haematobium → <strong>hematuria</strong>; Japonicum → paling berat, ikterik</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Prazikuantel: Haematobium 40 mg/kgBB; Mansoni & Japonicum 60 mg/kgBB (terbagi)</span></div>
+    </div>
+
+    <div class="worm-card wc-blue">
+      <h3>Fasciolopsis buski</h3>
+      <div class="sci">Trematoda Usus</div>
+      <div class="row"><span class="lbl">Hospes Perantara</span><span class="val">Keong air tawar (<em>Hippeutis</em>, <em>Segmentina</em>)</span></div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Metaserkaria (pada tanaman air)</span></div>
+      <div class="row"><span class="lbl">Fase Diagnostik</span><span class="val">Telur di feses</span></div>
+      <div class="row"><span class="lbl">Gejala</span><span class="val">Diare, nyeri perut, malabsorpsi</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Prazikuantel</span></div>
+    </div>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mne-label">🧠 Mnemonic Schistosoma Dosis</div>
+    <h4>Haematobium = "40" | Mansoni + Japonicum = "60"</h4>
+    <p>HaemATObium → AT → hanya dua kali (2×20=40 mg/kgBB) karena paling "ringan" (hanya hematuria).<br>
+    Mansoni & Japonicum lebih berat → dosis lebih tinggi <strong>60 mg/kgBB</strong> (Japonicum 2×30, Mansoni 3×20).<br><br>
+    <strong>Endemik: Danau LINDU & NAPU, Sulawesi Tengah</strong> → kata kunci soal!</p>
+  </div>
+</div>
+
+<!-- ══════════════════ CESTODA ══════════════════ -->
+<div id="cestoda">
+  <div class="section-header">
+    <div class="dot" style="background:#b46ef0"></div>
+    <h2>Cestoda (Cacing Pita)</h2>
+  </div>
+
+  <div class="worm-grid">
+    <div class="worm-card wc-lilac">
+      <h3>Taenia solium</h3>
+      <div class="sci">Cacing Pita Babi</div>
+      <div class="row"><span class="lbl">Hospes Perantara</span><span class="val">Babi</span></div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva (sistiserkus) dalam daging babi mentah/setengah matang</span></div>
+      <div class="row"><span class="lbl">Proglotid Gravid</span><span class="val">5–10 uterus lateral (lebih sedikit)</span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Taeniasis (cacing di usus) + <strong>Neurosistiserkosis</strong> (kista di otak → kejang) — HANYA T. solium!</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Prazikuantel 10 mg/kgBB single dose + pencahar 2 jam setelah terapi; Niklosamid; Albendazol</span></div>
+    </div>
+
+    <div class="worm-card wc-sky">
+      <h3>Taenia saginata</h3>
+      <div class="sci">Cacing Pita Sapi</div>
+      <div class="row"><span class="lbl">Hospes Perantara</span><span class="val">Sapi/Kerbau</span></div>
+      <div class="row"><span class="lbl">Fase Infektif</span><span class="val">Larva sistiserkus dalam daging sapi mentah</span></div>
+      <div class="row"><span class="lbl">Proglotid Gravid</span><span class="val">15–30 uterus lateral (lebih banyak — sapi lebih "gede")</span></div>
+      <div class="row"><span class="lbl">Telur</span><span class="val">Sama dengan T. solium (tidak bisa dibedakan!) — berbentuk bulat/roda</span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Sakit epigastrium, nafsu makan bertambah lalu turun; kadang ileus obstruktif. <strong>TIDAK ada neurosistiserkosis</strong></span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Prazikuantel 10 mg/kgBB; Niklosamid; Albendazol</span></div>
+    </div>
+
+    <div class="worm-card wc-yellow">
+      <h3>Diphyllobothrium latum</h3>
+      <div class="sci">Cacing Pita Ikan</div>
+      <div class="row"><span class="lbl">Sumber Infeksi</span><span class="val">Ikan mentah / setengah matang (sashimi!)</span></div>
+      <div class="row"><span class="lbl">Gejala Khas</span><span class="val">Anemia pernisiosa (gangguan absorpsi <strong>Vitamin B12</strong>); keram perut; penurunan berat badan</span></div>
+      <div class="row"><span class="lbl">Terapi</span><span class="val">Prazikuantel; Niklosamid</span></div>
+    </div>
+  </div>
+
+  <div class="mnemonic">
+    <div class="mne-label">🧠 Mnemonic Taenia Solium vs Saginata</div>
+    <h4>"SOLIUM = SETAN OTAK | SAGINATA = SAPI AMAN"</h4>
+    <p><strong>T. solium (babi)</strong> → bisa menyebabkan <strong>NeuROSistiserkosis</strong> karena telurnya bisa menyerang otak. Islam melarang babi — sekarang terbukti secara ilmiah!<br><br>
+    <strong>T. saginata (sapi)</strong> → hanya di usus, tidak ke otak. Proglotid lebih banyak (15–30 vs 5–10 T. solium).<br><br>
+    <strong>D. latum (ikan)</strong> → anemia B12. Ingat: ikan = "B" (ikan Bakar) = B12 terganggu.</p>
+  </div>
+</div>
+
+<!-- ══════════════════ TABEL RINGKASAN ══════════════════ -->
+<div id="table-summary">
+  <div class="section-header">
+    <div class="dot" style="background:#1a4a7a"></div>
+    <h2>📋 Tabel Ringkasan Helminthiasis</h2>
+  </div>
+
+  <!-- Accordion untuk tiap tabel -->
+  <div class="accordion">
+    <button class="acc-head" onclick="toggleAcc(this)">
+      Fase Infektif & Diagnostik <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Cacing</th><th>Fase Infektif</th><th>Fase Diagnostik</th><th>Spesimen</th></tr></thead>
+          <tbody>
+            <tr><td>Ascaris lumbricoides</td><td>Telur berembrio</td><td>Telur</td><td>Feses</td></tr>
+            <tr><td>Trichuris trichiura</td><td>Telur matang</td><td>Telur</td><td>Feses</td></tr>
+            <tr><td>Enterobius vermicularis</td><td>Telur</td><td>Telur</td><td>Adhesive tape (pagi hari)</td></tr>
+            <tr><td>Strongyloides stercoralis</td><td>Larva filariform</td><td>Larva rhabditiform</td><td>Feses</td></tr>
+            <tr><td>Necator / Ancylostoma</td><td>Larva filariform</td><td>Telur</td><td>Feses</td></tr>
+            <tr><td>W. bancrofti / Brugia spp.</td><td>Larva L3 (nyamuk)</td><td>Mikrofilaria</td><td>Darah (22.00–02.00)</td></tr>
+            <tr><td>Fasciola hepatica</td><td>Metaserkaria</td><td>Telur</td><td>Feses</td></tr>
+            <tr><td>Schistosoma spp.</td><td>Serkaria (air)</td><td>Telur</td><td>Feses/Urin</td></tr>
+            <tr><td>Taenia solium/saginata</td><td>Larva (sistiserkus)</td><td>Telur/proglotid</td><td>Feses</td></tr>
+            <tr><td>Diphyllobothrium latum</td><td>Pleroserkoid (ikan)</td><td>Telur/proglotid</td><td>Feses</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-head" onclick="toggleAcc(this)">
+      Gejala Khas & Kata Kunci Soal <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Cacing</th><th>Gejala / Temuan Khas</th><th>Keyword di Soal</th></tr></thead>
+          <tbody>
+            <tr><td>Ascaris lumbricoides</td><td>Sindrom Loeffler, ileus obstruktif</td><td>Telur 3 lapis, dinding tebal, batuk + eosinofilia</td></tr>
+            <tr><td>Trichuris trichiura</td><td>Prolaps rekti, sindrom disentri, anemia</td><td>Telur tong/tempayan (barrel), anak prolaps rekti</td></tr>
+            <tr><td>Enterobius vermicularis</td><td>Pruritus ani nokturnal</td><td>Gatal malam hari perianal, scotch tape, huruf D</td></tr>
+            <tr><td>Strongyloides stercoralis</td><td>Creeping eruption, nyeri epigastrium, imunokompromais fatal</td><td>Larva ekor bentuk U/M, creeping eruption, AIDS</td></tr>
+            <tr><td>Necator / Ancylostoma</td><td>Ground itch, anemia Fe, creeping eruption CLM</td><td>Jalan tanpa alas kaki, anemia hipokromik</td></tr>
+            <tr><td>Wuchereria bancrofti</td><td>Elefantiasis + skrotum, kiluria</td><td>Kaki gajah + skrotum bengkak, urin seperti susu, rasio 1:1</td></tr>
+            <tr><td>Brugia malayi/timori</td><td>Elefantiasis tungkai saja</td><td>Tidak sampai skrotum, rasio 2:1 atau 3:1</td></tr>
+            <tr><td>Schistosoma haematobium</td><td>Hematuria</td><td>Telur spina terminal, urin berdarah, Timur Tengah</td></tr>
+            <tr><td>Schistosoma japonicum</td><td>Ikterik, berat</td><td>Danau Lindu/Napu Sulawesi Tengah</td></tr>
+            <tr><td>Taenia solium</td><td>Neurosistiserkosis (kejang)</td><td>Kista di otak, kejang, konsumsi babi</td></tr>
+            <tr><td>Diphyllobothrium latum</td><td>Anemia B12 pernisiosa</td><td>Makan ikan mentah/sashimi</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-head" onclick="toggleAcc(this)">
+      Tata Laksana (Ringkasan Obat) <span class="arrow">▼</span>
+    </button>
+    <div class="acc-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Obat</th><th>Dosis</th><th>Indikasi Utama</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Albendazol</strong></td><td>400 mg single dose</td><td>Askaris, Trikuris, Enterobius, STH lainnya (⚠️ KI ibu hamil)</td></tr>
+            <tr><td><strong>Mebendazol</strong></td><td>2×100 mg/3 hr atau 500 mg SD</td><td>STH lini pertama alternatif</td></tr>
+            <tr><td><strong>Pirantel pamoat</strong></td><td>10 mg/kgBB single dose</td><td>Askaris, Enterobius; aman ibu hamil</td></tr>
+            <tr><td><strong>Ivermektin</strong></td><td>200 mcg/kgBB SD</td><td>Strongyloides (pilihan utama)</td></tr>
+            <tr><td><strong>DEC (Dietilkarbamazin)</strong></td><td>2 mg/kgBB 3×/hari, 10–30 hari</td><td>Filariasis limfatik</td></tr>
+            <tr><td><strong>Prazikuantel</strong></td><td>Schistosoma 40–60 mg/kgBB; Taenia 10 mg/kgBB SD</td><td>Trematoda & Cestoda</td></tr>
+            <tr><td><strong>Niklosamid</strong></td><td>2 g SD</td><td>Cestoda (alternatif)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ QUIZ ══════════════════ -->
+<div id="quiz" class="quiz-section">
+  <div class="section-header">
+    <div class="dot" style="background:#f0945e"></div>
+    <h2 class="quiz-title">📝 Kuis Interaktif Tipe UKMPPD</h2>
+  </div>
+  <p class="quiz-subtitle">Klik salah satu pilihan → langsung muncul feedback & pembahasan. Selamat berlatih!</p>
+
+  <!-- Q1 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 1</div>
+    <div class="q-text">Seorang anak laki-laki 5 tahun dibawa ibunya ke Puskesmas dengan keluhan perut kembung dan nafsu makan turun sejak 2 minggu. Anak sering bermain di kebun tanpa alas kaki. Dari pemeriksaan feses ditemukan telur cacing berdinding tebal 3 lapis. Apakah diagnosis yang paling tepat?</div>
+    <div class="q-options" data-correct="A">
+      <button class="opt" onclick="answerQ(this,'A','A')"><span class="opt-icon">A.</span> Askariasis</button>
+      <button class="opt" onclick="answerQ(this,'B','A')"><span class="opt-icon">B.</span> Trikuriasis</button>
+      <button class="opt" onclick="answerQ(this,'C','A')"><span class="opt-icon">C.</span> Strongiloidiasis</button>
+      <button class="opt" onclick="answerQ(this,'D','A')"><span class="opt-icon">D.</span> Enterobiasis</button>
+      <button class="opt" onclick="answerQ(this,'E','A')"><span class="opt-icon">E.</span> Infeksi cacing tambang</button>
+    </div>
+    <div class="q-expl" id="expl-1">
+      <div class="expl-head">✅ Jawaban Benar: A. Askariasis</div>
+      Telur Ascaris lumbricoides memiliki ciri khas: berdinding tebal 3 lapis dengan outer coat bergelombang (mamillated). Fase infektif = telur berembrio, fase diagnostik = telur di feses. Gejala khas: kembung, nafsu makan turun. Komplikasi: sindrom Loeffler (migrasi paru) & ileus obstruktif bila jumlah cacing banyak.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 2</div>
+    <div class="q-text">Anak perempuan 4 tahun dibawa ibunya karena sering menggaruk-garuk daerah anus terutama di malam hari. Pemeriksaan fisik ditemukan ekskoriasi di perianal. Pemeriksaan penunjang apa yang paling tepat untuk menegakkan diagnosis?</div>
+    <div class="q-options" data-correct="C">
+      <button class="opt" onclick="answerQ(this,'A','C')"><span class="opt-icon">A.</span> Pemeriksaan feses rutin</button>
+      <button class="opt" onclick="answerQ(this,'B','C')"><span class="opt-icon">B.</span> Darah tepi lengkap</button>
+      <button class="opt" onclick="answerQ(this,'C','C')"><span class="opt-icon">C.</span> Adhesive tape test (scotch tape) pagi hari</button>
+      <button class="opt" onclick="answerQ(this,'D','C')"><span class="opt-icon">D.</span> Pemeriksaan urin rutin</button>
+      <button class="opt" onclick="answerQ(this,'E','C')"><span class="opt-icon">E.</span> Serologi ELISA</button>
+    </div>
+    <div class="q-expl" id="expl-2">
+      <div class="expl-head">✅ Jawaban Benar: C. Adhesive tape test (scotch tape) pagi hari</div>
+      Enterobius vermicularis (cacing kremi) memiliki ciri khas <strong>pruritus ani nokturnal</strong> karena cacing betina gravid bermigrasi ke perianal malam hari untuk bertelur. Pemeriksaan terbaik adalah Graham's scotch tape / adhesive tape yang ditempelkan di daerah perianal <strong>pagi hari sebelum BAB dan mandi</strong>, kemudian dilihat di bawah mikroskop. Telurnya asimetris seperti huruf D.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 3</div>
+    <div class="q-text">Seorang laki-laki 30 tahun, dokter yang bertugas di negara Timur Tengah, menemukan pasien dengan hematuria dan disuria. Pemeriksaan urin ditemukan telur cacing berwarna coklat kekuningan, tanpa operkulum, mengandung embrio, dengan <strong>spina terminal</strong>. Apakah etiologinya?</div>
+    <div class="q-options" data-correct="B">
+      <button class="opt" onclick="answerQ(this,'A','B')"><span class="opt-icon">A.</span> Schistosoma japonicum</button>
+      <button class="opt" onclick="answerQ(this,'B','B')"><span class="opt-icon">B.</span> Schistosoma haematobium</button>
+      <button class="opt" onclick="answerQ(this,'C','B')"><span class="opt-icon">C.</span> Schistosoma mansoni</button>
+      <button class="opt" onclick="answerQ(this,'D','B')"><span class="opt-icon">D.</span> Fasciola hepatica</button>
+      <button class="opt" onclick="answerQ(this,'E','B')"><span class="opt-icon">E.</span> Fasciolopsis buski</button>
+    </div>
+    <div class="q-expl" id="expl-3">
+      <div class="expl-head">✅ Jawaban Benar: B. Schistosoma haematobium</div>
+      Kata kunci: <strong>spina terminal</strong> (tonjolan di ujung posterior) + <strong>hematuria</strong> + di Timur Tengah. S. haematobium menyerang vesika urinaria → hematuria. Telurnya ditemukan di urin. Dosis prazikuantel: 40 mg/kgBB (2×20 atau dosis tunggal). 
+      Bandingkan: S. japonicum (telur bulat/lebar tanpa tonjolan jelas), S. mansoni (spina lateral). Endemik Indonesia: S. japonicum di Danau Lindu & Napu, Sulawesi Tengah.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 4</div>
+    <div class="q-text">Laki-laki 25 tahun datang dengan keluhan gatal-gatal di kaki kanan sejak 1 minggu. Dari pemeriksaan fisik tampak lesi linear berkelok-kelok, sedikit menimbul, kemerahan, dan sangat gatal. Pasien memiliki anjing peliharaan dan sering berjalan tanpa alas kaki di halaman rumah. Apakah diagnosis yang tepat?</div>
+    <div class="q-options" data-correct="D">
+      <button class="opt" onclick="answerQ(this,'A','D')"><span class="opt-icon">A.</span> Strongiloidiasis</button>
+      <button class="opt" onclick="answerQ(this,'B','D')"><span class="opt-icon">B.</span> Infeksi Necator americanus</button>
+      <button class="opt" onclick="answerQ(this,'C','D')"><span class="opt-icon">C.</span> Filariasis</button>
+      <button class="opt" onclick="answerQ(this,'D','D')"><span class="opt-icon">D.</span> Cutaneous Larva Migrans (CLM)</button>
+      <button class="opt" onclick="answerQ(this,'E','D')"><span class="opt-icon">E.</span> Trikuriasis</button>
+    </div>
+    <div class="q-expl" id="expl-4">
+      <div class="expl-head">✅ Jawaban Benar: D. Cutaneous Larva Migrans (CLM)</div>
+      CLM disebabkan oleh larva filariform Ancylostoma braziliense / caninum (cacing tambang hewan). Larva menembus kulit manusia namun <strong>tidak bisa berkembang dewasa</strong> di manusia sehingga "tersesat" di kulit membentuk terowongan intrakutan yang tampak sebagai garis merah berkelok-kelok. Kata kunci: <strong>anjing/kucing peliharaan + jalan tanpa alas kaki + lesi linear berkelok-kelok gatal</strong>. Terapi: Albendazol 400 mg + TCA topikal.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 5</div>
+    <div class="q-text">Seorang wanita 45 tahun datang dengan keluhan urin berwarna seperti susu kental. Pasien juga mengeluhkan pembengkakan pada tungkai kanan dan skrotum suami ikut bengkak (kebetulan pasien suami istri datang bersama). Dari pemeriksaan darah malam hari pukul 23.00 ditemukan mikrofilaria dengan rasio kepala:lebar badan 1:1 dan tidak ditemukan inti di ekor. Apakah etiologinya?</div>
+    <div class="q-options" data-correct="A">
+      <button class="opt" onclick="answerQ(this,'A','A')"><span class="opt-icon">A.</span> Wuchereria bancrofti</button>
+      <button class="opt" onclick="answerQ(this,'B','A')"><span class="opt-icon">B.</span> Brugia malayi</button>
+      <button class="opt" onclick="answerQ(this,'C','A')"><span class="opt-icon">C.</span> Brugia timori</button>
+      <button class="opt" onclick="answerQ(this,'D','A')"><span class="opt-icon">D.</span> Loa loa</button>
+      <button class="opt" onclick="answerQ(this,'E','A')"><span class="opt-icon">E.</span> Dirofilaria immitis</button>
+    </div>
+    <div class="q-expl" id="expl-5">
+      <div class="expl-head">✅ Jawaban Benar: A. Wuchereria bancrofti</div>
+      Tiga tanda khas <strong>W. bancrofti</strong>: (1) Kiluria (urin putih susu karena menyerang vesika urinaria/saluran limfe urogenital), (2) Elefantiasis tungkai + <strong>skrotum</strong>, (3) Mikrofilaria rasio 1:1, <strong>tidak ada inti di ekor</strong>. Brugia malayi/timori hanya menyebabkan elefantiasis tungkai, tidak skrotum, dan punya inti di ekor. Terapi: DEC (Dietilkarbamazin) 2 mg/kgBB 3×/hari, 10–30 hari.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 6</div>
+    <div class="q-text">Seorang pasien anak dengan HIV (+) datang dengan keluhan diare kronis, nyeri epigastrium seperti tertusuk, dan mual muntah. Dari pemeriksaan feses ditemukan larva rhabditiform. Kondisi pasien memburuk karena hiperinfeksi akibat autoinfeksi internal. Apakah etiologinya?</div>
+    <div class="q-options" data-correct="C">
+      <button class="opt" onclick="answerQ(this,'A','C')"><span class="opt-icon">A.</span> Ascaris lumbricoides</button>
+      <button class="opt" onclick="answerQ(this,'B','C')"><span class="opt-icon">B.</span> Necator americanus</button>
+      <button class="opt" onclick="answerQ(this,'C','C')"><span class="opt-icon">C.</span> Strongyloides stercoralis</button>
+      <button class="opt" onclick="answerQ(this,'D','C')"><span class="opt-icon">D.</span> Trichuris trichiura</button>
+      <button class="opt" onclick="answerQ(this,'E','C')"><span class="opt-icon">E.</span> Enterobius vermicularis</button>
+    </div>
+    <div class="q-expl" id="expl-6">
+      <div class="expl-head">✅ Jawaban Benar: C. Strongyloides stercoralis</div>
+      Kata kunci: <strong>HIV/imunodefisiensi + hiperinfeksi/autoinfeksi + larva rhabditiform di feses</strong>. Strongyloides memiliki siklus autoinfeksi unik — larva yang terbentuk di usus bisa langsung menembus mukosa (autoinfeksi internal) tanpa keluar dari host. Pada kondisi imunokompromais, ini menyebabkan <strong>hiperinfeksi masif yang bisa fatal</strong>. Fase infektif = larva filariform, fase diagnostik = larva rhabditiform. Terapi: <strong>Ivermektin</strong> (pilihan utama).
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 7</div>
+    <div class="q-text">Seorang pria 35 tahun dari Palu datang dengan keluhan kejang berulang sejak 3 bulan. MRI kepala menunjukkan multiple ring-enhancing lesions. Pasien mengaku sering makan daging babi di kampungnya. Apakah komplikasi yang paling mungkin pada kasus ini?</div>
+    <div class="q-options" data-correct="E">
+      <button class="opt" onclick="answerQ(this,'A','E')"><span class="opt-icon">A.</span> Abses serebri bakterial</button>
+      <button class="opt" onclick="answerQ(this,'B','E')"><span class="opt-icon">B.</span> Toksoplasmosis serebral</button>
+      <button class="opt" onclick="answerQ(this,'C','E')"><span class="opt-icon">C.</span> Tumor otak primer</button>
+      <button class="opt" onclick="answerQ(this,'D','E')"><span class="opt-icon">D.</span> Taeniasis saginata dengan komplikasi otak</button>
+      <button class="opt" onclick="answerQ(this,'E','E')"><span class="opt-icon">E.</span> Neurosistiserkosis akibat Taenia solium</button>
+    </div>
+    <div class="q-expl" id="expl-7">
+      <div class="expl-head">✅ Jawaban Benar: E. Neurosistiserkosis akibat Taenia solium</div>
+      <strong>Neurosistiserkosis</strong> hanya disebabkan oleh <strong>T. solium</strong> (BUKAN T. saginata). Ketika manusia menelan telur T. solium (bukan larva), onkosfer menembus usus dan beredar ke seluruh tubuh termasuk otak, membentuk kista (sistiserkus) yang menyebabkan kejang. Kata kunci: konsumsi babi, asal daerah endemis, kejang + MRI ring-enhancing lesions. Terapi: Albendazol 15 mg/kgBB/hari atau Prazikuantel + steroid (untuk edema otak) + anti-epilepsi.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card">
+    <div class="q-num">SOAL 8</div>
+    <div class="q-text">Seorang ibu hamil 20 minggu datang dengan keluhan batuk-batuk, demam, dan dari pemeriksaan darah ditemukan eosinofilia. Dokter mencurigai askariasis. Obat antihelmintik apa yang <strong>PALING AMAN</strong> diberikan pada kondisi ini?</div>
+    <div class="q-options" data-correct="B">
+      <button class="opt" onclick="answerQ(this,'A','B')"><span class="opt-icon">A.</span> Albendazol 400 mg</button>
+      <button class="opt" onclick="answerQ(this,'B','B')"><span class="opt-icon">B.</span> Pirantel pamoat 10 mg/kgBB</button>
+      <button class="opt" onclick="answerQ(this,'C','B')"><span class="opt-icon">C.</span> Ivermektin</button>
+      <button class="opt" onclick="answerQ(this,'D','B')"><span class="opt-icon">D.</span> DEC (Dietilkarbamazin)</button>
+      <button class="opt" onclick="answerQ(this,'E','B')"><span class="opt-icon">E.</span> Prazikuantel</button>
+    </div>
+    <div class="q-expl" id="expl-8">
+      <div class="expl-head">✅ Jawaban Benar: B. Pirantel pamoat 10 mg/kgBB</div>
+      <strong>Albendazol kontraindikasi pada ibu hamil</strong> (bersifat teratogenik). Mebendazol juga relatif dihindari terutama trimester 1. Pirantel pamoat merupakan pilihan yang lebih aman untuk askariasis dan enterobiasis pada ibu hamil. Dosisnya 10 mg/kgBB single dose. Ivermektin dan DEC juga tidak direkomendasikan untuk ibu hamil.
+    </div>
+  </div>
+
+  <!-- Score display -->
+  <div class="score-bar" id="score-bar">
+    <h3 id="score-text">0 / 8</h3>
+    <p id="score-msg">Selesaikan semua soal untuk melihat nilai!</p>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>📚 Study Guide Helminthiasis · Digestive Block · dr. Medita Prasetyo, Sp.A</p>
+  <p style="margin-top:4px">Dibuat untuk persiapan Ujian Blok & UKMPPD 🎓</p>
+</footer>
+
+<script>
+// Accordion
+function toggleAcc(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('show');
+}
+
+// Quiz logic
+let answers = {};
+const totalQ = 8;
+
+function answerQ(btn, chosen, correct) {
+  const card = btn.closest('.q-card');
+  const opts = card.querySelectorAll('.opt');
+  const qNum = card.querySelector('.q-num').textContent.replace('SOAL ','');
+  
+  if (answers[qNum]) return; // already answered
+  answers[qNum] = chosen === correct;
+
+  opts.forEach(opt => {
+    opt.classList.add('locked');
+    const letter = opt.querySelector('.opt-icon').textContent.trim().replace('.','');
+    if (letter === correct) opt.classList.add('correct');
+    else if (letter === chosen && chosen !== correct) opt.classList.add('wrong');
+  });
+
+  const expl = card.querySelector('.q-expl');
+  expl.classList.add('show');
+  if (chosen === correct) {
+    expl.classList.add('expl-correct');
+  } else {
+    expl.classList.add('expl-wrong');
+  }
+
+  updateScore();
+}
+
+function updateScore() {
+  const answered = Object.keys(answers).length;
+  const correct = Object.values(answers).filter(Boolean).length;
+  const bar = document.getElementById('score-bar');
+  const text = document.getElementById('score-text');
+  const msg = document.getElementById('score-msg');
+  
+  if (answered === totalQ) {
+    bar.classList.add('show');
+    text.textContent = `${correct} / ${totalQ}`;
+    const pct = Math.round(correct/totalQ*100);
+    if (pct >= 80) msg.textContent = `🎉 Luar biasa! Nilai ${pct}% — Siap UKMPPD!`;
+    else if (pct >= 60) msg.textContent = `👍 Bagus! Nilai ${pct}% — Perlu sedikit review lagi.`;
+    else msg.textContent = `💪 Nilai ${pct}% — Ayo pelajari kembali materinya!`;
+  }
+}
+
+// Smooth scroll for nav
+document.querySelectorAll('.nav-tab').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

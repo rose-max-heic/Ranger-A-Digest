@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digestif — KKLP & Bioetika Islam | dr. Yusuf Alam</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #0a6b6b;
+  --teal-mid: #0d8a8a;
+  --teal-light: #17b5b5;
+  --teal-pale: #e0f5f5;
+  --teal-ghost: #f0fafa;
+  --gold: #b8860b;
+  --gold-light: #e8c547;
+  --gold-pale: #fef9e7;
+  --coral: #c0392b;
+  --coral-pale: #fdecea;
+  --navy: #1a2744;
+  --navy-mid: #253460;
+  --ink: #1c2b2b;
+  --muted: #5a7070;
+  --border: #c8e0e0;
+  --bg: #f4fafa;
+  --white: #ffffff;
+  --green: #1a6b3c;
+  --green-pale: #e8f5ee;
+  --purple: #5a3a8a;
+  --purple-pale: #f0eafa;
+  --orange: #c05a00;
+  --orange-pale: #fdf0e0;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 60%, var(--teal-mid) 100%);
+  color: white;
+  padding: 64px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';position:absolute;top:-100px;right:-80px;
+  width:360px;height:360px;border-radius:50%;
+  background:rgba(23,181,181,0.12);
+}
+.hero::after {
+  content:'';position:absolute;bottom:-60px;left:10%;
+  width:220px;height:220px;border-radius:50%;
+  background:rgba(232,197,71,0.08);
+}
+.hero-chip {
+  display:inline-block;
+  background:rgba(23,181,181,0.25);
+  border:1px solid rgba(23,181,181,0.4);
+  color:#7de8e8;
+  font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:5px 16px;border-radius:20px;
+  margin-bottom:20px;
+}
+.hero h1 {
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(26px,5vw,50px);
+  font-weight:700;line-height:1.1;
+  margin-bottom:12px;
+}
+.hero h1 em { color: var(--gold-light); font-style:italic; }
+.hero-sub { font-size:14px;opacity:0.75;max-width:640px;font-weight:300; }
+.hero-meta {
+  margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;
+}
+.hero-badge {
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:6px 16px;border-radius:30px;
+  font-size:12px;font-weight:500;letter-spacing:0.3px;
+}
+
+/* ── STICKY NAV ── */
+.nav {
+  position:sticky;top:0;z-index:200;
+  background:var(--navy);
+  display:flex;gap:0;overflow-x:auto;
+  scrollbar-width:none;
+  box-shadow:0 3px 20px rgba(0,0,0,0.25);
+}
+.nav::-webkit-scrollbar{display:none;}
+.nav-btn {
+  background:none;border:none;
+  color:rgba(255,255,255,0.55);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:0.5px;
+  padding:14px 18px;cursor:pointer;
+  white-space:nowrap;transition:all 0.2s;
+  border-bottom:3px solid transparent;
+  text-transform:uppercase;
+}
+.nav-btn:hover,.nav-btn.active {
+  color:var(--teal-light);
+  border-bottom-color:var(--teal-light);
+  background:rgba(23,181,181,0.08);
+}
+
+/* ── LAYOUT ── */
+.wrap { max-width:920px;margin:0 auto;padding:40px 22px; }
+
+/* ── SECTIONS ── */
+.section { display:none;animation:fadeUp 0.3s ease; }
+.section.active { display:block; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+.sec-head {
+  margin-bottom:8px;
+}
+.sec-head h2 {
+  font-family:'Libre Baskerville',serif;
+  font-size:26px;color:var(--teal);margin-bottom:4px;
+}
+.sec-head p {
+  font-size:13px;color:var(--muted);
+  padding-bottom:18px;border-bottom:2px solid var(--border);
+  margin-bottom:26px;
+}
+
+/* ── CARDS ── */
+.card {
+  background:var(--white);border-radius:16px;
+  padding:24px 28px;margin-bottom:20px;
+  border:1px solid var(--border);
+  box-shadow:0 2px 14px rgba(10,107,107,0.06);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.card:hover { box-shadow:0 6px 28px rgba(10,107,107,0.12);transform:translateY(-1px); }
+
+.card-title {
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--teal);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.ci {
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+
+/* ── MINI CARDS ── */
+.mini { background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px 18px; }
+.mini h4 { font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:8px; }
+.mini p,.mini li { font-size:13px;color:var(--muted);line-height:1.7; }
+.mini ul { padding-left:16px; }
+.mini li { margin-bottom:4px; }
+
+/* ── GRIDS ── */
+.g2 { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+.g3 { display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px; }
+@media(max-width:640px){ .g2,.g3 { grid-template-columns:1fr; } }
+
+/* ── TABLE ── */
+.tw { overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-bottom:16px; }
+table { width:100%;border-collapse:collapse;font-size:13px; }
+th {
+  background:var(--teal);color:white;
+  padding:11px 16px;text-align:left;
+  font-weight:700;font-size:11.5px;letter-spacing:0.5px;text-transform:uppercase;
+}
+td { padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:#f8fdfd; }
+tr:hover td { background:var(--teal-ghost); }
+
+/* ── ALERTS ── */
+.alert {
+  padding:13px 17px;border-radius:10px;margin:14px 0;
+  font-size:13.5px;display:flex;gap:10px;align-items:flex-start;line-height:1.65;
+}
+.alert-teal { background:var(--teal-pale);border-left:4px solid var(--teal);color:#0a3f3f; }
+.alert-gold { background:var(--gold-pale);border-left:4px solid var(--gold);color:#5a4000; }
+.alert-red { background:var(--coral-pale);border-left:4px solid var(--coral);color:#6a1010; }
+.alert-green { background:var(--green-pale);border-left:4px solid var(--green);color:#0a3a1f; }
+.alert-purple { background:var(--purple-pale);border-left:4px solid var(--purple);color:#2a1050; }
+.alert-orange { background:var(--orange-pale);border-left:4px solid var(--orange);color:#5a2a00; }
+.ai { font-size:17px;flex-shrink:0;margin-top:1px; }
+
+/* ── TAGS ── */
+.tag { display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:0.5px;margin:2px; }
+.t-teal { background:var(--teal-pale);color:var(--teal); }
+.t-gold { background:var(--gold-pale);color:var(--gold); }
+.t-red { background:var(--coral-pale);color:var(--coral); }
+.t-green { background:var(--green-pale);color:var(--green); }
+.t-purple { background:var(--purple-pale);color:var(--purple); }
+.t-navy { background:#e8ecf5;color:var(--navy); }
+
+/* ── SKDI ── */
+.skdi { display:inline-flex;align-items:center;padding:2px 9px;border-radius:7px;font-size:10.5px;font-weight:800;margin-left:6px; }
+.s4a { background:#d4edda;color:#155724; }
+.s3a { background:#cce5ff;color:#004085; }
+.s3b { background:#fff3cd;color:#856404; }
+.s2 { background:#e2e3e5;color:#383d41; }
+
+/* ── MNEMONIC BOX ── */
+.mnemo {
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color:white;border-radius:16px;padding:24px 28px;margin:20px 0;
+}
+.mnemo h4 { font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px; }
+.mnemo-letter { display:flex;gap:14px;align-items:flex-start;margin-bottom:10px; }
+.mnemo-L {
+  font-family:'Fira Code',monospace;
+  font-size:22px;font-weight:700;color:var(--gold-light);
+  min-width:30px;line-height:1;margin-top:2px;
+}
+.mnemo-def { font-size:13.5px;line-height:1.6; }
+.mnemo-def strong { color:var(--teal-light); }
+
+/* ── REASONING BOX ── */
+.reason {
+  background:linear-gradient(135deg, var(--teal-ghost) 0%, var(--gold-pale) 100%);
+  border:2px solid var(--teal-mid);border-radius:16px;
+  padding:20px 24px;margin:18px 0;
+}
+.reason h4 { font-size:14px;font-weight:700;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px; }
+.reason p,.reason li { font-size:13.5px;line-height:1.8; }
+
+/* ── STEP FLOW ── */
+.step-flow { display:flex;flex-direction:column;gap:0; }
+.step {
+  display:flex;gap:16px;align-items:flex-start;
+  padding:14px 0;border-bottom:1px dashed var(--border);
+}
+.step:last-child { border-bottom:none; }
+.step-num {
+  background:var(--teal);color:white;
+  font-size:12px;font-weight:800;
+  min-width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.step-body h5 { font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px; }
+.step-body p { font-size:13px;color:var(--muted); }
+
+/* ── LIST ── */
+.sl { list-style:none;padding:0; }
+.sl li { padding:7px 0 7px 20px;border-bottom:1px solid var(--border);font-size:13.5px;position:relative; }
+.sl li::before { content:'▸';position:absolute;left:0;color:var(--teal);font-size:11px;top:10px; }
+.sl li:last-child { border-bottom:none; }
+
+/* ── COLLAPSE ── */
+.col-btn {
+  background:none;border:none;width:100%;text-align:left;
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  padding:0;font-family:inherit;
+}
+.col-btn .chev { transition:transform 0.25s;font-size:12px;color:var(--muted); }
+.col-btn.open .chev { transform:rotate(180deg); }
+.col-body { display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--border); }
+.col-body.open { display:block; }
+
+/* ── DIVIDER ── */
+.div { height:1px;background:var(--border);margin:24px 0; }
+
+/* ── CASE BOX ── */
+.case-box {
+  background:var(--navy);color:white;border-radius:14px;
+  padding:20px 24px;margin-bottom:16px;
+}
+.case-box h5 { color:var(--gold-light);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px; }
+.case-box p { font-size:13.5px;line-height:1.75;opacity:0.9; }
+
+/* ── PILAR GRID ── */
+.pilar-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:12px; }
+@media(max-width:700px){ .pilar-grid { grid-template-columns:repeat(2,1fr); } }
+.pilar-card {
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:12px;padding:16px;text-align:center;
+  transition:all 0.2s;cursor:default;
+}
+.pilar-card:hover { border-color:var(--teal);background:var(--teal-ghost);transform:translateY(-2px); }
+.pilar-num { font-size:22px;font-weight:800;color:var(--teal);line-height:1;margin-bottom:6px; }
+.pilar-name { font-size:12px;font-weight:700;color:var(--ink);line-height:1.4; }
+.pilar-icon { font-size:18px;margin-bottom:6px; }
+
+/* ── BIOETHICS GRID ── */
+.bioethics { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+@media(max-width:600px){ .bioethics { grid-template-columns:1fr; } }
+.be-card {
+  border-radius:14px;padding:18px 20px;border:1.5px solid;
+}
+.be-card h4 { font-size:15px;font-weight:800;margin-bottom:6px; }
+.be-card p { font-size:13px;line-height:1.7; }
+.be-bene { border-color:#17b5b5;background:var(--teal-pale); }
+.be-bene h4 { color:var(--teal); }
+.be-non { border-color:#c0392b;background:var(--coral-pale); }
+.be-non h4 { color:var(--coral); }
+.be-auto { border-color:#5a3a8a;background:var(--purple-pale); }
+.be-auto h4 { color:var(--purple); }
+.be-just { border-color:#b8860b;background:var(--gold-pale); }
+.be-just h4 { color:var(--gold); }
+
+/* ── QUIZ ── */
+.quiz-card {
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:16px;padding:28px;margin-bottom:24px;position:relative;
+}
+.qnum {
+  position:absolute;top:-14px;left:24px;
+  background:var(--teal);color:white;
+  font-size:11px;font-weight:800;letter-spacing:1px;
+  padding:4px 14px;border-radius:10px;
+}
+.qvig {
+  background:linear-gradient(135deg,var(--teal-ghost),var(--gold-pale));
+  border-radius:10px;padding:16px 18px;margin-bottom:16px;
+  font-size:14px;line-height:1.75;
+  border-left:4px solid var(--teal-mid);color:#1a3535;
+}
+.qq { font-weight:700;font-size:14px;margin-bottom:14px;color:var(--ink); }
+.opts { display:flex;flex-direction:column;gap:8px; }
+.opt {
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:10px;padding:12px 16px;font-size:13.5px;
+  cursor:pointer;transition:all 0.2s;text-align:left;
+  font-family:inherit;width:100%;display:flex;gap:10px;align-items:flex-start;
+}
+.opt:hover { border-color:var(--teal);background:var(--teal-ghost); }
+.opt.correct { background:var(--green-pale);border-color:var(--green);color:var(--green); }
+.opt.wrong { background:var(--coral-pale);border-color:var(--coral);color:var(--coral); }
+.opt.disabled { cursor:default; }
+.opt-l {
+  font-weight:800;font-size:11px;min-width:22px;height:22px;
+  border-radius:50%;background:white;border:1.5px solid currentColor;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;flex-shrink:0;
+}
+.exp {
+  background:var(--green-pale);border:1px solid var(--green);
+  border-radius:10px;padding:14px 16px;font-size:13px;
+  margin-top:14px;color:#0a3a1f;display:none;line-height:1.75;
+}
+.exp.show { display:block;animation:fadeUp 0.3s ease; }
+
+/* ── SCORE CARD ── */
+.score-card {
+  background:linear-gradient(135deg,var(--navy),var(--teal));
+  color:white;border-radius:20px;padding:48px;
+  text-align:center;margin-top:32px;display:none;
+}
+.score-card.show { display:block;animation:fadeUp 0.4s ease; }
+.score-num { font-family:'Libre Baskerville',serif;font-size:80px;font-weight:700;color:var(--gold-light);line-height:1; }
+
+/* ── PROGRESS ── */
+.prog-bar { background:rgba(23,181,181,0.2);border-radius:10px;height:6px;margin:18px 0; }
+.prog-fill { background:var(--teal);height:100%;border-radius:10px;transition:width 0.5s ease; }
+
+/* ── FAB ── */
+.fab {
+  position:fixed;bottom:26px;right:26px;
+  background:var(--teal);color:white;border:none;
+  border-radius:50px;padding:12px 22px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;box-shadow:0 6px 24px rgba(10,107,107,0.4);
+  display:flex;align-items:center;gap:8px;
+  transition:all 0.2s;z-index:300;
+}
+.fab:hover { transform:translateY(-2px);background:var(--teal-mid);box-shadow:0 10px 32px rgba(10,107,107,0.5); }
+
+@media print {
+  .nav,.fab,.sticky-nav { display:none!important; }
+  .section { display:block!important; }
+  .card { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-chip">📚 Blok Digestive · Semester 6 · 2026</div>
+  <h1>Kedokteran Keluarga &amp;<br><em>Bioetika Islam</em> di Bidang Digestif</h1>
+  <p class="hero-sub">Rangkuman lengkap PPT + rekaman kuliah dr. dr. Yusuf Alam Romadhon, M.Kes, Sp.KKLP — diperkaya SKDI 2012, clinical reasoning, mnemonic, dan quiz vignet.</p>
+  <div class="hero-meta">
+    <span class="hero-badge">🏥 8 Pilar KKLP</span>
+    <span class="hero-badge">🔍 5 Langkah Murtagh</span>
+    <span class="hero-badge">⚖️ 4 Prinsip Bioetika</span>
+    <span class="hero-badge">☪️ Maqashid Syariah</span>
+    <span class="hero-badge">🧠 12 Soal Quiz</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('home')">🏠 Intro</button>
+  <button class="nav-btn" onclick="show('pilar')">🏛️ 8 Pilar KKLP</button>
+  <button class="nav-btn" onclick="show('murtagh')">🔍 5 Langkah Murtagh</button>
+  <button class="nav-btn" onclick="show('digestif')">🫁 Top 5 Digestif</button>
+  <button class="nav-btn" onclick="show('bioetika')">⚖️ Bioetika</button>
+  <button class="nav-btn" onclick="show('maqashid')">☪️ Islam & Fiqh</button>
+  <button class="nav-btn" onclick="show('truth')">💬 Truth Telling</button>
+  <button class="nav-btn" onclick="show('kasus')">📋 Analisis Kasus</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════ HOME ═══════════ -->
+<div id="home" class="section active">
+  <div class="sec-head">
+    <h2>🗺️ Peta Belajar & Prioritas</h2>
+    <p>Dua kuliah, satu dosen — dr. Yusuf Alam. Materi ini sangat konseptual, keluar sebagai soal vignette integratif (bukan hafalan murni). Fokus: clinical reasoning + konteks keluarga + bioetika.</p>
+  </div>
+
+  <div class="alert alert-gold">
+    <span class="ai">⭐</span>
+    <div><strong>Pesan utama dari kuliah:</strong> Dokter keluarga bukan sekadar "dispensary on legs" — ia melihat pasien sebagai <em>manusia dalam konteks keluarga</em>, bukan sekadar organ yang sakit. Endoskopi normal ≠ pasien baik-baik saja!</div>
+  </div>
+
+  <div class="g2">
+    <div class="mini" style="border-left:4px solid var(--teal)">
+      <h4>📌 Materi 1 — KKLP & Digestif</h4>
+      <ul>
+        <li>Filosofi dokter keluarga layanan primer</li>
+        <li>8 Pilar Kedokteran Keluarga</li>
+        <li>Top 5 masalah digestif di primer</li>
+        <li><strong>5 Langkah Murtagh</strong> (sering keluar!)</li>
+        <li>Simulasi kasus dispepsia & IBS</li>
+        <li>Integrasi genogram & psikosomatik</li>
+      </ul>
+    </div>
+    <div class="mini" style="border-left:4px solid var(--gold)">
+      <h4>📌 Materi 2 — Bioetika & Islam</h4>
+      <ul>
+        <li>4 Prinsip Beauchamp & Childress</li>
+        <li>5 Maqashid Syariah</li>
+        <li>5 Kaidah Fiqh utama</li>
+        <li><strong>Truth Telling</strong> + Protokol SPIKES</li>
+        <li>Analisis 3 kasus sensitif digestif</li>
+        <li>Integrasi 4 kerangka analisis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--teal-pale)">🎯</span>Paradigma Kunci — Wajib Hafal</div>
+    <div class="g2">
+      <div class="alert alert-red" style="margin:0">
+        <span class="ai">❌</span>
+        <div><strong>Paradigma Lama:</strong><br>"What disease does this patient have?"<br><small>→ Fokus pada organ, episode akut</small></div>
+      </div>
+      <div class="alert alert-green" style="margin:0">
+        <span class="ai">✅</span>
+        <div><strong>Paradigma Keluarga:</strong><br>"Who is this patient as a person, and how does their family context affect their digestion?"<br><small>→ Fokus pada manusia, longitudinal</small></div>
+      </div>
+    </div>
+    <div class="alert alert-gold" style="margin-top:14px">
+      <span class="ai">💡</span>
+      <div><em>"Good doctor treats the disease. <strong>Great doctor treats the patient with disease."</strong></em> — William Osler (disebut langsung di kuliah!)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">📊</span>Perbandingan KKLP vs Spesialis Sekunder</div>
+    <div class="tw">
+      <table>
+        <tr><th>Fitur</th><th>Spesialis Sekunder</th><th>Dokter Keluarga (KKLP)</th></tr>
+        <tr><td><strong>Fokus</strong></td><td>Organ (Lambung/Usus)</td><td>Person in Family</td></tr>
+        <tr><td><strong>Waktu</strong></td><td>Episode akut/kronik</td><td>Longitudinal (seumur hidup)</td></tr>
+        <tr><td><strong>Tools</strong></td><td>Endoskopi, Biopsi</td><td>Riwayat Psikososial, Genogram</td></tr>
+        <tr><td><strong>Outcome</strong></td><td>Bebas ulkus</td><td>Bebas stres + fungsi sosial pulih</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-teal">
+    <span class="ai">📈</span>
+    <div><strong>Epidemiologi penting:</strong> 30% kunjungan umum di Puskesmas adalah keluhan saluran cerna. Psikosomatik sangat dominan — saluran cerna adalah organ paling sensitif terhadap stres. Makanya endoskopi berulang bisa normal tapi pasien tetap mengeluh!</div>
+  </div>
+</div>
+
+<!-- ═══════════ 8 PILAR ═══════════ -->
+<div id="pilar" class="section">
+  <div class="sec-head">
+    <h2>🏛️ 8 Pilar Kedokteran Keluarga</h2>
+    <p>Golden Gate KKLP — framework manajemen yang melengkapi 5 langkah diagnostik Murtagh.</p>
+  </div>
+
+  <div class="mnemo">
+    <h4>🔑 Mnemonic: "BK-HK-KBB-PI"</h4>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">B</div>
+      <div class="mnemo-def"><strong>Berpusat pada Pasien</strong> — ICE: Ideas, Concerns, Expectations</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">K</div>
+      <div class="mnemo-def"><strong>Komprehensif</strong> — Promotif, Preventif, Kuratif, Rehabilitatif</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">H</div>
+      <div class="mnemo-def"><strong>Holistik</strong> — Bio-psiko-sosio-spiritual</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">K</div>
+      <div class="mnemo-def"><strong>Kontinuitas</strong> — Dokter kenal pasien dari kecil sampai tua</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">K</div>
+      <div class="mnemo-def"><strong>Koordinasi & Kolaborasi</strong> — Konduktor orkestra layanan</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">B</div>
+      <div class="mnemo-def"><strong>Berorientasi Keluarga</strong> — Genogram, family meeting</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">B</div>
+      <div class="mnemo-def"><strong>Berwawasan Komunitas</strong> — Lingkungan, wabah, air bersih</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">P</div>
+      <div class="mnemo-def"><strong>Pemecahan Masalah Ilmiah</strong> — Evidence-based medicine dalam keterbatasan primer</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--teal-pale)">1️⃣</span>Pilar 1 — Berpusat pada Pasien (Patient-Centered)</div>
+    <div class="reason">
+      <h4>🧠 ICE Framework — Selalu Tanyakan 3 Hal Ini!</h4>
+      <ul class="sl">
+        <li><strong>I — Ideas:</strong> "Apa yang Ibu pikirkan tentang penyakit ini?" → "Saya kira ini karena habis operasi kista."</li>
+        <li><strong>C — Concerns:</strong> "Apa yang Ibu khawatirkan?" → "Saya takut ini kanker / takut bius / operasi lagi."</li>
+        <li><strong>E — Expectations:</strong> "Apa yang Ibu harapkan dari dokter hari ini?" → "Saya ingin ada obat yang mematikan rasa sakit ini total."</li>
+      </ul>
+    </div>
+    <div class="g2">
+      <div class="alert alert-red" style="margin:0">
+        <span class="ai">❌</span>
+        <div><strong>Respon biasa:</strong><br>"Ini maag, makan teratur."</div>
+      </div>
+      <div class="alert alert-green" style="margin:0">
+        <span class="ai">✅</span>
+        <div><strong>Respon KKLP:</strong><br>"Ibu tampak cemas. Apakah Ibu takut ini penyakit serius? Mari kita bedakan mana nyeri lambung, mana nyeri empedu, mana yang diperberat oleh stres pekerjaan."</div>
+      </div>
+    </div>
+    <div class="alert alert-teal" style="margin-top:14px">
+      <span class="ai">💡</span>
+      <div>Aplikasi digestif: Pasien GERD mungkin takut itu kanker. Pasien IBS mungkin takut diare adalah gejala amoeba. Gali ICE dulu sebelum meresepkan!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--green-pale)">2️⃣</span>Pilar 2 — Komprehensif (4 Level Layanan)</div>
+    <div class="g2">
+      <div class="mini" style="border-top:3px solid var(--green)">
+        <h4>🌱 Promotif</h4>
+        <p>Edukasi cara masak yang tidak merangsang lambung, promosi diet serat, hindari rokok & kopi.</p>
+      </div>
+      <div class="mini" style="border-top:3px solid var(--teal)">
+        <h4>🛡️ Preventif</h4>
+        <p>Vaksin Hepatitis, skrining H.pylori pada keluarga, skrining kanker kolorektal (FOBT/FIT).</p>
+      </div>
+      <div class="mini" style="border-top:3px solid var(--gold)">
+        <h4>💊 Kuratif</h4>
+        <p>Obat untuk mengatasi gejala (PPI untuk GERD, antispasmodik untuk IBS, laksatif untuk konstipasi).</p>
+      </div>
+      <div class="mini" style="border-top:3px solid var(--purple)">
+        <h4>🔄 Rehabilitatif</h4>
+        <p>Mengembalikan nafsu makan dan status gizi, rehabilitasi psikososial pasca sakit berat.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--purple-pale)">3️⃣–4️⃣</span>Pilar 3 Holistik & Pilar 4 Kontinuitas</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">Holistik = Bio-Psiko-Sosio-Spiritual</p>
+        <ul class="sl">
+          <li>Fisik: gejala & tanda klinis</li>
+          <li>Psikologis: stres, depresi, ansietas</li>
+          <li>Sosial: keluarga, pekerjaan, finansial</li>
+          <li>Spiritual: keyakinan, nilai, dukungan agama</li>
+        </ul>
+        <div class="alert alert-teal" style="margin-top:10px">
+          <span class="ai">💡</span>
+          <div>Stres ekonomi suami → memicu asam lambung istri. Ini holistik!</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">Kontinuitas = Dokter Kenal Pasien</p>
+        <ul class="sl">
+          <li>Dokter kenal pasien dari bayi hingga lansia</li>
+          <li>Tahu riwayat keluarga 3 generasi via genogram</li>
+          <li>Tahu 6 bulan lalu pasien pernah depresi</li>
+          <li>Tahu ada anggota keluarga baru meninggal</li>
+        </ul>
+        <div class="alert alert-gold" style="margin-top:10px">
+          <span class="ai">📊</span>
+          <div>Evidence: Kontinuitas menurunkan angka rujukan dan rawat inap!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--gold-pale)">5️⃣–6️⃣</span>Pilar 5 Koordinasi & Pilar 6 Berorientasi Keluarga</div>
+    <div class="alert alert-teal">
+      <span class="ai">🎼</span>
+      <div><strong>KKLP = Konduktor Orkestra.</strong> Contoh kasus Crohn: KKLP menghubungkan pasien dengan Spesialis GI untuk biologik + Ahli Gizi untuk diet + Psikolog untuk manajemen stres. KKLP memastikan tidak ada duplikasi obat.</div>
+    </div>
+    <div class="reason">
+      <h4>🌳 Genogram — Radiografi Keluarga</h4>
+      <p>Peta 3 generasi yang memuat riwayat kesehatan. Contoh: pasien datang konstipasi → genogram mengungkap ayah meninggal karena kanker kolon usia 48 tahun → KKLP menaikkan status dari <strong>low risk menjadi high risk</strong> → skrining kolonoskopi lebih awal (usia 40, bukan 50).</p>
+    </div>
+    <div class="alert alert-gold">
+      <span class="ai">👨‍👩‍👧</span>
+      <div><strong>3 Peran Keluarga yang Harus Dipetakan:</strong> (1) <strong>Caregiver</strong> — siapa yang merawat? (2) <strong>Breadwinner</strong> — siapa yang mencari nafkah? (3) <strong>Decision Maker</strong> — siapa yang mengambil keputusan medis?</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--coral-pale)">7️⃣–8️⃣</span>Pilar 7 Komunitas & Pilar 8 EBM</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:10px">🌍 Berwawasan Komunitas</p>
+        <ul class="sl">
+          <li>Apakah di lingkungan sedang ada wabah diare?</li>
+          <li>Apakah sumber air keluarga tercemar?</li>
+          <li>Apakah obat generik kosong di seluruh Puskesmas?</li>
+          <li>Risiko TPA: logam berat sampai 1 km via air tanah!</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:10px">🔬 EBM di Keterbatasan Primer</p>
+        <ul class="sl">
+          <li>Dispepsia tanpa alarm usia &lt;50 → <strong>"Test &amp; Treat" H.pylori</strong></li>
+          <li>Lebih cost-effective dari langsung endoskopi</li>
+          <li>H.pylori (+) → eradikasi triple/quadruple therapy</li>
+          <li>Endoskopi hanya jika ada red flags!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 5 LANGKAH MURTAGH ═══════════ -->
+<div id="murtagh" class="section">
+  <div class="sec-head">
+    <h2>🔍 5 Langkah Murtagh</h2>
+    <p>Framework diagnostik dari Prof. John Murtagh (Australia) — wajib dikuasai! Sering jadi basis soal vignette integratif.</p>
+  </div>
+
+  <div class="mnemo">
+    <h4>🔑 Mnemonic: "PSALM" — Urutan Diagnostik KKLP</h4>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">P</div>
+      <div class="mnemo-def"><strong>Probable</strong> — Apa yang paling mungkin? (diagnosis terbanyak)</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">S</div>
+      <div class="mnemo-def"><strong>Serious</strong> — Apa yang bisa mematikan? (singkirkan dulu!)</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">A</div>
+      <div class="mnemo-def"><strong>Always missed</strong> — Apa yang sering terlewat dokter?</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">L</div>
+      <div class="mnemo-def"><strong>Look for masquerade</strong> — Apa yang menyamar sebagai digestif?</div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">M</div>
+      <div class="mnemo-def"><strong>More (The Rest)</strong> — Siapa dia dalam konteks keluarga &amp; sosial?</div>
+    </div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <tr><th>Langkah</th><th>Pertanyaan Kunci</th><th>Contoh Digestif</th></tr>
+      <tr>
+        <td><strong>L1 — Probable</strong></td>
+        <td>Apa yang paling sering?</td>
+        <td>GERD, Dispepsia fungsional, Konstipasi, IBS</td>
+      </tr>
+      <tr>
+        <td><strong>L2 — Serious</strong></td>
+        <td>Apa yang mematikan? Ada red flags?</td>
+        <td>Kanker kolon/lambung, Perforasi, Appendisitis, Hematemesis</td>
+      </tr>
+      <tr>
+        <td><strong>L3 — Often Missed</strong></td>
+        <td>Apa yang sering terlewat?</td>
+        <td>IBS, Dispepsia fungsional, Celiac, H.pylori asimtomatik, Akalasia</td>
+      </tr>
+      <tr>
+        <td><strong>L4 — Masquerade</strong></td>
+        <td>Penyakit sistemik/psikiatrik yang menyamar?</td>
+        <td>Depresi/Ansietas, DM (gastroparesis), Hipertiroid, Porfiria, Kecacingan</td>
+      </tr>
+      <tr>
+        <td><strong>L5 — The Rest</strong></td>
+        <td>Konteks psikososial, keluarga, ekonomi?</td>
+        <td>Tinggal sendiri, stres kerja, konflik keluarga, kondisi finansial</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--coral-pale)">🚨</span>Langkah 2 — RED FLAGS Digestif (WAJIB Singkirkan!)</div>
+    <div class="alert alert-red">
+      <span class="ai">⚠️</span>
+      <div><strong>Jika ada salah satu → RUJUK segera, jangan tunda!</strong></div>
+    </div>
+    <div class="g2">
+      <ul class="sl">
+        <li>Hematemesis (muntah darah)</li>
+        <li>Melena (BAB hitam berbau khas)</li>
+        <li>BAB berdarah + penurunan BB drastis</li>
+        <li>Penurunan BB &gt;8 kg dalam 3 bulan</li>
+        <li>Disfagia progresif (sulit menelan makin berat)</li>
+      </ul>
+      <ul class="sl">
+        <li>Massa abdomen teraba</li>
+        <li>Riwayat kanker kolorektal keluarga &lt;50 tahun</li>
+        <li>Konstipasi baru di usia &gt;50 tahun</li>
+        <li>Anemia defisiensi besi tanpa sebab jelas</li>
+        <li>Nyeri ulu hati usia &gt;50 tahun → singkirkan jantung dulu!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--purple-pale)">🎭</span>Langkah 4 — The Great Masqueraders dalam Digestif</div>
+    <div class="tw">
+      <table>
+        <tr><th>Penyakit Sistemik</th><th>Masquerade sebagai</th><th>Cara Mendeteksi</th></tr>
+        <tr><td><strong>Depresi / Ansietas</strong></td><td>Mual, nyeri perut, anoreksia, dispepsia</td><td>PHQ-9 / GAD-7, tanya tidur lelap!</td></tr>
+        <tr><td><strong>Diabetes Melitus</strong></td><td>Gastroparesis diabetik (begah, mual)</td><td>GDS, HbA1c, cek neuropati otonom</td></tr>
+        <tr><td><strong>Hipertiroidisme</strong></td><td>Diare kronis, nafsu makan ↑ tapi BB ↓</td><td>TSH, fT4, cek palpitasi &amp; tremor</td></tr>
+        <tr><td><strong>Porfiria Intermiten</strong></td><td>Nyeri perut hebat + gejala neuropsikiatri</td><td>Langka, tapi waspada bila nyeri perut hebat episodik</td></tr>
+        <tr><td><strong>Kecacingan</strong></td><td>Nyeri perut samar, anemia</td><td>Feses rutin, Hb, eosinofil</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-gold">
+      <span class="ai">💡</span>
+      <div><strong>Tips dari kuliah:</strong> Kalau pasien susah tidur dalam 3 bulan terakhir + gejala digestif → <em>pikirkan depresi/ansietas yang menyamar!</em> Tanyakan: "Dalam 3 bulan terakhir, seberapa sering Anda bisa tidur lelap 6 jam?" — Ini pertanyaan pembuka favorit dr. Yusuf!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--green-pale)">🌍</span>Langkah 5 — The Rest: Pertanyaan Konteks</div>
+    <div class="step-flow">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h5>Siapa yang tinggal serumah?</h5>
+          <p>Tinggal sendiri? Ada caregiver? Anak di perantauan? → relevan untuk konstipasi lansia, dukungan sosial</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h5>Apa pekerjaan pasien?</h5>
+          <p>Sales dengan target tinggi? Shift malam? Dosen di musim akreditasi? → stres → IBS, GERD</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h5>Bagaimana hubungan dengan pasangan/anak?</h5>
+          <p>Konflik dengan anak remaja? Istri baru melahirkan? → beban psikologis → masquerade sebagai digestif</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h5>Apakah ada beban finansial?</h5>
+          <p>Tidak punya uang untuk beli sayur → konstipasi karena diet rendah serat! Bukan penyakit organik</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h5>Apakah ada perubahan kebiasaan besar-besaran?</h5>
+          <p>Pindah kota? Pekerjaan baru? Kehilangan orang tersayang? → disruption → gejala somatik</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--navy)" style="color:white">📝</span>SOAP Note Terintegrasi dengan Murtagh</div>
+    <div class="tw">
+      <table>
+        <tr><th>Komponen</th><th>Isi dalam Pendekatan KKLP</th></tr>
+        <tr><td><strong>S — Subjective</strong></td><td>Keluhan + ICE (Ideas/Concerns/Expectations) + Riwayat Keluarga + Murtagh L5 (The Rest)</td></tr>
+        <tr><td><strong>O — Objective</strong></td><td>Pemeriksaan fisik + Observasi perilaku (cemas, depresi) + Hasil skrining masquerade (L4: PHQ-9)</td></tr>
+        <tr><td><strong>A — Assessment</strong></td><td>Diagnosis medis + Diagnosis fungsional/psikososial + Analisis 5 langkah Murtagh</td></tr>
+        <tr><td><strong>P — Plan</strong></td><td>Obat + Manajemen keluarga + Edukasi + Alur rujukan jika L2 positif</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-teal">
+      <span class="ai">📋</span>
+      <div><strong>Contoh SOAP singkat (dari slide):</strong><br>S: Nyeri ulu hati. ICE: takut kanker. L5: Single parent, tidur larut jam 1.<br>O: Tidak ada nyeri tekan hebat. PHQ-9 = 12 (depresi ringan).<br>A: Dispepsia fungsional (Roma IV). Masquerade depresi ringan. L2 serious (-).<br>P: PPI on demand. Konseling keluarga. Skrining ulang PHQ-9 4 minggu.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TOP 5 DIGESTIF ═══════════ -->
+<div id="digestif" class="section">
+  <div class="sec-head">
+    <h2>🫁 Top 5 Masalah Digestif di Layanan Primer</h2>
+    <p>Lima masalah yang paling sering ditemui di Puskesmas — pendekatan KKLP dengan 5 langkah Murtagh untuk masing-masing.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--coral-pale)">1</span>Dispepsia — Organik vs Fungsional</div>
+    <div class="g2">
+      <div class="mini" style="border-top:3px solid var(--coral)">
+        <h4>🔴 Dispepsia Organik</h4>
+        <ul>
+          <li>Ada lesi struktural (ulkus, erosi)</li>
+          <li>Terdeteksi di endoskopi</li>
+          <li>Contoh: ulkus peptikum, kanker lambung, GERD berat</li>
+        </ul>
+      </div>
+      <div class="mini" style="border-top:3px solid var(--teal)">
+        <h4>🟢 Dispepsia Fungsional</h4>
+        <ul>
+          <li>Endoskopi NORMAL</li>
+          <li>Memenuhi kriteria Roma IV</li>
+          <li>Sangat terkait psikosomatik</li>
+          <li>Sering masquerade depresi/ansietas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reason" style="margin-top:14px">
+      <h4>🧠 Clinical Reasoning Dispepsia Fungsional</h4>
+      <p>Pasien endoskopi normal tapi masih nyeri → jangan beri antasida lagi dan lagi! Langkah KKLP:<br>
+      1️⃣ Lakukan PHQ-9 → jika skor ≥10 → depresi memicu gejala via <strong>brain-gut axis</strong><br>
+      2️⃣ Amigdala teraktivasi stres → sistem saraf otonom → hiperaktivitas lambung → nyeri<br>
+      3️⃣ Terapi: SSRI dosis rendah + sleep hygiene + mindful eating + konseling keluarga</p>
+    </div>
+    <div class="alert alert-gold">
+      <span class="ai">💊</span>
+      <div><strong>Terapi KKLP (Ny. S, kasus dari slide):</strong> PPI dosis rendah on demand + sleep hygiene (tidur sebelum jam 11) + mindful eating + konseling keluarga (melibatkan anak remaja untuk kurangi konflik) + SSRI dosis rendah untuk depresi ringan. Follow up 2 minggu dengan keluarga!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--teal-pale)">2</span>GERD — Pendekatan Holistik</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">🛡️ Promotif/Preventif oleh KKLP</p>
+        <ul class="sl">
+          <li>Tinggikan kepala tempat tidur 15–20 cm</li>
+          <li>Jangan langsung tidur setelah makan (tunggu 2–3 jam)</li>
+          <li>Kurangi kopi, rokok, alkohol, makanan pedas/berlemak</li>
+          <li>Makan dalam porsi kecil, lebih sering</li>
+          <li>Turunkan BB jika obesitas</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">💊 Farmakoterapi</p>
+        <ul class="sl">
+          <li>PPI: 4–8 minggu, lalu taper off jika bisa</li>
+          <li>Antasida: jangka pendek saja (risiko rebound)</li>
+          <li>Prokinetik: jika ada komponen motilitas</li>
+          <li>Jika GERD berat → rukhsah tidak puasa (Maqashid)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-orange">
+      <span class="ai">⚠️</span>
+      <div><strong>Kaidah Fiqh:</strong> Bila pasien refluks dan terasa sedikit asam saat puasa → <em>Al-yaqinu la yazulu bi al-syakk</em> — keraguan tidak membatalkan puasa. Puasanya tetap sah!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--purple-pale)">3</span>IBS — Irritable Bowel Syndrome (Sering Terlewat!)</div>
+    <div class="alert alert-purple">
+      <span class="ai">🎯</span>
+      <div><strong>Definisi Murtagh L3:</strong> IBS adalah diagnosis yang paling sering terlewat oleh KKLP karena gejalanya tumpang tindih dengan dispepsia biasa dan amoeba.</div>
+    </div>
+    <div class="reason">
+      <h4>🧠 Diagnosa IBS = Roma IV Criteria</h4>
+      <p><strong>Syarat:</strong> Nyeri perut berulang ≥1 hari/minggu dalam 3 bulan terakhir + minimal 2 dari 3:<br>
+      ✅ Berhubungan dengan BAB<br>
+      ✅ Perubahan frekuensi BAB<br>
+      ✅ Perubahan konsistensi feses<br><br>
+      <strong>Kunci di kuliah:</strong> "Nyeri membaik SETELAH BAB → khas IBS!" Ini yang sering tidak ditanyakan KKLP.</p>
+    </div>
+    <div class="g2">
+      <div class="mini" style="border-left:3px solid var(--teal)">
+        <h4>💊 Terapi IBS</h4>
+        <ul>
+          <li>Antispasmodik: mebeverine</li>
+          <li>Psyllium husk: mengatur bulk feses</li>
+          <li>Probiotik: balancing mikrobioma</li>
+          <li>Hindari FODMAP (santan, pedas, bawang)</li>
+        </ul>
+      </div>
+      <div class="mini" style="border-left:3px solid var(--purple)">
+        <h4>👨‍👩‍👧 Libatkan Keluarga!</h4>
+        <ul>
+          <li>Jelaskan ke istri: "Bukan masakan Ibu yang buruk, tapi usus suami sensitif terhadap stres"</li>
+          <li>Modifikasi menu bersama</li>
+          <li>Quality time untuk manajemen stres</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--green-pale)">4</span>Konstipasi Fungsional — Terutama pada Lansia</div>
+    <div class="case-box">
+      <h5>📋 Kasus Nenek U (70 tahun)</h5>
+      <p>Tidak BAB 5 hari. Tinggal sendiri (anak di perantauan). Takut minum air karena sering BAK malam dan takut jatuh di kamar mandi. Jarang makan sayur karena gigi ompong dan malas masak. Tidak ada uang untuk beli buah.</p>
+    </div>
+    <div class="reason">
+      <h4>🧠 Clinical Reasoning: Ini Bukan Penyakit Organik!</h4>
+      <p>Konstipasi disebabkan: (1) Asupan serat kurang → tidak mampu beli buah/sayur. (2) Cairan kurang → takut jatuh ke kamar mandi malam. (3) Aktivitas fisik kurang → tinggal sendiri, lansia.<br><br>
+      <strong>Intervensi KKLP:</strong> Hubungi anak via telepon → edukasi kirim buah/sayur online + pasang bedside commode. Konseling gizi (sayur direbus lunak karena gigi ompong). Laksatif jangka pendek. Minum air terjadwal (bukan sekaligus).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--gold-pale)">5</span>Skrining Kanker Kolorektal & IBD</div>
+    <div class="g2">
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">🔍 Skrining Kanker Kolorektal</p>
+        <ul class="sl">
+          <li>Target: usia 50–75 tahun</li>
+          <li>Lebih muda jika riwayat keluarga!</li>
+          <li>Metode: FOBT/FIT setiap tahun</li>
+          <li>Jika FOBT (+) → rujuk kolonoskopi</li>
+          <li>Lynch syndrome: bisa muncul usia 20 tahun</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:700;color:var(--teal);margin-bottom:8px">⚠️ Tanda Curiga IBD</p>
+        <ul class="sl">
+          <li>Diare &gt;4 minggu disertai darah</li>
+          <li>Nyeri perut + penurunan BB + demam</li>
+          <li>Jangan beri antidiare (risiko megakolon toksik!)</li>
+          <li>Rujuk spesialis GI segera</li>
+          <li>IBD sering dikira dispepsia atau amuba</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ BIOETIKA ═══════════ -->
+<div id="bioetika" class="section">
+  <div class="sec-head">
+    <h2>⚖️ 4 Prinsip Dasar Bioetika</h2>
+    <p>Framework Beauchamp & Childress — universal, dipadankan dengan nilai Islam oleh dr. Yusuf. Selalu analisis kasus dengan keempat prinsip ini secara bersamaan!</p>
+  </div>
+
+  <div class="bioethics">
+    <div class="be-card be-bene">
+      <h4>💚 Beneficence</h4>
+      <p><strong>Definisi:</strong> Berbuat baik untuk pasien, sesuai standar tertinggi profesi.<br>
+      <strong>Padanan Islam:</strong> Maslahah (kemaslahatan)<br>
+      <strong>Contoh Digestif:</strong> Memberi nutrisi enteral pada pasien malnutrisi akibat sirosis.</p>
+    </div>
+    <div class="be-card be-non">
+      <h4>🔴 Non-Maleficence</h4>
+      <p><strong>Definisi:</strong> Tidak merugikan — kesehatan, jiwa, maupun finansial pasien.<br>
+      <strong>Padanan Islam:</strong> La dharara wa la dhirar<br>
+      <strong>Contoh Digestif:</strong> Menghindari NSAID pada pasien ulkus peptikum aktif.</p>
+    </div>
+    <div class="be-card be-auto">
+      <h4>💜 Autonomy</h4>
+      <p><strong>Definisi:</strong> Menghormati keputusan dan privasi pasien.<br>
+      <strong>Padanan Islam:</strong> Hurriyyah (kebebasan) & Karamah (martabat)<br>
+      <strong>Contoh Digestif:</strong> Informed consent untuk ERCP atau pemasangan PEG.</p>
+    </div>
+    <div class="be-card be-just">
+      <h4>🟡 Justice</h4>
+      <p><strong>Definisi:</strong> Adil dan setara dalam pemberian layanan.<br>
+      <strong>Padanan Islam:</strong> 'Adl (keadilan)<br>
+      <strong>Contoh Digestif:</strong> Prioritas alokasi hati donor untuk pasien sirosis non-alkoholik.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-gold" style="margin-top:20px">
+    <span class="ai">🎯</span>
+    <div><strong>Cara mengerjakan soal analisis kasus:</strong> Selalu analisis dari 4 sudut pandang sekaligus: (1) Bioetika → (2) Maqashid Syariah → (3) Kaidah Fiqh → (4) Truth Telling. Jangan hanya dari satu sisi!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--teal-pale)">🧠</span>Clinical Reasoning Konflik Bioetika</div>
+    <div class="reason">
+      <h4>🔄 Saat Autonomy vs Beneficence Bertabrakan</h4>
+      <p>Contoh: Istri minta dokter tidak beritahu diagnosis kanker kepada suaminya (L1 — istri ber-Beneficence) vs pasien berhak tahu diagnosisnya (L2 — Autonomy).<br><br>
+      <strong>Resolusi:</strong> Wajib menyampaikan kebenaran secara <em>bertahap</em> (al-shidqu asas = kejujuran adalah fondasi) kecuali ada bukti psikiatrik bahwa pasien akan membahayakan dirinya sendiri (al-dhararu yuzal).</p>
+    </div>
+    <div class="alert alert-purple">
+      <span class="ai">📌</span>
+      <div><strong>5 Tahap Psikologis Kübler-Ross</strong> yang perlu dipahami KKLP:<br>
+      1. Denial (menolak) → pasien ke pengobatan alternatif<br>
+      2. Anger (marah) → marah ke keluarga, dokter, bahkan Tuhan<br>
+      3. Bargaining (tawar-menawar) → bernadar, berjanji<br>
+      4. Depression (depresi) → paling berbahaya, risiko bunuh diri<br>
+      5. Acceptance (menerima) → didukung konsep ridha dalam Islam</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ MAQASHID ═══════════ -->
+<div id="maqashid" class="section">
+  <div class="sec-head">
+    <h2>☪️ Maqashid Syariah & Kaidah Fiqh</h2>
+    <p>Kerangka Islam untuk menganalisis dilema etik dalam praktik digestif — dari puasa hingga komplikasi iatrogenik.</p>
+  </div>
+
+  <div class="mnemo">
+    <h4>🔑 Mnemonic: "DINNAM" — 5 Maqashid Syariah</h4>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">D</div>
+      <div class="mnemo-def"><strong>Din</strong> (Hifzh al-Din) — Melindungi agama → <em>Rukhsah tidak puasa untuk pasien GERD berat / IBD aktif</em></div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">N</div>
+      <div class="mnemo-def"><strong>Nafs</strong> (Hifzh al-Nafs) — Melindungi jiwa → <em>Resusitasi pada hematemesis masif, perdarahan varises esofagus</em></div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">N</div>
+      <div class="mnemo-def"><strong>Nasl</strong> (Hifzh al-Nasl) — Melindungi keturunan → <em>Hindari sulfasalazine pada pria IBD yang ingin punya anak (risiko oligospermia)</em></div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">A</div>
+      <div class="mnemo-def"><strong>Aql</strong> (Hifzh al-Aql) — Melindungi akal → <em>Edukasi pasien sirosis alkoholik bahwa alkohol haram</em></div>
+    </div>
+    <div class="mnemo-letter">
+      <div class="mnemo-L">M</div>
+      <div class="mnemo-def"><strong>Mal</strong> (Hifzh al-Mal) — Melindungi harta → <em>Endoskopi hanya jika ada indikasi, tidak berlebihan (hidul mal)</em></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--gold-pale)">📜</span>5 Kaidah Fiqh Utama dalam Praktik Digestif</div>
+    <div class="tw">
+      <table>
+        <tr><th>Kaidah</th><th>Arti</th><th>Contoh Kasus Digestif</th></tr>
+        <tr>
+          <td><strong>Al-umuru bi maqashidiha</strong></td>
+          <td>Segala sesuatu tergantung tujuannya (niat)</td>
+          <td>NGT untuk makan → membatalkan puasa. NGT untuk dekompresi → tidak membatalkan puasa.</td>
+        </tr>
+        <tr>
+          <td><strong>Al-yaqinu la yazulu bi al-syakk</strong></td>
+          <td>Keyakinan tidak hilang oleh keraguan</td>
+          <td>Pasien ragu apakah puasa batal karena sedikit refluks → <strong>tetap sah</strong>, puasanya tidak batal.</td>
+        </tr>
+        <tr>
+          <td><strong>Al-dhararu yuzal</strong></td>
+          <td>Bahaya harus dihilangkan</td>
+          <td>Pasien hematemesis masif → wajib batalkan puasa untuk menyelamatkan jiwa. Truth telling bertahap jika jujur total membahayakan jiwa.</td>
+        </tr>
+        <tr>
+          <td><strong>Al-mashaqqatu tajlibu al-taysir</strong></td>
+          <td>Kesulitan mendatangkan kemudahan (rukhsah)</td>
+          <td>Pasien IBD berat, Crohn aktif → diberi keringanan (rukhsah) tidak puasa Ramadan.</td>
+        </tr>
+        <tr>
+          <td><strong>Al-'adah muhakkamah</strong></td>
+          <td>Kebiasaan bisa menjadi pertimbangan hukum</td>
+          <td>Kebiasaan pasien gastritis minum antasida saat puasa → pertimbangkan dalam konseling pengobatan.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-teal">
+      <span class="ai">💡</span>
+      <div><strong>Kaidah yang paling sering dipakai di kasus digestif:</strong> <em>Al-dhararu yuzal</em> (bahaya harus dihilangkan) — gunakan ini untuk justifikasi tindakan darurat dan truth telling bertahap pada pasien kanker stadium lanjut.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--purple-pale)">🌙</span>Puasa Ramadan & Penyakit Digestif</div>
+    <div class="tw">
+      <table>
+        <tr><th>Kondisi</th><th>Puasa?</th><th>Dasar Hukum</th></tr>
+        <tr><td>GERD ringan (terkontrol)</td><td>✅ Boleh puasa</td><td>Al-yaqinu la yazulu bi al-syakk</td></tr>
+        <tr><td>GERD berat / erosif</td><td>⚠️ Pertimbangkan rukhsah</td><td>Al-mashaqqatu tajlibu al-taysir</td></tr>
+        <tr><td>IBD aktif (Crohn/UC flare)</td><td>❌ Rukhsah tidak puasa</td><td>Hifzh al-Nafs + Al-dhararu yuzal</td></tr>
+        <tr><td>IBD remisi</td><td>✅ Bisa puasa</td><td>Al-yaqinu la yazulu bi al-syakk — kondisi remisi = tidak ada dharar</td></tr>
+        <tr><td>Hematemesis masif</td><td>❌ Wajib batalkan</td><td>Hifzh al-Nafs: menyelamatkan jiwa wajib hukumnya</td></tr>
+        <tr><td>NGT untuk dekompresi</td><td>✅ Puasa tidak batal</td><td>Al-umuru bi maqashidiha — niatnya bukan makan</td></tr>
+        <tr><td>Sedikit refluks terasa asam</td><td>✅ Puasa tidak batal</td><td>Al-yaqinu la yazulu bi al-syakk — keyakinan tidak hilang oleh keraguan</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TRUTH TELLING ═══════════ -->
+<div id="truth" class="section">
+  <div class="sec-head">
+    <h2>💬 Truth Telling — Menyampaikan Kebenaran</h2>
+    <p>Kewajiban dokter untuk menyampaikan informasi medis yang benar, jujur, dan proporsional. Topik utama: "The Man Who Is Not Informed of a Digestive System Cancer Diagnosis."</p>
+  </div>
+
+  <div class="alert alert-teal">
+    <span class="ai">📖</span>
+    <div><strong>Landasan Al-Qur'an & Hadis:</strong><br>
+    • At-Taubah: 119 → "Hendaklah kamu bersama orang-orang yang jujur."<br>
+    • Al-Ahzab: 70 → "Ucapkanlah perkataan yang benar."<br>
+    • HR. Bukhari & Muslim → "Kejujuran membawa kebaikan, kebaikan membawa surga."<br>
+    • Kaidah: Al-shidqu asas al-mu'amalah → Kejujuran adalah fondasi segala hubungan, termasuk dokter-pasien.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">⚠️</span>Pengecualian (Rukhsah) — Kapan Boleh Tidak Langsung Jujur?</div>
+    <div class="alert alert-gold">
+      <span class="ai">☪️</span>
+      <div>Kebohongan diperbolehkan secara terbatas <em>untuk kemaslahatan yang lebih besar</em> (HR. Bukhari): mendamaikan dua pihak, dalam peperangan, suami-istri untuk keharmonisan, dan pada pasien sakit parah jika kebenaran justru membahayakan jiwanya.</div>
+    </div>
+    <div class="alert alert-teal">
+      <span class="ai">⚖️</span>
+      <div><strong>Al-dhararu yuzal dalam Truth Telling:</strong> Jika truth telling menyebabkan <em>dharar yang lebih besar</em> (misalnya pasien bunuh diri atau putus asa total), maka boleh menyembunyikan atau menyampaikan secara bertahap. Namun ini adalah <em>pengecualian</em>, bukan rule!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--green-pale)">📋</span>Protokol SPIKES — Cara Menyampaikan Berita Buruk</div>
+    <div class="step-flow">
+      <div class="step">
+        <div class="step-num">S</div>
+        <div class="step-body">
+          <h5>Setting (Pengaturan Situasi)</h5>
+          <p>Ruangan privat, duduk sejajar, matikan HP, ajak keluarga pendukung.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">P</div>
+        <div class="step-body">
+          <h5>Perception (Persepsi Pasien)</h5>
+          <p>Tanyakan dulu apa yang pasien sudah tahu: "Bapak sudah mendengar apa dari dokter sebelumnya?"</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">I</div>
+        <div class="step-body">
+          <h5>Invitation (Undangan / Keterlibatan)</h5>
+          <p>Minta izin: "Apakah Bapak ingin saya ceritakan hasil pemeriksaan secara lengkap?"</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">K</div>
+        <div class="step-body">
+          <h5>Knowledge (Penyampaian Informasi)</h5>
+          <p>Sampaikan secara bertahap, bahasa sederhana, hindari kata "mati" atau "tinggal 3 bulan."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">E</div>
+        <div class="step-body">
+          <h5>Emotions (Respons Emosi)</h5>
+          <p>Beri waktu pasien untuk merespons. Validasi: "Wajar jika Bapak merasa sedih dan kaget."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">S</div>
+        <div class="step-body">
+          <h5>Strategy & Summary</h5>
+          <p>Sampaikan rencana terapi. Tutup dengan harapan: "Kita tetap berharap yang terbaik, dan kita siapkan juga segala kemungkinan."</p>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-gold">
+      <span class="ai">🗣️</span>
+      <div><strong>Contoh kalimat dari kuliah dr. Yusuf:</strong> "Hasil pemeriksaan menunjukkan adanya pertumbuhan jaringan yang tidak normal di usus besar Bapak. Saat ini sudah menyebar ke hati. Namun kami punya pilihan terapi untuk mengendalikan penyakit ini. Yang penting kita tidak putus asa dari rahmat Allah."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--navy)" style="color:white">☪️</span>Konsep Ridha dalam Mendampingi Pasien</div>
+    <div class="reason">
+      <h4>🌟 Dari Denial menuju Acceptance</h4>
+      <p>Dalam tahap <em>acceptance</em> Kübler-Ross, dokter bisa membantu dengan konsep <strong>ridha</strong> dalam Islam:<br><br>
+      "Jangan hanya melihat sakitnya, tapi siapakah yang mendatangkan sakit ini? Kalau orangnya sudah beriman, sakit itu bisa menjadi ladang pahala — digantinya tidak harus di dunia, tapi di akhirat."<br><br>
+      Penelitian di Singapura & negara maju: <strong>bunuh diri terjadi karena rasa <em>elun</em> (kesepian)</strong>. Libatkan keluarga agar pasien tidak merasa sendiri.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ KASUS ═══════════ -->
+<div id="kasus" class="section">
+  <div class="sec-head">
+    <h2>📋 Analisis 3 Kasus Sensitif</h2>
+    <p>Dari PPT Bioetika — analisis 4 kerangka (Bioetika, Maqashid, Kaidah Fiqh, Truth Telling). Ini yang paling mungkin jadi soal!</p>
+  </div>
+
+  <!-- Kasus 1 -->
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--coral-pale)">1</span>Kanker Kolorektal Stadium IV — "Saya Sakit Apa?"</div>
+    <div class="case-box">
+      <h5>📋 Skenario</h5>
+      <p>Laki-laki 55 tahun, petani, BAB berdarah + penurunan BB. Kolonoskopi: adenokarsinoma kolon stadium IV dengan metastasis hati. Istri minta dokter jangan beritahu suami karena khawatir "patah semangat dan tidak mau berobat." Pasien bertanya langsung: "Dok, saya sakit apa? Apakah ganas?"</p>
+    </div>
+    <div class="tw">
+      <table>
+        <tr><th>Kerangka</th><th>Analisis</th></tr>
+        <tr>
+          <td><strong>Bioetika</strong></td>
+          <td><strong>Autonomy</strong> pasien untuk tahu diagnosis vs <strong>Beneficence</strong> melindungi dari keputusasaan. <strong>Non-maleficence:</strong> kebohongan merusak kepercayaan dan mencegah pasien menyiapkan urusan dunia-akhirat.</td>
+        </tr>
+        <tr>
+          <td><strong>Maqashid Syariah</strong></td>
+          <td><strong>Hifzh al-din:</strong> pasien perlu persiapan spiritual (taubat, wasiat, pelunasan hutang) → membutuhkan kebenaran. <strong>Hifzh al-nafs:</strong> jika kebenaran menyebabkan bunuh diri → bisa ditunda/bertahap.</td>
+        </tr>
+        <tr>
+          <td><strong>Kaidah Fiqh</strong></td>
+          <td><strong>Al-dhararu yuzal:</strong> bandingkan bahaya menyampaikan (risiko depresi berat) vs bahaya menyembunyikan (pasien tidak menyelesaikan urusan agama, wasiat, hutang). <strong>Al-shidqu asas:</strong> hukum asalnya wajib jujur.</td>
+        </tr>
+        <tr>
+          <td><strong>Truth Telling</strong></td>
+          <td>Jujur secara bertahap. Libatkan keluarga sebagai pendukung. Gunakan protokol SPIKES. Sampaikan dengan kata-kata harapan, bukan vonis waktu.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-green">
+      <span class="ai">✅</span>
+      <div><strong>Kesimpulan:</strong> Wajib menyampaikan kebenaran secara bertahap, kecuali ada bukti psikiatrik bahwa pasien akan membahayakan dirinya sendiri. Dokter harus jujur — demi Hifzh al-Din pasien.</div>
+    </div>
+  </div>
+
+  <!-- Kasus 2 -->
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--orange-pale)">2</span>Komplikasi Iatrogenik ERCP — "Perforasi Disebabkan Batu atau Tindakan?"</div>
+    <div class="case-box">
+      <h5>📋 Skenario</h5>
+      <p>Wanita 40 tahun, dilakukan ERCP untuk batu saluran empedu. Terjadi perforasi duodenum akibat tindakan (komplikasi yang diketahui risiko 1%). Dokter takut dituntut dan berpikir untuk mengatakan perforasi disebabkan oleh batu yang tajam, bukan tindakan.</p>
+    </div>
+    <div class="tw">
+      <table>
+        <tr><th>Kerangka</th><th>Analisis</th></tr>
+        <tr>
+          <td><strong>Bioetika</strong></td>
+          <td><strong>Non-maleficence:</strong> kebohongan menambah cedera psikologis dan merusak trust. <strong>Autonomy:</strong> pasien berhak tahu penyebab sebenarnya untuk mengambil keputusan terapeutik.</td>
+        </tr>
+        <tr>
+          <td><strong>Maqashid Syariah</strong></td>
+          <td><strong>Hifzh al-din:</strong> kebohongan adalah dosa besar. <strong>Hifzh al-nafs:</strong> pasien butuh tindakan cepat — kejujuran justru mempercepat tatalaksana yang tepat.</td>
+        </tr>
+        <tr>
+          <td><strong>Kaidah Fiqh</strong></td>
+          <td><strong>Al-gharar</strong> (penipuan) adalah haram. <strong>La dharara wa la dhirar:</strong> kebohongan adalah bentuk dhirar (membahayakan) terhadap hak pasien.</td>
+        </tr>
+        <tr>
+          <td><strong>Truth Telling</strong></td>
+          <td>Wajib jujur. "Bu, terjadi perforasi usus halus sebagai komplikasi ERCP. Risiko ini sudah dijelaskan dalam informed consent. Kami akan segera operasi memperbaikinya. Kami mohon maaf dan akan menangani sebaik-baiknya."</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-green">
+      <span class="ai">✅</span>
+      <div><strong>Kesimpulan:</strong> Tidak boleh menutupi kesalahan medis. Justru kejujuran mengurangi risiko litigasi dan menjaga amanah profesi.</div>
+    </div>
+  </div>
+
+  <!-- Kasus 3 -->
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--purple-pale)">3</span>Pasien Crohn Remisi Berbohong soal Puasa</div>
+    <div class="case-box">
+      <h5>📋 Skenario</h5>
+      <p>Pasien dengan Crohn's ringan (remisi) berkata: "Saya sudah tidak puasa karena kata dokter sebelumnya saya tidak boleh puasa." Namun dalam rekam medis, dokter sebelumnya hanya menganjurkan "jika memberatkan boleh tidak puasa" dan kondisi pasien saat ini dalam remisi baik.</p>
+    </div>
+    <div class="tw">
+      <table>
+        <tr><th>Kerangka</th><th>Analisis</th></tr>
+        <tr>
+          <td><strong>Bioetika</strong></td>
+          <td><strong>Beneficence:</strong> dokter harus meluruskan informasi yang salah untuk kebaikan pasien — puasa tidak berbahaya untuknya dalam kondisi remisi.</td>
+        </tr>
+        <tr>
+          <td><strong>Maqashid Syariah</strong></td>
+          <td><strong>Hifzh al-din:</strong> pasien meninggalkan kewajiban puasa tanpa alasan syar'i yang valid. <strong>Hifzh al-nafs:</strong> puasa tidak membahayakan jiwanya dalam kondisi remisi.</td>
+        </tr>
+        <tr>
+          <td><strong>Kaidah Fiqh</strong></td>
+          <td><strong>Al-yaqinu la yazulu bi al-syakk:</strong> keraguan pasien tidak membenarkan meninggalkan puasa. <strong>Al-dhararu yuzal:</strong> tidak terbukti ada dharar dalam kondisi remisi.</td>
+        </tr>
+        <tr>
+          <td><strong>Truth Telling</strong></td>
+          <td>Dokter wajib meluruskan dengan bijak: "Berdasarkan rekam medis, kondisi Bapak saat ini remisi dan puasa tidak membahayakan. Anjuran dokter sebelumnya adalah jika memberatkan, bukan secara mutlak."</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-green">
+      <span class="ai">✅</span>
+      <div><strong>Kesimpulan:</strong> Dokter berkewajiban meluruskan kesalahan persepsi dengan cara edukatif dan tidak menghakimi.</div>
+    </div>
+  </div>
+
+  <!-- Integrasi 4 kerangka -->
+  <div class="card">
+    <div class="card-title"><span class="ci" style="background:var(--teal-pale)">📊</span>Integrasi 4 Kerangka — Ringkasan</div>
+    <div class="tw">
+      <table>
+        <tr><th>Kasus</th><th>Bioetika</th><th>Maqashid</th><th>Kaidah Fiqh</th><th>Truth Telling</th></tr>
+        <tr>
+          <td>Kanker kolon st. IV</td>
+          <td>Autonomy & Beneficence</td>
+          <td>Hifzh al-din & Hifzh al-nafs</td>
+          <td>Al-dhararu yuzal</td>
+          <td>Bertahap, dengan harapan</td>
+        </tr>
+        <tr>
+          <td>Komplikasi ERCP</td>
+          <td>Non-maleficence & Justice</td>
+          <td>Hifzh al-din (dosa bohong)</td>
+          <td>Al-shidqu asas & La dharar</td>
+          <td>Wajib jujur, minta maaf</td>
+        </tr>
+        <tr>
+          <td>Pasien berbohong soal puasa</td>
+          <td>Beneficence</td>
+          <td>Hifzh al-din (tegakkan ibadah)</td>
+          <td>Al-yaqinu la yazulu bi al-syakk</td>
+          <td>Luruskan dengan edukasi</td>
+        </tr>
+        <tr>
+          <td>IBD pada remaja</td>
+          <td>Autonomy (remaja) & Beneficence</td>
+          <td>Hifzh al-nasl & Hifzh al-nafs</td>
+          <td>Al-'adah muhakkamah</td>
+          <td>Sesuai usia, libatkan ortu</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ QUIZ ═══════════ -->
+<div id="quiz" class="section">
+  <div class="sec-head">
+    <h2>🧠 Quiz — Uji Pemahamanmu!</h2>
+    <p>12 soal vignette berbasis kuliah dr. Yusuf Alam. Klik untuk menjawab, baca penjelasannya!</p>
+  </div>
+
+  <div style="margin-bottom:24px">
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px">
+      <span>Progress</span><span id="ptxt">0 / 12 dijawab</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="pfill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1"><div class="qnum">Soal 1</div>
+    <div class="qvig">Seorang ibu 45 tahun datang dengan keluhan perut mules dan tidak enak sejak 6 bulan. Sudah minum antasida di warung tapi kambuh lagi. Hasil endoskopi 3 bulan lalu normal. Pasien terlihat cemas dan bertanya, "Dok, jangan-jangan saya terkena kanker?"</div>
+    <p class="qq">Apakah komponen ICE yang sedang diungkapkan pasien tersebut?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q1',false,'A')"><span class="opt-l">A</span>Ideas — Pasien berpikir penyakitnya adalah kanker</button>
+      <button class="opt" onclick="ans(this,'q1',true,'B')"><span class="opt-l">B</span>Concerns — Pasien mengkhawatirkan kemungkinan kanker</button>
+      <button class="opt" onclick="ans(this,'q1',false,'C')"><span class="opt-l">C</span>Expectations — Pasien mengharapkan penjelasan tentang kanker</button>
+      <button class="opt" onclick="ans(this,'q1',false,'D')"><span class="opt-l">D</span>Autonomy — Pasien meminta hak untuk tahu diagnosisnya</button>
+    </div>
+    <div class="exp" id="ex-q1">✅ <strong>B. Concerns</strong><br><br>ICE terdiri dari 3 komponen: <strong>I</strong>deas (apa yang pasien pikirkan tentang penyakitnya), <strong>C</strong>oncerns (apa yang pasien KHAWATIRKAN), dan <strong>E</strong>xpectations (apa yang pasien harapkan). Kalimat "jangan-jangan saya kanker?" adalah ekspresi kekhawatiran (Concerns), bukan sekadar pikiran (Ideas) atau harapan (Expectations). KKLP harus mengeksplorasi ketiga komponen ICE ini sebelum memberikan diagnosis!</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2"><div class="qnum">Soal 2</div>
+    <div class="qvig">Tn. Budi, 30 tahun, seorang sales dengan target tinggi, datang ke Puskesmas karena diare bolak-balik setiap minggu — kadang bergantian dengan konstipasi — sejak 2 tahun. Nyeri perut membaik setelah BAB. Tidak ada darah, tidak ada penurunan berat badan, tidak ada demam. KKLP sebelumnya selalu memberi antasida dan antidiare tanpa perbaikan.</div>
+    <p class="qq">Berdasarkan 5 langkah Murtagh, diagnosis apa yang paling mungkin terlewat (Langkah 3)?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q2',false,'A')"><span class="opt-l">A</span>Kolitis ulseratif</button>
+      <button class="opt" onclick="ans(this,'q2',true,'B')"><span class="opt-l">B</span>Irritable Bowel Syndrome (IBS)</button>
+      <button class="opt" onclick="ans(this,'q2',false,'C')"><span class="opt-l">C</span>Crohn's disease</button>
+      <button class="opt" onclick="ans(this,'q2',false,'D')"><span class="opt-l">D</span>Disentri amoeba</button>
+    </div>
+    <div class="exp" id="ex-q2">✅ <strong>B. IBS</strong><br><br>Ini adalah kasus klasik <strong>Langkah 3 (Often Missed)</strong> Murtagh. IBS sering terlewat karena gejalanya samar dan tumpang tindih. Ciri khas IBS: diare + konstipasi bergantian, nyeri <strong>MEMBAIK setelah BAB</strong> (khas!), tidak ada darah, tidak ada penurunan BB. Konteks: stres tinggi sebagai sales (Langkah 5 / The Rest) sangat mendukung diagnosis IBS karena <em>brain-gut axis</em>. Kriteria Roma IV harus diterapkan!</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3"><div class="qnum">Soal 3</div>
+    <div class="qvig">Nenek U, 70 tahun, mengeluh tidak BAB sejak 5 hari. Tinggal sendiri karena anak-anaknya bekerja di perantauan. Mengaku jarang makan sayur karena gigi ompong dan malas masak. Jarang minum air karena takut sering BAK di malam hari dan takut jatuh ke kamar mandi.</div>
+    <p class="qq">Apa intervensi KKLP yang paling tepat dan komprehensif berdasarkan pendekatan keluarga?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q3',false,'A')"><span class="opt-l">A</span>Berikan laksatif osmotik dan anjurkan makan sayur setiap hari</button>
+      <button class="opt" onclick="ans(this,'q3',false,'B')"><span class="opt-l">B</span>Rujuk ke spesialis gastroenterologi untuk kolonoskopi</button>
+      <button class="opt" onclick="ans(this,'q3',true,'C')"><span class="opt-l">C</span>Libatkan anak via telepon untuk kirim buah/sayur, pasang bedside commode, konseling gizi, laksatif jangka pendek</button>
+      <button class="opt" onclick="ans(this,'q3',false,'D')"><span class="opt-l">D</span>Anjurkan suplemen serat dan vitamin C saja</button>
+    </div>
+    <div class="exp" id="ex-q3">✅ <strong>C</strong><br><br>Ini contoh <strong>Pilar 6 (Berorientasi Keluarga)</strong> + <strong>Langkah 5 Murtagh (The Rest)</strong>. Konstipasi bukan karena penyakit organik, melainkan konteks psikososial: (1) tidak mampu beli sayur → tidak ada caregiver; (2) takut BAK malam → takut jatuh. Solusi KKLP melibatkan keluarga: hubungi anak di perantauan, pasang bedside commode, konseling gizi sayur lembut untuk gigi ompong. Rujuk kolonoskopi (B) tidak tepat — tidak ada red flags!</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4"><div class="qnum">Soal 4</div>
+    <div class="qvig">Ny. R, 45 tahun, datang dengan dispepsia berulang selama 6 bulan. Endoskopi 3 bulan lalu: normal. Pasien bekerja sebagai penjual online shop, tidur jam 1 dini hari setiap malam karena mengurus pesanan, sering melewatkan makan siang. PHQ-9 dilakukan: skor 15 (depresi moderat-berat).</div>
+    <p class="qq">Berdasarkan 5 langkah Murtagh, apa yang sedang terjadi pada Ny. R? (Langkah 4)</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q4',false,'A')"><span class="opt-l">A</span>GERD organik yang belum terdiagnosis</button>
+      <button class="opt" onclick="ans(this,'q4',false,'B')"><span class="opt-l">B</span>Ulkus peptikum yang tidak terdeteksi endoskopi</button>
+      <button class="opt" onclick="ans(this,'q4',true,'C')"><span class="opt-l">C</span>Depresi yang menyamar sebagai dispepsia (masquerade)</button>
+      <button class="opt" onclick="ans(this,'q4',false,'D')"><span class="opt-l">D</span>H.pylori asimtomatik yang memicu gejala</button>
+    </div>
+    <div class="exp" id="ex-q4">✅ <strong>C. Depresi yang menyamar (Masquerade)</strong><br><br>Ini adalah <strong>Langkah 4 Murtagh</strong> — The Great Masquerader! Depresi dan ansietas sering muncul sebagai gejala digestif melalui <em>brain-gut axis</em>. Amigdala aktif (stres) → aktivasi sistem saraf otonom → hiperaktivitas lambung → nyeri ulu hati. PHQ-9 skor 15 = depresi moderat-berat. Tatalaksana: SSRI dosis rendah + sleep hygiene + mindful eating + konseling keluarga — BUKAN antasida lagi!</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5"><div class="qnum">Soal 5</div>
+    <div class="qvig">Dokter KKLP menggunakan genogram pada pasien yang datang dengan konstipasi. Dari genogram diketahui bahwa ayah kandung pasien meninggal karena kanker kolon pada usia 48 tahun, dan seorang paman dari sisi ibu juga pernah menderita polip kolon pada usia 45 tahun.</div>
+    <p class="qq">Apa keputusan KKLP yang paling tepat berdasarkan temuan genogram ini?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q5',false,'A')"><span class="opt-l">A</span>Tetap jadwalkan skrining kolonoskopi di usia 50 tahun sesuai standar</button>
+      <button class="opt" onclick="ans(this,'q5',false,'B')"><span class="opt-l">B</span>Berikan edukasi diet serat tinggi dan pantau saja</button>
+      <button class="opt" onclick="ans(this,'q5',true,'C')"><span class="opt-l">C</span>Naikkan status dari low risk menjadi high risk dan percepat skrining kolonoskopi ke usia 40 tahun</button>
+      <button class="opt" onclick="ans(this,'q5',false,'D')"><span class="opt-l">D</span>Rujuk langsung ke spesialis onkologi</button>
+    </div>
+    <div class="exp" id="ex-q5">✅ <strong>C</strong><br><br>Ini adalah fungsi utama <strong>Genogram (Pilar 6 — Berorientasi Keluarga)</strong>. Riwayat kanker kolon pada anggota keluarga &lt;50 tahun → langsung naikkan level risiko! Standar skrining usia 50 tahun adalah untuk populasi risiko rendah. Pasien dengan riwayat keluarga kanker kolon &lt;50 tahun → dimajukan ke usia 40 tahun (atau 10 tahun lebih muda dari usia saat diagnosis anggota keluarga). Ini adalah Murtagh L2 (Serious) yang harus disikapi!</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6"><div class="qnum">Soal 6</div>
+    <div class="qvig">Seorang dokter KKLP menemukan bahwa pasien dengan penyakit Crohn dalam kondisi remisi mengaku tidak puasa Ramadan dengan alasan "kata dokter sebelumnya tidak boleh puasa." Dari rekam medis, dokter sebelumnya menulis "jika memberatkan boleh tidak puasa." Pasien saat ini tidak ada keluhan apapun, status gizi baik, aktivitas normal.</div>
+    <p class="qq">Apa kaidah fiqh yang paling relevan untuk menentukan sikap dokter KKLP dalam kasus ini?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q6',false,'A')"><span class="opt-l">A</span>Al-dhararu yuzal — bahaya harus dihilangkan</button>
+      <button class="opt" onclick="ans(this,'q6',false,'B')"><span class="opt-l">B</span>Al-mashaqqatu tajlibu al-taysir — kesulitan mendatangkan kemudahan</button>
+      <button class="opt" onclick="ans(this,'q6',true,'C')"><span class="opt-l">C</span>Al-yaqinu la yazulu bi al-syakk — keyakinan tidak hilang oleh keraguan</button>
+      <button class="opt" onclick="ans(this,'q6',false,'D')"><span class="opt-l">D</span>Al-umuru bi maqashidiha — segala sesuatu tergantung tujuannya</button>
+    </div>
+    <div class="exp" id="ex-q6">✅ <strong>C. Al-yaqinu la yazulu bi al-syakk</strong><br><br>Pasien dalam kondisi remisi — tidak ada dharar, tidak ada kesulitan (mashaqqah). Kewajiban puasa adalah <em>al-yaqin</em> (keyakinan/kewajiban yang pasti). Keraguan pasien bahwa dia "tidak boleh puasa" tidak cukup untuk menggugurkan kewajiban puasa yang sudah pasti itu. Dokter wajib meluruskan dengan edukatif: kondisi remisi = tidak ada bahaya yang membenarkan meninggalkan puasa. Kaidah Al-mashaqqah (B) hanya berlaku jika memang ada kesulitan/bahaya nyata.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7"><div class="qnum">Soal 7</div>
+    <div class="qvig">Seorang pasien kanker kolorektal stadium IV dengan metastasis hati menanyakan langsung kepada dokter: "Dok, saya sakit apa? Apakah penyakit saya ganas?" Istri pasien sudah berpesan agar dokter tidak menyampaikan diagnosis yang sebenarnya. Dokter menganalisis bahwa pasien tampak stabil secara psikologis dan tidak ada tanda risiko bunuh diri.</div>
+    <p class="qq">Apa yang WAJIB dilakukan dokter berdasarkan integrasi bioetika dan kaidah fiqh?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q7',false,'A')"><span class="opt-l">A</span>Menuruti permintaan istri sepenuhnya dan tidak memberitahu pasien sama sekali</button>
+      <button class="opt" onclick="ans(this,'q7',false,'B')"><span class="opt-l">B</span>Mengatakan pasien hanya mengalami infeksi usus yang berat</button>
+      <button class="opt" onclick="ans(this,'q7',true,'C')"><span class="opt-l">C</span>Menyampaikan kebenaran secara bertahap dengan protokol SPIKES dan melibatkan keluarga sebagai pendukung</button>
+      <button class="opt" onclick="ans(this,'q7',false,'D')"><span class="opt-l">D</span>Menolak menjawab pertanyaan pasien sampai ada persetujuan keluarga</button>
+    </div>
+    <div class="exp" id="ex-q7">✅ <strong>C</strong><br><br>Dari sisi <strong>Bioetika</strong>: Autonomy pasien harus dihormati — ia berhak tahu diagnosisnya. Non-maleficence: kebohongan merusak trust dan mencegah pasien mempersiapkan urusan agama/wasiat. Dari sisi <strong>Maqashid</strong>: Hifzh al-Din — pasien perlu persiapan spiritual (taubat, wasiat, pelunasan hutang). Dari <strong>Kaidah Fiqh</strong>: Al-shidqu asas — hukum asalnya wajib jujur. Pengecualian hanya jika ada risiko bunuh diri yang nyata — tidak ada dalam kasus ini. Sampaikan dengan protokol SPIKES: bertahap, dengan harapan, libatkan keluarga.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8"><div class="qnum">Soal 8</div>
+    <div class="qvig">Selama melakukan ERCP pada pasien wanita 40 tahun dengan batu saluran empedu, terjadi perforasi duodenum. Dokter tahu ini adalah komplikasi yang sudah tercantum dalam informed consent (risiko 1%). Dokter merasa takut menghadapi tuntutan hukum dan mempertimbangkan untuk mengatakan perforasi terjadi karena batu yang tajam.</div>
+    <p class="qq">Apa prinsip bioetika yang PALING JELAS dilanggar jika dokter memilih berbohong?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q8',false,'A')"><span class="opt-l">A</span>Beneficence</button>
+      <button class="opt" onclick="ans(this,'q8',true,'B')"><span class="opt-l">B</span>Non-maleficence dan Autonomy</button>
+      <button class="opt" onclick="ans(this,'q8',false,'C')"><span class="opt-l">C</span>Justice</button>
+      <button class="opt" onclick="ans(this,'q8',false,'D')"><span class="opt-l">D</span>Beneficence dan Justice</button>
+    </div>
+    <div class="exp" id="ex-q8">✅ <strong>B. Non-maleficence dan Autonomy</strong><br><br><strong>Non-maleficence</strong>: kebohongan menambah cedera psikologis dan merusak kepercayaan — ini adalah tambahan kerugian pada pasien. <strong>Autonomy</strong>: pasien berhak tahu penyebab sebenarnya untuk membuat keputusan terapeutik selanjutnya. Selain itu dari kaidah fiqh: Al-gharar (penipuan) adalah haram, dan La dharara wa la dhirar — kebohongan adalah bentuk dhirar. Ironisnya: kejujuran justru mengurangi risiko litigasi dan menjaga amanah profesi!</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="q9"><div class="qnum">Soal 9</div>
+    <div class="qvig">Seorang dokter KKLP menerima pasien dengan nyeri ulu hati yang sudah berlangsung 8 bulan. Usia 52 tahun, perokok berat, berat badan turun 7 kg dalam 3 bulan terakhir, ada disfagia progresif (sulit menelan yang makin memberat). Endoskopi belum dilakukan.</div>
+    <p class="qq">Berdasarkan 5 langkah Murtagh (Langkah 2 — Serious), apa tindakan yang paling tepat?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q9',false,'A')"><span class="opt-l">A</span>Berikan PPI dan evaluasi 4 minggu kemudian</button>
+      <button class="opt" onclick="ans(this,'q9',false,'B')"><span class="opt-l">B</span>Lakukan skrining H.pylori dengan "Test and Treat"</button>
+      <button class="opt" onclick="ans(this,'q9',true,'C')"><span class="opt-l">C</span>Rujuk segera untuk endoskopi diagnostik — ada multiple red flags</button>
+      <button class="opt" onclick="ans(this,'q9',false,'D')"><span class="opt-l">D</span>Berikan antasida dan konseling diet</button>
+    </div>
+    <div class="exp" id="ex-q9">✅ <strong>C. Rujuk segera</strong><br><br>Ini adalah <strong>Langkah 2 Murtagh (Serious Diagnosis)</strong>. Ada <strong>3 red flags sekaligus</strong>: (1) Penurunan BB &gt;8 kg dalam 3 bulan, (2) Disfagia progresif, (3) Usia &gt;50 tahun dengan gejala baru. Tiga red flags ini sangat mencurigakan keganasan esofagus/lambung. Strategy "Test and Treat" H.pylori (B) hanya untuk usia &lt;50 tahun TANPA red flags. PPI saja (A) berbahaya karena menunda diagnosis kanker!</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="q10"><div class="qnum">Soal 10</div>
+    <div class="qvig">Dalam slide dicontohkan penggunaan genogram untuk pasien KKLP. Seorang dokter menemukan bahwa pasiennya yang datang dengan "perut mules biasa" ternyata memiliki saudara kandung yang didiagnosis kanker kolorektal pada usia 44 tahun.</div>
+    <p class="qq">Pilar kedokteran keluarga mana yang PALING UTAMA diimplementasikan dalam kasus ini?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q10',false,'A')"><span class="opt-l">A</span>Pilar 1 — Berpusat pada Pasien</button>
+      <button class="opt" onclick="ans(this,'q10',false,'B')"><span class="opt-l">B</span>Pilar 2 — Komprehensif</button>
+      <button class="opt" onclick="ans(this,'q10',true,'C')"><span class="opt-l">C</span>Pilar 6 — Berorientasi Keluarga (genogram)</button>
+      <button class="opt" onclick="ans(this,'q10',false,'D')"><span class="opt-l">D</span>Pilar 8 — Pemecahan Masalah Ilmiah</button>
+    </div>
+    <div class="exp" id="ex-q10">✅ <strong>C. Pilar 6 — Berorientasi Keluarga</strong><br><br>Genogram adalah alat utama Pilar 6. Fungsinya: menggambarkan peta 3 generasi beserta riwayat kesehatan, sehingga dokter bisa mengidentifikasi risiko genetik yang tidak akan terdeteksi jika hanya melihat individu saja. Temuan riwayat kanker kolorektal pada saudara kandung &lt;50 tahun → langsung ubah strategi skrining → ini adalah kekuatan unik KKLP yang tidak dimiliki dokter spesialis yang hanya melihat satu episode!</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz-card" id="q11"><div class="qnum">Soal 11</div>
+    <div class="qvig">Seorang pasien wanita 55 tahun didiagnosis kanker kolorektal stadium lanjut. Saat berita ini disampaikan, pasien langsung menolak: "Tidak mungkin! Saya sehat-sehat saja, dokter pasti salah!" Pasien kemudian pergi ke pengobatan alternatif dan menolak kemoterapi.</div>
+    <p class="qq">Berdasarkan tahapan psikologis Kübler-Ross, pasien sedang berada di tahap apa?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q11',true,'A')"><span class="opt-l">A</span>Denial (Penolakan)</button>
+      <button class="opt" onclick="ans(this,'q11',false,'B')"><span class="opt-l">B</span>Anger (Kemarahan)</button>
+      <button class="opt" onclick="ans(this,'q11',false,'C')"><span class="opt-l">C</span>Bargaining (Tawar-menawar)</button>
+      <button class="opt" onclick="ans(this,'q11',false,'D')"><span class="opt-l">D</span>Depression (Depresi)</button>
+    </div>
+    <div class="exp" id="ex-q11">✅ <strong>A. Denial (Penolakan)</strong><br><br>Ciri khas Denial: menolak diagnosis, mencari "second opinion" dari pengobatan alternatif, tidak mempercayai dokter. Pergi ke pengobatan alternatif dan menolak terapi konvensional adalah manifestasi perilaku denial. KKLP harus bersabar, tidak memaksakan, tetap membuka pintu dengan komunikasi yang hangat. Tahap paling berbahaya adalah <strong>Depression</strong> (D) — risiko bunuh diri tertinggi di sini. Tujuan akhir adalah membantu pasien mencapai Acceptance dengan konsep ridha Islam.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz-card" id="q12"><div class="qnum">Soal 12</div>
+    <div class="qvig">Seorang dokter KKLP ingin menerapkan Maqashid Syariah "Hifzh al-Nasl" dalam praktik digestif. Ia merawat seorang pria 28 tahun dengan IBD yang sedang dalam rencana program hamil bersama istrinya. Dokter mengetahui bahwa obat yang direncanakan diberikan memiliki efek samping oligospermia.</div>
+    <p class="qq">Obat apa yang dimaksud dan bagaimana sikap dokter berdasarkan Hifzh al-Nasl?</p>
+    <div class="opts">
+      <button class="opt" onclick="ans(this,'q12',false,'A')"><span class="opt-l">A</span>Mesalazine — dihentikan dan diganti probiotik</button>
+      <button class="opt" onclick="ans(this,'q12',true,'B')"><span class="opt-l">B</span>Sulfasalazine — pertimbangkan mengganti ke mesalazine demi Hifzh al-Nasl</button>
+      <button class="opt" onclick="ans(this,'q12',false,'C')"><span class="opt-l">C</span>Prednison — dihentikan karena teratogenik</button>
+      <button class="opt" onclick="ans(this,'q12',false,'D')"><span class="opt-l">D</span>Azathioprine — dihentikan dan dirujuk ke spesialis</button>
+    </div>
+    <div class="exp" id="ex-q12">✅ <strong>B. Sulfasalazine → pertimbangkan ganti mesalazine</strong><br><br><strong>Sulfasalazine</strong> diketahui menyebabkan oligospermia reversibel pada pria. Dalam konteks pasien IBD yang sedang program hamil, ini melanggar <strong>Hifzh al-Nasl</strong> (melindungi keturunan). Solusi: ganti ke mesalazine (5-ASA murni) yang tidak memiliki efek oligospermia. Ini adalah contoh nyata bagaimana Maqashid Syariah memandu keputusan terapeutik — bukan hanya etika abstrak, tapi ada implikasi klinis konkretnya!</div>
+  </div>
+
+  <!-- Score Card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:36px;margin-bottom:12px">🎉</div>
+    <div class="score-num" id="finalScore">0</div>
+    <div style="font-size:20px;opacity:0.7;margin:6px 0">/ 12</div>
+    <div id="scoreMsg" style="font-size:15px;opacity:0.85;margin-top:10px;line-height:1.7"></div>
+    <button onclick="resetQuiz()" style="margin-top:28px;background:var(--gold-light);color:var(--navy);border:none;padding:13px 32px;border-radius:30px;font-size:14px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">🔁 Ulangi Quiz</button>
+  </div>
+
+</div><!-- end quiz -->
+</div><!-- end wrap -->
+
+<!-- FAB -->
+<button class="fab" onclick="window.print()">📥 Download / Print</button>
+
+<script>
+// NAV
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// COLLAPSE
+function toggleCollapse(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// QUIZ
+let sc=0,ans_count=0;
+const total=12;
+
+function ans(btn,qId,correct,letter){
+  const card=document.getElementById(qId);
+  if(card.dataset.done)return;
+  card.dataset.done='1';
+  card.querySelectorAll('.opt').forEach(b=>{b.classList.add('disabled');b.onclick=null;});
+  if(correct){btn.classList.add('correct');sc++;}
+  else{btn.classList.add('wrong');}
+  document.getElementById('ex-'+qId).classList.add('show');
+  ans_count++;
+  document.getElementById('ptxt').textContent=ans_count+' / '+total+' dijawab';
+  document.getElementById('pfill').style.width=(ans_count/total*100)+'%';
+  if(ans_count===total)setTimeout(showScore,600);
+}
+
+function showScore(){
+  const el=document.getElementById('scoreCard');
+  el.classList.add('show');
+  document.getElementById('finalScore').textContent=sc;
+  let msg='';
+  if(sc>=11)msg='Luar biasa sempurna! Kamu siap jadi KKLP sejati! 🔥';
+  else if(sc>=9)msg='Sangat bagus! Sedikit lagi sempurna — review soal yang salah ya! 💪';
+  else if(sc>=7)msg='Bagus! Tapi ada beberapa konsep yang perlu diulang. Semangat! 📚';
+  else if(sc>=5)msg='Lumayan — baca ulang materi KKLP dan bioetika, lalu coba lagi! 🌱';
+  else msg='Jangan menyerah! Bacamu lagi dari awal, kamu pasti bisa! 💙';
+  document.getElementById('scoreMsg').textContent=msg;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function resetQuiz(){
+  sc=0;ans_count=0;
+  document.getElementById('pfill').style.width='0%';
+  document.getElementById('ptxt').textContent='0 / '+total+' dijawab';
+  document.getElementById('scoreCard').classList.remove('show');
+  for(let i=1;i<=total;i++){
+    const c=document.getElementById('q'+i);
+    delete c.dataset.done;
+    c.querySelectorAll('.opt').forEach(b=>b.classList.remove('correct','wrong','disabled'));
+    document.getElementById('ex-q'+i).classList.remove('show');
+  }
+  rebind();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function rebind(){
+  const map=[
+    ['q1',[false,true,false,false]],
+    ['q2',[false,true,false,false]],
+    ['q3',[false,false,true,false]],
+    ['q4',[false,false,true,false]],
+    ['q5',[false,false,true,false]],
+    ['q6',[false,false,true,false]],
+    ['q7',[false,false,true,false]],
+    ['q8',[false,true,false,false]],
+    ['q9',[false,false,true,false]],
+    ['q10',[false,false,true,false]],
+    ['q11',[true,false,false,false]],
+    ['q12',[false,true,false,false]],
+  ];
+  const letters=['A','B','C','D'];
+  map.forEach(([qId,correct])=>{
+    const card=document.getElementById(qId);
+    const btns=card.querySelectorAll('.opt');
+    btns.forEach((b,i)=>{b.onclick=()=>ans(b,qId,correct[i],letters[i]);});
+  });
+}
+rebind();
+
+window.addEventListener('beforeprint',()=>document.querySelectorAll('.section').forEach(s=>s.style.display='block'));
+window.addEventListener('afterprint',()=>{
+  document.querySelectorAll('.section').forEach(s=>s.style.display='');
+  document.querySelector('.section.active').style.display='block';
+});
+</script>
+</body>
+</html>

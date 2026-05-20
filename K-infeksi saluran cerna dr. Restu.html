@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dr. Restu — Catatan Blok Digestif</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lilac: #cabccd;
+  --lilac-light: #ddd2e0;
+  --lilac-pale: #f0eaf2;
+  --cream: #f8f3ec;
+  --sage: #b5c99a;
+  --sage-dark: #8aab6a;
+  --sage-pale: #e8f0dc;
+  --brown: #4d3329;
+  --brown-mid: #7a5448;
+  --brown-light: #b08a7a;
+  --white: #ffffff;
+  --text: #2d1f1a;
+  --muted: #8a7060;
+  --red: #c0503a;
+  --red-pale: #faeae4;
+  --blue: #5a8aaa;
+  --blue-pale: #e4eff7;
+  --gold: #c4a865;
+  --gold-pale: #f5ecd8;
+  --purple: #8a7aaa;
+  --purple-pale: #ede9f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--brown) 0%, #6a3825 60%, #3d2519 100%);
+  padding: 60px 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(202,188,205,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 30%;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(181,201,154,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 860px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(181,201,154,0.18);
+  border: 1px solid rgba(181,201,154,0.35);
+  color: var(--sage);
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(32px, 6vw, 60px);
+  font-weight: 700; color: var(--cream); line-height: 1.1; margin-bottom: 10px;
+}
+.hero h1 em { font-style: italic; color: var(--lilac-light); }
+.hero-sub { font-size: 15px; color: rgba(248,243,236,0.65); max-width: 560px; margin-bottom: 32px; font-weight: 300; line-height: 1.8; }
+.hero-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-tag {
+  background: rgba(248,243,236,0.10); border: 1px solid rgba(248,243,236,0.18);
+  color: rgba(248,243,236,0.75); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 20px;
+}
+
+/* ===== NAV ===== */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(77,51,41,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(202,188,205,0.15);
+  padding: 0 32px; display: flex; align-items: center; gap: 2px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none; border: none; color: rgba(248,243,236,0.5);
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.5px; padding: 14px 14px; cursor: pointer; white-space: nowrap;
+  transition: all 0.2s; border-bottom: 2px solid transparent;
+}
+.nav-btn:hover, .nav-btn.active { color: var(--cream); border-bottom-color: var(--sage); }
+.nav-btn.active { color: var(--sage); }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+/* ===== SECTIONS ===== */
+.section { display: none; animation: fadeUp 0.35s ease; }
+.section.active { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== SECTION HEADER ===== */
+.section-title {
+  font-family: 'Lora', serif; font-size: 26px; font-weight: 700;
+  color: var(--brown); margin-bottom: 4px;
+}
+.section-desc { color: var(--muted); font-size: 13px; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 2px solid var(--lilac); }
+
+/* ===== CARD ===== */
+.card {
+  background: var(--white); border-radius: 16px; padding: 24px 26px;
+  margin-bottom: 20px; border: 1px solid rgba(202,188,205,0.4);
+  box-shadow: 0 2px 12px rgba(77,51,41,0.06);
+}
+.card-title {
+  font-family: 'Lora', serif; font-size: 17px; color: var(--brown);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.card-emoji {
+  width: 34px; height: 34px; border-radius: 8px; display: flex;
+  align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+
+/* ===== TAGS ===== */
+.tag {
+  display: inline-block; padding: 3px 10px; border-radius: 10px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin: 2px;
+}
+.tag-sage { background: var(--sage-pale); color: var(--sage-dark); }
+.tag-brown { background: rgba(77,51,41,0.1); color: var(--brown); }
+.tag-red { background: var(--red-pale); color: var(--red); }
+.tag-blue { background: var(--blue-pale); color: var(--blue); }
+.tag-gold { background: var(--gold-pale); color: #8a6a30; }
+.tag-purple { background: var(--purple-pale); color: var(--purple); }
+.tag-lilac { background: var(--lilac-pale); color: #7a608a; }
+
+/* ===== CALLOUT BOXES ===== */
+.box { border-radius: 12px; padding: 14px 18px; margin: 14px 0; font-size: 13.5px; line-height: 1.7; }
+.box-warning { background: var(--red-pale); border-left: 4px solid var(--red); }
+.box-tip { background: var(--sage-pale); border-left: 4px solid var(--sage-dark); }
+.box-gold { background: var(--gold-pale); border-left: 4px solid var(--gold); }
+.box-blue { background: var(--blue-pale); border-left: 4px solid var(--blue); }
+.box-lilac { background: var(--lilac-pale); border-left: 4px solid var(--lilac); }
+.box-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
+
+/* ===== TABLE ===== */
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--lilac); margin: 14px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--brown); color: var(--cream); padding: 11px 16px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+td { padding: 10px 16px; border-bottom: 1px solid rgba(202,188,205,0.3); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: rgba(248,243,236,0.5); }
+
+/* ===== GRID ===== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media(max-width:700px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ===== MINI CARD ===== */
+.mini-card { background: var(--cream); border: 1px solid var(--lilac); border-radius: 12px; padding: 14px 16px; }
+.mini-card h4 { font-family: 'Lora', serif; font-size: 14px; color: var(--brown); margin-bottom: 8px; }
+.mini-card p, .mini-card li { font-size: 13px; color: var(--muted); }
+.mini-card ul { padding-left: 16px; }
+.mini-card li { margin-bottom: 3px; }
+
+/* ===== CLINICAL REASONING BOX ===== */
+.cr-box {
+  background: linear-gradient(135deg, rgba(181,201,154,0.12), rgba(248,243,236,0.8));
+  border: 2px solid var(--sage);
+  border-radius: 14px; padding: 20px 22px; margin: 16px 0;
+}
+.cr-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 10px; }
+.cr-steps { list-style: none; padding: 0; counter-reset: cr; }
+.cr-steps li { counter-increment: cr; padding: 7px 0 7px 38px; position: relative; font-size: 13.5px; border-bottom: 1px solid rgba(181,201,154,0.3); }
+.cr-steps li:last-child { border-bottom: none; }
+.cr-steps li::before {
+  content: counter(cr); position: absolute; left: 0; top: 7px;
+  width: 24px; height: 24px; background: var(--sage-dark); color: white;
+  border-radius: 50%; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700;
+}
+
+/* ===== COMPARE TABLE ===== */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.compare-col { border-radius: 12px; padding: 16px 18px; border: 2px solid; }
+.compare-a { background: rgba(181,201,154,0.08); border-color: var(--sage); }
+.compare-b { background: rgba(202,188,205,0.1); border-color: var(--lilac); }
+.compare-col h4 { font-family: 'Lora', serif; font-size: 15px; margin-bottom: 10px; }
+.compare-a h4 { color: var(--sage-dark); }
+.compare-b h4 { color: var(--purple); }
+.compare-row { display: flex; gap: 8px; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { color: var(--muted); font-weight: 500; width: 110px; flex-shrink: 0; font-size: 12px; }
+@media(max-width:640px) { .compare { grid-template-columns: 1fr; } }
+
+/* ===== FLOW / ALGORITHM ===== */
+.flow { display: flex; flex-direction: column; gap: 4px; }
+.flow-box {
+  background: var(--white); border: 1.5px solid var(--lilac);
+  border-radius: 10px; padding: 10px 16px; font-size: 13px;
+}
+.flow-box.highlight { border-color: var(--sage); background: var(--sage-pale); }
+.flow-box.danger { border-color: var(--red); background: var(--red-pale); }
+.flow-arrow { text-align: center; color: var(--sage-dark); font-size: 18px; margin: 2px 0; line-height: 1; }
+
+/* ===== QUIZ ===== */
+.quiz-card {
+  background: var(--white); border: 1.5px solid var(--lilac);
+  border-radius: 18px; padding: 28px; margin-bottom: 28px; position: relative;
+}
+.quiz-num {
+  position: absolute; top: -13px; left: 22px;
+  background: var(--brown); color: var(--cream);
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 10px;
+}
+.quiz-vig {
+  background: var(--lilac-pale); border-radius: 10px; padding: 16px 18px;
+  margin-bottom: 16px; font-size: 13.5px; line-height: 1.75;
+  border-left: 4px solid var(--lilac);
+}
+.quiz-q { font-weight: 600; font-size: 14.5px; margin-bottom: 16px; color: var(--text); }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  background: var(--cream); border: 1.5px solid var(--lilac);
+  border-radius: 10px; padding: 12px 16px; font-size: 13.5px;
+  cursor: pointer; transition: all 0.2s; text-align: left;
+  font-family: 'DM Sans', sans-serif; width: 100%; display: flex; gap: 10px; align-items: flex-start; color: var(--text);
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--sage); background: var(--sage-pale); }
+.quiz-opt.correct { background: var(--sage-pale); border-color: var(--sage-dark); color: #3a6020; }
+.quiz-opt.wrong { background: var(--red-pale); border-color: var(--red); color: var(--red); }
+.quiz-opt.reveal-correct { background: var(--sage-pale); border-color: var(--sage-dark); }
+.quiz-opt .letter {
+  font-weight: 700; font-size: 12px; min-width: 22px; height: 22px;
+  border-radius: 50%; border: 1.5px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.quiz-exp {
+  background: var(--sage-pale); border: 1px solid var(--sage);
+  border-radius: 10px; padding: 14px 16px; font-size: 13px;
+  margin-top: 14px; color: #2a4a18; display: none; line-height: 1.75;
+}
+.quiz-exp.show { display: block; animation: fadeUp 0.3s ease; }
+.quiz-score {
+  background: var(--brown); color: var(--cream); border-radius: 20px;
+  padding: 40px; text-align: center; margin-top: 30px; display: none;
+}
+.quiz-score.show { display: block; animation: fadeUp 0.4s ease; }
+.score-big { font-family: 'Lora', serif; font-size: 72px; font-weight: 700; color: var(--sage); line-height: 1; }
+.quiz-progress { margin-bottom: 24px; }
+.prog-bar { background: rgba(202,188,205,0.3); border-radius: 10px; height: 6px; }
+.prog-fill { background: var(--sage); height: 100%; border-radius: 10px; transition: width 0.5s ease; }
+.prog-text { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+/* ===== DIVIDER ===== */
+.divider { height: 1px; background: var(--lilac); margin: 24px 0; }
+
+/* ===== STYLED LIST ===== */
+.s-list { list-style: none; padding: 0; }
+.s-list li { padding: 6px 0 6px 20px; border-bottom: 1px solid rgba(202,188,205,0.3); font-size: 13.5px; position: relative; }
+.s-list li:last-child { border-bottom: none; }
+.s-list li::before { content: '▸'; position: absolute; left: 0; color: var(--sage-dark); font-size: 11px; top: 9px; }
+
+/* ===== MNEMONIC ===== */
+.mnemonic {
+  background: linear-gradient(135deg, var(--gold-pale), var(--cream));
+  border: 2px solid var(--gold); border-radius: 14px; padding: 18px 22px; margin: 14px 0;
+}
+.mnemonic-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.mnemonic-text { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: var(--brown); letter-spacing: 0.03em; }
+.mnemonic-sub { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.7; }
+
+/* ===== HIGHLIGHT TEXT ===== */
+.hl-sage { background: var(--sage-pale); color: var(--sage-dark); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+.hl-red { background: var(--red-pale); color: var(--red); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+.hl-gold { background: var(--gold-pale); color: #8a6030; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+
+/* ===== RESTART BTN ===== */
+.btn-restart {
+  background: var(--sage); color: var(--brown); border: none; border-radius: 12px;
+  padding: 12px 28px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; margin-top: 16px; transition: all 0.2s;
+}
+.btn-restart:hover { background: var(--sage-dark); color: white; transform: translateY(-2px); }
+
+h3 { font-family: 'Lora', serif; font-size: 17px; color: var(--brown); margin: 22px 0 10px; }
+p { margin-bottom: 10px; font-size: 14px; }
+strong { color: var(--brown); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">📚 Blok Digestif · Semester 6</div>
+    <h1>Catatan Lengkap<br><em>dr. Restu Triwulandani</em></h1>
+    <p class="hero-sub">Intoleransi & Alergi Makanan · Malabsorpsi · Celiac · IBD · Botulisme — dibuat dari PPT + rekaman kuliah, dilengkapi clinical reasoning dan soal vignet.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🥛 Intoleransi Laktosa</span>
+      <span class="hero-tag">🧬 Alergi Susu Sapi</span>
+      <span class="hero-tag">🌾 Celiac Disease</span>
+      <span class="hero-tag">🔥 IBD — UC & Crohn</span>
+      <span class="hero-tag">⚠️ Botulisme</span>
+      <span class="hero-tag">✏️ 12 Soal Quiz Vignet</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="showSection('overview')">🗺️ Peta Materi</button>
+  <button class="nav-btn" onclick="showSection('intro')">⚡ Konsep Dasar</button>
+  <button class="nav-btn" onclick="showSection('laktosa')">🥛 Intoleransi Laktosa</button>
+  <button class="nav-btn" onclick="showSection('alergi')">🧬 Alergi Makanan</button>
+  <button class="nav-btn" onclick="showSection('ass')">🍼 Alergi Susu Sapi</button>
+  <button class="nav-btn" onclick="showSection('malabsorpsi')">🔬 Malabsorpsi</button>
+  <button class="nav-btn" onclick="showSection('ibd')">🔥 IBD</button>
+  <button class="nav-btn" onclick="showSection('celiac')">🌾 Celiac</button>
+  <button class="nav-btn" onclick="showSection('keracunan')">☠️ Keracunan</button>
+  <button class="nav-btn" onclick="showSection('botulisme')">🧠 Botulisme</button>
+  <button class="nav-btn" onclick="showSection('quiz')">✏️ Quiz</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<div id="overview" class="section active">
+  <h2 class="section-title">🗺️ Peta Belajar & Tips dr. Restu</h2>
+  <p class="section-desc">Pahami dulu peta besar materinya sebelum masuk ke detail. Dr. Restu suka soal konseptual dan analitis — bukan sekadar hafalan!</p>
+
+  <div class="box box-warning">
+    <div class="box-label" style="color:var(--red);">⚠️ Pesan Penting dari Rekaman Kuliah</div>
+    <strong>"Food intolerance — not life-threatening. Food allergy — LIFE-THREATENING. Bisa mati!"</strong><br>
+    Ini kalimat kunci dr. Restu. Bedakan betul dua konsep ini karena soal pasti mengecohkan.
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">🎯</span> Topik Utama & SKDI</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Topik</th><th>SKDI</th><th>Kedalaman yang Diminta dr. Restu</th></tr>
+        <tr><td>Intoleransi Laktosa</td><td><span class="tag tag-sage">4A</span></td><td>Patofisiologi + penunjang (hydrogen breath test) + terapi formula bayi</td></tr>
+        <tr><td>Alergi Makanan (umum)</td><td><span class="tag tag-sage">4A</span></td><td>Beda mekanisme IgE vs non-IgE, uji kulit, diagnosis eliminasi-provokasi</td></tr>
+        <tr><td>Alergi Susu Sapi (ASS)</td><td><span class="tag tag-sage">4A</span></td><td>Alur IDAI lengkap — ASI vs PASI, pilihan formula yang TEPAT</td></tr>
+        <tr><td>Celiac Disease</td><td><span class="tag tag-sage">4A</span></td><td>Gambaran biopsi, gluten, gejala malabsorpsi</td></tr>
+        <tr><td>IBD (UC & Crohn)</td><td><span class="tag tag-brown">3A</span></td><td>Beda endoskopi + PA antara UC dan Crohn — tabel banding!</td></tr>
+        <tr><td>Keracunan Makanan</td><td><span class="tag tag-sage">4A</span></td><td>Beda food infection vs intoxication, etiologi umum</td></tr>
+        <tr><td>Botulisme</td><td><span class="tag tag-brown">3B</span></td><td>Patofisiologi toksin, descending paralysis, beda sama tetanus ⚡</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">🔥</span> Poin Paling Sering Disinggung dr. Restu di Rekaman</div>
+    <div class="grid-2">
+      <div class="box box-gold" style="margin:0">
+        <div class="box-label" style="color:var(--gold);">Soal Pasti Keluar!</div>
+        <ul class="s-list">
+          <li>Hydrogen breath test → intoleransi laktosa</li>
+          <li>BAB berbau asam → kunci intoleransi laktosa</li>
+          <li>ASS: susu yang dipilih = <strong>formula hidrolisat ekstensif</strong>, BUKAN soya!</li>
+          <li>Botulisme vs tetanus — bedanya descending vs ascending paralysis</li>
+          <li>Patch test untuk tipe lambat (non-IgE), Prick test untuk tipe cepat (IgE)</li>
+          <li>Alergi susu sapi bisa sembuh ≤ 2 tahun (beda dari alergi makanan lain!)</li>
+          <li>Gambaran colonoscopy: cobblestone = Crohn, ulkus aphthosa = UC</li>
+          <li>Celiac: biopsi → atrofi vili + hiperplasia kripta + limfosit meningkat</li>
+        </ul>
+      </div>
+      <div class="box box-blue" style="margin:0">
+        <div class="box-label" style="color:var(--blue);">Jebakan Soal!</div>
+        <ul class="s-list">
+          <li>Susu soya BUKAN terapi ASS (ada 10-15% cross-reaction!)</li>
+          <li>IgE total ≠ bisa tentukan alergi terhadap apa → butuh IgE spesifik</li>
+          <li>Botoks ≠ terapi botulisme (malah kebalikannya!)</li>
+          <li>Desensitisasi alergi makanan → TIDAK dilakukan (kecuali mungkin food intolerance)</li>
+          <li>Uji provokasi TIDAK boleh pada anafilaksis atau edema laring</li>
+          <li>Eosinofilia tidak selalu alergi → bisa cacingan!</li>
+          <li>Ascending paralysis → polio, BUKAN botulisme</li>
+          <li>Kolitis ulseratif = HANYA di kolon, Crohn = bisa seluruh GI tract</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KONSEP DASAR ===== -->
+<div id="intro" class="section">
+  <h2 class="section-title">⚡ Konsep Dasar: Reaksi Simpang Makanan</h2>
+  <p class="section-desc">Fondasi yang WAJIB dipahami sebelum semua topik lainnya. Soal sering bermula dari sini.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--lilac-pale);">🌳</span> Peta Besar: Adverse Reaction to Food</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Mental Model — Bayangkan Seperti Ini</div>
+      <p style="font-size:13.5px">Setiap reaksi tidak menyenangkan setelah makan dibagi dua jalur besar: lewat sistem imun (immunological) atau tidak lewat sistem imun (non-immunological).</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jalur</th><th>Nama</th><th>Mekanisme</th><th>Contoh</th></tr>
+        <tr>
+          <td><strong>Imun ✅</strong></td>
+          <td>Food Sensitivity / Food Allergy</td>
+          <td>IgE-mediated (tipe I/cepat) atau Non-IgE (tipe III/IV/lambat)</td>
+          <td>Alergi kacang, alergi susu sapi, Celiac disease</td>
+        </tr>
+        <tr>
+          <td><strong>Non-Imun ❌</strong></td>
+          <td>Food Intolerance</td>
+          <td>Defisiensi/disfungsi enzim, reaksi toksik, idiosinkrasi</td>
+          <td>Intoleransi laktosa (def. laktase), keracunan kafein</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">⚖️</span> Intoleransi vs Alergi — Tabel Banding Kunci</div>
+    <div class="compare">
+      <div class="compare-col compare-a">
+        <h4>Food Intolerance</h4>
+        <div class="compare-row"><span>Mekanisme</span><span>Non-imunologis (enzim/toksik)</span></div>
+        <div class="compare-row"><span>Organ terkena</span><span>Terutama GI tract</span></div>
+        <div class="compare-row"><span>Keparahan</span><span>Umumnya ringan</span></div>
+        <div class="compare-row"><span>Life-threatening?</span><span>❌ TIDAK</span></div>
+        <div class="compare-row"><span>Contoh khas</span><span>Intoleransi laktosa, kafein</span></div>
+        <div class="compare-row"><span>Sembuh?</span><span>Tergantung jenis</span></div>
+      </div>
+      <div class="compare-col compare-b">
+        <h4>Food Allergy</h4>
+        <div class="compare-row"><span>Mekanisme</span><span>Imunologis (IgE/non-IgE)</span></div>
+        <div class="compare-row"><span>Organ terkena</span><span>Multiorgan (GI, kulit, napas, kardiovaskular)</span></div>
+        <div class="compare-row"><span>Keparahan</span><span>Bisa sangat berat</span></div>
+        <div class="compare-row"><span>Life-threatening?</span><span>✅ YA — anafilaksis!</span></div>
+        <div class="compare-row"><span>Contoh khas</span><span>Alergi susu sapi, kacang, seafood</span></div>
+        <div class="compare-row"><span>Sembuh?</span><span>Umumnya tidak — HANYA ASS yang bisa ≤2 tahun</span></div>
+      </div>
+    </div>
+    <div class="box box-warning">
+      <div class="box-label" style="color:var(--red)">⚠️ dr. Restu bercerita langsung!</div>
+      Pasien makan Indomie soto → 30 menit kemudian sesak, muntah, tensi turun — itu <strong>anafilaksis</strong> karena alergi makanan. Butuh epinefrin sampai 5x! Makanya ingat: food allergy = life-threatening.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--gold-pale);">🔬</span> Jenis-Jenis Intoleransi Makanan</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis</th><th>Mekanisme</th><th>Contoh</th></tr>
+        <tr><td><strong>Reaksi Toksik</strong></td><td>Toksin dari makanan atau bakteri</td><td>Histamin pada keracunan ikan; toksin Salmonella/Shigella/Campylobacter</td></tr>
+        <tr><td><strong>Reaksi Metabolik</strong></td><td>Defisiensi/disfungsi enzim pencernaan</td><td>Defisiensi laktase, maltase</td></tr>
+        <tr><td><strong>Reaksi Idiosinkrasi</strong></td><td>Respon tidak terduga tanpa mekanisme imun jelas</td><td>Kafein pada kopi, tiramin pada keju</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTOLERANSI LAKTOSA ===== -->
+<div id="laktosa" class="section">
+  <h2 class="section-title">🥛 Intoleransi Laktosa</h2>
+  <p class="section-desc">SKDI 4A — harus bisa diagnosis & tatalaksana mandiri. Dr. Restu: "Kuncinya di soal: BAB berbau asam dan hydrogen breath test."</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">🔬</span> Patofisiologi — Clinical Reasoning</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Alur Patofisiologi</div>
+      <ol class="cr-steps">
+        <li><strong>Defisiensi enzim laktase</strong> di brush border usus halus → laktosa tidak bisa dipecah menjadi glukosa + galaktosa</li>
+        <li>Laktosa yang tidak tercerna <strong>turun ke kolon</strong> dalam bentuk utuh</li>
+        <li>Bakteri kolon menggunakan laktosa untuk <strong>fermentasi</strong> → menghasilkan gas (H₂, CO₂, CH₄) + asam lemak rantai pendek</li>
+        <li>Gas → <strong>kembung, flatulensi, borborygmi</strong>; asam → <strong>BAB berbau asam</strong>; efek osmotik → <strong>diare osmotik</strong></li>
+      </ol>
+    </div>
+    <div class="box box-gold">
+      <div class="box-label" style="color:var(--gold)">💡 Cara Ingat Gampang</div>
+      Bayangin laktosa kayak "tamu tak diundang" di kolon. Karena laktase tidak ada, laktosa numpang di kolon → bakteri pesta fermentasi → semua efek samping muncul!
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">📋</span> Gejala Klinis & Diagnosis</div>
+    <div class="grid-2">
+      <div>
+        <h3>Gejala Klinis</h3>
+        <div class="box box-tip">Muncul <strong>30 menit – 2 jam</strong> setelah konsumsi produk susu</div>
+        <ul class="s-list">
+          <li>Perut kembung</li>
+          <li>Abdominal cramping / nyeri perut</li>
+          <li><span class="hl-red">Diare — BAB berbau ASAM</span> ← kunci soal!</li>
+          <li>Flatulensi</li>
+          <li>Borborygmi (suara perut)</li>
+          <li>Mual, muntah</li>
+        </ul>
+        <div class="box box-warning" style="margin-top:12px">
+          <div class="box-label" style="color:var(--red)">🎯 Kunci Soal dr. Restu</div>
+          BAB berbau asam = hasil fermentasi laktosa oleh bakteri. Ini pembeda KHAS intoleransi laktosa!
+        </div>
+      </div>
+      <div>
+        <h3>Pemeriksaan Penunjang</h3>
+        <div class="box box-blue">
+          <div class="box-label" style="color:var(--blue)">⭐ Sering Keluar di Soal!</div>
+          <strong>Hydrogen Breath Test</strong><br>
+          Minum larutan laktosa → ukur kadar H₂ dalam napas. Kalau laktase ada → laktosa dipecah → glukosa naik, H₂ rendah. Kalau laktase TIDAK ada → fermentasi bakteri → H₂ tinggi dalam napas!
+        </div>
+        <div class="box box-lilac" style="margin-top:12px">
+          <strong>Tes Toleransi Laktosa</strong><br>
+          Minum larutan laktosa → ukur glukosa darah. Normal: glukosa naik. Intoleransi: glukosa tetap rendah (laktosa tidak dipecah).
+        </div>
+        <div class="box box-tip" style="margin-top:12px">
+          <strong>Stool Acidity Test</strong><br>
+          Feses asam (pH rendah) karena asam lemak rantai pendek dari fermentasi.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">💊</span> Tatalaksana & Formula Pilihan</div>
+    <h3>Prinsip Terapi</h3>
+    <ul class="s-list">
+      <li>Hindari produk susu tinggi laktosa (susu pasteurisasi lebih banyak laktosa dari UHT)</li>
+      <li>Suplementasi enzim laktase</li>
+      <li>Probiotik: <em>Lactobacillus</em> & <em>Bifidobacterium</em> bisa memecah laktosa tanpa gejala</li>
+    </ul>
+    <h3 style="margin-top:16px">Pilihan Formula — Berdasarkan Usia</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Usia</th><th>Pilihan Formula</th><th>Contoh Merek</th></tr>
+        <tr><td>0-1 tahun</td><td>Susu sapi bebas laktosa (lactose-free)</td><td>SGM Bebas Laktosa, Lactogen Lactose-Free</td></tr>
+        <tr><td>&gt;1 tahun</td><td>Susu UHT bebas laktosa / susu kedelai</td><td>Milk Life Bebas Laktosa, susu kedelai</td></tr>
+      </table>
+    </div>
+    <div class="box box-tip" style="margin-top:10px">
+      <strong>Catatan dr. Restu:</strong> Susu UHT (Ultra High Temperature) lebih aman untuk intoleransi laktosa ringan karena proses suhu tinggi mengurangi kadar laktosa. Berbeda dari pasteurisasi yang kadar laktosanya lebih tinggi.
+    </div>
+  </div>
+</div>
+
+<!-- ===== ALERGI MAKANAN ===== -->
+<div id="alergi" class="section">
+  <h2 class="section-title">🧬 Alergi Makanan (Food Allergy)</h2>
+  <p class="section-desc">SKDI 4A. Pahami mekanisme imun, cara diagnosis, dan tatalaksana. Dr. Restu tekankan: desensitisasi alergi TIDAK dilakukan!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--purple-pale);">🔬</span> Definisi & Mekanisme Imun</div>
+    <p><strong>Alergi makanan</strong> = kumpulan gejala <em>multiorgan</em> yang ditimbulkan oleh <strong>reaksi imunologis</strong> terhadap protein makanan.</p>
+    <h3>Tipe Reaksi Hipersensitivitas</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Mediasi</th><th>Waktu Reaksi</th><th>Contoh</th></tr>
+        <tr><td><strong>Tipe I (Cepat)</strong></td><td>IgE — sel mast & basofil</td><td>Menit – jam</td><td>Anafilaksis, urtikaria akut</td></tr>
+        <tr><td><strong>Tipe III (Kompleks Imun)</strong></td><td>IgG — kompleks antigen-antibodi</td><td>Jam – hari</td><td>Reaksi serum sickness</td></tr>
+        <tr><td><strong>Tipe IV (Lambat)</strong></td><td>Cell-mediated, Th1</td><td>48-72 jam</td><td>Celiac disease, dermatitis kontak</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat Tipe Reaksi</div>
+      <div class="mnemonic-text">Tipe I = Cepat (IgE). Tipe IV = paling lambat (4 = terlambat).</div>
+      <div class="mnemonic-sub">Alergi makanan paling sering campuran IgE + non-IgE. Skin prick test untuk IgE (cepat). Patch test untuk tipe lambat (non-IgE).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--gold-pale);">🌐</span> Patofisiologi — Dua Fase</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Fase Sensitisasi → Fase Alergi</div>
+      <ol class="cr-steps">
+        <li><strong>Paparan PERTAMA:</strong> Alergen dikenali sel dendritik → dipresentasikan ke sel T → Th2 → IL-4/13 → sel B → produksi IgE spesifik → IgE menempel di permukaan sel mast. Tidak ada gejala di paparan pertama!</li>
+        <li><strong>Paparan KEDUA:</strong> Alergen langsung berikatan dengan IgE di sel mast → cross-linking → <strong>degranulasi sel mast</strong> → badai sitokin & mediator (histamin, leukotrien, prostaglandin)</li>
+        <li>Mediator bekerja pada organ target → gejala klinis multiorgan</li>
+      </ol>
+    </div>
+    <div class="box box-warning">
+      <div class="box-label" style="color:var(--red)">⚠️ Kunci Klinis</div>
+      Makanan pertama kali dimakan biasanya <strong>tidak menimbulkan gejala</strong> (fase sensitisasi). Gejala baru muncul pada <strong>paparan KEDUA</strong> atau selanjutnya!
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">🩺</span> Manifestasi Klinis — Multiorgan!</div>
+    <div class="grid-3">
+      <div class="mini-card">
+        <h4>🫁 Saluran Cerna (50-60%)</h4>
+        <ul>
+          <li>Gatal bibir/mulut/faring</li>
+          <li>Sembab tenggorok</li>
+          <li>Mual, muntah</li>
+          <li>Nyeri perut, kembung</li>
+          <li>Diare, perdarahan usus</li>
+          <li>Protein-losing enteropathy</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>🫧 Saluran Napas (20-30%)</h4>
+        <ul>
+          <li>Rinitis kronis</li>
+          <li>Asma bronkial</li>
+          <li>Batuk kronis berulang</li>
+          <li>Mengi</li>
+          <li>Otitis media</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>🩹 Kulit + KV</h4>
+        <ul>
+          <li>Urtikaria</li>
+          <li>Angioedema</li>
+          <li>Dermatitis atopik</li>
+          <li><strong>Renjatan anafilaksis</strong> ← paling berbahaya!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">🔍</span> Pemeriksaan Penunjang</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Pemeriksaan</th><th>Cara</th><th>Mendeteksi</th><th>Catatan</th></tr>
+        <tr><td><strong>Skin Prick Test</strong></td><td>Alergen diteteskan → ditusuk → dibaca 15-30 menit</td><td>Reaksi cepat (IgE/tipe I)</td><td>Kontrol: histamin. Positif = wheal >0.3cm</td></tr>
+        <tr><td><strong>Intradermal Test</strong></td><td>Alergen disuntik ke dermis → dibaca 15-30 menit</td><td>Reaksi cepat (IgE) — lebih sensitif dari prick</td><td>Lebih menyakitkan, jarang dilakukan</td></tr>
+        <tr><td><strong>Patch Test</strong></td><td>Alergen di plester, ditempel 48-72 jam</td><td><span class="hl-red">Reaksi LAMBAT (non-IgE/tipe IV)</span></td><td>Untuk dermatitis kontak alergi</td></tr>
+        <tr><td><strong>IgE Total</strong></td><td>Cek darah</td><td>Kecenderungan atopi secara umum</td><td>IgE &gt;300 µ/ml → atopi. Tidak bisa tentukan alergi terhadap apa!</td></tr>
+        <tr><td><strong>IgE Spesifik (RAST)</strong></td><td>Cek darah per alergen</td><td>Alergi terhadap alergen spesifik</td><td>Mahal, jarang di BPJS</td></tr>
+        <tr><td><strong>Darah tepi</strong></td><td>Hitung jenis</td><td>Eosinofilia (&gt;5%)</td><td>Ingat: eosinofilia bisa juga cacingan!</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat Tes</div>
+      <div class="mnemonic-text">Prick = cePat (IgE). Patch = teMbelan (lambat, non-IgE). Jangan terbalik!</div>
+    </div>
+    <h3>Gold Standard Diagnosis</h3>
+    <div class="box box-gold">
+      <strong>DBPCFC — Double Blind Placebo Controlled Food Challenge</strong><br>
+      Uji eliminasi 2-3 minggu → bila gejala hilang → uji provokasi dengan makanan tersangka. Pengamat dan pasien tidak tahu bahan yang diberikan.<br><br>
+      <strong>TIDAK boleh</strong> dilakukan bila: riwayat anafilaksis atau edema laring!
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">💊</span> Tatalaksana Alergi Makanan</div>
+    <div class="box box-warning">
+      <div class="box-label" style="color:var(--red)">⚠️ Paling Penting!</div>
+      <strong>ALERGI MAKANAN TIDAK BISA DISEMBUHKAN!</strong> (kecuali alergi susu sapi pada bayi yang bisa membaik ≤ 2 tahun).<br>
+      Desensitisasi alergi makanan? Sangat sedikit bukti keberhasilan → TIDAK dilakukan secara rutin.
+    </div>
+    <ul class="s-list" style="margin-top:12px">
+      <li><strong>Hindari alergen</strong> — eliminasi makanan penyebab seumur hidup</li>
+      <li><strong>Baca label makanan</strong> dengan cermat</li>
+      <li><strong>Berikan makanan pengganti</strong> agar tidak kekurangan gizi</li>
+      <li>Farmakoterapi: antihistamin H1 (cetirizine), glukokortikoid bila berat</li>
+      <li>Reaksi berat/anafilaksis: <strong>EPINEFRIN</strong> IM</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== ALERGI SUSU SAPI ===== -->
+<div id="ass" class="section">
+  <h2 class="section-title">🍼 Alergi Susu Sapi (ASS)</h2>
+  <p class="section-desc">Ini topik PALING BANYAK keluar di soal! Pelajari alur IDAI dengan cermat. Pilihan susu yang salah = jawaban salah!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--lilac-pale);">🌟</span> Poin Kunci ASS</div>
+    <div class="grid-2">
+      <div class="box box-tip" style="margin:0">
+        <ul class="s-list">
+          <li>Reaksi simpang terhadap <strong>protein susu sapi</strong></li>
+          <li>Mediasi IgE dan/atau non-IgE</li>
+          <li>Gejala muncul di <strong>GI (50-60%), kulit (50-60%), napas (20-30%)</strong></li>
+          <li>Satu-satunya alergi makanan yang bisa menghilang ≤ 2 tahun</li>
+          <li>Prognosis: 45-55% sembuh usia 1 tahun, 60-75% usia 2 tahun, <strong>90% usia 3 tahun</strong></li>
+        </ul>
+      </div>
+      <div class="box box-warning" style="margin:0">
+        <div class="box-label" style="color:var(--red)">⚠️ Jebakan Soal PALING Sering!</div>
+        Alergi susu sapi → pilihan susu pengganti:<br><br>
+        ✅ <strong>Formula hidrolisat ekstensif</strong> (protein dipecah jadi komponen kecil)<br>
+        ✅ <strong>Formula asam amino</strong> (untuk kasus berat)<br>
+        ❌ <strong>Susu soya BUKAN terapi ASS</strong> — masih ada 10-15% cross-reaction!<br><br>
+        Soya hanya pilihan alternatif jika ada masalah <strong>dana atau ketersediaan</strong> susu hidrolisat, pada anak &gt;6 bulan.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">🏥</span> Tingkat Keparahan ASS</div>
+    <div class="compare">
+      <div class="compare-col compare-a">
+        <h4>ASS Ringan/Sedang</h4>
+        <div class="compare-row"><span>Gejala</span><span>Regurgitasi berulang, diare, konstipasi, darah di tinja ringan</span></div>
+        <div class="compare-row"><span></span><span>Anemia defisiensi besi ringan</span></div>
+        <div class="compare-row"><span></span><span>DA ringan, angioedema, urtikaria ringan</span></div>
+        <div class="compare-row"><span></span><span>Pilek, batuk kronik, mengi</span></div>
+        <div class="compare-row"><span></span><span>Kolik persisten &gt;3 jam/hari &gt;3 minggu</span></div>
+        <div class="compare-row"><span>Tatalaksana</span><span>Bisa dikelola di faskes primer</span></div>
+      </div>
+      <div class="compare-col compare-b">
+        <h4>ASS Berat</h4>
+        <div class="compare-row"><span>Gejala</span><span>Gagal tumbuh karena diare/regurgitasi/anak tak mau makan</span></div>
+        <div class="compare-row"><span></span><span>Anemia berat kehilangan darah di tinja</span></div>
+        <div class="compare-row"><span></span><span>DA berat + anemia + hipoalbuminemia</span></div>
+        <div class="compare-row"><span></span><span>Laringoedema atau obstruksi bronkus</span></div>
+        <div class="compare-row"><span></span><span>Syok anafilaksis</span></div>
+        <div class="compare-row"><span>Tatalaksana</span><span><strong>RUJUK</strong> dokter spesialis anak konsultan!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">🗺️</span> Alur Diagnosis & Tatalaksana ASS (IDAI 2014)</div>
+    <h3>Bayi dengan ASI Eksklusif</h3>
+    <div class="flow">
+      <div class="flow-box">Curiga ASS → anamnesis + klinis</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box"><strong>ASS Ringan/Sedang:</strong> Lanjutkan ASI + <span class="hl-red">eliminasi susu sapi pada diet IBU</span> 2 minggu (4 minggu bila ada DA/kolitis) + suplementasi kalsium untuk ibu</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">Ada perbaikan? → Perkenalkan kembali protein susu sapi pada ibu → bila gejala muncul lagi → eliminasi 9-12 bulan → coba lagi</div>
+      <div class="flow-arrow">↓ Tidak ada perbaikan?</div>
+      <div class="flow-box">Pertimbangkan diagnosis lain (alergi makanan lain pada ibu?)</div>
+      <div class="flow-arrow">↓ ASS Berat</div>
+      <div class="flow-box danger">Rujuk konsultan + eliminasi susu sapi pada diet ibu + bila perlu tambah <strong>formula hidrolisat ekstensif</strong></div>
+    </div>
+    <h3 style="margin-top:20px">Bayi dengan PASI (Susu Formula)</h3>
+    <div class="flow">
+      <div class="flow-box">Curiga ASS → anamnesis + klinis</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box"><strong>ASS Ringan/Sedang:</strong> <span class="hl-red">Diet eliminasi — hentikan formula standar → ganti formula hidrolisat ekstensif</span> minimal 2-4 minggu</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-box">Ada perbaikan? → Uji provokasi (berikan susu sapi lagi, di bawah pengawasan)</div>
+      <div class="flow-arrow">↓ Tidak ada perbaikan?</div>
+      <div class="flow-box">Rujuk + formula asam amino atau naik ke formula asam amino penuh</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--gold-pale);">🍼</span> Jenis-Jenis Formula — Harus Hafal!</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis Formula</th><th>Kandungan</th><th>Indikasi</th><th>Contoh</th></tr>
+        <tr>
+          <td><strong>Formula Standar</strong></td>
+          <td>Protein susu sapi utuh</td>
+          <td>Bayi normal (tidak ASS, tidak intol. laktosa)</td>
+          <td>SGM 1, Lactogen 1</td>
+        </tr>
+        <tr>
+          <td><strong>Formula Bebas Laktosa</strong></td>
+          <td>Protein susu sapi utuh, tanpa laktosa</td>
+          <td>Intoleransi laktosa (BUKAN alergi susu sapi!)</td>
+          <td>SGM Bebas Laktosa, Lactogen Lactose Free</td>
+        </tr>
+        <tr>
+          <td><span class="hl-red">Formula Hidrolisat Ekstensif</span></td>
+          <td>Protein susu sapi dipecah jadi peptida pendek</td>
+          <td><strong>FIRST LINE untuk ASS ringan-sedang</strong></td>
+          <td>Nutramigen LGG, Pregestimil, Nutribaby Royal Pepti</td>
+        </tr>
+        <tr>
+          <td><span class="hl-red">Formula Asam Amino</span></td>
+          <td>Asam amino bebas — bentuk paling sederhana</td>
+          <td>ASS berat, atau bila hidrolisat masih bergejala</td>
+          <td>Neocate, Puramino</td>
+        </tr>
+        <tr>
+          <td><strong>Formula Kedelai (Soya)</strong></td>
+          <td>Isolat protein kedelai, tanpa laktosa</td>
+          <td>Alternatif jika masalah dana (bukan first line ASS!)</td>
+          <td>Isomil, SGM Eksplor Soya, Nutrilon Soya</td>
+        </tr>
+      </table>
+    </div>
+    <div class="box box-warning">
+      <div class="box-label" style="color:var(--red)">⚠️ HAFAL INI — Sering Salah!</div>
+      Urutan eskalasi ASS: <strong>Formula Standar → Hidrolisat Ekstensif → Asam Amino</strong><br>
+      Formula Soya BUKAN di urutan ini! Ia hanya alternatif jika masalah dana/ketersediaan.
+    </div>
+  </div>
+</div>
+
+<!-- ===== MALABSORPSI ===== -->
+<div id="malabsorpsi" class="section">
+  <h2 class="section-title">🔬 Malabsorpsi Makanan</h2>
+  <p class="section-desc">Gangguan absorpsi nutrisi dari usus ke aliran darah. Hubungannya erat dengan gagal tumbuh pada anak!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">📖</span> Definisi & Konsep Dasar</div>
+    <p><strong>Malabsorpsi</strong> = gangguan kemampuan absorpsi nutrisi (lemak, protein, karbohidrat, vitamin, mineral) dari makanan melalui mukosa usus ke dalam aliran darah atau pembuluh limfatik.</p>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Kenapa Malabsorpsi → Gagal Tumbuh?</div>
+      <ol class="cr-steps">
+        <li>Nutrisi tidak terserap → darah tidak mendapat cukup asupan energi + mikronutrien</li>
+        <li>Malnutrisi progresif → anemia, penurunan BB, edema, gangguan tulang</li>
+        <li>Pada anak: pertumbuhan terhenti → <strong>gagal tumbuh (failure to thrive)</strong></li>
+        <li>Kortikosteroid (terapi IBD) juga bisa memperburuk gagal tumbuh</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">📋</span> Gejala Klinis Malabsorpsi</div>
+    <div class="grid-2">
+      <div>
+        <h3>Defisiensi Nutrisi (tidak terserap)</h3>
+        <ul class="s-list">
+          <li>Anemia</li>
+          <li>Penurunan berat badan</li>
+          <li>Edema (defisiensi protein)</li>
+          <li>Perdarahan (defisiensi vit K)</li>
+          <li>Osteomalasia (defisiensi vit D/Ca)</li>
+          <li>Disfungsi seksual</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Akumulasi di Lumen Usus</h3>
+        <ul class="s-list">
+          <li>Steatorrhea (BAB berlemak)</li>
+          <li>Diare kronis</li>
+          <li>Kembung</li>
+          <li>Nyeri perut</li>
+        </ul>
+        <div class="box box-gold" style="margin-top:10px">
+          <strong>Gejala paling umum:</strong> Diare berlemak (steatorrhea) dan nyeri perut kronis.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== IBD ===== -->
+<div id="ibd" class="section">
+  <h2 class="section-title">🔥 Inflammatory Bowel Disease (IBD)</h2>
+  <p class="section-desc">SKDI 3A. Soal sering tanya gambaran endoskopi dan PA — harus bisa bedain UC vs Crohn!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">⚖️</span> UC vs Crohn — Tabel Banding Lengkap</div>
+    <div class="box box-tip">
+      <div class="box-label" style="color:var(--sage-dark)">💡 Cara Ingat Paling Gampang</div>
+      <strong>UC = Until Colon</strong> (hanya kolon, rektum SELALU terlibat, continuous)<br>
+      <strong>Crohn = Can roam anywhere</strong> (dari mulut sampai anus, skip lesions, transmural)
+    </div>
+    <div class="table-wrap" style="margin-top:14px">
+      <table>
+        <tr><th>Parameter</th><th>Kolitis Ulseratif (UC)</th><th>Penyakit Crohn (PC)</th></tr>
+        <tr><td><strong>Lokasi</strong></td><td>HANYA kolon + rektum</td><td>Seluruh GI tract (mulut → anus)</td></tr>
+        <tr><td><strong>Rektum</strong></td><td>Selalu terlibat (±100%)</td><td>Jarang (~25%)</td></tr>
+        <tr><td><strong>Pola</strong></td><td><span class="hl-sage">Continuous — tidak ada skip</span></td><td><span class="hl-red">Skip lesions / patchy</span></td></tr>
+        <tr><td><strong>Kedalaman</strong></td><td>Mukosa + submukosa</td><td><span class="hl-red">Transmural (tembus semua lapisan)</span></td></tr>
+        <tr><td><strong>Fistula</strong></td><td>Jarang</td><td><span class="hl-red">Sering (transmural!)</span></td></tr>
+        <tr><td><strong>Granuloma</strong></td><td>Tidak ada</td><td><span class="hl-red">Ada — non-caseating</span></td></tr>
+        <tr><td><strong>Endoskopi</strong></td><td>Eritema difusa, ulkus aphthosa pada mukosa normal, pseudopolip</td><td><span class="hl-red">Cobblestone!</span> Skip, focal aphtae, ulkus dalam linear</td></tr>
+        <tr><td><strong>Radiologi</strong></td><td>Kehilangan haustra, mukosal irregular, terminal ileum normal</td><td>String sign, cobblestone, stenosis, abnormal terminal ileum</td></tr>
+        <tr><td><strong>Histologi</strong></td><td>Inflamasi mukosa + submukosa, kriptitis, crypt abscess, distorsi arsitektur</td><td>Transmural inflammation, <span class="hl-red">granuloma non-kaseosa</span>, fibrosis</td></tr>
+        <tr><td><strong>Frekuensi di kolon</strong></td><td>90% (predominan kolon distal)</td><td>9% (predominan kolon proksimal)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">📊</span> Manifestasi Klinis</div>
+    <div class="grid-2">
+      <div>
+        <h3>Kolitis Ulseratif</h3>
+        <ul class="s-list">
+          <li>Diare (93%)</li>
+          <li>Perdarahan rektal + nyeri perut (86%)</li>
+          <li>Kelemahan (67%), penurunan BB (51%)</li>
+          <li>Mual/muntah (42%), demam (37%)</li>
+        </ul>
+        <div class="box box-blue" style="margin-top:10px">
+          Lab: Anemia, hipoalbuminemia, leukositosis, trombositosis
+        </div>
+      </div>
+      <div>
+        <h3>Penyakit Crohn</h3>
+        <ul class="s-list">
+          <li>Nyeri perut (75%)</li>
+          <li>Diare (65%)</li>
+          <li>Penurunan BB (65%)</li>
+          <li>Retardasi pertumbuhan (25%)</li>
+          <li>Mual/muntah (25%), perdarahan rektal (20%)</li>
+          <li>Manifestasi ekstraintestinal (25%)</li>
+        </ul>
+        <div class="box box-blue" style="margin-top:10px">
+          Lab: Anemia (70%), hipoalbuminemia (60%)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--gold-pale);">🔬</span> Gambaran Khas di Pemeriksaan Penunjang</div>
+    <div class="box box-warning">
+      <div class="box-label" style="color:var(--red)">🎯 Khas Soal — Identifikasi dari Gambaran!</div>
+      <strong>Cobblestone appearance</strong> = Penyakit Crohn (gambaran batu-batu kali di mukosa usus)<br>
+      <strong>Ulkus aphthosa pada mukosa yang relatif normal</strong> = Kolitis Ulseratif<br>
+      <strong>String sign pada fluoroskopi</strong> = Crohn (penyempitan lumen karena stenosis)<br>
+      <strong>Granuloma non-kaseosa pada PA</strong> = Crohn (patognomonik!)
+    </div>
+    <div class="box box-tip" style="margin-top:10px">
+      <strong>Catatan:</strong> Barium enema TIDAK dianjurkan pada Crohn karena risiko perforasi/toxic megacolon!
+    </div>
+  </div>
+</div>
+
+<!-- ===== CELIAC ===== -->
+<div id="celiac" class="section">
+  <h2 class="section-title">🌾 Celiac Disease</h2>
+  <p class="section-desc">SKDI 4A. Penyakit autoimun genetik karena gluten. Kuncinya ada di gambaran biopsi!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">📖</span> Definisi & Patofisiologi</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Patofisiologi Celiac Disease</div>
+      <ol class="cr-steps">
+        <li>Individu dengan predisposisi genetik (HLA-DQ2/DQ8) mengonsumsi <strong>gluten</strong> (protein dalam gandum/wheat, barley, rye)</li>
+        <li>Gluten → sistem imun mengidentifikasi sebagai ancaman → <strong>reaksi autoimun T-cell mediated</strong> (tipe IV)</li>
+        <li>Sistem imun menyerang sel enterosit usus halus → <strong>atrofi vili intestinal</strong></li>
+        <li>Vili rusak → luas permukaan absorpsi berkurang drastis → <strong>malabsorpsi</strong></li>
+      </ol>
+    </div>
+    <p><strong>Gluten ada di mana-mana!</strong> Wafer, roti, pasta, makanan kemasan — hampir semua mengandung gandum.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">🩺</span> Manifestasi Klinis & Diagnosis</div>
+    <div class="grid-2">
+      <div>
+        <h3>Manifestasi Klinis</h3>
+        <ul class="s-list">
+          <li>Diare kronis</li>
+          <li>Steatorrhea (BAB berlemak)</li>
+          <li>Anemia defisiensi besi</li>
+          <li>Pusing</li>
+          <li>Perut kembung</li>
+          <li>Mual, muntah</li>
+          <li>Konstipasi</li>
+          <li>Failure to thrive (pada anak)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Pemeriksaan Penunjang</h3>
+        <div class="box box-gold">
+          <div class="box-label" style="color:var(--gold)">Gold Standard!</div>
+          <strong>Endoskopi + Biopsi usus halus</strong><br>
+          Gambaran yang ditemukan:
+          <ul class="s-list">
+            <li><span class="hl-red">Atrofi vili</span> (vili memendek/hilang)</li>
+            <li><span class="hl-red">Hiperplasia kripta</span></li>
+            <li><span class="hl-red">Peningkatan limfosit intraepitelial</span></li>
+          </ul>
+        </div>
+        <div class="box box-tip" style="margin-top:10px">
+          Gambaran normal: vili panjang-panjang seperti jari-jari. Celiac: mukosa jadi rata/bersih tanpa vili!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KERACUNAN MAKANAN ===== -->
+<div id="keracunan" class="section">
+  <h2 class="section-title">☠️ Keracunan Makanan (Food Poisoning)</h2>
+  <p class="section-desc">SKDI 4A. Relevan banget sekarang — dr. Restu bilang kasus MBG banyak, kalian harus siap!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">🗺️</span> Klasifikasi Keracunan Makanan</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Peta Klasifikasi</div>
+      <p style="font-size:13.5px; margin-bottom:12px">Food Poisoning adalah umbrella term. Di dalamnya ada dua subkategori penting:</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Jenis</th><th>Definisi</th><th>Mekanisme</th><th>Etiologi Tersering</th></tr>
+        <tr>
+          <td><strong>Food Infection</strong></td>
+          <td>Makanan mengandung bakteri/virus/parasit yang berkembang biak di usus</td>
+          <td>Organisme hidup masuk, infeksi aktif di GI</td>
+          <td>Salmonella, E. coli, Campylobacter</td>
+        </tr>
+        <tr>
+          <td><strong>Food Intoxication</strong></td>
+          <td>Makanan mengandung TOKSIN yang sudah terbentuk sebelumnya</td>
+          <td>Toksin langsung bekerja — bukan bakteri hidup yang infeksi</td>
+          <td>Clostridium botulinum, Staphylococcus aureus</td>
+        </tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat</div>
+      <div class="mnemonic-text">Infection = bakteri MASUK dan infeksi. Intoxication = toksin sudah ada di makanan.</div>
+      <div class="mnemonic-sub">Onset food infection: 6-72 jam setelah konsumsi. Food intoxication: lebih cepat, bisa hitungan jam.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--gold-pale);">🩺</span> Tatalaksana Keracunan Makanan</div>
+    <div class="box box-tip">
+      <div class="box-label" style="color:var(--sage-dark)">Prinsip dr. Restu</div>
+      "Terapi sesuai gejala klinis dan simptomatik." Tidak ada tabel terapi tunggal karena gejala sangat bervariasi tergantung etiologi dan keparahan.
+    </div>
+    <ul class="s-list" style="margin-top:12px">
+      <li>Food infection dengan demam tinggi + biakan bakteri positif → <strong>antibiotik sesuai kuman</strong></li>
+      <li>Muntah: ingat, muntah adalah <em>reaksi protektif tubuh</em> untuk mengeluarkan makanan buruk → jangan langsung diberi antimuntah berat</li>
+      <li>Yang PALING PENTING: <strong>rehidrasi</strong> — jangan sampai dehidrasi!</li>
+      <li>Abdominal cramping → antispasmodik</li>
+      <li>Bila berat: antiemetik untuk kenyamanan pasien</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== BOTULISME ===== -->
+<div id="botulisme" class="section">
+  <h2 class="section-title">🧠 Botulisme (Botulism)</h2>
+  <p class="section-desc">SKDI 3B. Dr. Restu tekankan keras: bedakan botulisme vs tetanus! Soal pasti bolak-balik dua ini.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--red-pale);">🦠</span> Karakteristik Bakteri</div>
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>Clostridium botulinum</h4>
+        <ul>
+          <li>Gram <strong>positif</strong></li>
+          <li>Anaerob obligat</li>
+          <li>Rod-shape (batang)</li>
+          <li>Membentuk <strong>spora</strong></li>
+          <li>Hidup di lingkungan oksigen rendah (makanan kaleng!)</li>
+        </ul>
+      </div>
+      <div class="box box-warning" style="margin:0; align-self:start">
+        <div class="box-label" style="color:var(--red)">Sumber Infeksi</div>
+        <ul class="s-list">
+          <li>Makanan kaleng tidak diolah benar</li>
+          <li>Luka yang terkontaminasi</li>
+          <li>Usus bayi (infantile botulism)</li>
+        </ul>
+        Dr. Restu: "Jangan makan makanan kaleng expired!"
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--purple-pale);">🔬</span> Patofisiologi Toksin — Clinical Reasoning DETAIL</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Mekanisme Kerja Botulinum Neurotoxin (BoNT)</div>
+      <ol class="cr-steps">
+        <li><strong>Diserap → aliran darah:</strong> Toksin masuk lewat makanan atau luka → masuk aliran darah</li>
+        <li><strong>Internalisasi:</strong> Rantai berat toksin berikatan dengan reseptor gangliosida pada membran presinaptik NMJ (neuromuscular junction) → toksin masuk via endositosis</li>
+        <li><strong>Pemecahan SNARE protein:</strong> Rantai ringan bertindak sebagai protease → memecah protein SNARE (yang normalnya diperlukan untuk "mengemas" dan melepas vesikel asetilkolin)</li>
+        <li><strong>ACh tidak bisa dilepas:</strong> Tanpa SNARE yang utuh → vesikel ACh tidak bisa fusi dengan membran → ACh tidak keluar ke celah sinaps</li>
+        <li><strong>Akibat:</strong> Tanpa ACh → otot tidak bisa berkontraksi → <span class="hl-red">kelumpuhan FLAKSID (lemas/layu)</span></li>
+      </ol>
+    </div>
+    <div class="box box-gold">
+      <div class="box-label" style="color:var(--gold)">💡 Analogi yang Dipakai dr. Restu</div>
+      Bayangkan ACh itu seperti "sinyal start" ke otot. Kalau sinyalnya tidak bisa keluar, otot tidak bisa mulai berkontraksi. Hasilnya otot jadi "mati gaya" → flaksid (layu, lemas).
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--blue-pale);">🔴</span> Botulisme vs Tetanus — PALING SERING DIUJIKAN!</div>
+    <div class="compare">
+      <div class="compare-col compare-a">
+        <h4>Botulisme</h4>
+        <div class="compare-row"><span>Bakteri</span><span>Clostridium botulinum</span></div>
+        <div class="compare-row"><span>Gram</span><span>Positif</span></div>
+        <div class="compare-row"><span>Toksin</span><span>Botulinum neurotoxin (BoNT)</span></div>
+        <div class="compare-row"><span>Mekanisme</span><span>Hambat pelepasan ACh → otot tidak bisa kontraksi</span></div>
+        <div class="compare-row"><span>Jenis lumpuh</span><span><span class="hl-red">FLAKSID (layu, lemas)</span></span></div>
+        <div class="compare-row"><span>Arah lumpuh</span><span><span class="hl-red">DESCENDING (kepala → kaki)</span></span></div>
+        <div class="compare-row"><span>Terapi</span><span>HBAT (Heptavalent Botulinum Antitoxin)</span></div>
+      </div>
+      <div class="compare-col compare-b">
+        <h4>Tetanus</h4>
+        <div class="compare-row"><span>Bakteri</span><span>Clostridium tetani</span></div>
+        <div class="compare-row"><span>Gram</span><span>Positif</span></div>
+        <div class="compare-row"><span>Toksin</span><span>Tetanospasmin (neurotoxin)</span></div>
+        <div class="compare-row"><span>Mekanisme</span><span>Blok pelepasan neurotransmitter inhibitor (glisin, GABA) → ACh berlebih</span></div>
+        <div class="compare-row"><span>Jenis lumpuh</span><span><span class="hl-sage">SPASTIK (kaku)</span></span></div>
+        <div class="compare-row"><span>Arah lumpuh</span><span><span class="hl-sage">ASCENDING (kaki → kepala) — tapi spasme!</span></span></div>
+        <div class="compare-row"><span>Terapi</span><span>TIG (Tetanus Immune Globulin), metronidazol</span></div>
+      </div>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat dr. Restu</div>
+      <div class="mnemonic-text">Botulisme = LAYU turun. Tetanus = KAKU naik.</div>
+      <div class="mnemonic-sub">Botulisme: ACh tidak keluar → tidak bisa kontraksi → layu (flaksid). Tetanus: inhibitor diblok → ACh kebanyakan → terus kontraksi → kaku (spastik). Dan jangan lupa: Botoks isi racun botulinum dosis kecil untuk bikin otot rileks (estetik). Botulisme sendiri tidak diobati pakai botoks!</div>
+    </div>
+    <div class="box box-blue" style="margin-top:14px">
+      <div class="box-label" style="color:var(--blue)">Juga Bedakan dari POLIO</div>
+      <strong>Polio:</strong> Ascending paralysis (dari bawah naik ke atas) + flaksid juga tapi karena kerusakan motor neuron, bukan toksin. Botulisme: descending (kepala dulu turun ke kaki).
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-emoji" style="background:var(--sage-pale);">📋</span> Gejala Klinis Botulisme</div>
+    <ul class="s-list">
+      <li>Gejala muncul <strong>12-36 jam</strong> setelah terpapar toksin</li>
+      <li>Pandangan kabur/ganda (diplopia)</li>
+      <li>Kelopak mata terkulai (ptosis)</li>
+      <li>Mulut kering</li>
+      <li>Sulit menelan (disfagia)</li>
+      <li>Bicara cadel (disartria)</li>
+      <li>Kelumpuhan progresif <strong>descending</strong> — wajah → leher → lengan → kaki</li>
+      <li>Bisa sampai gagal napas (bila otot napas terlibat)</li>
+    </ul>
+    <div class="box box-warning" style="margin-top:12px">
+      <strong>Terapi:</strong> HBAT (Heptavalent Botulinum Antitoxin) — antitoksin botulinum. Bukan botoks!
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="quiz" class="section">
+  <h2 class="section-title">✏️ Quiz Vignet — Uji Pemahamanmu!</h2>
+  <p class="section-desc">12 soal vignet bergaya UKMPPD. Soal dibuat berdasarkan poin yang dr. Restu tekankan langsung di kuliah. Klik pilihan untuk melihat jawaban!</p>
+
+  <div class="quiz-progress">
+    <div class="prog-text">
+      <span>Progress</span>
+      <span id="progText">0 / 12 dijawab</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="qq1">
+    <div class="quiz-num">Soal 01 — Intoleransi Laktosa</div>
+    <div class="quiz-vig">Bayi perempuan 8 bulan dibawa ibunya ke puskesmas dengan keluhan BAB cair sejak 3 hari, berbau asam, disertai perut kembung. Ibu mengatakan keluhan muncul setiap kali bayi diberi susu formula. Tidak ada demam. Pemeriksaan fisik ditemukan perut distensi ringan, tidak ada tanda dehidrasi berat.</div>
+    <p class="quiz-q">Pemeriksaan penunjang paling tepat untuk menegakkan diagnosis adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q1',false)"><span class="letter">A</span>Skin prick test dengan alergen susu sapi</button>
+      <button class="quiz-opt" onclick="ans(this,'q1',true)"><span class="letter">B</span>Hydrogen breath test setelah pemberian larutan laktosa</button>
+      <button class="quiz-opt" onclick="ans(this,'q1',false)"><span class="letter">C</span>IgE total dan IgE spesifik susu sapi</button>
+      <button class="quiz-opt" onclick="ans(this,'q1',false)"><span class="letter">D</span>Patch test dengan alergen susu sapi</button>
+      <button class="quiz-opt" onclick="ans(this,'q1',false)"><span class="letter">E</span>Biopsi mukosa usus halus</button>
+    </div>
+    <div class="quiz-exp" id="exp-q1">
+      ✅ <strong>B. Hydrogen Breath Test</strong><br><br>
+      Gambaran klinis khas intoleransi laktosa: BAB cair <strong>berbau asam</strong> + kembung yang muncul setelah konsumsi produk susu → bukan alergi.<br><br>
+      Hydrogen breath test adalah penunjang pilihan untuk intoleransi laktosa: pasien minum larutan laktosa → bila laktase tidak ada → fermentasi bakteri di kolon → H₂ meningkat dalam napas.<br><br>
+      ❌ A & C & D: untuk alergi makanan (imun-mediated), bukan intoleransi. ❌ E: untuk celiac disease.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="qq2">
+    <div class="quiz-num">Soal 02 — Alergi Susu Sapi vs Intoleransi</div>
+    <div class="quiz-vig">Bayi laki-laki 6 bulan, ASI eksklusif, dibawa ke klinik dengan keluhan ruam kemerahan di pipi dan lengan sejak 2 minggu, BAB berdarah, dan batuk kronis. Ibu mengonsumsi susu sapi setiap hari. Pemeriksaan fisik: eczema di pipi bilateral, tidak ada tanda infeksi berat.</div>
+    <p class="quiz-q">Langkah tatalaksana pertama yang paling tepat adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q2',false)"><span class="letter">A</span>Hentikan ASI, ganti susu formula soya</button>
+      <button class="quiz-opt" onclick="ans(this,'q2',false)"><span class="letter">B</span>Hentikan ASI, ganti susu formula standar bebas laktosa</button>
+      <button class="quiz-opt" onclick="ans(this,'q2',true)"><span class="letter">C</span>Lanjutkan ASI, eliminasi susu sapi dari diet ibu selama 2-4 minggu + suplementasi kalsium untuk ibu</button>
+      <button class="quiz-opt" onclick="ans(this,'q2',false)"><span class="letter">D</span>Hentikan ASI, ganti formula hidrolisat ekstensif segera</button>
+      <button class="quiz-opt" onclick="ans(this,'q2',false)"><span class="letter">E</span>Rujuk ke konsultan alergi imunologi segera</button>
+    </div>
+    <div class="quiz-exp" id="exp-q2">
+      ✅ <strong>C. Lanjutkan ASI + eliminasi susu sapi dari diet ibu</strong><br><br>
+      Ini adalah alergi susu sapi (ASS) <strong>ringan-sedang</strong> pada bayi dengan ASI eksklusif. Sesuai alur IDAI:<br>
+      • Bayi dengan ASI → <strong>lanjutkan ASI</strong> (jangan dihentikan!)<br>
+      • Eliminasi protein susu sapi dari diet <strong>ibu</strong> selama 2 minggu (4 minggu bila ada DA/kolitis alergik)<br>
+      • Suplementasi kalsium untuk ibu karena diet eliminasi<br><br>
+      ❌ A: Soya bukan terapi ASS (cross-reaction 10-15%). ❌ B: Formula bebas laktosa untuk intoleransi laktosa, bukan ASS. ❌ D & E: Belum perlu, ini bukan kasus berat.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="qq3">
+    <div class="quiz-num">Soal 03 — Pilihan Formula ASS</div>
+    <div class="quiz-vig">Bayi perempuan 3 bulan, tidak mendapat ASI karena ibu bekerja. Dokter mendiagnosis alergi susu sapi ringan-sedang. Orang tua sudah diberikan edukasi untuk eliminasi susu formula standar. Kondisi keuangan keluarga cukup terbatas.</div>
+    <p class="quiz-q">Formula manakah yang paling tepat sebagai pilihan UTAMA untuk bayi ini?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q3',false)"><span class="letter">A</span>Formula kedelai (soya) karena lebih terjangkau</button>
+      <button class="quiz-opt" onclick="ans(this,'q3',false)"><span class="letter">B</span>Formula bebas laktosa</button>
+      <button class="quiz-opt" onclick="ans(this,'q3',true)"><span class="letter">C</span>Formula hidrolisat ekstensif minimal 2-4 minggu</button>
+      <button class="quiz-opt" onclick="ans(this,'q3',false)"><span class="letter">D</span>Formula asam amino</button>
+      <button class="quiz-opt" onclick="ans(this,'q3',false)"><span class="letter">E</span>Formula standar berbahan dasar susu sapi</button>
+    </div>
+    <div class="quiz-exp" id="exp-q3">
+      ✅ <strong>C. Formula hidrolisat ekstensif</strong><br><br>
+      Sesuai alur IDAI untuk bayi dengan PASI yang dicurigai ASS ringan/sedang: <strong>diet eliminasi dengan formula hidrolisat ekstensif minimal 2-4 minggu</strong>. Ini adalah pilihan UTAMA, bukan soya.<br><br>
+      ❌ A: Soya hanya alternatif bila ada masalah dana DAN ketersediaan formula hidrolisat (anak &gt;6 bulan), tetapi bukan pilihan utama karena masih ada 10-15% cross-reaction. Di sini bayi baru 3 bulan (di bawah 6 bulan soya tidak direkomendasikan sama sekali!).<br>
+      ❌ B: Bebas laktosa untuk intoleransi laktosa. ❌ D: Asam amino untuk ASS berat. ❌ E: Kontraindikasi!
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="qq4">
+    <div class="quiz-num">Soal 04 — Alergi vs Intoleransi</div>
+    <div class="quiz-vig">Seorang mahasiswa 20 tahun mengeluh perut kembung, BAB cair, dan banyak buang gas setiap kali makan produk olahan susu. Tidak ada urtikaria, sesak napas, atau rasa gatal di tenggorokan. Gejala reda bila tidak makan produk susu. Riwayat keluarga tidak ada atopi.</div>
+    <p class="quiz-q">Diagnosis dan mekanisme yang paling tepat pada pasien ini adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q4',false)"><span class="letter">A</span>Alergi susu sapi — IgE-mediated degranulasi sel mast</button>
+      <button class="quiz-opt" onclick="ans(this,'q4',true)"><span class="letter">B</span>Intoleransi laktosa — defisiensi enzim laktase menyebabkan fermentasi oleh bakteri kolon</button>
+      <button class="quiz-opt" onclick="ans(this,'q4',false)"><span class="letter">C</span>Celiac disease — reaksi autoimun terhadap protein gluten</button>
+      <button class="quiz-opt" onclick="ans(this,'q4',false)"><span class="letter">D</span>Alergi susu sapi — non-IgE mediated type IV hypersensitivity</button>
+      <button class="quiz-opt" onclick="ans(this,'q4',false)"><span class="letter">E</span>IBS (Irritable Bowel Syndrome) — disfungsi saraf enteral</button>
+    </div>
+    <div class="quiz-exp" id="exp-q4">
+      ✅ <strong>B. Intoleransi laktosa — defisiensi enzim laktase</strong><br><br>
+      Kunci diagnosis:<br>
+      • Gejala hanya di GI (kembung, diare, gas) — bukan multiorgan<br>
+      • Tidak ada manifestasi alergi (urtikaria, sesak, angioedema)<br>
+      • Tidak ada riwayat atopi keluarga<br>
+      • Gejala berkaitan langsung dengan konsumsi produk susu (laktosa)<br><br>
+      Ini adalah reaksi NON-IMUNOLOGIS (intoleransi), bukan alergi. Mekanisme: defisiensi laktase → laktosa tidak dicerna → fermentasi bakteri di kolon → gas + asam lemak → gejala.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="qq5">
+    <div class="quiz-num">Soal 05 — Diagnostik Alergi Makanan</div>
+    <div class="quiz-vig">Seorang anak 5 tahun diduga memiliki dermatitis atopik yang dicurigai dipicu oleh alergi makanan. Dokter ingin menilai adanya hipersensitivitas tipe lambat (non-IgE mediated) terhadap alergen makanan tertentu.</div>
+    <p class="quiz-q">Uji diagnostik mana yang paling tepat untuk mendeteksi reaksi hipersensitivitas tipe lambat ini?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q5',false)"><span class="letter">A</span>Skin prick test — dibaca 15-30 menit</button>
+      <button class="quiz-opt" onclick="ans(this,'q5',false)"><span class="letter">B</span>Intradermal test — dibaca 15-30 menit</button>
+      <button class="quiz-opt" onclick="ans(this,'q5',false)"><span class="letter">C</span>IgE total serum</button>
+      <button class="quiz-opt" onclick="ans(this,'q5',true)"><span class="letter">D</span>Patch test — dibiarkan 48-72 jam</button>
+      <button class="quiz-opt" onclick="ans(this,'q5',false)"><span class="letter">E</span>Hydrogen breath test</button>
+    </div>
+    <div class="quiz-exp" id="exp-q5">
+      ✅ <strong>D. Patch Test (48-72 jam)</strong><br><br>
+      <strong>Patch test</strong> dirancang spesifik untuk mendeteksi reaksi hipersensitivitas tipe <strong>lambat (tipe IV — cell-mediated)</strong>. Alergen dioleskan di plester, ditempel di punggung, dibaca setelah 48-72 jam.<br><br>
+      ❌ A & B: Skin prick dan intradermal dibaca 15-30 menit → untuk reaksi CEPAT (tipe I, IgE-mediated).<br>
+      ❌ C: IgE total hanya menilai kecenderungan atopi secara umum, tidak spesifik untuk tipe reaksi.<br>
+      ❌ E: Untuk intoleransi laktosa, bukan alergi.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="qq6">
+    <div class="quiz-num">Soal 06 — Celiac Disease</div>
+    <div class="quiz-vig">Anak laki-laki 4 tahun datang dengan gagal tumbuh, perut kembung, dan diare kronis berlemak (steatorrhea) sejak usia 18 bulan, terutama setelah MPASI diberikan. BB tidak naik selama 6 bulan. Endoskopi dan biopsi usus halus dilakukan oleh dokter spesialis.</div>
+    <p class="quiz-q">Gambaran biopsi yang paling mungkin ditemukan adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q6',false)"><span class="letter">A</span>Granuloma non-kaseosa + ulkus dalam transmural</button>
+      <button class="quiz-opt" onclick="ans(this,'q6',false)"><span class="letter">B</span>Cobblestone appearance + skip lesion</button>
+      <button class="quiz-opt" onclick="ans(this,'q6',true)"><span class="letter">C</span>Atrofi vili + hiperplasia kripta + peningkatan limfosit intraepitelial</button>
+      <button class="quiz-opt" onclick="ans(this,'q6',false)"><span class="letter">D</span>Eritema difusa + ulkus aphthosa pada mukosa normal</button>
+      <button class="quiz-opt" onclick="ans(this,'q6',false)"><span class="letter">E</span>Infiltrasi neutrofil difusa + crypt abscess</button>
+    </div>
+    <div class="quiz-exp" id="exp-q6">
+      ✅ <strong>C. Atrofi vili + hiperplasia kripta + limfosit intraepitelial meningkat</strong><br><br>
+      Ini adalah <strong>gambaran patognomonik Celiac Disease</strong>. Konsumsi gluten → reaksi autoimun → kerusakan enterosit → vili memendek/hilang (atrofi) → kompensasi kripta melebar (hiperplasia) → infiltrasi limfosit.<br><br>
+      ❌ A: Granuloma non-kaseosa + transmural = Penyakit Crohn.<br>
+      ❌ B: Cobblestone + skip = Penyakit Crohn endoskopi.<br>
+      ❌ D: Eritema difusa + ulkus aphthosa = Kolitis Ulseratif endoskopi.<br>
+      ❌ E: Crypt abscess bisa ada di UC, tapi tidak khas celiac.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="qq7">
+    <div class="quiz-num">Soal 07 — IBD: Crohn vs UC</div>
+    <div class="quiz-vig">Remaja 16 tahun perempuan datang dengan keluhan diare berdarah kronis sudah 4 bulan, nyeri perut, penurunan BB. Kolonoskopi menunjukkan gambaran skip lesion, cobblestone appearance, dan ulkus dalam. Biopsi menunjukkan inflamasi transmural dan granuloma non-kaseosa. Tidak ada keterlibatan rektum.</div>
+    <p class="quiz-q">Diagnosis yang paling tepat adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q7',false)"><span class="letter">A</span>Kolitis ulseratif — hanya mengenai mukosa kolon secara continuous</button>
+      <button class="quiz-opt" onclick="ans(this,'q7',true)"><span class="letter">B</span>Penyakit Crohn — transmural, skip lesion, granuloma non-kaseosa</button>
+      <button class="quiz-opt" onclick="ans(this,'q7',false)"><span class="letter">C</span>Celiac disease — atrofi vili akibat gluten</button>
+      <button class="quiz-opt" onclick="ans(this,'q7',false)"><span class="letter">D</span>Kolitis infeksiosa — karena Salmonella</button>
+      <button class="quiz-opt" onclick="ans(this,'q7',false)"><span class="letter">E</span>Irritable Bowel Syndrome — disfungsi motilitas</button>
+    </div>
+    <div class="quiz-exp" id="exp-q7">
+      ✅ <strong>B. Penyakit Crohn</strong><br><br>
+      Semua clue mengarah ke Crohn:<br>
+      • <strong>Skip lesion</strong> (bukan continuous) → Crohn<br>
+      • <strong>Cobblestone appearance</strong> → Crohn<br>
+      • <strong>Ulkus dalam</strong> → Crohn<br>
+      • <strong>Inflamasi transmural</strong> → Crohn (UC hanya mukosa + submukosa)<br>
+      • <strong>Granuloma non-kaseosa</strong> → PATOGNOMONIK Crohn!<br>
+      • <strong>Rektum tidak terlibat</strong> → UC selalu melibatkan rektum, Crohn tidak harus<br><br>
+      Ingat: UC = continuous dari rektum ke atas. Crohn = skip, bisa di mana saja, transmural.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="qq8">
+    <div class="quiz-num">Soal 08 — Botulisme: Mekanisme Toksin</div>
+    <div class="quiz-vig">Seorang pria 35 tahun dibawa ke IGD dengan keluhan kelemahan otot progresif dimulai dari kelopak mata terkulai (ptosis), pandangan ganda, dan sulit menelan sejak 24 jam yang lalu. Sebelumnya ia mengonsumsi makanan kaleng setengah jadi 2 hari lalu. Pemeriksaan: descending paralysis flaksid, tanpa demam.</div>
+    <p class="quiz-q">Mekanisme toksisitas yang menyebabkan kelainan pada pasien ini adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q8',false)"><span class="letter">A</span>Toksin memblok pelepasan neurotransmitter inhibitor (glisin/GABA) → otot terus berkontraksi → spastik</button>
+      <button class="quiz-opt" onclick="ans(this,'q8',false)"><span class="letter">B</span>Toksin merusak motor neuron di medula spinalis → ascending flaksid paralysis</button>
+      <button class="quiz-opt" onclick="ans(this,'q8',true)"><span class="letter">C</span>Toksin memecah protein SNARE → acetylcholine tidak bisa dilepas dari terminal saraf → kelumpuhan flaksid</button>
+      <button class="quiz-opt" onclick="ans(this,'q8',false)"><span class="letter">D</span>Toksin menyerang myelin di saraf perifer → demielinisasi → ascending paralysis</button>
+      <button class="quiz-opt" onclick="ans(this,'q8',false)"><span class="letter">E</span>Toksin merangsang pelepasan ACh berlebihan → depolarisasi berlebih → kelumpuhan</button>
+    </div>
+    <div class="quiz-exp" id="exp-q8">
+      ✅ <strong>C. Toksin memecah protein SNARE → ACh tidak bisa dilepas</strong><br><br>
+      Mekanisme Botulinum Toxin (BoNT):<br>
+      Toksin masuk → berikatan dengan gangliosida di NMJ → endositosis → rantai ringan sebagai protease → <strong>memecah protein SNARE</strong> (SNAP-25, synaptobrevin, syntaxin) → vesikel ACh tidak bisa fusi dengan membran → <strong>ACh tidak keluar</strong> → tidak ada sinyal kontraksi → <strong>flaksid paralysis</strong>.<br><br>
+      ❌ A: Itu mekanisme TETANUS (blok neurotransmitter inhibitor → ACh berlebih → spastik).<br>
+      ❌ B & D: Mekanisme Guillain-Barré syndrome / polio (ascending).<br>
+      ❌ E: Tidak ada — BoNT justru mengurangi ACh.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="qq9">
+    <div class="quiz-num">Soal 09 — Botulisme vs Tetanus</div>
+    <div class="quiz-vig">Pasien A: Mengonsumsi makanan kaleng → 24 jam kemudian ptosis, diplopia, descending flaksid paralysis.<br>Pasien B: Luka tusuk kotor → 5 hari kemudian trismus, opisthotonus, dan spasme otot menyeluruh (lockjaw).</div>
+    <p class="quiz-q">Pernyataan yang BENAR tentang perbedaan kedua pasien ini adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q9',false)"><span class="letter">A</span>Pasien A dan B sama-sama mengalami paralisis ascending</button>
+      <button class="quiz-opt" onclick="ans(this,'q9',true)"><span class="letter">B</span>Pasien A (botulisme) mengalami descending flaksid; Pasien B (tetanus) mengalami spasme/kaku karena blokade neurotransmitter inhibitor</button>
+      <button class="quiz-opt" onclick="ans(this,'q9',false)"><span class="letter">C</span>Pasien A diobati dengan TIG (tetanus immune globulin); Pasien B dengan HBAT</button>
+      <button class="quiz-opt" onclick="ans(this,'q9',false)"><span class="letter">D</span>Kedua pasien disebabkan bakteri gram negatif anaerob</button>
+      <button class="quiz-opt" onclick="ans(this,'q9',false)"><span class="letter">E</span>Pasien B (tetanus) mengalami flaksid karena ACh tidak dapat dilepas</button>
+    </div>
+    <div class="quiz-exp" id="exp-q9">
+      ✅ <strong>B — Perbedaan khas Botulisme vs Tetanus</strong><br><br>
+      <strong>Pasien A (Botulisme):</strong><br>
+      • Toksin botulinum → memecah SNARE → ACh tidak keluar → kelumpuhan FLAKSID (layu)<br>
+      • Arah: DESCENDING (kepala → kaki)<br>
+      • Terapi: HBAT (antitoksin heptavalent)<br><br>
+      <strong>Pasien B (Tetanus):</strong><br>
+      • Tetanospasmin → blok pelepasan glisin/GABA (inhibitor) → ACh berlebih → otot terus kontraksi → SPASTIK (kaku, trismus, opisthotonus)<br>
+      • Terapi: TIG + metronidazol<br><br>
+      ❌ C: Terapi terbalik! ❌ D: Clostridium botulinum dan tetani = gram POSITIF.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="qq10">
+    <div class="quiz-num">Soal 10 — Faktor Risiko Alergi Makanan</div>
+    <div class="quiz-vig">Ibu hamil bertanya kepada dokter: "Dokter, suami saya alergi udang, dan saya sendiri punya riwayat asma dan rinitis alergi. Berapa besar kemungkinan anak kami nanti punya alergi makanan?"</div>
+    <p class="quiz-q">Berapa perkiraan risiko alergi pada anak berdasarkan riwayat keluarga tersebut?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q10',false)"><span class="letter">A</span>5-15% (tidak ada riwayat keluarga)</button>
+      <button class="quiz-opt" onclick="ans(this,'q10',false)"><span class="letter">B</span>20-40% (satu anggota keluarga dengan alergi)</button>
+      <button class="quiz-opt" onclick="ans(this,'q10',true)"><span class="letter">C</span>40-60% (dua anggota keluarga dengan alergi)</button>
+      <button class="quiz-opt" onclick="ans(this,'q10',false)"><span class="letter">D</span>60-80% (dua anggota keluarga dengan alergi yang SAMA)</button>
+      <button class="quiz-opt" onclick="ans(this,'q10',false)"><span class="letter">E</span>Tidak ada risiko karena jenis alerginya berbeda (udang vs asma)</button>
+    </div>
+    <div class="quiz-exp" id="exp-q10">
+      ✅ <strong>C. 40-60%</strong><br><br>
+      Sesuai dengan guideline yang dibahas dr. Restu:<br>
+      • Tidak ada riwayat keluarga: 5-15%<br>
+      • 1 anggota keluarga dengan alergi: 20-40%<br>
+      • <strong>2 anggota keluarga dengan alergi (tapi berbeda jenis): 40-60%</strong><br>
+      • 2 anggota keluarga dengan alergi yang SAMA: 60-80%<br><br>
+      Dalam kasus ini: ibu (asma + rinitis = atopi) + ayah (alergi udang) = dua anggota keluarga, alergi berbeda jenis → 40-60%.<br><br>
+      ❌ E: Jenis alergi yang berbeda tetap meningkatkan risiko — yang diturunkan adalah predisposisi atopi secara umum.
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz-card" id="qq11">
+    <div class="quiz-num">Soal 11 — Keracunan Makanan</div>
+    <div class="quiz-vig">Sebanyak 30 siswa SD mengalami mual, muntah, kram perut, dan diare 8 jam setelah makan catering makan siang. Tidak ada demam pada sebagian besar siswa. Sampel makanan yang tersisa diambil untuk pemeriksaan. Makanan sudah disiapkan sejak pagi dan dibiarkan di suhu ruang selama 5 jam sebelum dimakan.</div>
+    <p class="quiz-q">Jenis keracunan makanan dan etiologi paling mungkin pada kasus ini adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q11',false)"><span class="letter">A</span>Food infection — Salmonella typhi</button>
+      <button class="quiz-opt" onclick="ans(this,'q11',true)"><span class="letter">B</span>Food intoxication — toksin Staphylococcus aureus yang sudah terbentuk sebelumnya di makanan</button>
+      <button class="quiz-opt" onclick="ans(this,'q11',false)"><span class="letter">C</span>Food infection — Clostridium botulinum</button>
+      <button class="quiz-opt" onclick="ans(this,'q11',false)"><span class="letter">D</span>Intoleransi laktosa massal karena produk susu</button>
+      <button class="quiz-opt" onclick="ans(this,'q11',false)"><span class="letter">E</span>Food infection — Campylobacter jejuni</button>
+    </div>
+    <div class="quiz-exp" id="exp-q11">
+      ✅ <strong>B. Food intoxication — toksin S. aureus</strong><br><br>
+      Clue penting:<br>
+      • Onset cepat (8 jam — lebih pendek dari food infection khas 6-72 jam untuk organisme)<br>
+      • Makanan dibiarkan di suhu ruang 5 jam → kondisi ideal untuk pertumbuhan S. aureus dan pembentukan toksin<br>
+      • Tidak ada demam pada sebagian besar → menunjukkan tidak ada infeksi aktif bakteri, melainkan toksin yang sudah terbentuk<br>
+      • Gejala dominan: GI (mual, muntah, diare) — khas toksin preformed<br><br>
+      ❌ A: Salmonella typhi → demam tifoid, onset lebih lambat. ❌ C: Botulinum → descending paralysis, bukan dominan GI. ❌ E: Campylobacter → biasanya ada demam.
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz-card" id="qq12">
+    <div class="quiz-num">Soal 12 — Kasus Gabungan Analitis</div>
+    <div class="quiz-vig">Bayi perempuan 9 bulan dengan ASI eksklusif dikeluhkan ruam merah di seluruh tubuh, diare berdarah, dan gagal tumbuh (BB tidak naik 3 bulan). Ibu sudah eliminasi susu sapi dari dietnya selama 4 minggu, namun gejala masih ada. Dokter menambahkan formula hidrolisat ekstensif tapi gejala tetap berat.</div>
+    <p class="quiz-q">Langkah tatalaksana selanjutnya yang paling tepat adalah?</p>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="ans(this,'q12',false)"><span class="letter">A</span>Tambahkan susu formula soya sebagai pengganti</button>
+      <button class="quiz-opt" onclick="ans(this,'q12',false)"><span class="letter">B</span>Hentikan semua eliminasi, perkenalkan susu sapi kembali</button>
+      <button class="quiz-opt" onclick="ans(this,'q12',false)"><span class="letter">C</span>Lanjutkan formula hidrolisat dan tunggu lebih lama</button>
+      <button class="quiz-opt" onclick="ans(this,'q12',true)"><span class="letter">D</span>Rujuk ke dokter spesialis anak konsultan dan pertimbangkan naik ke formula asam amino</button>
+      <button class="quiz-opt" onclick="ans(this,'q12',false)"><span class="letter">E</span>Berikan kortikosteroid oral untuk menekan reaksi imun</button>
+    </div>
+    <div class="quiz-exp" id="exp-q12">
+      ✅ <strong>D. Rujuk ke konsultan + formula asam amino</strong><br><br>
+      Analisis kasus:<br>
+      • Bayi ASI eksklusif + ibu sudah eliminasi 4 minggu + tambah hidrolisat tapi gejala berat masih ada → ini adalah <strong>ASS berat yang tidak respons terapi standar</strong><br>
+      • Gagal tumbuh + diare berdarah + ruam berat = ASS kategori berat<br>
+      • Bila formula hidrolisat ekstensif tidak respons → naik ke <strong>formula asam amino</strong> (bentuk protein paling sederhana)<br>
+      • Kasus berat seperti ini harus <strong>dirujuk ke konsultan alergi imunologi anak</strong><br><br>
+      ❌ A: Soya bukan solusi — 10-15% cross-reaction, tidak cocok untuk &lt;6 bulan, dan kasus ini sudah berat. ❌ B: Kontraindikasi! ❌ C: Sudah 4 minggu, tidak respons. ❌ E: Steroid bukan first-line ASS.
+    </div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="quiz-score" id="quizScore">
+    <p style="font-size:32px; margin-bottom:12px">🎉</p>
+    <div class="score-big" id="scoreBig">0</div>
+    <div style="font-size:18px; opacity:0.75; margin:6px 0">/ 12 soal</div>
+    <p id="scoreMsg" style="font-size:15px; opacity:0.85; margin-top:10px; line-height:1.6"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<script>
+// === NAV ===
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// === QUIZ ===
+let answered = 0;
+let correct = 0;
+const total = 12;
+
+function ans(btn, qId, isCorrect) {
+  const card = document.getElementById('qq' + qId.replace('q',''));
+  if (card.dataset.done) return;
+  card.dataset.done = '1';
+
+  const allBtns = card.querySelectorAll('.quiz-opt');
+  allBtns.forEach(b => { b.disabled = true; });
+
+  if (isCorrect) {
+    btn.classList.add('correct');
+    correct++;
+  } else {
+    btn.classList.add('wrong');
+    allBtns.forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) {
+        b.classList.add('reveal-correct');
+      }
+    });
+  }
+
+  const exp = document.getElementById('exp-' + qId);
+  if (exp) exp.classList.add('show');
+
+  answered++;
+  const pct = Math.round(answered / total * 100);
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progText').textContent = answered + ' / ' + total + ' dijawab';
+
+  if (answered === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('quizScore');
+  sc.classList.add('show');
+  document.getElementById('scoreBig').textContent = correct;
+  const pct = Math.round(correct / total * 100);
+  let msg = '';
+  if (pct === 100) msg = 'Sempurna! Dokter masa depan siap! 🌟';
+  else if (pct >= 83) msg = 'Luar biasa! Tinggal sedikit lagi sempurna! 🔥';
+  else if (pct >= 67) msg = 'Bagus! Review bagian yang salah ya! 💪';
+  else if (pct >= 50) msg = 'Lumayan! Baca ulang materi terutama botulisme & ASS! 📚';
+  else msg = 'Jangan menyerah! Review dari awal dan coba lagi! 🌱';
+  document.getElementById('scoreMsg').textContent = msg;
+  sc.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  answered = 0; correct = 0;
+  document.getElementById('quizScore').classList.remove('show');
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('progText').textContent = '0 / 12 dijawab';
+  for (let i = 1; i <= 12; i++) {
+    const card = document.getElementById('qq' + i);
+    if (card) { delete card.dataset.done; }
+    const exp = document.getElementById('exp-q' + i);
+    if (exp) exp.classList.remove('show');
+    card && card.querySelectorAll('.quiz-opt').forEach(b => {
+      b.classList.remove('correct','wrong','reveal-correct');
+      b.disabled = false;
+    });
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

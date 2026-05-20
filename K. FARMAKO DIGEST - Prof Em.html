@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmakologi Digestivus — Prof. EM Sutrisna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f14;
+    --surface: #16181f;
+    --surface2: #1e2029;
+    --border: #2a2d3a;
+    --accent1: #f4a261; /* warm orange - antasida */
+    --accent2: #52b788; /* green - PPI */
+    --accent3: #74b3ce; /* blue - H2 */
+    --accent4: #c77dff; /* purple - sitoprotektif */
+    --accent5: #e63946; /* red - antidiare */
+    --accent6: #ffd166; /* yellow - laksatif */
+    --accent7: #a8dadc; /* teal - antiemetik */
+    --text: #e8eaf0;
+    --text-muted: #8a8fa8;
+    --text-dim: #5a5f75;
+    --success: #52b788;
+    --fail: #e63946;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── HEADER ─── */
+  .hero {
+    position: relative;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(244,162,97,0.12) 0%, transparent 70%);
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(244,162,97,0.12);
+    border: 1px solid rgba(244,162,97,0.3);
+    color: var(--accent1);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent1) 60%, #ffd166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-prof {
+    color: var(--accent1);
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+
+  /* ─── NAV PILLS ─── */
+  .nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,15,20,0.9);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-container::-webkit-scrollbar { display: none; }
+
+  .nav-pills {
+    display: flex;
+    gap: 0.5rem;
+    min-width: max-content;
+    justify-content: center;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    background: var(--surface);
+    color: var(--text-muted);
+  }
+  .pill:hover { border-color: var(--border); color: var(--text); }
+  .pill.active { color: var(--bg); font-weight: 600; }
+
+  /* ─── MAIN LAYOUT ─── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section {
+    margin-bottom: 3rem;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .section-title .subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    font-weight: 400;
+  }
+
+  /* ─── DRUG CARDS ─── */
+  .drug-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .drug-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .drug-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .drug-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .drug-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+  }
+
+  .drug-class {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+
+  .drug-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ─── INFO PANELS ─── */
+  .info-panel {
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 1px solid transparent;
+  }
+
+  .info-panel .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  .info-panel p { font-size: 0.88rem; line-height: 1.6; }
+
+  .panel-mechanism { background: rgba(82,183,136,0.08); border-color: rgba(82,183,136,0.2); }
+  .panel-indication { background: rgba(116,179,206,0.08); border-color: rgba(116,179,206,0.2); }
+  .panel-side-effect { background: rgba(230,57,70,0.08); border-color: rgba(230,57,70,0.2); }
+  .panel-warning { background: rgba(255,209,102,0.08); border-color: rgba(255,209,102,0.2); }
+  .panel-tip { background: rgba(199,125,255,0.08); border-color: rgba(199,125,255,0.2); }
+  .panel-interaction { background: rgba(168,218,220,0.08); border-color: rgba(168,218,220,0.2); }
+
+  /* ─── MNEMONIC BOX ─── */
+  .mnemonic-box {
+    background: linear-gradient(135deg, rgba(199,125,255,0.08), rgba(244,162,97,0.08));
+    border: 1px solid rgba(199,125,255,0.25);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .mnemonic-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent4);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .mnemonic-word {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent4);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  .mnemonic-expand {
+    font-size: 0.88rem;
+    line-height: 2;
+    color: var(--text);
+  }
+
+  .mnemonic-expand strong {
+    color: var(--accent4);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+  }
+
+  /* ─── COMPARISON TABLE ─── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .compare-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    background: var(--surface2);
+    color: var(--text-muted);
+  }
+
+  .compare-table td {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    line-height: 1.5;
+  }
+
+  .compare-table tr:hover td { background: var(--surface2); }
+
+  /* ─── FLOW / PATHWAY ─── */
+  .pathway {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .pathway-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    position: relative;
+  }
+
+  .pathway-step::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 42px;
+    bottom: -8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .pathway-step:last-child::before { display: none; }
+
+  .step-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .step-content { flex: 1; }
+  .step-content h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .step-content p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ─── QUIZ SECTION ─── */
+  .quiz-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quiz-header p { color: var(--text-muted); font-size: 0.88rem; }
+
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    display: none;
+    animation: fadeUp 0.4s ease;
+  }
+  .question-card.active { display: block; }
+
+  .q-number {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .q-stem {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    background: var(--surface2);
+    border-left: 3px solid var(--accent3);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+  }
+
+  .q-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .option-btn {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.04);
+  }
+  .option-btn .opt-letter {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .option-btn.correct { border-color: var(--success); background: rgba(82,183,136,0.1); }
+  .option-btn.correct .opt-letter { background: var(--success); color: var(--bg); border-color: var(--success); }
+  .option-btn.wrong { border-color: var(--fail); background: rgba(230,57,70,0.08); }
+  .option-btn.wrong .opt-letter { background: var(--fail); color: white; border-color: var(--fail); }
+  .option-btn:disabled { cursor: default; }
+
+  .explanation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(82,183,136,0.08);
+    border: 1px solid rgba(82,183,136,0.2);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    display: none;
+  }
+  .explanation.show { display: block; animation: fadeUp 0.3s ease; }
+
+  .explanation .exp-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--success);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.65rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent1);
+    color: var(--bg);
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { color: var(--text); }
+
+  .score-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--surface);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    display: none;
+  }
+  .score-card.show { display: block; animation: fadeUp 0.5s ease; }
+
+  .score-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-msg { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent1);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  /* ─── ACCORDION ─── */
+  .accordion-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .accordion-header:hover { background: var(--surface2); }
+
+  .accordion-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s;
+    color: var(--text-muted);
+  }
+  .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: var(--surface2);
+  }
+  .accordion-item.open .accordion-body { max-height: 600px; }
+
+  .accordion-body-inner {
+    padding: 1rem 1.25rem;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ─── COLOR HELPERS ─── */
+  .c1 { color: var(--accent1); }
+  .c2 { color: var(--accent2); }
+  .c3 { color: var(--accent3); }
+  .c4 { color: var(--accent4); }
+  .c5 { color: var(--accent5); }
+  .c6 { color: var(--accent6); }
+  .c7 { color: var(--accent7); }
+
+  .bg1 { background: rgba(244,162,97,0.12); }
+  .bg2 { background: rgba(82,183,136,0.12); }
+  .bg3 { background: rgba(116,179,206,0.12); }
+  .bg4 { background: rgba(199,125,255,0.12); }
+  .bg5 { background: rgba(230,57,70,0.1); }
+  .bg6 { background: rgba(255,209,102,0.1); }
+  .bg7 { background: rgba(168,218,220,0.1); }
+
+  .border1 { border-left: 3px solid var(--accent1); }
+  .border2 { border-left: 3px solid var(--accent2); }
+  .border3 { border-left: 3px solid var(--accent3); }
+
+  .tag-orange { background: rgba(244,162,97,0.15); color: var(--accent1); }
+  .tag-green { background: rgba(82,183,136,0.15); color: var(--accent2); }
+  .tag-blue { background: rgba(116,179,206,0.15); color: var(--accent3); }
+  .tag-purple { background: rgba(199,125,255,0.15); color: var(--accent4); }
+  .tag-red { background: rgba(230,57,70,0.12); color: var(--accent5); }
+  .tag-yellow { background: rgba(255,209,102,0.12); color: var(--accent6); }
+  .tag-teal { background: rgba(168,218,220,0.12); color: var(--accent7); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .drug-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 0.75rem; }
+    .compare-table th, .compare-table td { padding: 0.6rem 0.75rem; }
+  }
+
+  strong { font-weight: 600; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  ul, ol { padding-left: 1.25rem; }
+  li { font-size: 0.87rem; line-height: 1.7; color: var(--text-muted); }
+  li strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-badge">📚 Blok Digestivus · Semester 6</div>
+  <h1>Farmakologi Sistem Digestivus</h1>
+  <p class="hero-sub">Rangkuman Kuliah Lengkap & Interaktif</p>
+  <p class="hero-prof">Prof. Dr. dr. EM Sutrisna, M.Kes</p>
+</div>
+
+<!-- ─── NAV ─── -->
+<div class="nav-container">
+  <div class="nav-pills">
+    <div class="pill active bg1" style="--c:var(--accent1)" onclick="scrollTo('antasida')">🟠 Antasida</div>
+    <div class="pill" onclick="scrollTo('h2')">🔵 H₂ Antagonis</div>
+    <div class="pill" onclick="scrollTo('ppi')">🟢 PPI</div>
+    <div class="pill" onclick="scrollTo('sitoprotektif')">🟣 Sitoprotektif</div>
+    <div class="pill" onclick="scrollTo('antidiare')">🔴 Antidiare</div>
+    <div class="pill" onclick="scrollTo('laksatif')">🟡 Laksatif</div>
+    <div class="pill" onclick="scrollTo('antiemetik')">🩵 Antiemetik</div>
+    <div class="pill" onclick="scrollTo('komparasi')">📊 Tabel Komparasi</div>
+    <div class="pill" onclick="scrollTo('quiz')">🧠 Quiz</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ─── INTRO: PATOFISIOLOGI HIPERASIDITAS ─── -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-icon bg1">🔥</div>
+      <div>
+        <h2 class="c1">Fisiologi & Patofisiologi Asam Lambung</h2>
+        <div class="subtitle">Clinical reasoning — mengapa asam naik, mengapa luka?</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Isi lambung normal:</strong> HCl (parietal cell), pepsinogen (chief cell), intrinsic factor, mukus, bikarbonat, prostaglandin. Ketika semuanya seimbang → pH fisiologis, mukosa utuh.</p>
+    </div>
+
+    <div class="info-panel panel-warning">
+      <div class="icon">⚡</div>
+      <p><strong>3 Faktor Pemicu Hiperasiditas:</strong> (1) Makanan berlemak tinggi → merangsang sekresi HCl, (2) Konsumsi alkohol berlebihan, (3) Stres emosional → peningkatan release asam klorida.</p>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Pemicu Hiperasiditas</div>
+      <div class="mnemonic-word">"LAMP"</div>
+      <div class="mnemonic-expand">
+        <strong>L</strong>emak tinggi<br>
+        <strong>A</strong>lkohol berlebihan<br>
+        <strong>M</strong>oral distress (stress emosional)<br>
+        <strong>P</strong>ilory — H. pylori (gastritis kronis)
+      </div>
+    </div>
+
+    <div class="pathway">
+      <div class="pathway-step">
+        <div class="step-dot bg1 c1">1</div>
+        <div class="step-content">
+          <h4>Hiperasiditas / Iritasi Mukosa</h4>
+          <p>HCl↑ → pH turun drastis → iritasi mukosa → nyeri epigastrik, heartburn, rasa penuh</p>
+        </div>
+      </div>
+      <div class="pathway-step">
+        <div class="step-dot bg1 c1">2</div>
+        <div class="step-content">
+          <h4>Gastritis</h4>
+          <p>Radang mukosa gaster, belum ada ulkus. Tanda: kalor, rubor, dolor, tumor. Mukosa merah, bengkak — tapi belum luka.</p>
+        </div>
+      </div>
+      <div class="pathway-step">
+        <div class="step-dot bg5 c5">3</div>
+        <div class="step-content">
+          <h4>PUD — Peptik Ulcer Disease</h4>
+          <p>Mukosa sudah luka/ulkus. Bisa terjadi <strong>meski asam tidak naik</strong> (kalau mukosanya lemah). Komplikasi berat: perdarahan GI atas → melena (feses hitam).</p>
+        </div>
+      </div>
+      <div class="pathway-step">
+        <div class="step-dot bg3 c3">4</div>
+        <div class="step-content">
+          <h4>GERD — Gastroesophageal Reflux Disease</h4>
+          <p>Asam lambung naik ke esofagus. <strong>Sering keluar di ujian nasional!</strong> Keluhan khas: heartburn, regurgitasi, nyeri dada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-tip">
+      <div class="icon">💡</div>
+      <p><strong>Kunci Bedain Gejala Perdarahan GI:</strong> Perdarahan lambung/atas → <strong>melena</strong> (hitam, seperti aspal, berbau busuk) karena darah teroksidasi selama transit panjang. Perdarahan bawah/rektum → <strong>hematochezia</strong> (merah segar). Wajib waspada hematochezia!</p>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- ANTASIDA -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="antasida">
+    <div class="section-title">
+      <div class="section-icon bg1" style="font-size:1.6rem">🧂</div>
+      <div>
+        <h2 class="c1">1. Antasida</h2>
+        <div class="subtitle">Anti-acid · Menetralkan, bukan menghambat produksi</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Mekanisme:</strong> Antasida <em>tidak mencegah overproduksi HCl</em>. Yang dilakukan: memberikan basa dari luar (bikarbonat/logam) → membentuk <strong>buffer</strong> → menetralkan asam yang sudah ada → mengurangi nyeri dan iritasi. Menurunkan pH dari 1 ke 3–1.6 → mengurangi 50% keasaman efektif.</p>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card" style="border-left: 3px solid var(--accent1);">
+        <div class="drug-name">Aluminium Hidroksida (Al(OH)₃)</div>
+        <div class="drug-class">Antasida golongan aluminium</div>
+        <h4 class="c1">Al(OH)₃</h4>
+        <p style="font-size:0.83rem;color:var(--text-muted);">Menetralkan HCl efektif. Efek samping khas: <strong style="color:var(--accent5)">konstipasi</strong>. Digunakan dalam kombinasi.</p>
+        <div class="tag-row">
+          <span class="tag tag-orange">Konstipasi !</span>
+          <span class="tag tag-orange">Antasida</span>
+        </div>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent1);">
+        <div class="drug-name">Magnesium Hidroksida (Mg(OH)₂)</div>
+        <div class="drug-class">Antasida golongan magnesium</div>
+        <h4 class="c1">Mg(OH)₂</h4>
+        <p style="font-size:0.83rem;color:var(--text-muted);">Menetralkan HCl. Efek samping khas: <strong style="color:var(--accent2)">diare/laksatif</strong>. Sering dikombinasi dengan Al(OH)₃.</p>
+        <div class="tag-row">
+          <span class="tag tag-green">Diare/Laksatif !</span>
+          <span class="tag tag-orange">Antasida</span>
+        </div>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent1);">
+        <div class="drug-name">Al(OH)₃ + Mg(OH)₂ (Mylanta, dll)</div>
+        <div class="drug-class">Kombinasi — PALING SERING DIGUNAKAN</div>
+        <h4 class="c1">Kombinasi = Netral ✓</h4>
+        <p style="font-size:0.83rem;color:var(--text-muted);">Al → konstipasi DIIMBANGI Mg → laksatif. Efek saling menetralkan → feses normal. Sering + <strong>simeticone</strong> (anti kembung).</p>
+        <div class="tag-row">
+          <span class="tag tag-orange">Netral pada usus</span>
+          <span class="tag tag-purple">+ Simeticone = anti-kembung</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Efek Samping Antasida</div>
+      <div class="mnemonic-word">"Al-KONstipasi, Mg-diaRE"</div>
+      <div class="mnemonic-expand">
+        <strong>Al</strong>uminium → <strong>KON</strong>stipasi (Al = All Constipated)<br>
+        <strong>Mg</strong> → dia<strong>RE</strong> / laksatif (Mg = More Go toilet)<br>
+        Kombinasi keduanya → <strong>NETRAL</strong> ✓
+      </div>
+    </div>
+
+    <div class="info-panel panel-warning">
+      <div class="icon">⚠️</div>
+      <p><strong>Perhatian Khusus — Pasien Gagal Ginjal:</strong> Antasida tetap bisa diberikan, tapi <em>dosis dikurangi</em>. Magnesium dan aluminium bisa akumulasi pada gangguan ginjal → toksisitas.</p>
+    </div>
+
+    <div class="info-panel panel-interaction">
+      <div class="icon">🔗</div>
+      <p><strong>Interaksi Penting:</strong> Antasida (mengandung logam Al/Mg/Ca) bila diberikan <em>bersamaan</em> dengan antibiotik (tetrasiklin, siprofloksasin) → membentuk <strong>kompleks tidak larut → absorpsi antibiotik turun drastis</strong>. Sama halnya dengan susu (mengandung Ca, Mg). Beri jeda minimal 2 jam!</p>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- H2 ANTAGONIS -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="h2">
+    <div class="section-title">
+      <div class="section-icon bg3" style="font-size:1.4rem">🔵</div>
+      <div>
+        <h2 class="c3">2. H₂ Antagonis (H₂ Blocker)</h2>
+        <div class="subtitle">Memblok reseptor histamin H₂ di sel parietal → mengurangi produksi HCl</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Mekanisme:</strong> Reseptor H₁ ada di saluran napas (→ alergi). Reseptor <strong>H₂ ada di sel parietal lambung</strong>. H₂ blocker memblok H₂ → sel parietal tidak terstimulasi → <strong>produksi HCl berkurang</strong>. Berbeda dengan antasida yang hanya menetralkan, H₂ blocker <em>mengurangi produksi</em>.</p>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card" style="border-left: 3px solid var(--accent3);">
+        <div class="drug-name">Simetidin (Cimetidine)</div>
+        <div class="drug-class">H₂ Antagonis · Generasi 1</div>
+        <ul style="margin-top:0.5rem">
+          <li>Efek samping jangka panjang: <strong>ginekomastia</strong> (pembesaran payudara pria), impotensi</li>
+          <li>Jarang digunakan jangka panjang</li>
+        </ul>
+      </div>
+      <div class="drug-card" style="border-left: 3px solid var(--accent3);">
+        <div class="drug-name">Ranitidin (Ranitidine)</div>
+        <div class="drug-class">H₂ Antagonis · Paling Populer</div>
+        <ul style="margin-top:0.5rem">
+          <li>Lebih sedikit interaksi obat dari simetidin</li>
+          <li>Pilihan utama kelas H₂ blocker di klinis</li>
+        </ul>
+      </div>
+      <div class="drug-card" style="border-left: 3px solid var(--accent3);">
+        <div class="drug-name">Famotidin (Famotidine)</div>
+        <div class="drug-class">H₂ Antagonis</div>
+        <ul style="margin-top:0.5rem">
+          <li>Potensi lebih kuat dari ranitidin</li>
+          <li>Dosis lebih rendah, durasi lebih panjang</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-panel panel-indication">
+      <div class="icon">✅</div>
+      <p><strong>Indikasi:</strong> PUD (tukak peptik), GERD, esofagitis erosif, sebagai add-on terapi pada perdarahan GI atas (upper GI bleeding). Sering dikombinasi dengan antasida: antasida menetralkan yang sudah ada, H₂ blocker mencegah produksi selanjutnya.</p>
+    </div>
+
+    <div class="info-panel panel-side-effect">
+      <div class="icon">⚠️</div>
+      <p><strong>Efek Samping (&lt;3%, jarang):</strong> letargi, konfusi, diare, urtikaria, berkeringat, flushing. Penggunaan jangka panjang simetidin: ginekomastia, impotensi. Pada perokok berat: efektivitas berkurang → perlu dosis lebih tinggi.</p>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Golongan H₂ Blocker</div>
+      <div class="mnemonic-word">"RANI FAmily Sime"</div>
+      <div class="mnemonic-expand">
+        <strong>RANI</strong>tidin · <strong>FA</strong>motidin · <strong>Sime</strong>tidin<br>
+        Semua berakhiran <em>"tidin"</em> → <strong>H₂ Blocker</strong><br>
+        <em>Ingat: tidin = H2 blocker / ranitidin!!</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- PPI -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="ppi">
+    <div class="section-title">
+      <div class="section-icon bg2" style="font-size:1.4rem">🟢</div>
+      <div>
+        <h2 class="c2">3. Proton Pump Inhibitor (PPI)</h2>
+        <div class="subtitle">Paling poten · Menghambat pompa H⁺/K⁺-ATPase</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Mekanisme:</strong> Bekerja di <em>tingkat molekuler</em> — menghambat enzim <strong>H⁺/K⁺-ATPase (pompa proton)</strong> di membran sel parietal. Ini adalah langkah terakhir dalam produksi HCl → memblok di sini = <strong>paling efektif mengurangi asam</strong>. Mekanisme berbeda dari H₂ blocker, tapi hasil akhir sama: HCl turun.</p>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card" style="border-left: 3px solid var(--accent2);">
+        <div class="drug-name">Omeprazol</div>
+        <div class="drug-class">PPI · Generasi pertama, paling banyak tersedia</div>
+        <div class="tag-row"><span class="tag tag-green">-prazol</span><span class="tag tag-green">PPI</span></div>
+      </div>
+      <div class="drug-card" style="border-left: 3px solid var(--accent2);">
+        <div class="drug-name">Lansoprazol</div>
+        <div class="drug-class">PPI · Onset lebih cepat</div>
+        <div class="tag-row"><span class="tag tag-green">-prazol</span><span class="tag tag-green">PPI</span></div>
+      </div>
+      <div class="drug-card" style="border-left: 3px solid var(--accent2);">
+        <div class="drug-name">Rabeprazol / Pantoprazol / Esomeprazol</div>
+        <div class="drug-class">PPI · Generasi terbaru</div>
+        <div class="tag-row"><span class="tag tag-green">-prazol</span><span class="tag tag-green">Interaksi lebih sedikit</span></div>
+      </div>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Cara Mudah Kenali PPI</div>
+      <div class="mnemonic-word">Semua PPI = "-PRAZOL"</div>
+      <div class="mnemonic-expand">
+        Ome<strong>prazol</strong> · Lans<strong>oprazol</strong> · Rab<strong>eprazol</strong> · Panto<strong>prazol</strong> · Esom<strong>eprazol</strong><br><br>
+        <em>"Kalau ada -prazol, pasti Pompa Proton di-blok!"</em>
+      </div>
+    </div>
+
+    <div class="info-panel panel-indication">
+      <div class="icon">✅</div>
+      <p><strong>Indikasi:</strong> PUD, GERD, esofagitis erosif, tukak gaster/duodenum aktif (short-term). Juga untuk <em>eradikasi H. pylori</em> (kombinasi dengan antibiotik). Pada soal dispepsia yang perlu terapi 4 minggu → <strong>PPI adalah pilihan utama</strong>.</p>
+    </div>
+
+    <div class="info-panel panel-side-effect">
+      <div class="icon">ℹ️</div>
+      <p><strong>Efek Samping:</strong> Jangka pendek → sangat aman, efek samping sangat jarang. Jangka panjang → risiko hipomagnesemia, defisiensi B12, SIBO, peningkatan risiko fraktur (absorpsi kalsium terganggu di pH basa).</p>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- SITOPROTEKTIF -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="sitoprotektif">
+    <div class="section-title">
+      <div class="section-icon bg4" style="font-size:1.4rem">🛡️</div>
+      <div>
+        <h2 class="c4">4. Agen Sitoprotektif</h2>
+        <div class="subtitle">Melindungi & melapisi mukosa lambung yang luka</div>
+      </div>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card" style="border-left: 3px solid var(--accent4);">
+        <div class="drug-name">Sukralfat (Sucralfate)</div>
+        <div class="drug-class">Sitoprotektif · Mucosal Barrier</div>
+        <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.5rem"><strong>Mekanisme:</strong> Berikatan dengan dasar ulkus & erosi → membentuk <strong>barier protektif</strong> di atas luka → melindungi dari pepsin, asam, empedu. Hampir tidak diabsorpsi sistemik.</p>
+        <div class="info-panel panel-warning" style="margin-top:0.75rem;padding:0.6rem 0.8rem">
+          <div class="icon" style="font-size:0.9rem">⚠️</div>
+          <p style="font-size:0.78rem">Jangan berikan bersamaan obat lain → barier mencegah absorpsi obat lain. Efek samping: konstipasi, mual, mulut kering.</p>
+        </div>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent4);">
+        <div class="drug-name">Misoprostol</div>
+        <div class="drug-class">Sintetik Prostaglandin Analog (PGE₁)</div>
+        <p style="font-size:0.83rem;color:var(--text-muted);margin-top:0.5rem"><strong>Mekanisme:</strong> Prostaglandin endogen punya efek sitoprotektif di lambung. Misoprostol meniru efek ini → meningkatkan sekresi mukus & bikarbonat, mengurangi produksi asam.</p>
+        <p style="font-size:0.83rem;color:var(--accent6);margin-top:0.5rem"><strong>Indikasi khusus:</strong> Pencegahan ulkus pada pasien yang <em>HARUS</em> minum NSAID (NSAID → iritasi lambung → berikan misoprostol profilaksis).</p>
+        <div class="tag-row"><span class="tag tag-red">Diare (efek samping)</span><span class="tag tag-red">KI: Hamil!</span></div>
+      </div>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — 5 Golongan Obat Hiperasiditas</div>
+      <div class="mnemonic-word">"AHPMS"</div>
+      <div class="mnemonic-expand">
+        <strong>A</strong>ntasida — menetralkan<br>
+        <strong>H</strong>₂ blocker (tidin) — blok reseptor H₂<br>
+        <strong>P</strong>PI (prazol) — blok pompa proton<br>
+        <strong>M</strong>isoprostol — prostaglandin analog<br>
+        <strong>S</strong>ukralfat — lapisi luka<br><br>
+        <em>"A Hati-hati, Perlu Mucosal Shelter!"</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- ANTIDIARE -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="antidiare">
+    <div class="section-title">
+      <div class="section-icon bg5" style="font-size:1.4rem">🔴</div>
+      <div>
+        <h2 class="c5">5. Antidiare</h2>
+        <div class="subtitle">BAB encer &gt;3×/hari → atasi dehidrasi dulu!</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Patofisiologi Diare:</strong> Peningkatan peristaltik usus → isi usus bergerak cepat → cairan tidak sempat diserap → feses encer. Definisi: BAB encer &gt;3 kali/hari. Akut: 3 hari–2 minggu, self-limiting. Diare adalah <em>mekanisme fisiologis untuk mengeluarkan toksin</em> → terapi utama adalah <strong>cegah dehidrasi</strong>, bukan membungkam diarenya.</p>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🧪 Adsorben — Mengental Tinja</span>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p><strong>Contoh:</strong> Kaolin-pektin, Attapulgite</p>
+          <p><strong>Mekanisme:</strong> Menyerap cairan dalam usus → feses menjadi lebih padat/berbentuk. Tidak mengurangi peristaltik.</p>
+          <p><strong>Efek samping:</strong> Kalau berlebihan → <span style="color:var(--accent1)">konstipasi</span>. Feses berwarna gelap.</p>
+          <p><strong>Catatan:</strong> Jangan berikan bersamaan obat lain (bisa menyerap obat juga).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🧪 Antikolinergik — Mengurangi Peristaltik</span>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p><strong>Contoh:</strong> Atropin, Belladonna alkaloid</p>
+          <p><strong>Mekanisme:</strong> Memblok reseptor muskarinik → mengurangi kontraksi otot usus → peristaltik melambat → feses lebih lama di usus → lebih padat.</p>
+          <p><strong>⚠️ Bahaya Overdosis:</strong> Peristaltik terhenti total → <strong style="color:var(--accent5)">ileus paralitikus</strong>! Pasien tidak bisa flatus dan defekasi. Ini gawat darurat bedah!</p>
+          <p><strong>Efek samping khas antikolinergik:</strong> Retensi urin, dry mouth, confusion, hipotensi, kulit kering. "DUMB" → Defekasi↓, Urinasi tertahan, Mulut kering, Blurred vision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🧪 Opiat — Loperamid (Imodium)</span>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p><strong>Contoh:</strong> Loperamid (Imodium)</p>
+          <p><strong>Mekanisme:</strong> Agonis opioid pada reseptor µ di dinding usus → <em>tanpa efek sentral yang bermakna</em> (tidak sedatif, tidak adiktif secara klinis). Mengurangi peristaltik dan tonus otot usus.</p>
+          <p><strong>Kenapa dipilih dari opiat lain?</strong> Efek sentralnya minimal → tidak menyebabkan kantuk/konfusi/depresi napas. Aman untuk diare akut non-komplikasi.</p>
+          <p><strong>Kontraindikasi:</strong> Diare akibat infeksi bakteri invasif (Shigella, Salmonella) → jangan diberi loperamid → toksin tidak bisa keluar!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAcc(this)">
+        <span>🧪 Probiotik — Modifikasi Flora Usus</span>
+        <span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <p><strong>Contoh:</strong> Lactobacillus, Lacteol, Lacidofil</p>
+          <p><strong>Mekanisme:</strong> Memulihkan keseimbangan flora normal usus yang terganggu → kompetisi dengan bakteri patogen → mengurangi durasi diare.</p>
+          <p><strong>Indikasi:</strong> Terutama diare pasca antibiotik (antibiotik bunuh flora normal → overgrowth C. difficile → diare).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-tip">
+      <div class="icon">💡</div>
+      <p><strong>Clinical Reasoning — Pilih Antidiare yang Tepat:</strong><br>
+      • Diare cair (watery) + tidak ada tenesmus → berikan <strong>adsorben</strong> (pengental)<br>
+      • Diare dengan tenesmus (mau BAB tapi tidak keluar) → berikan <strong>antikolinergik</strong> (kurangi spasme)<br>
+      • Diare non-infeksi akut → <strong>loperamid</strong> aman<br>
+      • Jangan lupa: <strong>rehidrasi (ORS) adalah prioritas utama!</strong></p>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- LAKSATIF -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="laksatif">
+    <div class="section-title">
+      <div class="section-icon bg6" style="font-size:1.4rem">🟡</div>
+      <div>
+        <h2 class="c6">6. Laksatif</h2>
+        <div class="subtitle">Konstipasi = gejala, bukan penyakit · BAB keras/jarang</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Definisi Konstipasi:</strong> BAB sangat jarang dan sulit, feses keras, kurang dari 3 kali/minggu. Ini adalah <em>gejala</em> bukan diagnosis akhir. Bisa disebabkan berbagai penyakit atau obat.</p>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Golongan</th>
+          <th>Contoh</th>
+          <th>Mekanisme</th>
+          <th>Catatan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong class="c6">Bulk-forming</strong></td>
+          <td>Psyllium, Polycarbophil, Citrucel</td>
+          <td>Menyerap air → feses membesar → peristaltik terstimulasi secara mekanik</td>
+          <td>Paling aman, mirip serat makanan. Perlu minum banyak air!</td>
+        </tr>
+        <tr>
+          <td><strong class="c6">Emolien (Softener)</strong></td>
+          <td>Docusate sodium (minyak mineral)</td>
+          <td>Melunakkan feses dengan meningkatkan kandungan air & lemak</td>
+          <td>Cocok untuk pasca bedah, lansia, ibu hamil</td>
+        </tr>
+        <tr>
+          <td><strong class="c6">Hiperosmotik</strong></td>
+          <td>Gliserin (suppositoria), Mg sulfat, Laktulose</td>
+          <td>Meningkatkan tekanan osmotik di lumen usus → menarik air → feses lembek → peristaltik meningkat</td>
+          <td>Gliserin suppositoria cepat bekerja lokal. Mg: laksatif kuat</td>
+        </tr>
+        <tr>
+          <td><strong class="c6">Stimulan</strong></td>
+          <td>Castor oil, Senna (Cascara)</td>
+          <td>Merangsang saraf enterik → meningkatkan peristaltik</td>
+          <td>Efektif tapi efek kram. Penggunaan kronik → kebiasaan (laxative abuse)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-panel panel-warning">
+      <div class="icon">⚠️</div>
+      <p><strong>Efek Samping Semua Laksatif:</strong> Risiko <strong>ketidakseimbangan elektrolit</strong> (hipokalemia, hiponatremia) terutama pada penggunaan berlebihan atau jangka panjang. Magnesium sulfat bila dosis tinggi → diare berat → dehidrasi. Selalu edukasi pasien!</p>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Golongan Laksatif</div>
+      <div class="mnemonic-word">"BEHS"</div>
+      <div class="mnemonic-expand">
+        <strong>B</strong>ulk-forming (psyllium) — kayak makan serat<br>
+        <strong>E</strong>molien (softener) — minyak/pelembut<br>
+        <strong>H</strong>iperosmotik (gliserin, Mg) — tarik air ke usus<br>
+        <strong>S</strong>timulan (senna) — rangsang saraf
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- ANTIEMETIK -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="antiemetik">
+    <div class="section-title">
+      <div class="section-icon bg7" style="font-size:1.4rem">🩵</div>
+      <div>
+        <h2 class="c7">7. Antiemetik</h2>
+        <div class="subtitle">Mual (nausea) & muntah (vomiting) · Blok vomiting pathway</div>
+      </div>
+    </div>
+
+    <div class="info-panel panel-mechanism">
+      <div class="icon">⚙️</div>
+      <p><strong>Fisiologi Muntah:</strong> Ada <strong>vomiting center</strong> di otak & <strong>chemoreceptor trigger zone (CTZ)</strong> di area postrema (luar blood-brain barrier). Saat CTZ atau vomiting center terstimulasi → refleks muntah. Obat antiemetik = <em>memblok pathway ini</em> di berbagai titik.</p>
+    </div>
+
+    <div class="drug-grid">
+      <div class="drug-card" style="border-left: 3px solid var(--accent7);">
+        <div class="drug-name">Antikolinergik — Skopolamin</div>
+        <div class="drug-class">Memblok CTZ · Mabuk perjalanan</div>
+        <ul style="margin-top:0.5rem">
+          <li>Blok muskarinik di CTZ → mencegah mual</li>
+          <li>Indikasi utama: <strong>motion sickness</strong></li>
+          <li>Sediaan: patch (belakang telinga)</li>
+        </ul>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent7);">
+        <div class="drug-name">Antihistamin H₁ — Difenhidramin, Antimo (Dimenhidrinat)</div>
+        <div class="drug-class">OTC · Aman · Mabuk perjalanan</div>
+        <ul style="margin-top:0.5rem">
+          <li>Blok H₁ & reseptor asetilkolin di CTZ</li>
+          <li><strong>Antimo</strong> = dimenhidrinat (OTC, bebas beli)</li>
+          <li>CTM = difenhidramin</li>
+          <li>Efek samping: <strong>kantuk</strong> (sedasi)</li>
+        </ul>
+        <div class="tag-row"><span class="tag tag-teal">OTC</span><span class="tag tag-red">Kantuk!</span></div>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent7);">
+        <div class="drug-name">Prokinetik — Metoklopramid</div>
+        <div class="drug-class">Dopamin blocker · Antiemetik + Prokinetik</div>
+        <ul style="margin-top:0.5rem">
+          <li>Blok reseptor dopamin D₂ di CTZ → desensitisasi CTZ</li>
+          <li>Juga meningkatkan peristaltik GI & pengosongan lambung</li>
+          <li>Indikasi: mual pascaoperasi, GERD, gastroparesis</li>
+        </ul>
+        <div class="tag-row"><span class="tag tag-teal">Resep dokter</span></div>
+      </div>
+
+      <div class="drug-card" style="border-left: 3px solid var(--accent7);">
+        <div class="drug-name">Ondansetron (Zofran)</div>
+        <div class="drug-class">Serotonin (5-HT₃) Blocker · Paling poten</div>
+        <ul style="margin-top:0.5rem">
+          <li>Blok reseptor 5-HT₃ di CTZ & saraf vagus GI tract</li>
+          <li>Paling efektif untuk mual-muntah akibat <strong>kemoterapi, radiasi, pasca operasi</strong></li>
+          <li>Harus resep dokter, tidak OTC</li>
+        </ul>
+        <div class="tag-row"><span class="tag tag-teal">Resep dokter</span><span class="tag tag-purple">Paling poten</span></div>
+      </div>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="mnemonic-title">🧠 Mnemonic — Hirarki Antiemetik</div>
+      <div class="mnemonic-word">"AMON"</div>
+      <div class="mnemonic-expand">
+        <strong>A</strong>ntikolinergik (Skopolamin) — motion sickness<br>
+        <strong>M</strong>antihistamin H₁ (Antimo) — OTC, aman<br>
+        <strong>O</strong>bat prokinetik (Metoklopramid) — dopamin blocker<br>
+        <strong>N</strong>ondansetron (Ondansetron) — serotonin blocker, terkuat<br><br>
+        <em>Makin ke bawah = makin poten, makin perlu resep!</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- TABEL KOMPARASI BESAR -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="komparasi">
+    <div class="section-title">
+      <div class="section-icon bg3" style="font-size:1.4rem">📊</div>
+      <div>
+        <h2 class="c3">Tabel Komparasi — Obat Hiperasiditas</h2>
+        <div class="subtitle">5 golongan dalam satu pandangan</div>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Golongan</th>
+          <th>Contoh Obat</th>
+          <th>Target/Mekanisme</th>
+          <th>Kecepatan Kerja</th>
+          <th>Efek Samping Khas</th>
+          <th>Indikasi Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong class="c1">Antasida</strong></td>
+          <td>Al(OH)₃, Mg(OH)₂, Mylanta</td>
+          <td>Menetralkan HCl (tidak cegah produksi)</td>
+          <td>⚡ Sangat cepat</td>
+          <td>Al→konstipasi, Mg→diare (kombinasi: netral)</td>
+          <td>Simtomatik cepat, gastritis ringan</td>
+        </tr>
+        <tr>
+          <td><strong class="c3">H₂ Blocker</strong></td>
+          <td>Ranitidin, Simetidin, Famotidin</td>
+          <td>Blok reseptor H₂ sel parietal → ↓ produksi HCl</td>
+          <td>⏳ 1–2 jam</td>
+          <td>Simetidin: ginekomastia (panjang). Perokok: ↓ efek</td>
+          <td>PUD, GERD, GI bleeding</td>
+        </tr>
+        <tr>
+          <td><strong class="c2">PPI</strong></td>
+          <td>Omeprazol, Lansoprazol</td>
+          <td>Blok H⁺/K⁺-ATPase (pompa proton) → ↓↓↓ HCl</td>
+          <td>⏳ 1–4 jam (onset lambat, tapi durasi panjang)</td>
+          <td>Jk panjang: hipoMg, def B12, risiko fraktur</td>
+          <td>PUD, GERD, H.pylori eradikasi, dispepsia 4 minggu</td>
+        </tr>
+        <tr>
+          <td><strong class="c4">Sukralfat</strong></td>
+          <td>Sukralfat</td>
+          <td>Membentuk barier fisik di atas ulkus</td>
+          <td>⏳ Lokal, sedikit absorpsi sistemik</td>
+          <td>Konstipasi, mual, dry mouth</td>
+          <td>PUD aktif, sebagai add-on</td>
+        </tr>
+        <tr>
+          <td><strong class="c4">Misoprostol</strong></td>
+          <td>Misoprostol</td>
+          <td>Prostaglandin analog → ↑ mukus & bikarbonat</td>
+          <td>⏳ Beberapa jam</td>
+          <td>Diare, kram perut. <strong>Kontraindikasi hamil!</strong></td>
+          <td>Profilaksis ulkus akibat NSAID</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-panel panel-tip">
+      <div class="icon">💡</div>
+      <p><strong>Clinical Tip — Kenapa Kombinasi Antasida + H₂ Blocker?</strong> Antasida menetralkan asam yang <em>sudah ada</em> sekarang (efek cepat). H₂ blocker mencegah produksi asam <em>ke depannya</em> (efek lambat tapi durasi panjang). Kalau hanya antasida → saat antasida habis, asam produksi lagi → simptom balik. Kombinasi = simtomatik cepat + preventif jangka menengah.</p>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────── -->
+  <!-- QUIZ INTERAKTIF -->
+  <!-- ────────────────────────────────────────── -->
+  <div class="section" id="quiz">
+    <div class="quiz-header">
+      <div class="hero-badge">🧠 Uji Pemahamanmu</div>
+      <h2>Mini Quiz Digestivus</h2>
+      <p>10 soal vignette bergaya ujian blok · Klik jawaban & lihat penjelasan</p>
+    </div>
+
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div id="qCounter" style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-bottom:1.5rem">Soal <span id="qNum">0</span> dari 10</div>
+
+    <div class="quiz-container">
+
+      <!-- Q1 -->
+      <div class="question-card active" id="q1">
+        <div class="q-number">Soal 01 / 10</div>
+        <div class="q-stem">Seorang pria 45 tahun mengeluh nyeri ulu hati dan rasa panas di dada sejak 1 minggu. Pasien diketahui sering minum ibuprofen untuk nyeri lututnya. Dokter ingin memberikan obat untuk melindungi mukosa lambung secara profilaksis selama pasien masih mengkonsumsi NSAID.</div>
+        <div class="q-text">Obat manakah yang paling tepat?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q1',false)"><span class="opt-letter">A</span> Antasida (Al(OH)₃ + Mg(OH)₂)</button>
+          <button class="option-btn" onclick="answer(this,'q1',false)"><span class="opt-letter">B</span> Sukralfat</button>
+          <button class="option-btn" onclick="answer(this,'q1',true)"><span class="opt-letter">C</span> Misoprostol</button>
+          <button class="option-btn" onclick="answer(this,'q1',false)"><span class="opt-letter">D</span> Ranitidin</button>
+          <button class="option-btn" onclick="answer(this,'q1',false)"><span class="opt-letter">E</span> Ondansetron</button>
+        </div>
+        <div class="explanation" id="exp-q1">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: C — Misoprostol.</strong> Misoprostol adalah sintetik prostaglandin analog (PGE₁) yang khusus digunakan untuk <em>pencegahan (profilaksis) ulkus pada pasien yang harus mengkonsumsi NSAID</em>. NSAID menghambat COX → produksi prostaglandin endogen turun → mukosa lambung tidak terlindungi. Misoprostol menggantikan peran prostaglandin endogen ini. Kontraindikasi pada kehamilan (menyebabkan kontraksi uterus).
+        </div>
+        <div class="quiz-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="nextQ(1)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-card" id="q2">
+        <div class="q-number">Soal 02 / 10</div>
+        <div class="q-stem">Seorang wanita 40 tahun didiagnosis GERD kronis. Dokter memberikan terapi dan pasien melaporkan perbaikan signifikan. Mekanisme kerja utama obat yang diminum adalah menghambat enzim H⁺/K⁺-ATPase.</div>
+        <div class="q-text">Obat apakah yang diberikan?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q2',false)"><span class="opt-letter">A</span> Ranitidin</button>
+          <button class="option-btn" onclick="answer(this,'q2',false)"><span class="opt-letter">B</span> Sukralfat</button>
+          <button class="option-btn" onclick="answer(this,'q2',false)"><span class="opt-letter">C</span> Antasida</button>
+          <button class="option-btn" onclick="answer(this,'q2',true)"><span class="opt-letter">D</span> Omeprazol</button>
+          <button class="option-btn" onclick="answer(this,'q2',false)"><span class="opt-letter">E</span> Metoklopramid</button>
+        </div>
+        <div class="explanation" id="exp-q2">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: D — Omeprazol.</strong> Omeprazol adalah Proton Pump Inhibitor (PPI). Mekanismenya adalah memblok enzim H⁺/K⁺-ATPase (pompa proton) di sel parietal lambung → langkah terakhir produksi HCl → paling efektif mengurangi asam. Semua PPI berakhiran "-prazol". Ranitidin adalah H₂ blocker (blok reseptor H₂, bukan pompa proton).
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(2)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(2)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-card" id="q3">
+        <div class="q-number">Soal 03 / 10</div>
+        <div class="q-stem">Pasien anak 8 bulan mengalami diare akut dengan dehidrasi ringan-sedang. CRT &lt;2 detik, masih haus, mata sedikit cekung. Dokter ingin memberikan antidiare untuk mengurangi frekuensi BAB.</div>
+        <div class="q-text">Dari pilihan berikut, antidiare yang PALING AMAN diberikan pada anak dan kasus ini adalah?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q3',false)"><span class="opt-letter">A</span> Atropin</button>
+          <button class="option-btn" onclick="answer(this,'q3',true)"><span class="opt-letter">B</span> Kaolin-pektin (adsorben)</button>
+          <button class="option-btn" onclick="answer(this,'q3',false)"><span class="opt-letter">C</span> Loperamid</button>
+          <button class="option-btn" onclick="answer(this,'q3',false)"><span class="opt-letter">D</span> Kodein</button>
+          <button class="option-btn" onclick="answer(this,'q3',false)"><span class="opt-letter">E</span> Castor oil</button>
+        </div>
+        <div class="explanation" id="exp-q3">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: B — Kaolin-pektin (adsorben).</strong> Adsorben bekerja lokal di usus dengan menyerap cairan → tinja menjadi lebih padat. Tidak bekerja sistemik, sangat aman untuk bayi. Loperamid (C) tidak direkomendasikan pada anak &lt;2 tahun. Atropin berisiko efek antikolinergik berat. Ingat: prioritas utama tetap rehidrasi (ORS), antidiare hanya adjuvan!
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(3)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(3)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-card" id="q4">
+        <div class="q-number">Soal 04 / 10</div>
+        <div class="q-stem">Pria 30 tahun mengeluh nyeri ulu hati, mual, dan sering minum kopi serta makanan pedas. Dokter mendiagnosis dispepsia fungsional dan berencana memberikan terapi selama 4 minggu.</div>
+        <div class="q-text">Pilihan farmakoterapi yang paling tepat untuk kasus ini?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q4',false)"><span class="opt-letter">A</span> Antasida saja</button>
+          <button class="option-btn" onclick="answer(this,'q4',false)"><span class="opt-letter">B</span> Sukralfat</button>
+          <button class="option-btn" onclick="answer(this,'q4',true)"><span class="opt-letter">C</span> PPI (misal omeprazol)</button>
+          <button class="option-btn" onclick="answer(this,'q4',false)"><span class="opt-letter">D</span> Loperamid</button>
+          <button class="option-btn" onclick="answer(this,'q4',false)"><span class="opt-letter">E</span> Ondansetron</button>
+        </div>
+        <div class="explanation" id="exp-q4">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: C — PPI.</strong> Untuk dispepsia yang memerlukan terapi 4 minggu, guideline merekomendasikan <strong>PPI</strong> sebagai lini pertama karena efektivitasnya superior dibanding H₂ blocker dan antasida. Antasida hanya simtomatik sesaat. PPI mengurangi produksi asam secara konsisten selama terapi berlangsung. Sesuai soal bank UB no.65 yang menyebut PPI untuk dispepsia 4 minggu.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(4)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(4)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-card" id="q5">
+        <div class="q-number">Soal 05 / 10</div>
+        <div class="q-stem">Seorang mahasiswi minum antasida (mengandung Al(OH)₃ dan Mg(OH)₂) karena sakit maag. Teman kos bertanya apa bedanya efek samping antara keduanya bila diberikan sendiri-sendiri.</div>
+        <div class="q-text">Pernyataan yang BENAR mengenai efek samping keduanya adalah?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q5',false)"><span class="opt-letter">A</span> Al(OH)₃ menyebabkan diare, Mg(OH)₂ menyebabkan konstipasi</button>
+          <button class="option-btn" onclick="answer(this,'q5',true)"><span class="opt-letter">B</span> Al(OH)₃ menyebabkan konstipasi, Mg(OH)₂ menyebabkan diare</button>
+          <button class="option-btn" onclick="answer(this,'q5',false)"><span class="opt-letter">C</span> Keduanya menyebabkan diare</button>
+          <button class="option-btn" onclick="answer(this,'q5',false)"><span class="opt-letter">D</span> Keduanya menyebabkan konstipasi</button>
+          <button class="option-btn" onclick="answer(this,'q5',false)"><span class="opt-letter">E</span> Tidak ada efek samping pada sistem pencernaan</button>
+        </div>
+        <div class="explanation" id="exp-q5">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: B.</strong> Ini konsep klasik! <strong>Aluminium → konstipasi</strong> (Al = All Constipated). <strong>Magnesium → diare/laksatif</strong> (Mg = More Go). Itulah mengapa keduanya selalu dikombinasikan dalam satu sediaan → efek saling menetralkan → gerakan usus normal. Ini adalah alasan ilmiah di balik formula kombinasi antasida seperti Mylanta.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(5)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(5)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question-card" id="q6">
+        <div class="q-number">Soal 06 / 10</div>
+        <div class="q-stem">Pasien pria 50 tahun mengonsumsi simetidin jangka panjang untuk ulkus peptik. Setelah 6 bulan, istri pasien melapor suaminya mengalami pembesaran payudara.</div>
+        <div class="q-text">Efek samping yang dialami pasien ini disebut?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q6',false)"><span class="opt-letter">A</span> Galaktorea</button>
+          <button class="option-btn" onclick="answer(this,'q6',true)"><span class="opt-letter">B</span> Ginekomastia</button>
+          <button class="option-btn" onclick="answer(this,'q6',false)"><span class="opt-letter">C</span> Mastitis</button>
+          <button class="option-btn" onclick="answer(this,'q6',false)"><span class="opt-letter">D</span> Fibrokistik</button>
+          <button class="option-btn" onclick="answer(this,'q6',false)"><span class="opt-letter">E</span> Lipoma</button>
+        </div>
+        <div class="explanation" id="exp-q6">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: B — Ginekomastia.</strong> Simetidin (H₂ blocker generasi pertama) dikenal memiliki efek antiandrogen ringan → penggunaan jangka panjang dapat menyebabkan <strong>ginekomastia</strong> (pembesaran kelenjar mammae pada pria) dan impotensi. Efek ini jarang terjadi pada ranitidin atau famotidin. Ini juga salah satu alasan simetidin sudah jarang digunakan, diganti ranitidin/famotidin.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(6)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(6)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question-card" id="q7">
+        <div class="q-number">Soal 07 / 10</div>
+        <div class="q-stem">Seorang ibu membawa anaknya ke IGD karena tidak bisa BAB selama 5 hari. Dokter memutuskan memberikan laksatif yang bekerja dengan meningkatkan tekanan osmotik di lumen usus sehingga menarik air dari jaringan sekitar ke dalam usus.</div>
+        <div class="q-text">Golongan laksatif yang dimaksud adalah?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q7',false)"><span class="opt-letter">A</span> Bulk-forming (psyllium)</button>
+          <button class="option-btn" onclick="answer(this,'q7',false)"><span class="opt-letter">B</span> Emolien (docusate)</button>
+          <button class="option-btn" onclick="answer(this,'q7',true)"><span class="opt-letter">C</span> Hiperosmotik (gliserin, Mg sulfat)</button>
+          <button class="option-btn" onclick="answer(this,'q7',false)"><span class="opt-letter">D</span> Stimulan (senna)</button>
+          <button class="option-btn" onclick="answer(this,'q7',false)"><span class="opt-letter">E</span> Antikolinergik</button>
+        </div>
+        <div class="explanation" id="exp-q7">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: C — Hiperosmotik.</strong> Laksatif hiperosmotik (contoh: gliserin suppositoria, magnesium sulfat, laktulosa) bekerja dengan meningkatkan tekanan osmotik dalam lumen usus → air tertarik dari mukosa/sirkulasi ke dalam lumen → feses menjadi lembek dan peristaltik meningkat → evakuasi. Bulk-forming bekerja dengan menyerap air dan membentuk massa. Stimulan merangsang saraf enterik secara kimia.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(7)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(7)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="question-card" id="q8">
+        <div class="q-number">Soal 08 / 10</div>
+        <div class="q-stem">Pasien akan menjalani perjalanan jauh naik kapal. Ia meminta dokter meresepkan obat anti-mabuk perjalanan yang bisa dibeli bebas (OTC) di apotek tanpa resep.</div>
+        <div class="q-text">Obat yang paling tepat direkomendasikan adalah?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q8',true)"><span class="opt-letter">A</span> Dimenhidrinat (Antimo)</button>
+          <button class="option-btn" onclick="answer(this,'q8',false)"><span class="opt-letter">B</span> Ondansetron</button>
+          <button class="option-btn" onclick="answer(this,'q8',false)"><span class="opt-letter">C</span> Metoklopramid</button>
+          <button class="option-btn" onclick="answer(this,'q8',false)"><span class="opt-letter">D</span> Klorpromazin</button>
+          <button class="option-btn" onclick="answer(this,'q8',false)"><span class="opt-letter">E</span> Domperidon</button>
+        </div>
+        <div class="explanation" id="exp-q8">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: A — Dimenhidrinat (Antimo).</strong> Antimo = dimenhidrinat, golongan antihistamin H₁, adalah antiemetik OTC (bisa dibeli tanpa resep) yang digunakan untuk motion sickness (mabuk perjalanan). Mekanisme: blok reseptor H₁ dan muskarinik di CTZ. Efek samping: kantuk. Ondansetron (B) adalah serotonin blocker yang harus dengan resep. Metoklopramid (C) juga resep.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(8)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(8)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="question-card" id="q9">
+        <div class="q-number">Soal 09 / 10</div>
+        <div class="q-stem">Pasien dengan PUD sedang mendapat terapi. Dokter meminta farmasist agar tidak memberikan sukralfat bersamaan dengan obat lain dalam waktu yang sama. Pasien bingung dengan instruksi ini.</div>
+        <div class="q-text">Alasan ilmiah di balik instruksi tersebut adalah?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q9',false)"><span class="opt-letter">A</span> Sukralfat meningkatkan pH sehingga obat lain tidak stabil</button>
+          <button class="option-btn" onclick="answer(this,'q9',true)"><span class="opt-letter">B</span> Sukralfat membentuk barier fisik yang mencegah absorpsi obat lain</button>
+          <button class="option-btn" onclick="answer(this,'q9',false)"><span class="opt-letter">C</span> Sukralfat mempercepat metabolisme obat lain di hati</button>
+          <button class="option-btn" onclick="answer(this,'q9',false)"><span class="opt-letter">D</span> Sukralfat menyebabkan interaksi kimia dengan semua obat</button>
+          <button class="option-btn" onclick="answer(this,'q9',false)"><span class="opt-letter">E</span> Sukralfat menghambat absropsi melalui inhibisi enzim</button>
+        </div>
+        <div class="explanation" id="exp-q9">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: B.</strong> Sukralfat bekerja dengan membentuk <strong>barier protektif fisik</strong> (lapisan gel) di atas permukaan ulkus. Barier ini bersifat non-selektif → jika obat lain diberikan bersamaan, obat tersebut juga akan "terperangkap" di barier dan tidak dapat terabsorpsi secara optimal. Solusi: berikan sukralfat 30 menit sebelum makan/obat lain, atau berikan obat lain 2 jam setelah sukralfat.
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(9)">← Kembali</button>
+          <button class="btn btn-primary" onclick="nextQ(9)">Soal Berikutnya →</button>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="question-card" id="q10">
+        <div class="q-number">Soal 10 / 10</div>
+        <div class="q-stem">Pria 37 tahun datang ke IGD dengan nyeri perut, feses berwarna hitam seperti aspal dan berbau busuk. Pasien mengaku memiliki riwayat peptic ulcer disease. Vital sign: TD 90/60 mmHg, HR 110x/menit.</div>
+        <div class="q-text">Gambaran feses seperti yang dideskripsikan di atas disebut?</div>
+        <div class="options">
+          <button class="option-btn" onclick="answer(this,'q10',false)"><span class="opt-letter">A</span> Hematochezia</button>
+          <button class="option-btn" onclick="answer(this,'q10',false)"><span class="opt-letter">B</span> Hematokezia</button>
+          <button class="option-btn" onclick="answer(this,'q10',true)"><span class="opt-letter">C</span> Melena</button>
+          <button class="option-btn" onclick="answer(this,'q10',false)"><span class="opt-letter">D</span> Steatorrhea</button>
+          <button class="option-btn" onclick="answer(this,'q10',false)"><span class="opt-letter">E</span> Hematuria</button>
+        </div>
+        <div class="explanation" id="exp-q10">
+          <div class="exp-label">✅ Penjelasan</div>
+          <strong>Jawaban: C — Melena.</strong> Melena adalah feses berwarna hitam seperti aspal, berbau khas (busuk), akibat perdarahan saluran cerna <em>bagian atas</em> (lambung, duodenum). Darah yang keluar dari sumber perdarahan atas mengalami pencernaan parsial oleh enzim dan perubahan kimia selama transit panjang → hematin (warna hitam). Hematochezia = feses merah segar → perdarahan GI <em>bawah</em> (kolon, rektum). Pasien ini juga menunjukkan tanda syok hipovolemik (TD rendah, HR tinggi) → gawat darurat!
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" onclick="prevQ(10)">← Kembali</button>
+          <button class="btn btn-primary" onclick="finishQuiz()">Lihat Hasil 🎉</button>
+        </div>
+      </div>
+
+      <!-- Score Card -->
+      <div class="score-card" id="scoreCard">
+        <div id="scoreEmoji" style="font-size:3rem;margin-bottom:1rem">🎉</div>
+        <div class="score-big c1" id="scoreNumber">0/10</div>
+        <div class="score-msg" id="scoreMsg">—</div>
+        <button class="btn btn-primary" onclick="restartQuiz()" style="margin-right:0.5rem">Ulangi Quiz</button>
+        <button class="btn btn-secondary" onclick="scrollTo('antasida')">Baca Ulang Materi</button>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer style="text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:0.78rem;position:relative;z-index:1">
+  📚 Farmakologi Digestivus · Prof. Dr. dr. EM Sutrisna, M.Kes · Blok Digestivus Sem. 6<br>
+  <span style="color:var(--text-dim);font-size:0.7rem">Dibuat untuk memudahkan belajar. Selalu cross-check dengan sumber primer.</span>
+</footer>
+
+<script>
+  // ─── NAV SCROLL ───
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ─── ACCORDION ───
+  function toggleAcc(header) {
+    const item = header.parentElement;
+    item.classList.toggle('open');
+  }
+
+  // ─── QUIZ LOGIC ───
+  let currentQ = 1;
+  let score = 0;
+  let answered = {};
+
+  function answer(btn, qId, isCorrect) {
+    if (answered[qId]) return;
+    answered[qId] = true;
+
+    const options = btn.parentElement.querySelectorAll('.option-btn');
+    options.forEach(b => {
+      b.disabled = true;
+      const onclick = b.getAttribute('onclick');
+      if (onclick && onclick.includes('true')) b.classList.add('correct');
+    });
+
+    if (isCorrect) {
+      btn.classList.add('correct');
+      score++;
+    } else {
+      btn.classList.add('wrong');
+    }
+
+    const exp = document.getElementById('exp-' + qId);
+    if (exp) exp.classList.add('show');
+
+    updateProgress();
+  }
+
+  function nextQ(current) {
+    document.getElementById('q' + current).classList.remove('active');
+    const next = current + 1;
+    if (next <= 10) {
+      document.getElementById('q' + next).classList.add('active');
+      currentQ = next;
+      document.getElementById('qNum').textContent = next;
+      updateProgress();
+    }
+  }
+
+  function prevQ(current) {
+    document.getElementById('q' + current).classList.remove('active');
+    const prev = current - 1;
+    if (prev >= 1) {
+      document.getElementById('q' + prev).classList.add('active');
+      currentQ = prev;
+      document.getElementById('qNum').textContent = prev;
+      updateProgress();
+    }
+  }
+
+  function updateProgress() {
+    const pct = (Object.keys(answered).length / 10) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+    document.getElementById('qNum').textContent = currentQ;
+  }
+
+  function finishQuiz() {
+    document.getElementById('q10').classList.remove('active');
+    const scoreCard = document.getElementById('scoreCard');
+    scoreCard.classList.add('show');
+    document.getElementById('scoreNumber').textContent = score + '/10';
+
+    let msg, emoji;
+    if (score >= 9) { msg = 'Luar biasa! Kamu siap hadapi ujian blok! 🚀'; emoji = '🏆'; }
+    else if (score >= 7) { msg = 'Bagus! Sedikit lagi sempurna. Review yang salah ya!'; emoji = '⭐'; }
+    else if (score >= 5) { msg = 'Lumayan! Baca ulang materi di atas, terutama mnemonic.'; emoji = '📖'; }
+    else { msg = 'Jangan menyerah! Baca ulang dari awal, kamu pasti bisa! 💪'; emoji = '💪'; }
+
+    document.getElementById('scoreMsg').textContent = msg;
+    document.getElementById('scoreEmoji').textContent = emoji;
+    document.getElementById('scoreNumber').style.color = score >= 7 ? 'var(--accent2)' : score >= 5 ? 'var(--accent6)' : 'var(--accent5)';
+  }
+
+  function restartQuiz() {
+    score = 0;
+    answered = {};
+    currentQ = 1;
+
+    document.getElementById('scoreCard').classList.remove('show');
+    document.getElementById('progress').style.width = '0%';
+    document.getElementById('qNum').textContent = '0';
+
+    for (let i = 1; i <= 10; i++) {
+      const card = document.getElementById('q' + i);
+      card.classList.remove('active');
+      card.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      const exp = document.getElementById('exp-q' + i);
+      if (exp) exp.classList.remove('show');
+    }
+
+    document.getElementById('q1').classList.add('active');
+    currentQ = 1;
+    document.getElementById('scoreNumber').textContent = '0/10';
+    scrollTo('quiz');
+  }
+
+  // Nav pill active state
+  const pills = document.querySelectorAll('.pill');
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      pills.forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

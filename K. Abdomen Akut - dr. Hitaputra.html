@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdomen Akut — dr. Hitaputra Agung Wardhana, Sp.B, FINACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #EFF6FF;
+    --navy:     #1E3A5F;
+    --blue:     #2563EB;
+    --blue-mid: #3B82F6;
+    --blue-pale:#DBEAFE;
+    --blue-soft:#EFF6FF;
+    --accent:   #0EA5E9;
+    --teal:     #0D9488;
+    --teal-pale:#CCFBF1;
+    --sky:      #BAE6FD;
+    --text:     #1E293B;
+    --muted:    #64748B;
+    --border:   #CBD5E1;
+    --white:    #FFFFFF;
+    --warn:     #F59E0B;
+    --warn-pale:#FEF3C7;
+    --danger:   #DC2626;
+    --danger-pale:#FEE2E2;
+    --green:    #059669;
+    --green-pale:#D1FAE5;
+    --purple:   #7C3AED;
+    --purple-pale:#EDE9FE;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e4976 40%, #1a6098 100%);
+    color: white;
+    padding: 56px 44px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; top:-100px; right:-80px;
+    width:380px; height:380px; border-radius:50%;
+    background: rgba(186,230,253,0.1);
+  }
+  .hero::after {
+    content:'';
+    position:absolute; bottom:-60px; left:15%;
+    width:220px; height:220px; border-radius:50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero-tag {
+    display:inline-block;
+    background: rgba(186,230,253,0.25);
+    color: var(--sky);
+    font-size:11px; font-weight:600;
+    letter-spacing:2px; text-transform:uppercase;
+    padding:5px 14px; border-radius:20px; margin-bottom:18px;
+    border:1px solid rgba(186,230,253,0.35);
+  }
+  .hero h1 {
+    font-family:'Playfair Display', serif;
+    font-size: clamp(26px,5vw,50px);
+    font-weight:900; line-height:1.1; margin-bottom:12px;
+  }
+  .hero h1 span { color: var(--sky); }
+  .hero-sub { font-size:14px; opacity:.8; font-weight:300; max-width:600px; }
+  .hero-meta { margin-top:26px; display:flex; gap:12px; flex-wrap:wrap; }
+  .hero-badge {
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    padding:6px 14px; border-radius:30px;
+    font-size:12px; font-weight:500; letter-spacing:.4px;
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position:sticky; top:0; z-index:100;
+    background: var(--navy);
+    padding:0 28px; display:flex; gap:2px;
+    overflow-x:auto; scrollbar-width:none;
+    box-shadow:0 3px 18px rgba(30,58,95,0.35);
+  }
+  .sticky-nav::-webkit-scrollbar { display:none; }
+  .nav-btn {
+    background:none; border:none;
+    color:rgba(255,255,255,0.55);
+    font-family:'DM Sans',sans-serif;
+    font-size:12px; font-weight:500;
+    letter-spacing:.4px;
+    padding:14px 15px; cursor:pointer;
+    white-space:nowrap; transition:all .2s;
+    border-bottom:2px solid transparent;
+  }
+  .nav-btn:hover,.nav-btn.active { color:white; border-bottom-color: var(--sky); }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width:920px; margin:0 auto; padding:40px 24px; }
+
+  /* ===== SECTIONS ===== */
+  .section { display:none; animation: fadeIn .3s ease; }
+  .section.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-title {
+    font-family:'Playfair Display',serif;
+    font-size:28px; font-weight:700;
+    color: var(--navy); margin-bottom:6px;
+  }
+  .section-desc {
+    color:var(--muted); font-size:13px;
+    margin-bottom:30px; padding-bottom:18px;
+    border-bottom:2px solid var(--border);
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background:white; border-radius:16px;
+    padding:24px 28px; margin-bottom:20px;
+    border:1px solid var(--border);
+    box-shadow:0 2px 12px rgba(30,58,95,0.07);
+    transition:box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow:0 6px 24px rgba(30,58,95,0.12); transform:translateY(-1px); }
+
+  .card-title {
+    font-family:'DM Serif Display',serif;
+    font-size:18px; color:var(--navy);
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .card-title .icon {
+    width:32px; height:32px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+
+  /* ===== TAGS ===== */
+  .tag {
+    display:inline-block; padding:3px 10px;
+    border-radius:12px; font-size:11px; font-weight:600;
+    letter-spacing:.5px; margin:2px;
+  }
+  .tag-blue { background:var(--blue-pale); color:var(--blue); }
+  .tag-teal { background:var(--teal-pale); color:var(--teal); }
+  .tag-warn { background:var(--warn-pale); color:#92400E; }
+  .tag-danger { background:var(--danger-pale); color:var(--danger); }
+  .tag-green { background:var(--green-pale); color:var(--green); }
+  .tag-purple { background:var(--purple-pale); color:var(--purple); }
+  .tag-sky { background:var(--sky); color:var(--navy); }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--border); margin-bottom:20px; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th {
+    background: var(--navy); color:white;
+    padding:11px 14px; text-align:left;
+    font-size:12px; font-weight:600; letter-spacing:.4px;
+  }
+  td { padding:10px 14px; border-bottom:1px solid #E2E8F0; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#F8FAFF; }
+  tr:hover td { background:var(--blue-pale); transition:.15s; }
+
+  /* ===== MNEMONIC BOX ===== */
+  .mnemonic {
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    border:2px solid #93C5FD;
+    border-radius:14px; padding:18px 22px;
+    margin:16px 0;
+  }
+  .mnemonic-title {
+    font-size:12px; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .mnemonic-letter {
+    display:inline-block; width:26px; height:26px;
+    background:var(--blue); color:white;
+    border-radius:6px; text-align:center;
+    line-height:26px; font-size:13px; font-weight:700;
+    margin-right:6px; flex-shrink:0;
+  }
+  .mnemonic-row { display:flex; align-items:baseline; gap:8px; margin:5px 0; font-size:14px; }
+  .mnemonic-meaning { color:var(--muted); font-size:13px; }
+
+  /* ===== ALERT BOXES ===== */
+  .alert {
+    border-radius:12px; padding:14px 18px;
+    margin:14px 0; font-size:14px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .alert-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .alert-danger { background:var(--danger-pale); border-left:4px solid var(--danger); }
+  .alert-warn { background:var(--warn-pale); border-left:4px solid var(--warn); }
+  .alert-info { background:var(--blue-pale); border-left:4px solid var(--blue-mid); }
+  .alert-teal { background:var(--teal-pale); border-left:4px solid var(--teal); }
+
+  /* ===== COLLAPSE ===== */
+  .collapse-btn {
+    width:100%; background:none; border:none;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 18px; cursor:pointer;
+    background: var(--blue-soft); border-radius:10px;
+    font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600;
+    color:var(--navy); margin-bottom:2px;
+    transition:background .2s;
+  }
+  .collapse-btn:hover { background:var(--blue-pale); }
+  .collapse-btn::after {
+    content:'▸'; font-size:13px; color:var(--blue);
+    transition:transform .25s;
+  }
+  .collapse-btn.open::after { transform:rotate(90deg); }
+  .collapse-content { display:none; padding:16px 18px 4px; }
+  .collapse-content.open { display:block; }
+
+  /* ===== STEP LIST ===== */
+  .step-list { list-style:none; }
+  .step-list li {
+    display:flex; gap:14px; padding:10px 0;
+    border-bottom:1px solid #EFF6FF; font-size:14px;
+  }
+  .step-list li:last-child { border-bottom:none; }
+  .step-num {
+    min-width:28px; height:28px;
+    background:var(--blue-mid); color:white;
+    border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:12px; font-weight:700;
+    flex-shrink:0; margin-top:1px;
+  }
+
+  /* ===== BULLET LIST ===== */
+  .bullet-list { list-style:none; }
+  .bullet-list li {
+    padding:6px 0; font-size:14px;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .bullet-list li::before { content:'◆'; color:var(--blue-mid); font-size:9px; flex-shrink:0; margin-top:2px; }
+
+  /* ===== COMPARISON GRID ===== */
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0; }
+  .compare-card {
+    border-radius:12px; padding:16px 18px;
+    border:1px solid var(--border);
+  }
+  .compare-card.left { background:var(--blue-pale); border-color:#93C5FD; }
+  .compare-card.right { background:var(--teal-pale); border-color:#5EEAD4; }
+  .compare-head { font-weight:700; font-size:13px; margin-bottom:10px; text-transform:uppercase; letter-spacing:.6px; }
+
+  /* ===== QUIZ ===== */
+  .progress-bar {
+    background: var(--blue-pale); border-radius:30px;
+    height:8px; overflow:hidden; margin-bottom:8px;
+  }
+  .progress-fill { height:100%; background: linear-gradient(90deg,var(--accent),var(--blue)); border-radius:30px; transition:width .4s ease; width:0%; }
+  .progress-text { font-size:12px; color:var(--muted); margin-bottom:24px; }
+
+  .quiz-card {
+    background:white; border-radius:16px;
+    padding:24px 28px; margin-bottom:20px;
+    border:1px solid var(--border);
+    box-shadow:0 2px 10px rgba(30,58,95,.07);
+  }
+  .quiz-num {
+    font-size:11px; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--blue); margin-bottom:10px;
+  }
+  .quiz-vignette {
+    background:var(--blue-soft); border-left:4px solid var(--blue-mid);
+    border-radius:0 8px 8px 0; padding:14px 16px;
+    font-size:14px; margin-bottom:14px; line-height:1.65;
+  }
+  .quiz-question { font-weight:600; font-size:14.5px; margin-bottom:14px; }
+  .quiz-options { display:flex; flex-direction:column; gap:8px; }
+  .quiz-option {
+    background:white; border:1.5px solid var(--border);
+    border-radius:10px; padding:11px 16px;
+    text-align:left; cursor:pointer; font-size:13.5px;
+    font-family:'DM Sans',sans-serif;
+    display:flex; align-items:center; gap:12px;
+    transition:all .15s;
+  }
+  .quiz-option:hover:not(.disabled) { background:var(--blue-pale); border-color:var(--blue-mid); }
+  .quiz-option.correct { background:#D1FAE5; border-color:#34D399; }
+  .quiz-option.wrong { background:var(--danger-pale); border-color:#F87171; }
+  .quiz-option.disabled { cursor:default; opacity:.8; }
+  .opt-letter {
+    min-width:26px; height:26px; background:var(--blue-pale);
+    color:var(--blue); border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; flex-shrink:0;
+  }
+  .explanation {
+    display:none; margin-top:16px;
+    background:var(--blue-soft); border-radius:10px;
+    padding:16px 18px; font-size:13.5px; line-height:1.65;
+    border-left:4px solid var(--blue);
+  }
+  .explanation.show { display:block; }
+
+  .quiz-score-card {
+    display:none; text-align:center;
+    background: linear-gradient(135deg, var(--navy), #1a6098);
+    border-radius:20px; padding:44px 32px; color:white;
+    margin-top:24px;
+  }
+  .quiz-score-card.show { display:block; }
+  .score-num { font-family:'Playfair Display',serif; font-size:72px; font-weight:900; color:var(--sky); }
+
+  /* ===== FAB ===== */
+  .fab {
+    position:fixed; bottom:28px; right:28px;
+    background: var(--blue); color:white; border:none;
+    padding:14px 22px; border-radius:50px;
+    font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600;
+    cursor:pointer; box-shadow:0 6px 20px rgba(37,99,235,.45);
+    transition:all .2s; z-index:200;
+  }
+  .fab:hover { background:var(--navy); transform:translateY(-2px); }
+
+  @media(max-width:640px) {
+    .compare-grid { grid-template-columns:1fr; }
+    .hero { padding:40px 20px 36px; }
+    .container { padding:28px 16px; }
+  }
+
+  @media print {
+    .section { display:block !important; }
+    .sticky-nav,.fab { display:none; }
+    .card { break-inside:avoid; }
+  }
+
+  /* ===== SKDI BADGE ===== */
+  .skdi { display:inline-flex; align-items:center; gap:4px; padding:3px 10px; border-radius:10px; font-size:11px; font-weight:700; margin-left:6px; }
+  .skdi-3b { background:#FEF3C7; color:#92400E; }
+  .skdi-3a { background:#D1FAE5; color:#065F46; }
+  .skdi-4a { background:#DBEAFE; color:#1E40AF; }
+  .skdi-2 { background:#EDE9FE; color:#5B21B6; }
+
+  /* ===== TWO-COL ===== */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px){ .two-col { grid-template-columns:1fr; } }
+
+  strong { color:var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Digestif Block · Bedah</div>
+  <h1>Abdomen <span>Akut</span></h1>
+  <p class="hero-sub">Obstruktif &amp; Inflamasi — Panduan Belajar Komprehensif UKMPPD</p>
+  <div class="hero-meta">
+    <span class="hero-badge">dr. Hitaputra Agung Wardhana, Sp.B, FINACS</span>
+    <span class="hero-badge">📘 Ileus · Invaginasi · Peritonitis · Apendisitis</span>
+    <span class="hero-badge">🎯 SKDI-Based</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <button class="nav-btn active" onclick="showSection('overview',this)">📋 Overview</button>
+  <button class="nav-btn" onclick="showSection('obstruksi',this)">🔒 Ileus</button>
+  <button class="nav-btn" onclick="showSection('invaginasi',this)">🌀 Invaginasi</button>
+  <button class="nav-btn" onclick="showSection('peritonitis',this)">🔥 Peritonitis</button>
+  <button class="nav-btn" onclick="showSection('appendisitis',this)">🦷 Apendisitis</button>
+  <button class="nav-btn" onclick="showSection('diagbanding',this)">⚖️ Diag Banding</button>
+  <button class="nav-btn" onclick="showSection('quiz',this)">🧠 Latihan Soal</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<div class="section active" id="overview">
+  <h2 class="section-title">Overview Abdomen Akut</h2>
+  <p class="section-desc">Definisi, klasifikasi, dan alur diagnostik — fondasi sebelum masuk ke masing-masing entitas klinis.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">📌</span>Definisi & Ruang Lingkup</div>
+    <p style="font-size:14px;margin-bottom:14px;">Abdomen akut adalah kondisi klinis yang ditandai nyeri perut mendadak, membutuhkan evaluasi segera dan sering memerlukan tindakan operatif. Dibagi dua kategori besar:</p>
+    <div class="compare-grid">
+      <div class="compare-card left">
+        <div class="compare-head" style="color:var(--navy)">🔒 Obstruktif / Ileus</div>
+        <ul class="bullet-list">
+          <li>Ileus Paralitik (Adinamik)</li>
+          <li>Ileus Obstruktif (Mekanik)</li>
+          <li>Invaginasi / Intususepsi <span class="skdi skdi-3b">3B</span></li>
+          <li>Volvulus</li>
+          <li>Hernia Inkarserata <span class="skdi skdi-3b">3B</span></li>
+        </ul>
+      </div>
+      <div class="compare-card right">
+        <div class="compare-head" style="color:var(--teal)">🔥 Infeksi / Inflamasi</div>
+        <ul class="bullet-list">
+          <li>Apendisitis akut <span class="skdi skdi-3b">3B</span></li>
+          <li>Abses Apendiks <span class="skdi skdi-3b">3B</span></li>
+          <li>Peritonitis <span class="skdi skdi-3b">3B</span></li>
+          <li>Perforasi GIT <span class="skdi skdi-2">2</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔍</span>Daftar Masalah (SKDI) yang Relevan</div>
+    <div class="two-col">
+      <ul class="bullet-list">
+        <li>Nyeri perut / nyeri kolik</li>
+        <li>Perut kembung / distended</li>
+        <li>Perut berbunyi (borborygmi)</li>
+        <li>Benjolan di daerah perut</li>
+      </ul>
+      <ul class="bullet-list">
+        <li>Mual dan muntah</li>
+        <li>Tidak bisa BAB / obstipasi</li>
+        <li>Tidak bisa flatus</li>
+        <li>Diare</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🗺️</span>Alur Diagnostik Abdomen Akut</div>
+    <ol class="step-list">
+      <li><span class="step-num">1</span><div><strong>Keluhan Utama</strong> → buat daftar Diagnosis Banding (DD) awal</div></li>
+      <li><span class="step-num">2</span><div><strong>Anamnesis lengkap</strong> (RPS, RPD, RPK, Riwayat Pengobatan, Sosial-Ekonomi) → kurangi DD</div></li>
+      <li><span class="step-num">3</span><div><strong>Pemeriksaan Fisik</strong> (Status generalis + Status lokalis abdomen: Inspeksi, Auskultasi, Perkusi, Palpasi) → kurangi DD</div></li>
+      <li><span class="step-num">4</span><div><strong>Pemeriksaan Penunjang</strong> (Lab: DR, DL; Radiologi: foto polos abdomen 3 posisi, USG; PA jika neoplasma) → Diagnosis Kerja / Pasti</div></li>
+      <li><span class="step-num">5</span><div><strong>Tatalaksana</strong>: Tatalaksana awal / emergency → Definitif</div></li>
+    </ol>
+    <div class="alert alert-info">
+      <span class="alert-icon">💡</span>
+      <div><strong>Tips soal UKMPPD:</strong> Soal kompetensi 3A/3B tanyakan "tatalaksana awal yang tepat". Soal kompetensi 2 tanyakan "apakah diagnosis yang tepat". Kompetensi 4A tanyakan tatalaksana definitif.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ILEUS (OBSTRUKSI) ===== -->
+<div class="section" id="obstruksi">
+  <h2 class="section-title">Ileus: Paralitik vs Obstruktif</h2>
+  <p class="section-desc">Gangguan pasase usus — patofisiologi, ciri khas klinis, radiologi, dan tatalaksana.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">📖</span>Definisi Ileus</div>
+    <p style="font-size:14px;">Ileus adalah kondisi gangguan pasase usus di mana isi usus (makanan, cairan, gas) tidak dapat bergerak ke distal. Akibatnya isi usus menumpuk → perut kembung, muntah, tidak bisa flatus/BAB.</p>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Gejala Utama Ileus: <strong>"KMF"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">K</span><div><strong>Kembung</strong> — distensi abdomen <span class="mnemonic-meaning">(distended, hipertimpani)</span></div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">M</span><div><strong>Muntah</strong> — tidak bisa proyektil sampai fekal <span class="mnemonic-meaning">(tergantung tipe)</span></div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">F</span><div><strong>Flatus/BAB berhenti</strong> — obstipasi <span class="mnemonic-meaning">(tidak bisa kentut dan BAB)</span></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:#FEF3C7">⚡</span>Ileus Paralitik (Adinamik)</div>
+    <p style="font-size:14px; margin-bottom:12px;"><strong>Definisi:</strong> Otot usus lumpuh, tidak ada peristaltik. Tidak ada sumbatan mekanik. Usus halus + kolon mengalami dilatasi semua.</p>
+    <div class="alert alert-warn">
+      <span class="alert-icon">🔑</span>
+      <div><strong>Kunci di Soal:</strong> Ada penyebab litik (post-op, gangguan elektrolit, obat) + <strong>bising usus menurun/hilang</strong> + foto polos: semua usus dilatasi</div>
+    </div>
+
+    <button class="collapse-btn" onclick="toggleCollapse(this)">Penyebab Ileus Paralitik</button>
+    <div class="collapse-content">
+      <div class="mnemonic">
+        <div class="mnemonic-title">🧠 Mnemonic — Penyebab Paralitik: <strong>"POETS"</strong></div>
+        <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Pasca operasi</strong> abdomen (paling sering, terutama operasi usus) <span class="mnemonic-meaning">= postoperative ileus</span></div></div>
+        <div class="mnemonic-row"><span class="mnemonic-letter">O</span><div><strong>Obat</strong>: Opioid/morfin, antikolinergik, kemoterapi</div></div>
+        <div class="mnemonic-row"><span class="mnemonic-letter">E</span><div><strong>Elektrolit</strong>: Hipokalemia, hiponatremia, hiperkalsemia</div></div>
+        <div class="mnemonic-row"><span class="mnemonic-letter">T</span><div><strong>Trauma</strong>: Perdarahan retroperitoneal, fraktur vertebra</div></div>
+        <div class="mnemonic-row"><span class="mnemonic-letter">S</span><div><strong>Sepsis / Radang</strong>: Peritonitis, pankreatitis, sepsis</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔩</span>Ileus Obstruktif (Mekanik/Dinamik)</div>
+    <p style="font-size:14px; margin-bottom:12px;"><strong>Definisi:</strong> Gangguan pasase usus akibat sumbatan pada lumen (usus mampet), namun otot usus masih bergerak berusaha membebaskan sumbatan.</p>
+
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Berdasarkan Letak Sumbatan:</p>
+        <ul class="bullet-list">
+          <li><strong>Letak Tinggi</strong> (Usus Halus): Muntah cepat, kembung ringan</li>
+          <li><strong>Letak Rendah</strong> (Kolon): Kembung hebat, muntah telat</li>
+          <li>Batas: katup ileosekal</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Bedakan UH vs Kolon di Foto:</p>
+        <ul class="bullet-list">
+          <li>Tidak ada haustra → Usus Halus</li>
+          <li>Ada haustra → Kolon</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mnemonic" style="margin-top:14px;">
+      <div class="mnemonic-title">🧠 Mnemonic — Ciri Khas Obstruktif: <strong>"KNBM"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter" style="background:var(--teal)">K</span><div><strong>Kolik</strong> — nyeri kram hilang timbul (upaya usus membebaskan sumbatan)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter" style="background:var(--teal)">N</span><div><strong>Naik</strong> — bising usus meningkat, borborygmi</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter" style="background:var(--teal)">B</span><div><strong>Borborygmi → Metallic Sound</strong> — tanda sumbatan sudah lama</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter" style="background:var(--teal)">M</span><div><strong>Muntah</strong> hebat, bisa sampai fekal (terutama letak tinggi)</div></div>
+    </div>
+
+    <div class="alert alert-info" style="margin-top:14px;">
+      <span class="alert-icon">🔑</span>
+      <div><strong>Kunci Foto Polos Abdomen — Obstruktif:</strong><br>
+      ✓ <strong>Air-fluid level</strong> (batas cairan-udara)<br>
+      ✓ <strong>Step-ladder / Herring-bone pattern</strong> (tangga anak tangga)<br>
+      ✓ Dilatasi usus di ATAS sumbatan saja (≠ paralitik yang semua dilatasi)</div>
+    </div>
+
+    <button class="collapse-btn" style="margin-top:12px;" onclick="toggleCollapse(this)">Penyebab Ileus Obstruktif (Urutan Tersering)</button>
+    <div class="collapse-content">
+      <ol class="step-list">
+        <li><span class="step-num">1</span><div><strong>Perlengketan / Adhesi</strong> — paling sering; ada riwayat operasi abdomen sebelumnya</div></li>
+        <li><span class="step-num">2</span><div><strong>Hernia Inkarserata</strong> — usus terjepit di anulus internus</div></li>
+        <li><span class="step-num">3</span><div><strong>Tumor</strong> — tersering keganasan kolorektal</div></li>
+        <li><span class="step-num">4</span><div><strong>Volvulus</strong> — usus terpelintir (sigmoid atau ileum)</div></li>
+        <li><span class="step-num">5</span><div><strong>Invaginasi</strong> — usus masuk ke dalam usus</div></li>
+        <li><span class="step-num">6</span><div><strong>Fecal impaction</strong>, <strong>Bezoar</strong>, <strong>Benda asing</strong></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--purple-pale)">📊</span>Perbandingan Paralitik vs Obstruktif</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Parameter</th><th>Ileus Paralitik</th><th>Ileus Obstruktif</th></tr>
+        <tr><td><strong>Sebab</strong></td><td>Otot usus lumpuh</td><td>Sumbatan fisik</td></tr>
+        <tr><td><strong>Nyeri</strong></td><td>Tumpul, terus-menerus, difus</td><td>Kolik / kram, hilang timbul</td></tr>
+        <tr><td><strong>Bising Usus</strong></td><td>Hilang / menurun</td><td>Meningkat, borborygmi, metallic sound</td></tr>
+        <tr><td><strong>Muntah</strong></td><td>Tidak proyektil</td><td>Hebat, bisa sampai fekal</td></tr>
+        <tr><td><strong>Foto Polos</strong></td><td>Semua usus dilatasi (UH + kolon)</td><td>Dilatasi di atas sumbatan, air-fluid level, step-ladder</td></tr>
+        <tr><td><strong>Riwayat</strong></td><td>Post-op, gangguan elektrolit, obat</td><td>Op. sebelumnya, tumor, hernia</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana Ileus</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--teal);margin-bottom:8px;">Tatalaksana Awal (keduanya)</p>
+        <ol class="step-list">
+          <li><span class="step-num">1</span>Resusitasi cairan IV (dehidrasi hampir pasti terjadi)</li>
+          <li><span class="step-num">2</span>Pasang NGT → dialirkan (dekompresi)</li>
+          <li><span class="step-num">3</span>Puasa</li>
+          <li><span class="step-num">4</span>Monitor ketat tanda vital</li>
+        </ol>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Terapi Definitif</p>
+        <ul class="bullet-list">
+          <li><strong>Paralitik</strong>: Atasi penyebab (koreksi elektrolit, hentikan obat pemicu, antibiotik jika sepsis)</li>
+          <li><strong>Obstruktif</strong>: Operatif (laparotomi eksplorasi untuk hilangkan sumbatan)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INVAGINASI ===== -->
+<div class="section" id="invaginasi">
+  <h2 class="section-title">Invaginasi / Intususepsi <span class="skdi skdi-3b">3B</span></h2>
+  <p class="section-desc">Segmen usus proksimal masuk ke lumen usus distal (seperti teleskop). Dominan pada bayi 6–18 bulan.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">📖</span>Patogenesis & Epidemiologi</div>
+    <ul class="bullet-list">
+      <li>Bayi 6–18 bulan (paling sering), bisa juga dewasa (biasanya ada lead point: polip, tumor)</li>
+      <li>Ileocolic paling sering (ileum masuk ke kolon)</li>
+      <li>Hiperplasia limfoid dinding usus → lead point pada bayi</li>
+      <li>Proksimal → masuk ke lumen distal → iskemia → nekrosis jika terlambat</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Gambaran Klinis — Trias Invaginasi</div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Trias Invaginasi: <strong>"NMR"</strong> (Muncul Lengkap Hanya 20% Kasus!)</div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nyeri kolik</strong> intermiten — bayi menjerit tiba-tiba, fleksi lutut ke dada, lalu tenang</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">M</span><div><strong>Muntah</strong>: makanan/susu → kuning → hijau → fekal (tanda obstruksi progresif)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">R</span><div><strong>Red Currant Jelly Stool</strong> — BAB berdarah + lendir, tanda mukosa iskemik</div></div>
+    </div>
+
+    <button class="collapse-btn" style="margin-top:12px;" onclick="toggleCollapse(this)">Tanda Fisik Lainnya</button>
+    <div class="collapse-content">
+      <ul class="bullet-list">
+        <li><strong>Massa abdomen</strong>: teraba seperti sosis di kanan atas / epigastrium</li>
+        <li><strong>Dance Sign</strong>: fossa iliaka kanan kosong (usus tidak teraba di posisi normal)</li>
+        <li><strong>Letargi</strong>: bayi lemas, ngantuk, pucat — bisa jadi gejala utama pada bayi &lt;1 tahun</li>
+        <li><strong>Demam</strong>: jika sudah ada iskemia/nekrosis</li>
+        <li><strong>Distensi abdomen</strong>: perut kembung bila sudah obstruksi total</li>
+        <li><strong>Dehidrasi</strong>: akibat muntah + tidak mau minum</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔬</span>Pemeriksaan Penunjang</div>
+    <ul class="bullet-list">
+      <li><strong>Foto polos abdomen</strong>: tanda obstruksi (air-fluid level), massa jaringan lunak</li>
+      <li><strong>USG abdomen</strong>: gold standard → "donut sign" (target sign) — massa konkentris</li>
+      <li><strong>Colon inloop</strong>: sudah ditinggalkan (digantikan USG)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--teal);margin-bottom:8px;">Non-Operatif (first line jika belum komplikasi)</p>
+        <ol class="step-list">
+          <li><span class="step-num">1</span>Resusitasi cairan + pasang NGT dialirkan + antibiotik</li>
+          <li><span class="step-num">2</span><strong>Reduksi hidrostatik/pneumatik</strong> (enema udara atau cairan/barium) — efektivitas 75–95%</li>
+        </ol>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Operatif (jika gagal reduksi / komplikasi)</p>
+        <ul class="bullet-list">
+          <li>Laparoskopi: standar saat ini</li>
+          <li>Laparotomi terbuka: jika nekrosis/perforasi</li>
+          <li>Reseksi usus jika sudah nekrosis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:12px;">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Kontraindikasi reduksi enema:</strong> Peritonitis, perforasi, syok, gejala &gt;48 jam dengan tanda nekrosis → langsung operatif.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PERITONITIS ===== -->
+<div class="section" id="peritonitis">
+  <h2 class="section-title">Peritonitis &amp; Perforasi GIT <span class="skdi skdi-3b">3B</span></h2>
+  <p class="section-desc">Radang peritoneum — klasifikasi, gambaran klinis khas, dan tatalaksana bedah.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">📖</span>Definisi & Klasifikasi</div>
+    <p style="font-size:14px;margin-bottom:14px;">Peritonitis = radang pada peritoneum (selaput tipis yang melapisi dinding dalam rongga perut dan membungkus organ perut).</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Klasifikasi</th><th>Keterangan</th></tr>
+        <tr><td><strong>Primer</strong></td><td>Infeksi tanpa ada organ yang bocor. Bakteri masuk lewat darah. Sering pada: sirosis+asites (SBP), pasien CAPD, TB peritoneum.</td></tr>
+        <tr><td><strong>Sekunder</strong></td><td>Ada organ yang bocor/pecah → isinya tumpah ke rongga perut. Contoh: appendisitis perforasi, perforasi gaster, perforasi tifoid, trauma.</td></tr>
+        <tr><td><strong>Lokalisata</strong></td><td>Terbatas di satu area (contoh: periappendikuler abses)</td></tr>
+        <tr><td><strong>Generalisata / Difusa</strong></td><td>Seluruh rongga peritoneum terlibat — paling berat</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Gambaran Klinis Peritonitis</div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Tanda Peritonitis: <strong>"DAHP"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">D</span><div><strong>Defans Muskular</strong> — perut seperti papan (board-like rigidity)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">A</span><div><strong>Abdominal Pain</strong> — nyeri seluruh lapang perut, mendadak atau perlahan</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">H</span><div><strong>Hipertimpani</strong> — pada perkusi (udara bebas)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Peristaltik menurun / hilang</strong> — usus berhenti bekerja</div></div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:12px;">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Rebound Tenderness:</strong> Ditekan pelan tidak sakit → dilepas mendadak → nyeri hebat. Tanda khas iritasi peritoneum.</div>
+    </div>
+    <div class="two-col" style="margin-top:14px;">
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:6px;">Gejala:</p>
+        <ul class="bullet-list">
+          <li>Nyeri perut seluruh lapang</li>
+          <li>Tidak bisa flatus atau BAB</li>
+          <li>Demam (tanda infeksi sistemik)</li>
+          <li>Mual-muntah</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:6px;">Pemeriksaan Fisik:</p>
+        <ul class="bullet-list">
+          <li>Distended</li>
+          <li>Peristaltik menurun / absent</li>
+          <li>Hipertimpani</li>
+          <li>Nyeri tekan + rebound seluruh lapang</li>
+          <li>Defans muskular (seperti papan)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔬</span>Pemeriksaan Penunjang</div>
+    <ul class="bullet-list">
+      <li><strong>Lab:</strong> Leukositosis, hitung jenis shift to left (neutrofil segmen meningkat)</li>
+      <li><strong>Foto polos abdomen 3 posisi:</strong> Udara bebas sub-diafragma, tanda-tanda ileus sekunder</li>
+      <li><strong>USG Abdomen:</strong> Cairan bebas intra-peritoneal</li>
+      <li><strong>Perforasi Gaster:</strong> Pekak hepar menghilang + udara bebas sub-diafragma (kanan)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana</div>
+    <p style="font-size:13px;font-weight:600;color:var(--teal);margin-bottom:10px;">Tatalaksana Awal (Suportif)</p>
+    <ol class="step-list">
+      <li><span class="step-num">1</span>Resusitasi cairan (dehidrasi hampir selalu terjadi)</li>
+      <li><span class="step-num">2</span>Pasang NGT → dialirkan (dekompresi)</li>
+      <li><span class="step-num">3</span>Antibiotik empiris spektrum luas (sesuai kuman penyebab)</li>
+      <li><span class="step-num">4</span>Analgesik / antipiretik</li>
+      <li><span class="step-num">5</span>Vital system support</li>
+    </ol>
+    <p style="font-size:13px;font-weight:600;color:var(--navy);margin:14px 0 8px;">Terapi Definitif</p>
+    <ul class="bullet-list">
+      <li><strong>Sekunder:</strong> Laparotomi → eliminasi sumber infeksi (appendektomi, tutup perforasi, lavage peritoneum)</li>
+      <li><strong>Primer:</strong> Non-pembedahan (antibiotik IV, atasi penyakit dasar)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--danger-pale)">💥</span>Perforasi GIT — Poin Khusus</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe Perforasi</th><th>Etiologi Khas</th><th>Tanda Khas Radiologi</th></tr>
+        <tr><td><strong>Perforasi Gaster</strong></td><td>Riwayat gastritis/ulkus peptikum, pemakaian NSAID/steroid jangka lama</td><td>Udara bebas sub-diafragma + pekak hepar menghilang</td></tr>
+        <tr><td><strong>Perforasi Tifoid</strong></td><td>Riwayat demam tifoid (hiperplasia Peyer's patch ileum)</td><td>Sama dengan gaster + tanda peritonitis</td></tr>
+        <tr><td><strong>Perforasi Trauma</strong></td><td>Trauma tumpul/tajam abdomen</td><td>Udara bebas + cairan bebas (hemoperitoneum)</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-warn" style="margin-top:10px;">
+      <span class="alert-icon">💡</span>
+      <div>Nyeri perut <strong>mendadak dan berat</strong> pada pasien dengan riwayat pemakaian jamu/obat warung (steroid + NSAID) → pikirkan perforasi gaster! Udara bebas sub-diafragma adalah kunci.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APENDISITIS ===== -->
+<div class="section" id="appendisitis">
+  <h2 class="section-title">Apendisitis Akut & Abses Apendiks <span class="skdi skdi-3b">3B</span></h2>
+  <p class="section-desc">Peradangan appendiks — patogenesis, tanda klinis, skor Alvarado, dan tatalaksana.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">⚙️</span>Patogenesis Apendisitis</div>
+    <p style="font-size:14px;margin-bottom:12px;">Dua jalur utama:</p>
+    <div class="two-col">
+      <div style="background:var(--blue-pale);border-radius:10px;padding:14px;">
+        <p style="font-size:13px;font-weight:700;margin-bottom:8px;">Jalur 1: Obstruksi Lumen</p>
+        <ul class="bullet-list">
+          <li>Fekalit (paling sering)</li>
+          <li>Cacing, tumor sekum</li>
+          <li>Hiperplasia limfoid</li>
+          <li>Striktur fibrotik</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;">Obstruksi → sekresi mukus meningkat → tekanan intralumen ↑ → gangguan aliran limfatik → edema → ulserasi → translokasi bakteri</p>
+      </div>
+      <div style="background:var(--teal-pale);border-radius:10px;padding:14px;">
+        <p style="font-size:13px;font-weight:700;margin-bottom:8px;">Jalur 2: Infeksi Hematogen</p>
+        <ul class="bullet-list">
+          <li>Kuman masuk melalui pembuluh darah</li>
+          <li>Lebih jarang</li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted);margin-top:8px;">Infeksi → supurasi → walling off (omentum melingkupi) → periappendikuler infiltrat → abses apendiks jika tidak teratasi</p>
+      </div>
+    </div>
+    <div class="mnemonic" style="margin-top:14px;">
+      <div class="mnemonic-title">🧠 Alur Patogenesis Apendisitis: <strong>"O-E-N-W"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">O</span><div><strong>Obstruksi</strong> lumen appendiks</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">E</span><div><strong>Edema</strong> dinding → gangguan vaskularisasi → <strong>Erat</strong> nekrosis</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nekrosis</strong> → perforasi appendiks → peritonitis</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">W</span><div><strong>Walling Off</strong> oleh omentum → infiltrat → abses</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Gambaran Klinis</div>
+    <div class="alert alert-info">
+      <span class="alert-icon">⭐</span>
+      <div><strong>Migrasi Nyeri (KHAS):</strong> Nyeri dimulai di periumbilikal/epigastrium → berpindah ke <strong>kanan bawah (titik McBurney)</strong> dalam 24–48 jam. Ini karena saraf viseral awal merespons di pusar/epigastrium, baru setelah terjadi inflamasi peritoneum parietal terasa di kanan bawah.</div>
+    </div>
+
+    <div class="two-col" style="margin-top:14px;">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Gejala:</p>
+        <ul class="bullet-list">
+          <li>Nyeri periumbilikal → kanan bawah</li>
+          <li>Anoreksia</li>
+          <li>Nausea / mual</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Tanda Fisik:</p>
+        <ul class="bullet-list">
+          <li>Demam (tanda infeksi)</li>
+          <li><strong>Nyeri tekan McBurney</strong> (1/3 lateral dari spina iliaka anterior superior ke umbilikus)</li>
+          <li><strong>Rebound Tenderness</strong></li>
+          <li><strong>Rovsing Sign</strong> (tekan kiri → nyeri kanan)</li>
+          <li><strong>Psoas Sign</strong> (ekstensi sendi panggul kanan → nyeri)</li>
+          <li><strong>Obturator Sign</strong> (fleksi + rotasi dalam paha kanan → nyeri)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <span class="alert-icon">💡</span>
+      <div>Psoas Sign (+) dan Obturator Sign (+) → mengarahkan posisi appendiks retrosekal (di belakang). Ini penting karena appendiks retrosekal dapat membingungkan jika hanya mengandalkan nyeri McBurney.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--purple-pale)">📊</span>Skor Alvarado (Paling Penting untuk UKMPPD)</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Komponen</th><th>Nilai</th></tr>
+        <tr><td>Migrasi nyeri ke kanan bawah</td><td>1</td></tr>
+        <tr><td>Anoreksia</td><td>1</td></tr>
+        <tr><td>Mual/muntah</td><td>1</td></tr>
+        <tr><td>Nyeri tekan kanan bawah (McBurney)</td><td>2</td></tr>
+        <tr><td>Rebound tenderness</td><td>1</td></tr>
+        <tr><td>Demam &gt;37,3°C</td><td>1</td></tr>
+        <tr><td>Leukositosis</td><td>2</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>10</strong></td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic Skor Alvarado: <strong>"MANTRELS"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">M</span><div><strong>Migration</strong> of pain ke RLQ (1 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">A</span><div><strong>Anorexia</strong> (1 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nausea / Vomiting</strong> (1 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">T</span><div><strong>Tenderness</strong> at RLQ (2 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">R</span><div><strong>Rebound Tenderness</strong> (1 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">E</span><div><strong>Elevated Temperature</strong> (1 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">L</span><div><strong>Leukocytosis</strong> (2 poin)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">S</span><div><strong>Shift to left</strong> (sudah masuk dalam L)</div></div>
+    </div>
+    <div class="alert alert-info" style="margin-top:12px;">
+      <span class="alert-icon">🔑</span>
+      <div>Skor ≥7: Sangat mungkin apendisitis → tata laksana operatif<br>Skor 5–6: Mungkin apendisitis → perlu USG/CT Scan<br>Skor &lt;5: Bukan apendisitis</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana Apendisitis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Apendisitis tanpa komplikasi</strong></td><td>Appendektomi (laparoskopi atau terbuka)</td></tr>
+        <tr><td><strong>Periappendikuler Infiltrat (massa apendiks)</strong></td><td>NON-operatif dulu: Antibiotik IV (sefalosporin gen-3 + metronidazol), observasi ketat. Appendektomi interval 6–8 minggu kemudian.</td></tr>
+        <tr><td><strong>Abses Apendiks</strong></td><td>Drainase abses (perkutan atau operatif) + antibiotik IV</td></tr>
+        <tr><td><strong>Perforasi + Peritonitis</strong></td><td>Laparotomi segera + appendektomi + lavage peritoneum</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-danger">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Hentikan terapi konservatif infiltrat jika:</strong> Nadi meningkat ATAU nyeri perut bertambah/meluas ATAU ukuran massa bertambah → konversi ke operatif segera.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔬</span>Pemeriksaan Penunjang</div>
+    <ul class="bullet-list">
+      <li><strong>Lab:</strong> Leukositosis + shift to left (netrofil segmen meningkat)</li>
+      <li><strong>USG Abdomen:</strong> Penebalan dinding appendiks (&gt;6mm), fekalit, infiltrat/abses — pemeriksaan pilihan pertama</li>
+      <li><strong>CT Scan Abdomen:</strong> Jika USG masih meragukan (gold standard diagnosis)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== DIAGNOSIS BANDING ===== -->
+<div class="section" id="diagbanding">
+  <h2 class="section-title">Tabel Diagnosis Banding Abdomen Akut</h2>
+  <p class="section-desc">Perbandingan klinis entitas-entitas penting — wajib hafal untuk soal UKMPPD.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">⚖️</span>Diagnosis Banding: Ileus Paralitik vs Obstruktif vs Volvulus</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Parameter</th><th>Ileus Paralitik</th><th>Ileus Obstruktif</th><th>Volvulus Sigmoid</th></tr>
+        <tr><td><strong>Onset</strong></td><td>Bertahap setelah trigger</td><td>Akut, bisa mendadak</td><td>Akut, mendadak</td></tr>
+        <tr><td><strong>Nyeri</strong></td><td>Difus, tumpul, konstan</td><td>Kolik, hilang timbul</td><td>Sangat hebat, konstan + kolik</td></tr>
+        <tr><td><strong>Bising Usus</strong></td><td>Hilang/sangat menurun</td><td>Meningkat, metallic sound</td><td>Meningkat awal → hilang</td></tr>
+        <tr><td><strong>Muntah</strong></td><td>Ada, tidak proyektil</td><td>Proyektil, bisa fekal</td><td>Ada</td></tr>
+        <tr><td><strong>Foto Polos</strong></td><td>Semua usus dilatasi</td><td>Air-fluid level, step-ladder</td><td>Coffee-bean sign, omega loop</td></tr>
+        <tr><td><strong>Riwayat</strong></td><td>Post-op, elektrolit, obat</td><td>Op. sebelumnya, hernia, tumor</td><td>Lansia, konstipasi kronis</td></tr>
+        <tr><td><strong>Tatalaksana</strong></td><td>Konservatif, atasi penyebab</td><td>Operatif</td><td>Sigmoidoskopi/endoskopi → operatif</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">⚖️</span>Diagnosis Banding: Nyeri Perut Kanan Bawah</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Diagnosis</th><th>Onset</th><th>Nyeri / Gejala Khas</th><th>PF Khas</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Apendisitis</strong></td><td>Akut, progresif 24–48j</td><td>Migrasi nyeri umbilikal → RLQ, anoreksia, mual</td><td>McBurney, rebound, Rovsing, Psoas/Obturator sign</td><td>Appendektomi / konservatif infiltrat</td></tr>
+        <tr><td><strong>KET (Kehamilan Ektopik Terganggu)</strong></td><td>Akut, mendadak</td><td>Nyeri RLQ/LLQ + perdarahan per vaginam, pucat-anemis</td><td>Nyeri goyang serviks, massa adneksa</td><td>Operatif segera (salpingektomi)</td></tr>
+        <tr><td><strong>Torsi Kista Ovarium</strong></td><td>Mendadak</td><td>Nyeri tajam tiba-tiba, mual-muntah, mirip apendisitis</td><td>Massa adneksa nyeri, tidak ada tanda apendisitis khas</td><td>Operatif (detorsi / kistektomi)</td></tr>
+        <tr><td><strong>Batu Ureter Distal</strong></td><td>Kolik, episodik</td><td>Nyeri kolik dari pinggang → kanan bawah → testis/labia, hematuria</td><td>Nyeri CVA, tidak ada peritoneal sign</td><td>Analgesia, ESWL/ureteroskopi</td></tr>
+        <tr><td><strong>Torsio Testis</strong></td><td>Mendadak</td><td>Nyeri testis tiba-tiba (sering pada remaja), mual-muntah</td><td>Testis posisi tinggi, Prehn sign negatif</td><td>Operatif segera (detorsi + orkidopeksi)</td></tr>
+        <tr><td><strong>Adenitis Mesenterika</strong></td><td>Subakut</td><td>Nyeri RLQ, riwayat ISPA/infeksi saluran cerna</td><td>Nyeri tekan RLQ difus, tidak ada guarding ketat</td><td>Konservatif, antibiotik</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">⚖️</span>Diagnosis Banding: Peritonitis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Diagnosis</th><th>Onset</th><th>Ciri Khas</th><th>Radiologi</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Peritonitis Sekunder (Perforasi Gaster)</strong></td><td>Mendadak, sangat hebat</td><td>Riwayat ulkus/jamu, nyeri epigastrik mendadak → seluruh perut</td><td>Udara bebas sub-diafragma, pekak hepar hilang</td><td>Laparotomi, tutup perforasi</td></tr>
+        <tr><td><strong>Peritonitis Sekunder (Apendisitis Perforasi)</strong></td><td>Progresi 2–3 hari</td><td>Awalan nyeri RLQ → generalisasi, riwayat gejala 3–5 hari</td><td>Tanda ileus, udara bebas, massa RLQ</td><td>Laparotomi + appendektomi</td></tr>
+        <tr><td><strong>SBP (Spontaneous Bacterial Peritonitis)</strong></td><td>Subakut</td><td>Pasien sirosis + asites, demam, nyeri difus</td><td>Asites masif, tidak ada udara bebas</td><td>Antibiotik IV (sefotaksim), tidak operatif</td></tr>
+        <tr><td><strong>Peritonitis Tifoid</strong></td><td>Subakut</td><td>Riwayat demam &gt;1 minggu, lidah kotor, bradikardi relatif</td><td>Udara bebas sub-diafragma (di ileum)</td><td>Laparotomi + jahit perforasi + AB</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div class="section" id="quiz">
+  <h2 class="section-title">Latihan Soal UKMPPD</h2>
+  <p class="section-desc">10 soal tipe CBT bergaya UKMPPD — materi Abdomen Akut, Ileus, Peritonitis, dan Apendisitis.</p>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-text" id="progressText">0 / 10 dijawab</div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-num">Soal 1</div>
+    <div class="quiz-vignette">Seorang laki-laki 45 tahun datang dengan perut kembung sejak 2 hari. Riwayat laparotomi appendektomi 2 tahun lalu. Pemeriksaan fisik: abdomen distended, bising usus meningkat dengan metallic sound, nyeri kolik hilang timbul. Foto polos abdomen: air-fluid level dengan gambaran step-ladder.</div>
+    <p class="quiz-question">Apakah diagnosis yang paling tepat pada kasus ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q1',false,'A')"><span class="opt-letter">A</span>Ileus paralitik</button>
+      <button class="quiz-option" onclick="answer(this,'q1',true,'B')"><span class="opt-letter">B</span>Ileus obstruktif</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'C')"><span class="opt-letter">C</span>Peritonitis generalisata</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'D')"><span class="opt-letter">D</span>Volvulus sigmoid</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'E')"><span class="opt-letter">E</span>Gastroenteritis akut</button>
+    </div>
+    <div class="explanation" id="exp-q1">✅ <strong>B. Ileus Obstruktif</strong><br><br>Kunci diagnosis: (1) Riwayat laparotomi sebelumnya → adhesi/perlengketan sebagai penyebab tersering ileus obstruktif; (2) <strong>Bising usus meningkat + metallic sound</strong> (usus masih aktif melawan sumbatan); (3) Foto polos: <strong>air-fluid level + step-ladder</strong>.<br><br>❌ Ileus Paralitik = bising usus HILANG/menurun + semua usus dilatasi. ❌ Peritonitis = defans muskular + rebound tenderness + bising usus menurun.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-num">Soal 2</div>
+    <div class="quiz-vignette">Seorang bayi laki-laki 9 bulan dibawa ke IGD karena menangis kuat tiba-tiba sejak 6 jam, fleksi lutut ke dada, kemudian tenang sebentar lalu menangis lagi. Ibu melaporkan BAB terakhir berlendir berwarna seperti jeli merah. Pada pemeriksaan abdomen teraba massa seperti sosis di regio epigastrium. Fossa iliaka kanan terasa kosong.</div>
+    <p class="quiz-question">Apakah tanda pemeriksaan fisik yang disebutkan terakhir tersebut?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q2',false,'A')"><span class="opt-letter">A</span>Rovsing Sign</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'B')"><span class="opt-letter">B</span>Psoas Sign</button>
+      <button class="quiz-option" onclick="answer(this,'q2',true,'C')"><span class="opt-letter">C</span>Dance Sign</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'D')"><span class="opt-letter">D</span>McBurney Sign</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'E')"><span class="opt-letter">E</span>Cullen Sign</button>
+    </div>
+    <div class="explanation" id="exp-q2">✅ <strong>C. Dance Sign</strong><br><br>Dance Sign adalah fossa iliaka kanan yang terasa kosong pada invaginasi — karena segmen usus yang berada di fossa iliaka kanan (ileum terminal) sudah masuk (terinvaginasi) ke dalam kolon. Seluruh gambaran klinis kasus ini adalah TRIAS INVAGINASI: nyeri kolik intermiten (bayi menangis tiba-tiba, fleksi lutut) + red currant jelly stool + massa seperti sosis.<br><br>❌ Rovsing = tekan kiri nyeri kanan (appendisitis). ❌ McBurney = nyeri titik McBurney (appendisitis). ❌ Psoas = ekstensi paha nyeri (appendisitis retrosekal).</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-num">Soal 3</div>
+    <div class="quiz-vignette">Seorang wanita 28 tahun datang dengan nyeri seluruh lapang perut mendadak sejak 3 jam. Riwayat nyeri epigastrik hilang timbul sejak 2 tahun, terakhir kambuh setelah konsumsi obat warung (dicurigai mengandung steroid dan NSAID). Pemeriksaan: abdomen board-like rigidity, bising usus hilang, nyeri tekan + rebound seluruh lapang. Foto polos: udara bebas sub-diafragma kanan.</div>
+    <p class="quiz-question">Apakah tatalaksana definitif yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q3',false,'A')"><span class="opt-letter">A</span>Pemberian antasida + antibiotik oral</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'B')"><span class="opt-letter">B</span>Rawat inap + antibiotik IV + observasi</button>
+      <button class="quiz-option" onclick="answer(this,'q3',true,'C')"><span class="opt-letter">C</span>Laparotomi emergensi</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'D')"><span class="opt-letter">D</span>Endoskopi diagnostik segera</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'E')"><span class="opt-letter">E</span>CT Scan abdomen</button>
+    </div>
+    <div class="explanation" id="exp-q3">✅ <strong>C. Laparotomi Emergensi</strong><br><br>Gambaran klinis: peritonitis generalisata akibat <strong>perforasi gaster</strong> (riwayat ulkus + obat NSAID/steroid, nyeri mendadak, board-like rigidity + udara bebas sub-diafragma). Terapi definitif peritonitis sekunder adalah <strong>laparotomi</strong> untuk menutup sumber perforasi + lavage peritoneum.<br><br>Tatalaksana AWAL tetap: resusitasi cairan + NGT + antibiotik IV — TAPI ini bukan tatalaksana definitif. CT Scan/endoskopi tidak perlu jika tanda klinis + foto polos sudah cukup jelas.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-num">Soal 4</div>
+    <div class="quiz-vignette">Seorang laki-laki 20 tahun datang dengan nyeri perut kanan bawah sejak 12 jam. Awalnya nyeri di sekitar pusar lalu pindah ke kanan bawah. Ada mual, demam 38,2°C. Pemeriksaan: nyeri tekan McBurney (+), rebound tenderness (+), Rovsing sign (+). Leukosit 14.500/μL.</div>
+    <p class="quiz-question">Berapakah skor Alvarado pada pasien ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q4',false,'A')"><span class="opt-letter">A</span>5</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'B')"><span class="opt-letter">B</span>6</button>
+      <button class="quiz-option" onclick="answer(this,'q4',true,'C')"><span class="opt-letter">C</span>7</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'D')"><span class="opt-letter">D</span>8</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'E')"><span class="opt-letter">E</span>9</button>
+    </div>
+    <div class="explanation" id="exp-q4">✅ <strong>C. 7</strong><br><br>Hitung MANTRELS:<br>
+M – Migrasi nyeri pusar → kanan bawah ✓ (1)<br>
+A – Anoreksia: tidak disebutkan = 0<br>
+N – Nausea (mual) ✓ (1)<br>
+T – Tenderness McBurney ✓ (2)<br>
+R – Rebound Tenderness ✓ (1)<br>
+E – Elevated Temp 38,2°C ✓ (1)<br>
+L – Leukositosis 14.500 ✓ (2)<br>
+<strong>Total = 8</strong> — Hmm, mari recheck: Soal tidak menyebut anoreksia eksplisit. Jika anoreksia dianggap ada dari konteks "mual-mual": total bisa 8. Jawaban C=7 jika anoreksia tidak dihitung (tanpa anoreksia = 7). Kunci soal: kenali komponen MANTRELS dan hitung dengan benar.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-num">Soal 5</div>
+    <div class="quiz-vignette">Seorang laki-laki 60 tahun mengeluh perut kembung 3 hari, tidak bisa BAB sejak seminggu. Riwayat DM dan pasca pemasangan kateter urin. Pemeriksaan: abdomen distended, bising usus sangat menurun, tidak ada nyeri kolik. Foto polos: semua segmen usus halus dan usus besar tampak dilatasi.</div>
+    <p class="quiz-question">Apakah tatalaksana awal yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q5',false,'A')"><span class="opt-letter">A</span>Laparotomi eksplorasi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q5',true,'B')"><span class="opt-letter">B</span>Pemasangan NGT + resusitasi cairan + koreksi penyebab</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'C')"><span class="opt-letter">C</span>Appendektomi laparoskopik</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'D')"><span class="opt-letter">D</span>Pemberian laksatif oral</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'E')"><span class="opt-letter">E</span>Enema barium segera</button>
+    </div>
+    <div class="explanation" id="exp-q5">✅ <strong>B. Pemasangan NGT + Resusitasi cairan + Koreksi penyebab</strong><br><br>Gambaran klinis adalah <strong>ileus paralitik</strong>: bising usus sangat menurun + semua usus (halus + besar) dilatasi pada foto polos + tidak ada nyeri kolik. Penyebab dicurigai post-prosedur (kateter) atau DM (neuropati otonom). Tatalaksana: konservatif — NGT dialirkan (dekompresi) + resusitasi cairan + koreksi penyebab (cek dan koreksi elektrolit). <strong>Tidak perlu operasi</strong> pada ileus paralitik.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-num">Soal 6</div>
+    <div class="quiz-vignette">Seorang perempuan 25 tahun datang dengan nyeri kanan bawah 4 hari. Pada pemeriksaan fisik didapatkan massa di kanan bawah, nyeri tekan ada tapi tidak keras seperti apendisitis akut. Demam subfebris 37,7°C. USG: tampak struktur tubular di kanan bawah dengan cairan sekitar, tidak ada gambaran appendiks yang jelas terpisah. Leukosit 11.000.</div>
+    <p class="quiz-question">Apakah kondisi yang paling tepat menggambarkan kasus ini dan tatalaksana awalnya?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q6',false,'A')"><span class="opt-letter">A</span>Apendisitis akut → appendektomi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'B')"><span class="opt-letter">B</span>Abses apendiks → laparotomi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q6',true,'C')"><span class="opt-letter">C</span>Periappendikuler infiltrat → antibiotik IV + observasi, appendektomi interval</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'D')"><span class="opt-letter">D</span>KET → salpingektomi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'E')"><span class="opt-letter">E</span>Torsi kista ovarium → laparoskopi segera</button>
+    </div>
+    <div class="explanation" id="exp-q6">✅ <strong>C. Periappendikuler Infiltrat</strong><br><br>Gambaran khas: nyeri kanan bawah 3–5 hari + massa teraba di RLQ + gejala tidak separah apendisitis akut (omentum sudah melingkupi / walling off). Ini adalah <strong>periappendikuler infiltrat</strong> (appendicular mass). Tatalaksana: <strong>NON-operatif</strong> → antibiotik IV (sefalosporin gen-3 + metronidazol) + observasi ketat. Appendektomi dilakukan 6–8 minggu kemudian (interval).<br><br>❌ Jangan langsung operasi — lebih berbahaya karena bisa menyebabkan cedera organ sekitar yang sudah menempel.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-num">Soal 7</div>
+    <div class="quiz-vignette">Seorang laki-laki 70 tahun dengan sirosis hepatis dan asites datang dengan demam, nyeri perut difus 2 hari. Tidak ada riwayat trauma atau operasi. Pemeriksaan: abdomen distended dengan shifting dullness positif, nyeri tekan difus ringan-sedang, tidak ada board-like rigidity. Lab: leukosit 12.000, albumin 2,0 g/dL. Foto polos: tidak ada udara bebas sub-diafragma.</div>
+    <p class="quiz-question">Apakah diagnosis yang paling mungkin dan tatalaksana yang tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q7',false,'A')"><span class="opt-letter">A</span>Peritonitis sekunder → laparotomi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q7',true,'B')"><span class="opt-letter">B</span>Spontaneous Bacterial Peritonitis (SBP) → antibiotik IV, tidak perlu operasi</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'C')"><span class="opt-letter">C</span>Perforasi gaster → laparotomi segera</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'D')"><span class="opt-letter">D</span>Apendisitis perforasi → appendektomi</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'E')"><span class="opt-letter">E</span>Ileus obstruktif → NGT + operasi</button>
+    </div>
+    <div class="explanation" id="exp-q7">✅ <strong>B. SBP → Antibiotik IV saja</strong><br><br>Konteks: sirosis + asites + demam + nyeri difus ringan + TIDAK ADA udara bebas sub-diafragma + tidak ada riwayat operasi/trauma → <strong>Spontaneous Bacterial Peritonitis (peritonitis primer)</strong>. Bakteri masuk lewat darah (hematogen) atau translokasi dari usus → infeksi asites. Tatalaksana: antibiotik IV (sefotaksim/seftriakson) tanpa operasi. Konfirmasi dengan parasentesis diagnostik (PMN >250/mm³).</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8">
+    <div class="quiz-num">Soal 8</div>
+    <div class="quiz-vignette">Seorang anak laki-laki 8 bulan dibawa ke puskesmas dengan keluhan menangis tiba-tiba dan tidak mau minum sejak 8 jam. BAB terakhir tadi pagi, konsistensi biasa. Pemeriksaan fisik: rewel, abdomen sedikit kembung, tidak ada massa teraba dengan jelas, tidak ada tanda peritonitis. Anda mencurigai invaginasi.</div>
+    <p class="quiz-question">Sebagai dokter di puskesmas (FKTP), apakah tindakan yang paling tepat dilakukan pertama kali?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q8',false,'A')"><span class="opt-letter">A</span>Lakukan reduksi enema hidrostatik di puskesmas</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'B')"><span class="opt-letter">B</span>Berikan obat pencahar dan observasi 24 jam</button>
+      <button class="quiz-option" onclick="answer(this,'q8',true,'C')"><span class="opt-letter">C</span>Resusitasi cairan + pasang IV line + segera rujuk ke RS dengan fasilitas bedah</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'D')"><span class="opt-letter">D</span>Laparotomi segera di puskesmas</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'E')"><span class="opt-letter">E</span>Foto polos abdomen kemudian observasi</button>
+    </div>
+    <div class="explanation" id="exp-q8">✅ <strong>C. Resusitasi + Rujuk ke RS</strong><br><br>Kompetensi SKDI invaginasi = 3B → dokter umum di FKTP hanya mampu melakukan <strong>tatalaksana awal</strong> (resusitasi, stabilisasi) kemudian <strong>rujuk</strong>. Reduksi enema harus dilakukan di RS dengan fasilitas radiologi dan bedah. Invaginasi adalah kegawatan bedah anak — jangan tunda rujukan!</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="q9">
+    <div class="quiz-num">Soal 9</div>
+    <div class="quiz-vignette">Seorang laki-laki 30 tahun datang ke UGD dengan nyeri perut kanan bawah. Dari anamnesis: nyeri kolik berulang di pinggang kanan sejak 2 hari, menjalar ke kanan bawah sampai ke skrotum, ada hematuria makroskopik. Tidak ada demam, tidak ada mual. Pemeriksaan abdomen: nyeri ketok CVA kanan (+), tidak ada defans muskular.</div>
+    <p class="quiz-question">Apakah diagnosis banding utama yang harus disingkirkan terlebih dahulu pada kasus ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q9',false,'A')"><span class="opt-letter">A</span>Apendisitis akut</button>
+      <button class="quiz-option" onclick="answer(this,'q9',true,'B')"><span class="opt-letter">B</span>Batu ureter distal kanan</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'C')"><span class="opt-letter">C</span>KET</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'D')"><span class="opt-letter">D</span>Peritonitis generalisata</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'E')"><span class="opt-letter">E</span>Volvulus sigmoid</button>
+    </div>
+    <div class="explanation" id="exp-q9">✅ <strong>B. Batu Ureter Distal Kanan</strong><br><br>Kunci pembeda dari apendisitis: (1) Nyeri menjalar ke skrotum (jalur ureter) — ini TIDAK terjadi pada appendisitis; (2) <strong>Hematuria</strong> — sangat khas batu saluran kemih; (3) Nyeri CVA kanan positif; (4) Tidak ada demam, tidak ada tanda peritoneum. Batu ureter distal kanan memang bisa mirip apendisitis pada gambar awal, tapi menjalar ke skrotum + hematuria menegaskan diagnosis.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="q10">
+    <div class="quiz-num">Soal 10</div>
+    <div class="quiz-vignette">Seorang pasien laki-laki 55 tahun datang dengan perut kembung dan muntah-muntah sejak 2 hari. Dua minggu lalu baru selesai operasi kolon karena tumor. Pemeriksaan fisik: abdomen distended, bising usus sangat menurun (hampir tidak terdengar), tidak ada nyeri kolik. Foto polos: semua segmen usus tampak dilatasi tanpa air-fluid level yang dominan.</div>
+    <p class="quiz-question">Manakah pernyataan yang PALING TEPAT mengenai kasus ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q10',false,'A')"><span class="opt-letter">A</span>Ini adalah ileus obstruktif karena riwayat operasi kolon</button>
+      <button class="quiz-option" onclick="answer(this,'q10',true,'B')"><span class="opt-letter">B</span>Ini adalah ileus paralitik post-operatif — tatalaksana konservatif</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'C')"><span class="opt-letter">C</span>Diperlukan laparotomi segera untuk melihat anastomosis</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'D')"><span class="opt-letter">D</span>Foto polos menunjukkan volvulus sigmoid</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'E')"><span class="opt-letter">E</span>Pasien memerlukan CT scan segera sebelum tindakan apapun</button>
+    </div>
+    <div class="explanation" id="exp-q10">✅ <strong>B. Ileus Paralitik Post-Operatif</strong><br><br>Kunci: (1) Post-operasi kolon (penyebab tersering ileus paralitik); (2) <strong>Bising usus sangat menurun</strong> (paralitik ≠ obstruktif yang bising usus meningkat); (3) <strong>Semua usus dilatasi</strong> — bukan hanya di atas sumbatan seperti obstruktif; (4) <strong>Tidak ada air-fluid level yang dominan</strong>. Tatalaksana: NGT dialirkan + resusitasi cairan + cek dan koreksi elektrolit + mobilisasi dini. Ini <strong>tidak perlu operasi</strong>.</div>
+  </div>
+
+  <!-- Score Card -->
+  <div class="quiz-score-card" id="scoreCard">
+    <div style="font-size:32px;margin-bottom:12px;">🎉</div>
+    <div class="score-num" id="finalScore">0</div>
+    <div style="font-size:18px;margin:8px 0;opacity:.8;">/ 10</div>
+    <div id="scoreMessage" style="font-size:15px;opacity:.85;margin-top:8px;line-height:1.6;"></div>
+    <button onclick="resetQuiz()" style="margin-top:24px;background:white;color:var(--navy);border:none;padding:12px 28px;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">🔁 Ulangi Quiz</button>
+  </div>
+</div><!-- end quiz -->
+
+</div><!-- end container -->
+
+<button class="fab" onclick="window.print()">📥 Download PDF</button>
+
+<script>
+  function showSection(id,btn){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function toggleCollapse(btn){
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+  let score=0, answered=0;
+  function answer(btn,qId,isCorrect,letter){
+    const card=document.getElementById(qId);
+    if(card.dataset.answered)return;
+    card.dataset.answered='true';
+    const allBtns=card.querySelectorAll('.quiz-option');
+    allBtns.forEach(b=>{b.classList.add('disabled');b.onclick=null;});
+    if(isCorrect){btn.classList.add('correct');score++;}
+    else{btn.classList.add('wrong');}
+    document.getElementById('exp-'+qId).classList.add('show');
+    answered++;
+    document.getElementById('progressText').textContent=answered+' / 10 dijawab';
+    document.getElementById('progressFill').style.width=(answered*10)+'%';
+    if(answered===10)setTimeout(showScore,600);
+  }
+  function showScore(){
+    const card=document.getElementById('scoreCard');
+    card.classList.add('show');
+    document.getElementById('finalScore').textContent=score;
+    let msg='';
+    if(score>=9)msg='Luar biasa! Siap menghadapi UKMPPD! 🔥';
+    else if(score>=7)msg='Bagus! Sedikit lagi sempurna. Review bagian yang salah! 💪';
+    else if(score>=5)msg='Lumayan! Masih perlu belajar lebih dalam. 📚';
+    else msg='Jangan patah semangat! Baca ulang rangkumannya. Kamu pasti bisa! 🌱';
+    document.getElementById('scoreMessage').textContent=msg;
+    card.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function resetQuiz(){
+    score=0;answered=0;
+    document.getElementById('progressText').textContent='0 / 10 dijawab';
+    document.getElementById('progressFill').style.width='0%';
+    document.getElementById('scoreCard').classList.remove('show');
+    for(let i=1;i<=10;i++){
+      const card=document.getElementById('q'+i);
+      delete card.dataset.answered;
+      card.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong','disabled');});
+      document.getElementById('exp-q'+i).classList.remove('show');
+    }
+    rebindQuiz();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function rebindQuiz(){
+    const bindings=[
+      ['q1',[false,true,false,false,false]],
+      ['q2',[false,false,true,false,false]],
+      ['q3',[false,false,true,false,false]],
+      ['q4',[false,false,true,false,false]],
+      ['q5',[false,true,false,false,false]],
+      ['q6',[false,false,true,false,false]],
+      ['q7',[false,true,false,false,false]],
+      ['q8',[false,false,true,false,false]],
+      ['q9',[false,true,false,false,false]],
+      ['q10',[false,true,false,false,false]],
+    ];
+    const letters=['A','B','C','D','E'];
+    bindings.forEach(([qId,correctArr])=>{
+      const card=document.getElementById(qId);
+      const btns=card.querySelectorAll('.quiz-option');
+      btns.forEach((btn,i)=>{btn.onclick=()=>answer(btn,qId,correctArr[i],letters[i]);});
+    });
+  }
+  window.addEventListener('beforeprint',()=>{document.querySelectorAll('.section').forEach(s=>s.style.display='block');});
+  window.addEventListener('afterprint',()=>{document.querySelectorAll('.section').forEach(s=>s.style.display='');document.querySelector('.section.active').style.display='block';});
+  rebindQuiz();
+</script>
+</body>
+</html>

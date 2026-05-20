@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parasitologi Digestivus — Trematoda & Cestoda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #0d6e6e;
+    --teal-mid: #1a9e8f;
+    --teal-light: #4ec9b5;
+    --teal-pale: #d0f0eb;
+    --blue-deep: #1a4a7a;
+    --blue-mid: #2d7ac8;
+    --blue-light: #6bb5e8;
+    --blue-pale: #daeefa;
+    --sage: #7aaa8e;
+    --cream: #f8faf9;
+    --white: #ffffff;
+    --ink: #1e2d2a;
+    --ink-light: #4a6055;
+    --accent-amber: #e8a830;
+    --accent-rose: #e05c6a;
+    --accent-violet: #7c5cbf;
+    --border: #c8e0db;
+    --shadow: rgba(13,110,110,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--teal-deep) 50%, #0a4a3a 100%);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(78,201,181,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(107,181,232,0.12) 0%, transparent 50%);
+  }
+  .hero-inner { position: relative; max-width: 860px; margin: 0 auto; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal-light); }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.82;
+    max-width: 560px;
+    margin-bottom: 30px;
+    line-height: 1.65;
+  }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    color: white;
+  }
+  .pill:hover { background: rgba(255,255,255,0.25); transform: translateY(-1px); }
+
+  /* ─── NAV ─── */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,250,249,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .sticky-nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 0;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .sticky-nav li a {
+    display: block;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-light);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .sticky-nav li a:hover, .sticky-nav li a.active {
+    color: var(--teal-deep);
+    border-bottom-color: var(--teal-mid);
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--teal-mid);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: var(--blue-deep);
+    margin-bottom: 24px;
+    line-height: 1.25;
+  }
+  .section-title span { color: var(--teal-mid); }
+  hr.section-rule {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 50px 0;
+  }
+
+  /* ─── OVERVIEW BOX ─── */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .ov-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.2s;
+  }
+  .ov-card:hover { transform: translateY(-3px); }
+  .ov-icon { font-size: 2rem; margin-bottom: 8px; }
+  .ov-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-deep);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .ov-card p { font-size: 13px; color: var(--ink-light); }
+
+  /* ─── INFO BOX ─── */
+  .info-box {
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    border-left: 4px solid;
+  }
+  .info-box.teal { background: var(--teal-pale); border-color: var(--teal-mid); }
+  .info-box.blue { background: var(--blue-pale); border-color: var(--blue-mid); }
+  .info-box.amber { background: #fff8e6; border-color: var(--accent-amber); }
+  .info-box.rose { background: #fdf0f1; border-color: var(--accent-rose); }
+  .info-box.violet { background: #f2eeff; border-color: var(--accent-violet); }
+  .info-box strong { font-weight: 600; }
+  .info-box .box-title {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.75;
+  }
+
+  /* ─── ORGANISM CARDS ─── */
+  .organism-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+  .org-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+    background: linear-gradient(90deg, var(--teal-pale) 0%, white 100%);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .org-header:hover { background: linear-gradient(90deg, #b9ede5 0%, var(--teal-pale) 100%); }
+  .org-header-left { display: flex; align-items: center; gap: 14px; }
+  .org-emoji { font-size: 1.6rem; }
+  .org-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue-deep);
+  }
+  .org-name em { font-style: italic; color: var(--teal-deep); font-size: 0.9rem; font-family: 'DM Mono', monospace; }
+  .org-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .badge {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .badge.green { background: var(--teal-pale); color: var(--teal-deep); }
+  .badge.blue { background: var(--blue-pale); color: var(--blue-deep); }
+  .badge.amber { background: #fff3cc; color: #8a5a00; }
+  .badge.rose { background: #fde8ea; color: #922030; }
+  .badge.violet { background: #ede8ff; color: #4a3090; }
+  .org-chevron {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    color: var(--teal-mid);
+  }
+  .org-chevron.open { transform: rotate(180deg); }
+  .org-body {
+    display: none;
+    padding: 24px;
+    animation: slideDown 0.3s ease;
+  }
+  .org-body.open { display: block; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── DATA TABLE ─── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 14px 0;
+  }
+  .data-table th {
+    background: var(--teal-deep);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .data-table tr:nth-child(even) td { background: var(--teal-pale); }
+  .data-table tr:hover td { background: var(--blue-pale); }
+  .data-table th:first-child { border-radius: 8px 0 0 0; }
+  .data-table th:last-child { border-radius: 0 8px 0 0; }
+
+  /* ─── LIFECYCLE VISUAL ─── */
+  .lifecycle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--blue-pale), var(--teal-pale));
+    border-radius: 12px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .lc-step {
+    background: white;
+    border: 1.5px solid var(--teal-mid);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-weight: 500;
+    color: var(--blue-deep);
+    white-space: nowrap;
+  }
+  .lc-step.infective {
+    background: var(--teal-mid);
+    color: white;
+    border-color: var(--teal-deep);
+    font-weight: 700;
+  }
+  .lc-step.diagnostic {
+    background: var(--accent-amber);
+    color: white;
+    border-color: #c47c00;
+    font-weight: 700;
+  }
+  .lc-arrow { color: var(--teal-deep); font-weight: 700; font-size: 1.1rem; }
+  .lc-legend { display: flex; gap: 12px; font-size: 12px; margin-top: 8px; width: 100%; }
+  .lc-legend-item { display: flex; align-items: center; gap: 5px; }
+  .lc-dot { width: 12px; height: 12px; border-radius: 3px; }
+  .lc-dot.infective { background: var(--teal-mid); }
+  .lc-dot.diagnostic { background: var(--accent-amber); }
+  .lc-dot.normal { background: white; border: 1.5px solid var(--teal-mid); }
+
+  /* ─── CLINICAL REASONING BOX ─── */
+  .clinical-box {
+    background: linear-gradient(135deg, #1a4a7a 0%, #0d6e6e 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .clinical-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    opacity: 0.95;
+  }
+  .clinical-box h4 span { opacity: 0.7; font-size: 0.85rem; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+  .cr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .cr-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .cr-item .cr-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.65;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  .cr-item .cr-val { font-size: 13.5px; line-height: 1.5; }
+
+  /* ─── KEY POINTS ─── */
+  .key-points { list-style: none; padding: 0; margin: 12px 0; }
+  .key-points li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .key-points li:last-child { border-bottom: none; }
+  .key-points li::before {
+    content: '▸';
+    position: absolute; left: 8px;
+    color: var(--teal-mid);
+    font-weight: 700;
+  }
+  .key-points li.highlight::before { content: '★'; color: var(--accent-amber); }
+  .key-points li.warning::before { content: '⚠'; color: var(--accent-rose); }
+
+  /* ─── HIGHLIGHT ─── */
+  .hl { background: linear-gradient(120deg, rgba(78,201,181,0.3) 0%, rgba(78,201,181,0.1) 100%); 
+        padding: 1px 4px; border-radius: 4px; font-weight: 600; }
+  .hl-amber { background: linear-gradient(120deg, rgba(232,168,48,0.3) 0%, rgba(232,168,48,0.1) 100%);
+               padding: 1px 4px; border-radius: 4px; font-weight: 600; }
+  .hl-rose { background: linear-gradient(120deg, rgba(224,92,106,0.3) 0%, rgba(224,92,106,0.1) 100%);
+              padding: 1px 4px; border-radius: 4px; font-weight: 600; }
+
+  /* ─── COMPARISON TABLE ─── */
+  .comp-section { overflow-x: auto; }
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 600px;
+  }
+  .comp-table th {
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+  .comp-table th:first-child { text-align: left; background: var(--ink); color: white; }
+  .comp-table th.trema { background: var(--teal-deep); color: white; }
+  .comp-table th.ces { background: var(--blue-deep); color: white; }
+  .comp-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .comp-table td:first-child { text-align: left; font-weight: 600; background: #f4f4f4; }
+  .comp-table tr:hover td { background: var(--teal-pale); }
+
+  /* ─── DRUG BOX ─── */
+  .drug-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, var(--teal-deep), var(--blue-deep));
+    color: white;
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin: 8px 6px 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .drug-card .drug-icon { font-size: 1.4rem; }
+  .drug-card .drug-name { font-size: 1rem; }
+  .drug-card .drug-note { font-size: 12px; opacity: 0.8; font-weight: 400; }
+
+  /* ─── QUIZ SECTION ─── */
+  #quiz-section { background: white; border-radius: 20px; border: 1px solid var(--border); padding: 36px; margin-top: 20px; box-shadow: 0 4px 20px var(--shadow); }
+  .quiz-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--blue-deep);
+    margin-bottom: 6px;
+  }
+  .quiz-subtitle { font-size: 14px; color: var(--ink-light); margin-bottom: 28px; }
+  .quiz-progress-bar { height: 6px; background: var(--border); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
+  .quiz-progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal-mid), var(--blue-mid)); border-radius: 3px; transition: width 0.4s; }
+  .q-counter { font-size: 12px; font-weight: 600; color: var(--teal-mid); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .q-text { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 18px; line-height: 1.5; }
+  .q-options { display: grid; gap: 10px; }
+  .q-option {
+    padding: 14px 18px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    background: white;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+  }
+  .q-option:hover:not(:disabled) { border-color: var(--teal-mid); background: var(--teal-pale); }
+  .q-option.correct { border-color: #27a37a; background: #e6f7f0; color: #186048; font-weight: 600; }
+  .q-option.wrong { border-color: var(--accent-rose); background: #fdeaec; color: #8a1020; }
+  .q-feedback {
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: none;
+    line-height: 1.6;
+  }
+  .q-feedback.show { display: block; }
+  .q-feedback.correct { background: #e6f7f0; color: #186048; border-left: 4px solid #27a37a; }
+  .q-feedback.wrong { background: #fdeaec; color: #8a1020; border-left: 4px solid var(--accent-rose); }
+  .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+  .btn {
+    padding: 11px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--teal-deep), var(--blue-deep)); color: white; }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; border: 2px solid var(--border); color: var(--ink-light); }
+  .btn-ghost:hover { border-color: var(--teal-mid); color: var(--teal-deep); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .quiz-result {
+    text-align: center;
+    padding: 30px 0;
+    display: none;
+  }
+  .quiz-result.show { display: block; }
+  .result-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--teal-mid), var(--blue-mid));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-label { font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .result-msg { font-size: 14px; color: var(--ink-light); margin-bottom: 24px; }
+  .result-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 380px; margin: 0 auto 24px; }
+  .rb { background: var(--cream); border-radius: 10px; padding: 12px; text-align: center; }
+  .rb-num { font-size: 1.5rem; font-weight: 700; color: var(--teal-deep); }
+  .rb-lbl { font-size: 12px; color: var(--ink-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    padding: 24px;
+    font-size: 12.5px;
+    margin-top: 60px;
+  }
+  footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ─── TABS ─── */
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
+  .tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink-light);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn.active { color: var(--teal-deep); border-bottom-color: var(--teal-mid); font-weight: 600; }
+  .tab-btn:hover { color: var(--teal-deep); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .hero { padding: 36px 20px 36px; }
+    .container { padding: 28px 16px; }
+    .cr-grid { grid-template-columns: 1fr 1fr; }
+    .overview-grid { grid-template-columns: 1fr 1fr; }
+    .org-name em { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">🦠 Parasitologi Medis · Blok Digestif</div>
+    <h1>Helmintiasis:<br><em>Trematoda & Cestoda</em></h1>
+    <p class="hero-sub">Panduan belajar komprehensif — morfologi, siklus hidup, patofisiologi, tata laksana, dan quiz interaktif untuk mempersiapkan responsi & ujian.</p>
+    <div class="hero-pills">
+      <a href="#overview" class="pill">📋 Overview</a>
+      <a href="#trematoda" class="pill">🌿 Trematoda</a>
+      <a href="#cestoda" class="pill">🪱 Cestoda</a>
+      <a href="#perbandingan" class="pill">⚖️ Perbandingan</a>
+      <a href="#quiz-section" class="pill">✏️ Quiz Interaktif</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ STICKY NAV ═══════════════ -->
+<nav class="sticky-nav">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#trematoda">Trematoda</a></li>
+    <li><a href="#cestoda">Cestoda</a></li>
+    <li><a href="#perbandingan">Perbandingan</a></li>
+    <li><a href="#obat">Tatalaksana</a></li>
+    <li><a href="#quiz-section">Quiz</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<section id="overview">
+  <div class="section-label">Pengantar</div>
+  <div class="section-title">Tiga Kelompok Besar <span>Helmintiasis</span></div>
+
+  <div class="overview-grid">
+    <div class="ov-card">
+      <div class="ov-icon">🔵</div>
+      <h3>Nematoda</h3>
+      <p>Cacing gelang — tubuh bulat memanjang. Sudah dipelajari di Blok Tropical Medicine.</p>
+    </div>
+    <div class="ov-card" style="border-color: var(--teal-mid);">
+      <div class="ov-icon">🍃</div>
+      <h3>Trematoda</h3>
+      <p>Cacing daun — tubuh pipih seperti daun, ada organ suker. <em>Kecuali: Schistosoma</em></p>
+    </div>
+    <div class="ov-card" style="border-color: var(--blue-mid);">
+      <div class="ov-icon">🎀</div>
+      <h3>Cestoda</h3>
+      <p>Cacing pita — tubuh bersegmen (proglotid), panjang seperti pita.</p>
+    </div>
+  </div>
+
+  <div class="info-box blue">
+    <div class="box-title">🔑 Konsep Kunci: Hospes Perantara</div>
+    Berbeda dengan nematoda usus yang siklus hidupnya sederhana, <strong>trematoda dan cestoda SELALU melibatkan hospes perantara</strong>. Inilah alasan materi ini dipelajari di semester 6 — siklus hidupnya kompleks dan terkait erat dengan tata laksana berdasarkan stadium.
+  </div>
+
+  <div class="info-box amber">
+    <div class="box-title">⚠️ Terminologi Penting</div>
+    <strong>Hospes definitif</strong> = tempat berkembang biak secara seksual (biasanya manusia/mamalia besar) |
+    <strong>Hospes perantara (HP)</strong> = tempat larva berkembang, tidak ada reproduksi seksual |
+    <strong>Stadium infektif</strong> = stadium yang mampu menginfeksi manusia dan menimbulkan manifestasi klinis |
+    <strong>Stadium diagnostik</strong> = stadium yang ditemukan saat pemeriksaan (biasanya telur dalam feses/urin)
+  </div>
+
+  <div class="info-box rose">
+    <div class="box-title">🔬 Eosinofilia pada Infeksi Cacing — Mengapa?</div>
+    Cacing mengekskresikan <strong>zat-zat antigenik</strong> → dikenali oleh APC (Antigen Presenting Cell) → merekrut <strong>eosinofil</strong> (sel darah putih yang paling responsif terhadap parasit) → eosinofil berdegranulasi → meningkatkan <strong>histamin</strong> dan <strong>IgE</strong> → gejala alergi/inflamasi. IgE meningkat pada semua infeksi parasit (mirip reaksi alergi).
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════ TREMATODA ═══════════════ -->
+<section id="trematoda">
+  <div class="section-label">Bagian 1</div>
+  <div class="section-title">🌿 <span>Trematoda</span> — Cacing Daun</div>
+
+  <div class="info-box teal">
+    <div class="box-title">📌 Siklus Hidup Umum Trematoda</div>
+    <div class="lifecycle">
+      <div class="lc-step">Telur (belum berembrio)</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Menyentuh Air</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Mirasidium bersilia</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">HP 1: Moluska/Siput</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Sporosit → Redia</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Serkaria (berekor)</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">HP 2 / Tumbuhan Air</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step infective">★ Metaserkaria (stadium infektif)</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Dimakan Manusia</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Eksistasi di Duodenum</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step">Cacing Dewasa</div>
+      <div class="lc-arrow">→</div>
+      <div class="lc-step diagnostic">★ Telur di Feses (diagnostik)</div>
+      <div class="lc-legend">
+        <div class="lc-legend-item"><div class="lc-dot infective"></div> Stadium Infektif</div>
+        <div class="lc-legend-item"><div class="lc-dot diagnostic"></div> Stadium Diagnostik</div>
+        <div class="lc-legend-item"><div class="lc-dot normal"></div> Stadium Lain</div>
+      </div>
+    </div>
+    <strong>Pengecualian:</strong> Schistosoma — stadium infektif adalah <span class="hl">serkaria berekor ganda</span> yang menembus kulit langsung (BUKAN metaserkaria)!
+  </div>
+
+  <!-- TABS untuk sub-kelompok trematoda -->
+  <div class="tabs" id="trema-tabs">
+    <button class="tab-btn active" onclick="switchTab('trema-tabs','usus')">🫁 Trematoda Usus</button>
+    <button class="tab-btn" onclick="switchTab('trema-tabs','hati')">🫀 Trematoda Hati</button>
+    <button class="tab-btn" onclick="switchTab('trema-tabs','darah')">🩸 Trematoda Darah</button>
+  </div>
+
+  <!-- TAB: TREMATODA USUS -->
+  <div class="tab-panel active" id="trema-tabs-usus">
+
+    <!-- Fasciolopsis buski -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐌</div>
+          <div>
+            <div class="org-name">Fasciolopsis buski <em>Fasciolopsis buski</em></div>
+            <div class="org-badges">
+              <span class="badge green">Usus Halus</span>
+              <span class="badge amber">Indonesia: Papua</span>
+              <span class="badge green">Metaserkaria ★</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Morfologi</td><td>Pipih seperti daun; punya <span class="hl">oral sucker & ventral sucker</span>; testis 2 (tandem) di posterior; uterus berkelok anterior; kelenjar vitelaria di tepi tubuh; Hermafrodit</td></tr>
+          <tr><td>Habitat dewasa</td><td>Duodenum & jejenum</td></tr>
+          <tr><td>HP 1 (Moluska)</td><td>Segmentina, Hippeutis, Gyraulus</td></tr>
+          <tr><td>HP 2</td><td>Tumbuhan air (water plant)</td></tr>
+          <tr><td>Stadium infektif</td><td class="hl-amber">Metaserkaria (pada tumbuhan air)</td></tr>
+          <tr><td>Stadium diagnostik</td><td class="hl-amber">Telur dalam feses (lonjong, beroverkulum)</td></tr>
+          <tr><td>Lab</td><td>Eosinofilia, Leukositosis</td></tr>
+        </table>
+        <div class="info-box teal">
+          <div class="box-title">🩺 Gejala Klinis</div>
+          <ul class="key-points">
+            <li>Infeksi <strong>ringan</strong>: nyeri abdomen, diare</li>
+            <li>Infeksi <strong>berat</strong>: obstruksi usus (banyak cacing), tinja kuning kehijauan (maldigesti), <span class="hl-rose">udem & asites</span></li>
+            <li class="highlight">Radang lokal, hipersekresi mukus, ulser, abses</li>
+          </ul>
+        </div>
+        <div class="clinical-box">
+          <h4>🧠 Clinical Reasoning <span>— Fasciolopsis buski</span></h4>
+          <div class="cr-grid">
+            <div class="cr-item"><div class="cr-label">Gejala Kunci</div><div class="cr-val">Nyeri abdomen, diare, maldigesti (tinja kuning-hijau)</div></div>
+            <div class="cr-item"><div class="cr-label">Riwayat Paparan</div><div class="cr-val">Makan tanaman air mentah (kangkung, teratai) dari daerah endemis</div></div>
+            <div class="cr-item"><div class="cr-label">Diagnosis</div><div class="cr-val">Temukan telur dalam feses (mikroskop)</div></div>
+            <div class="cr-item"><div class="cr-label">Tatalaksana</div><div class="cr-val">Prazikuantel (lini pertama)</div></div>
+            <div class="cr-item"><div class="cr-label">Pencegahan</div><div class="cr-val">Masak tumbuhan air; jangan pupuk tinja; musnahkan keong (molusida)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Echinostoma -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐚</div>
+          <div>
+            <div class="org-name">Echinostoma sp. <em>Echinostoma sp.</em></div>
+            <div class="org-badges">
+              <span class="badge green">Usus Halus</span>
+              <span class="badge blue">HP 2: Keong/Ikan</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Spesies</td><td>E. malayanum, E. revolutum, E. ilocanum</td></tr>
+          <tr><td>Khas morfologi</td><td>Perbedaan pada bentuk <span class="hl">testis</span> antar spesies; ada collar of spines di sekitar oral sucker</td></tr>
+          <tr><td>HP 1</td><td>Hippeutis (moluska)</td></tr>
+          <tr><td>HP 2</td><td>Viviparus javanicus, keong/ikan air tawar</td></tr>
+          <tr><td>Reservoir</td><td>Tikus, anjing</td></tr>
+          <tr><td>Stadium infektif</td><td class="hl-amber">Metaserkaria</td></tr>
+        </table>
+        <div class="info-box amber">
+          <div class="box-title">⚠️ Perhatian Khusus</div>
+          Hati-hati makan <strong>keong air tawar mentah</strong> — kebiasaan di Cina, Jepang, Taiwan, Vietnam. Sushi yang tidak matang sempurna juga berisiko.
+        </div>
+        <div class="info-box teal">
+          <div class="box-title">🩺 Gejala Klinis</div>
+          Inflamasi lokal, diare, abdominal pain — gejala GIT karena adanya oral dan ventral sucker.
+        </div>
+      </div>
+    </div>
+
+    <!-- Heterophyes -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐟</div>
+          <div>
+            <div class="org-name">Heterophyes heterophyes <em>Heterophyes heterophyes</em></div>
+            <div class="org-badges">
+              <span class="badge green">Usus Halus</span>
+              <span class="badge rose">3 Sucker! ★</span>
+              <span class="badge blue">HP 2: Ikan</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Ciri khas</td><td class="hl">3 sucker: oral sucker, ventral sucker, dan GENITAL sucker</td></tr>
+          <tr><td>HP 1</td><td>Keong (Pirenella)</td></tr>
+          <tr><td>HP 2</td><td class="hl-amber">Ikan air tawar (water fish) — BERBEDA dari Echinostoma</td></tr>
+          <tr><td>Reservoir</td><td>Anjing, burung, kucing</td></tr>
+          <tr><td>Stadium infektif</td><td>Metaserkaria dalam ikan</td></tr>
+          <tr><td>Distribusi</td><td>Filipina, Jepang, Korea, Cina, Taiwan, India, Indonesia</td></tr>
+        </table>
+        <div class="info-box rose">
+          <div class="box-title">⚠️ Risiko Utama</div>
+          <strong>Undercook fish</strong> (ikan yang tidak dimasak matang) → metaserkaria masuk ke manusia. Sushi atau ikan diasamkan dari daerah endemis berisiko tinggi!
+        </div>
+        <div class="clinical-box">
+          <h4>🧠 Clinical Reasoning <span>— Heterophyes</span></h4>
+          <div class="cr-grid">
+            <div class="cr-item"><div class="cr-label">Gejala Kunci</div><div class="cr-val">Diare, nyeri abdomen; mirip enteritis biasa</div></div>
+            <div class="cr-item"><div class="cr-label">Riwayat</div><div class="cr-val">Makan ikan mentah/kurang matang, perjalanan ke Asia Timur/Tenggara</div></div>
+            <div class="cr-item"><div class="cr-label">Diagnosis</div><div class="cr-val">Telur dalam feses; morfologi sulit dibedakan antar spesies</div></div>
+            <div class="cr-item"><div class="cr-label">Terapi</div><div class="cr-val">Prazikuantel</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metagonimus -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🫧</div>
+          <div>
+            <div class="org-name">Metagonimus yokogawai <em>Metagonimus yokogawai</em></div>
+            <div class="org-badges">
+              <span class="badge green">Usus Halus</span>
+              <span class="badge blue">HP 2: Ikan Air Tawar</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>HP 1</td><td>Keong (moluska)</td></tr>
+          <tr><td>HP 2</td><td>Ikan air tawar</td></tr>
+          <tr><td>Distribusi</td><td>Rusia, Spanyol, Israel, Jepang, Indonesia</td></tr>
+          <tr><td>Terapi</td><td>Prazikuantel</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: TREMATODA HATI -->
+  <div class="tab-panel" id="trema-tabs-hati">
+
+    <!-- Fasciola hepatica -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🫀</div>
+          <div>
+            <div class="org-name">Fasciola hepatica <em>Fasciola hepatica</em></div>
+            <div class="org-badges">
+              <span class="badge amber">Duktus Biliaris ★</span>
+              <span class="badge rose">Hewan Kurban!</span>
+              <span class="badge blue">HP 2: Tumbuhan Air</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <div class="info-box amber">
+          <div class="box-title">🐑 Konteks Klinis Penting</div>
+          Fasciola hepatica ditemukan pada <strong>hati hewan kurban (sapi & domba)</strong>. Saat pemotongan kurban, Dinas Pertanian melakukan sampling untuk deteksi cacing ini pada organ hati.
+        </div>
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Habitat dewasa</td><td class="hl">Duktus biliaris hepatika</td></tr>
+          <tr><td>Hospes definitif</td><td>Sapi, domba (utama); manusia (kadang)</td></tr>
+          <tr><td>HP 1</td><td>Moluska (siput)</td></tr>
+          <tr><td>HP 2</td><td class="hl-amber">Tumbuhan air</td></tr>
+          <tr><td>Stadium infektif</td><td>Metaserkaria (pada tumbuhan air)</td></tr>
+          <tr><td>Stadium diagnostik</td><td>Telur dalam feses; serodiagnosis antigen cacing dewasa</td></tr>
+        </table>
+        <div class="info-box teal">
+          <div class="box-title">🩺 Gejala Klinis: Fasciolosis Akut</div>
+          <ul class="key-points">
+            <li>Fase migrasi: demam, eosinofilia (Fasciolic Eosinophilic Syndrome)</li>
+            <li class="highlight">Fase kronik: sumbatan saluran empedu → kolangitis, pembesaran hati</li>
+            <li class="warning">Bisa terjadi hepatomegali, ikterus obstruktif</li>
+            <li>IgE meningkat (sama dengan alergi)</li>
+          </ul>
+        </div>
+        <div class="clinical-box">
+          <h4>🧠 Clinical Reasoning <span>— Fasciola hepatica</span></h4>
+          <div class="cr-grid">
+            <div class="cr-item"><div class="cr-label">Gejala Kunci</div><div class="cr-val">Demam, nyeri RUQ, hepatomegali, ikterus — + eosinofilia tinggi</div></div>
+            <div class="cr-item"><div class="cr-label">Riwayat</div><div class="cr-val">Makan tumbuhan air mentah (selada air) dari daerah peternakan</div></div>
+            <div class="cr-item"><div class="cr-label">Diagnosis</div><td>Telur di feses; serodiagnosis (ELISA antigen cacing)</div></div>
+            <div class="cr-item"><div class="cr-label">Terapi</div><div class="cr-val">Prazikuantel; Bitionol; Hexachloroparaxylene</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clonorchis sinensis -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐾</div>
+          <div>
+            <div class="org-name">Clonorchis sinensis <em>Clonorchis sinensis</em></div>
+            <div class="org-badges">
+              <span class="badge amber">Saluran Empedu</span>
+              <span class="badge blue">HP 2: Ikan Air Tawar</span>
+              <span class="badge violet">Anjing & Kucing</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Habitat</td><td class="hl">Saluran empedu (bukan hanya hepar)</td></tr>
+          <tr><td>Hospes definitif</td><td>Manusia, anjing, kucing, hewan pemakan ikan</td></tr>
+          <tr><td>HP 1</td><td>Parafossarulus manchouricus (keong)</td></tr>
+          <tr><td>HP 2</td><td class="hl-amber">Ikan air tawar</td></tr>
+          <tr><td>Telur</td><td>Punya operkulum + <span class="hl">pundak kecil</span> (shoulder)</td></tr>
+          <tr><td>Imunologi</td><td>IgE meningkat</td></tr>
+        </table>
+        <div class="info-box rose">
+          <div class="box-title">🐱 Catatan Penting tentang Kucing & Anjing</div>
+          Kucing dan anjing adalah hospes definitif! Hewan peliharaan yang makan ikan mentah bisa menjadi sumber penularan. Periksa ke dokter hewan, vaksinasi, dan rawat luka terbuka pada hewan peliharaan.
+        </div>
+      </div>
+    </div>
+
+    <!-- Opisthorchis viverrini -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🎣</div>
+          <div>
+            <div class="org-name">Opisthorchis viverrini <em>Opisthorchis viverrini</em></div>
+            <div class="org-badges">
+              <span class="badge amber">Saluran Empedu</span>
+              <span class="badge blue">HP 2: Ikan Air Tawar</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>HP 1</td><td>Keong Bithynia</td></tr>
+          <tr><td>HP 2</td><td>Ikan air tawar (cyprinid)</td></tr>
+          <tr><td>Imunologi</td><td>IgE meningkat (mirip alergi)</td></tr>
+          <tr><td>Terapi</td><td>Prazikuantel</td></tr>
+        </table>
+        <div class="info-box teal">
+          Mirip dengan Clonorchis sinensis; perbedaan utama pada spesies keong dan ikan yang menjadi hospes perantara.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: TREMATODA DARAH -->
+  <div class="tab-panel" id="trema-tabs-darah">
+
+    <div class="info-box rose">
+      <div class="box-title">🔴 Schistosoma — Berbeda dari Semua Trematoda Lain!</div>
+      <ul class="key-points">
+        <li class="highlight">Serkaria <span class="hl">BEREKOR GANDA</span> (trematoda lain berekor tunggal)</li>
+        <li class="highlight">Stadium infektif: <span class="hl-rose">Serkaria langsung menembus kulit</span> (bukan metaserkaria!)</li>
+        <li>Tidak hermafrodit — punya jenis kelamin terpisah (jantan & betina berpasangan)</li>
+        <li>Serkaria masuk → melepas ekor di kulit → beredar dalam darah → menuju habitat spesifik</li>
+      </ul>
+    </div>
+
+    <!-- Schistosoma -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🩸</div>
+          <div>
+            <div class="org-name">Schistosoma spp. <em>3 Spesies Utama</em></div>
+            <div class="org-badges">
+              <span class="badge rose">Vena Mesenterika</span>
+              <span class="badge rose">Masuk Lewat Kulit ★</span>
+              <span class="badge amber">Serkaria Berekor Ganda ★</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Spesies</th><th>Hospes Perantara</th><th>Habitat Dewasa</th><th>Stadium Diagnostik</th></tr>
+          <tr><td><em>S. japonicum</em></td><td>Oncomelania</td><td class="hl">Vena mesenterika SUPERIOR</td><td>Telur di feses</td></tr>
+          <tr><td><em>S. mansoni</em></td><td>Biomphalaria</td><td class="hl">Vena mesenterika INFERIOR</td><td>Telur di feses</td></tr>
+          <tr><td><em>S. haematobium</em></td><td>Bulinus</td><td class="hl">Vena vesikalis</td><td class="hl-amber">Telur di URIN ★</td></tr>
+        </table>
+        <div class="lifecycle">
+          <div class="lc-step">Telur (belum berembrio)</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step">Air → Mirasidium</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step">HP: Siput (Moluska)</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step infective">★ Serkaria berekor GANDA (langsung ke kulit)</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step">Penetrasi Kulit → lepas ekor</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step">Sirkulasi Darah Tepi → menuju habitat</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step">Cacing Dewasa (berpasangan)</div>
+          <div class="lc-arrow">→</div>
+          <div class="lc-step diagnostic">★ Telur di feses/urin</div>
+        </div>
+        <div class="info-box rose">
+          <div class="box-title">🩺 Gejala Klinis — Schistosoma haematobium</div>
+          <ul class="key-points">
+            <li class="warning">Hematuria (darah dalam urin — telur menembus dinding kandung kemih)</li>
+            <li class="warning">Granuloma, fibrosis, sistitis, uretritis</li>
+            <li class="warning">Dapat berkembang menjadi <span class="hl-rose">KANKER KANDUNG KEMIH</span></li>
+            <li>Infeksi berat ♂: sumbatan limfatik skrotum → elevantiasis</li>
+          </ul>
+        </div>
+        <div class="clinical-box">
+          <h4>🧠 Clinical Reasoning <span>— Schistosoma</span></h4>
+          <div class="cr-grid">
+            <div class="cr-item"><div class="cr-label">Riwayat Kunci</div><div class="cr-val">Bekerja/berenang di air (sawah, kolam) tanpa APD di daerah endemis</div></div>
+            <div class="cr-item"><div class="cr-label">Cercarial Dermatitis</div><div class="cr-val">Gatal dan ruam saat penetrasi serkaria ("swimmer's itch")</div></div>
+            <div class="cr-item"><div class="cr-label">S. haematobium</div><div class="cr-val">Hematuria + nyeri pelvis → curiga kanker kandung kemih jika kronik</div></div>
+            <div class="cr-item"><div class="cr-label">Diagnosis</div><div class="cr-val">Telur di urin/feses; CT abdomen; serologi</div></div>
+            <div class="cr-item"><div class="cr-label">Terapi</div><div class="cr-val">Prazikuantel; Oksamniquine; Metrifonat</div></div>
+            <div class="cr-item"><div class="cr-label">Pencegahan</div><div class="cr-val">APD saat bekerja di air; molusida untuk membasmi keong; jangan BAB/berkemih di air yang ada keongnya</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════ CESTODA ═══════════════ -->
+<section id="cestoda">
+  <div class="section-label">Bagian 2</div>
+  <div class="section-title">🪱 <span>Cestoda</span> — Cacing Pita</div>
+
+  <div class="overview-grid">
+    <div class="ov-card">
+      <div class="ov-icon">📌</div>
+      <h3>Skoleks</h3>
+      <p>Kepala cacing pita, alat penempel ke dinding usus</p>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon">🔗</div>
+      <h3>Proglotid</h3>
+      <p>Segmen tubuh (imatur → matur → gravid)</p>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon">🎯</div>
+      <h3>Strobila</h3>
+      <p>Seluruh rantai proglotid</p>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon">⚠️</div>
+      <h3>Khas!</h3>
+      <p>Segmen gravid bisa keluar dari anus secara aktif</p>
+    </div>
+  </div>
+
+  <div class="tabs" id="ces-tabs">
+    <button class="tab-btn active" onclick="switchTab('ces-tabs','tenia')">🥩 Taeniasis & Sistiserkosis</button>
+    <button class="tab-btn" onclick="switchTab('ces-tabs','diphyllo')">🐟 Diphyllobothriasis</button>
+    <button class="tab-btn" onclick="switchTab('ces-tabs','lain')">🦟 Cestoda Lainnya</button>
+  </div>
+
+  <!-- TAB: TAENIA -->
+  <div class="tab-panel active" id="ces-tabs-tenia">
+
+    <div class="info-box blue">
+      <div class="box-title">⚠️ Penting: Taeniasis vs Sistiserkosis</div>
+      <strong>Taeniasis</strong> = infeksi cacing dewasa di usus halus (dari makan daging terinfeksi larva/sistiserkus) |
+      <strong>Sistiserkosis</strong> = infeksi LARVA di jaringan tubuh manusia (dari menelan TELUR). Bisa terjadi pada otak, mata, otot, jantung!
+    </div>
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐄</div>
+          <div>
+            <div class="org-name">Taenia saginata <em>Taenia saginata</em> — Cacing Sapi</div>
+            <div class="org-badges">
+              <span class="badge amber">Sapi ★</span>
+              <span class="badge green">Usus Halus</span>
+              <span class="badge blue">Proglotid > panjang</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>T. saginata</th></tr>
+          <tr><td>Hospes definitif</td><td>Manusia (di usus halus)</td></tr>
+          <tr><td>Hospes perantara</td><td class="hl">Sapi</td></tr>
+          <tr><td>Endemis di Indonesia</td><td>Bali (suka makan daging sapi mentah — <strong>lawar</strong>), Samosir & Simalur (Sumatera Utara)</td></tr>
+          <tr><td>Proglotid matur</td><td>Uterus bercabang >15 (lebih banyak dari T. solium)</td></tr>
+          <tr><td>Sistiserkosis pada manusia</td><td>Tidak terjadi (T. saginata hanya menyebabkan taeniasis)</td></tr>
+          <tr><td>Skoleks</td><td>4 suckers, <span class="hl">tanpa rostelum/kait</span></td></tr>
+          <tr><td>Stadium infektif</td><td>Sistiserkus dalam otot sapi</td></tr>
+          <tr><td>Stadium diagnostik</td><td class="hl-amber">Telur dan proglotid gravid dalam feses; proglotid keluar dari anus spontan</td></tr>
+        </table>
+        <div class="info-box teal">
+          <div class="box-title">📖 Kasus Klinis Nyata (dari kuliah)</div>
+          Seorang ibu membawa "sepotong roti berwarna putih seperti kotak" ke lab → teridentifikasi sebagai <strong>proglotid T. saginata</strong>. Ibu tersebut <em>suka mencicip daging sapi sebelum dimasak</em>. Gejala tidak berat — hanya keluarnya proglotid putih bergerak aktif dari anus, tanpa demam/nyeri perut yang berarti. Dampak psikologis: <strong>kecemasan berat</strong> mengetahui ada cacing dalam tubuh.
+        </div>
+      </div>
+    </div>
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐷</div>
+          <div>
+            <div class="org-name">Taenia solium <em>Taenia solium</em> — Cacing Babi</div>
+            <div class="org-badges">
+              <span class="badge rose">Babi ★</span>
+              <span class="badge rose">Neurosistiserkosis ⚠️</span>
+              <span class="badge amber">Papua & Bali</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>T. solium</th></tr>
+          <tr><td>Hospes definitif</td><td>Manusia (usus halus)</td></tr>
+          <tr><td>Hospes perantara</td><td class="hl">Babi</td></tr>
+          <tr><td>Skoleks</td><td>4 suckers + <span class="hl-rose">rostelum dengan kait (armed)</span> — berbeda dari T. saginata!</td></tr>
+          <tr><td>Endemis di Indonesia</td><td>Papua (Lembah Baliem/Dani) — masak babi dengan batu panas kurang matang; Karangasem Bali</td></tr>
+          <tr><td>Proglotid matur</td><td>Uterus bercabang <15</td></tr>
+          <tr><td>Sistiserkosis</td><td class="hl-rose">BISA terjadi pada manusia! (dari menelan telur)</td></tr>
+        </table>
+        <div class="info-box rose">
+          <div class="box-title">🧠 Neurosistiserkosis — Komplikasi Serius!</div>
+          Onkosfer (larva dari telur yang tertelan) menembus dinding usus → hematogen → ke <strong>otak, mata, otot, jantung</strong> → membentuk kista (sistiserkus) → <strong>kejang, penurunan kesadaran, defisit neurologis</strong>. Seringkali ditemukan saat CT/MRI atau bahkan saat operasi! (<em>Neglected disease</em>)
+        </div>
+        <div class="clinical-box">
+          <h4>🧠 Clinical Reasoning <span>— Neurosistiserkosis</span></h4>
+          <div class="cr-grid">
+            <div class="cr-item"><div class="cr-label">Gejala Kunci</div><div class="cr-val">Kejang onset baru, sakit kepala, + riwayat makan babi kurang matang di daerah endemis</div></div>
+            <div class="cr-item"><div class="cr-label">Red Flag</div><div class="cr-val">Kejang yang tidak berespon terhadap terapi standar → pikirkan NCC</div></div>
+            <div class="cr-item"><div class="cr-label">Pemeriksaan</div><div class="cr-val">CT/MRI otak (kista + scolex/dot sign); Serologi (EITB/Western blot); PCR untuk identifikasi spesies</div></div>
+            <div class="cr-item"><div class="cr-label">Terapi</div><div class="cr-val">Prazikuantel 50mg/kgBB/hari ÷3 dosis selama 15 hari; Albendazol 15mg/kgBB; Anti-epilepsi; Bedah jika okular</div></div>
+            <div class="cr-item"><div class="cr-label">Resistensi</div><div class="cr-val">Jika resisten prazikuantel → Niklosamid (alternatif)</div></div>
+            <div class="cr-item"><div class="cr-label">Rujuk</div><div class="cr-val">Sistiserkosis okular → rujuk segera ke spesialis mata + bedah</div></div>
+          </div>
+        </div>
+        <div class="info-box violet">
+          <div class="box-title">🔬 Pemeriksaan Diagnostik Taeniasis/Sistiserkosis</div>
+          <ul class="key-points">
+            <li>Feses mikroskopik: telur bulat, garis radial di tepian (mirip T. saginata — tidak bisa dibedakan dengan mikroskop!)</li>
+            <li>Koproantigen ELISA: deteksi antigen parasit dalam tinja bahkan sebelum pelepasan proglotid</li>
+            <li>PCR: identifikasi DNA spesifik → bedakan T. solium / saginata / asiatica</li>
+            <li>CT/MRI/Xray/Biopsi jaringan: untuk sistiserkosis</li>
+            <li>CSF dan serologi darah (Western blot) untuk NCC</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taenia asiatica -->
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🌏</div>
+          <div>
+            <div class="org-name">Taenia asiatica <em>Taenia asiatica</em></div>
+            <div class="org-badges">
+              <span class="badge blue">Babi (hati)</span>
+              <span class="badge amber">Samosir & Simalur</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <div class="info-box teal">
+          Endemis di <strong>Pulau Samosir dan Kabupaten Singalur</strong> (Sumatera Utara) — prevalensi sampai 65,4% di desa tertentu (Surbakti Dolok). Hospes perantara babi, larva di hati babi.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: DIPHYLLOBOTHRIUM -->
+  <div class="tab-panel" id="ces-tabs-diphyllo">
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🦐</div>
+          <div>
+            <div class="org-name">Diphyllobothrium latum <em>D. latum</em></div>
+            <div class="org-badges">
+              <span class="badge blue">HP 1: Cyclops</span>
+              <span class="badge blue">HP 2: Ikan Air Tawar</span>
+              <span class="badge violet">Paling Panjang!</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <div class="info-box blue">
+          <div class="box-title">🔄 Siklus Hidup Unik Diphyllobothrium</div>
+          <div class="lifecycle">
+            <div class="lc-step">Telur (belum berembrio)</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step">Air → Korasidia</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step">HP 1: Cyclops (krustasea) → Proserkoid</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step">Cyclops dimakan ikan air tawar → Pleroserkoid</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step">Ikan dimakan ikan lain</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step infective">★ Dimakan manusia (Pleroserkoid = infektif)</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step">Cacing dewasa di GIT</div>
+            <div class="lc-arrow">→</div>
+            <div class="lc-step diagnostic">★ Telur di feses</div>
+          </div>
+        </div>
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Ciri khas skoleks</td><td><span class="hl">Batin isap memanjang (bothria)</span> — berbeda dari Taenia!</td></tr>
+          <tr><td>Proglotid</td><td>3.000 segmen; grafik 4/5 dari ukuran proglotid</td></tr>
+          <tr><td>Stadium infektif</td><td class="hl-amber">Pleroserkoid (dalam ikan air tawar)</td></tr>
+          <tr><td>Komplikasi</td><td>Defisiensi Vit B12 → anemia megaloblastik (cacing bersaing menyerap B12)</td></tr>
+          <tr><td>Terapi</td><td>Prazikuantel</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: LAINNYA -->
+  <div class="tab-panel" id="ces-tabs-lain">
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🦟</div>
+          <div>
+            <div class="org-name">Hymenolepis nana & H. diminuta</div>
+            <div class="org-badges">
+              <span class="badge green">Usus Halus</span>
+              <span class="badge blue">Serangga sebagai HP</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Spesies</th><th>HP</th><th>Khas</th></tr>
+          <tr><td>H. nana</td><td>Insekta (artropoda)</td><td>Stadium siserkoid berkembang dalam insekta; masuk manusia via kontaminasi makanan/minuman</td></tr>
+          <tr><td>H. diminuta</td><td>Arthropoda</td><td>Telur punya <span class="hl">filamen</span> — ciri khas!</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐕</div>
+          <div>
+            <div class="org-name">Dipylidium caninum</div>
+            <div class="org-badges">
+              <span class="badge violet">HP: Pinjal Anjing/Kucing</span>
+              <span class="badge amber">Telur bergerombol 8-15</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>HP</td><td>Pinjal anjing/kucing (Ctenocephalides)</td></tr>
+          <tr><td>Ciri khas telur</td><td class="hl">Berkelompok 8-15 dalam kapsul telur</td></tr>
+          <tr><td>Skoleks</td><td>Punya rostelum dengan kait (armed)</td></tr>
+          <tr><td>Penularan</td><td>Menelan pinjal yang terinfeksi (terutama pada anak-anak)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐺</div>
+          <div>
+            <div class="org-name">Echinococcus granulosus — Hidatidosis</div>
+            <div class="org-badges">
+              <span class="badge rose">Anjing = definitif</span>
+              <span class="badge amber">Kista Hidatid</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Hospes definitif</td><td>Anjing dan karnivora lain</td></tr>
+          <tr><td>Hospes perantara</td><td>Manusia dan herbivora (domba, sapi)</td></tr>
+          <tr><td>Mekanisme</td><td>Menelan telur → larva hidatik membentuk <span class="hl">kista hidatid</span> di hati, paru, dll.</td></tr>
+          <tr><td>Klinis</td><td>Massa kistik di hati/paru; dapat ruptur → anafilaksis!</td></tr>
+          <tr><td>Terapi</td><td>Albendazol; PAIR (Puncture, Aspiration, Injection, Re-aspiration); Bedah</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="organism-card">
+      <div class="org-header" onclick="toggleCard(this)">
+        <div class="org-header-left">
+          <div class="org-emoji">🐸</div>
+          <div>
+            <div class="org-name">Sparganosis — Spirometra mansoni</div>
+            <div class="org-badges">
+              <span class="badge green">Larva di Katak</span>
+              <span class="badge rose">Pengobatan katak ditempalkan!</span>
+            </div>
+          </div>
+        </div>
+        <div class="org-chevron">▼</div>
+      </div>
+      <div class="org-body">
+        <table class="data-table">
+          <tr><th>Aspek</th><th>Detail</th></tr>
+          <tr><td>Agen</td><td>Larva (sparganum) dari <em>Spirometra mansoni</em></td></tr>
+          <tr><td>Reservoar larva</td><td>Katak dan ular</td></tr>
+          <tr><td>Tradisi berbahaya</td><td>Di beberapa daerah, katak digunakan sebagai "obat" dengan cara ditempelkan ke luka → larva masuk ke manusia</td></tr>
+          <tr><td>Klinis</td><td>Masa subkutan bergerak, inflamasi okular jika mengenai mata</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════ PERBANDINGAN ═══════════════ -->
+<section id="perbandingan">
+  <div class="section-label">Ringkasan</div>
+  <div class="section-title">⚖️ Tabel <span>Perbandingan</span> Cepat</div>
+
+  <div class="comp-section">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Organisme</th>
+          <th class="trema">HP 1</th>
+          <th class="trema">HP 2</th>
+          <th class="trema">Stadium Infektif</th>
+          <th class="trema">Habitat Dewasa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Fasciolopsis buski</td><td>Segmentina, Hippeutis</td><td>Tumbuhan air</td><td>Metaserkaria</td><td>Duodenum-jejunum</td></tr>
+        <tr><td>Echinostoma sp.</td><td>Hippeutis</td><td>Keong/Ikan</td><td>Metaserkaria</td><td>Usus halus</td></tr>
+        <tr><td>Heterophyes h.</td><td>Keong (Pirenella)</td><td>Ikan air tawar</td><td>Metaserkaria</td><td>Usus halus</td></tr>
+        <tr><td>Fasciola hepatica</td><td>Moluska/siput</td><td>Tumbuhan air</td><td>Metaserkaria</td><td>Duktus biliaris</td></tr>
+        <tr><td>Clonorchis sinensis</td><td>Parafossarulus</td><td>Ikan air tawar</td><td>Metaserkaria</td><td>Saluran empedu</td></tr>
+        <tr><td>Opisthorchis v.</td><td>Keong Bithynia</td><td>Ikan air tawar</td><td>Metaserkaria</td><td>Saluran empedu</td></tr>
+        <tr><td><strong>Schistosoma sp.</strong></td><td>Siput (Oncomelania dll.)</td><td><strong>—</strong></td><td><strong style="color:var(--accent-rose)">Serkaria (kulit!)</strong></td><td>Vena mesenterika/vesikalis</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <div class="comp-section">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Cestoda</th>
+          <th class="ces">Hospes Definitif</th>
+          <th class="ces">Hospes Perantara</th>
+          <th class="ces">Stadium Infektif</th>
+          <th class="ces">Khas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>T. saginata</td><td>Manusia</td><td>Sapi</td><td>Sistiserkus (daging sapi)</td><td>Tidak ada kait; tidak sistiserkosis pada manusia</td></tr>
+        <tr><td>T. solium</td><td>Manusia</td><td>Babi</td><td>Sistiserkus (daging babi)</td><td>Ada kait (armed); bisa sistiserkosis pada manusia!</td></tr>
+        <tr><td>T. asiatica</td><td>Manusia</td><td>Babi (hati)</td><td>Sistiserkus</td><td>Endemis Samosir, Simalur</td></tr>
+        <tr><td>D. latum</td><td>Manusia</td><td>Cyclops → Ikan</td><td>Pleroserkoid</td><td>Anemia Vit B12; bothria (bukan sucker)</td></tr>
+        <tr><td>H. nana</td><td>Manusia</td><td>Insekta</td><td>Siserkoid</td><td>Via makanan/minuman terkontaminasi</td></tr>
+        <tr><td>Echinococcus</td><td>Anjing</td><td>Manusia/domba</td><td>Onkosfer (telur)</td><td>Kista hidatid; risiko anafilaksis</td></tr>
+        <tr><td>Spirometra (Sparganosis)</td><td>—</td><td>Katak/ular</td><td>Sparganum (larva)</td><td>Tradisi pengobatan katak berbahaya</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════ OBAT ═══════════════ -->
+<section id="obat">
+  <div class="section-label">Tatalaksana</div>
+  <div class="section-title">💊 Obat-obatan <span>Antihelmin</span></div>
+
+  <div class="drug-card">
+    <div class="drug-icon">💊</div>
+    <div>
+      <div class="drug-name">Prazikuantel</div>
+      <div class="drug-note">Lini pertama — SEMUA trematoda & cestoda</div>
+    </div>
+  </div>
+  <div class="drug-card" style="background: linear-gradient(90deg, #8a4a00, var(--blue-deep));">
+    <div class="drug-icon">💊</div>
+    <div>
+      <div class="drug-name">Albendazol</div>
+      <div class="drug-note">Untuk sistiserkosis — 15mg/kgBB</div>
+    </div>
+  </div>
+  <div class="drug-card" style="background: linear-gradient(90deg, var(--accent-violet), #1a4a7a);">
+    <div class="drug-icon">💊</div>
+    <div>
+      <div class="drug-name">Niklosamid</div>
+      <div class="drug-note">Alternatif jika resisten prazikuantel</div>
+    </div>
+  </div>
+  <div class="drug-card" style="background: linear-gradient(90deg, #6a0030, var(--teal-deep));">
+    <div class="drug-icon">💊</div>
+    <div>
+      <div class="drug-name">Bitionol / Oksamniquine / Metrifonat</div>
+      <div class="drug-note">Alternatif untuk Fasciola / Schistosoma</div>
+    </div>
+  </div>
+
+  <div class="info-box amber" style="margin-top: 20px;">
+    <div class="box-title">📋 Dosis Penting</div>
+    <ul class="key-points">
+      <li><strong>Prazikuantel taeniasis</strong>: 40 mg/kgBB dosis tunggal (cacing usus); untuk sistiserkosis: 50 mg/kgBB/hari ÷3 selama 15 hari</li>
+      <li><strong>Albendazol sistiserkosis</strong>: 15 mg/kgBB/hari</li>
+      <li class="highlight">Jika ada keluhan neurologis → tambah anti-epilepsi!</li>
+      <li class="warning">Sistiserkosis okular → RUJUK ke spesialis mata (bukan ranah dokter umum)</li>
+    </ul>
+  </div>
+
+  <div class="info-box violet">
+    <div class="box-title">🏥 Pendekatan One Health</div>
+    Penanganan helmintiasis tidak cukup dengan mengobati individu saja. Diperlukan kolaborasi lintas sektoral:
+    <ul class="key-points" style="margin-top: 8px;">
+      <li><strong>Dinas Kesehatan</strong>: pengobatan massal, edukasi masyarakat, sanitasi</li>
+      <li><strong>Dinas Pertanian / Drh (Dokter Hewan)</strong>: inspeksi pemotongan, pengobatan cacing pada ternak</li>
+      <li><strong>Masyarakat</strong>: sanitasi lingkungan, pengolahan makanan yang benar, BAB di tempat yang tepat</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-rule">
+
+<!-- ═══════════════ QUIZ ═══════════════ -->
+<section id="quiz-section">
+  <div class="section-label">Uji Pemahaman</div>
+  <div class="section-title">✏️ Quiz <span>Interaktif</span></div>
+
+  <div id="quiz-wrapper">
+    <div class="quiz-title">Mini Quiz Parasitologi</div>
+    <p class="quiz-subtitle">15 soal pilihan ganda berbasis kasus dan konsep kunci dari materi trematoda & cestoda.</p>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgress" style="width:0%"></div></div>
+
+    <div id="quiz-body">
+      <div class="q-counter" id="qCounter">Soal 1 / 15</div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-options" id="qOptions"></div>
+      <div class="q-feedback" id="qFeedback"></div>
+      <div class="quiz-nav">
+        <span style="font-size:13px; color: var(--ink-light);" id="qScore">Benar: 0</span>
+        <button class="btn btn-primary" id="qNextBtn" onclick="nextQuestion()" disabled>Lanjut →</button>
+      </div>
+    </div>
+
+    <div class="quiz-result" id="quizResult">
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-label" id="resultLabel"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="result-bars">
+        <div class="rb"><div class="rb-num" id="resCorrect">0</div><div class="rb-lbl">Benar</div></div>
+        <div class="rb"><div class="rb-num" id="resWrong">0</div><div class="rb-lbl">Salah</div></div>
+      </div>
+      <button class="btn btn-primary" onclick="restartQuiz()">🔄 Ulangi Quiz</button>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>Parasitologi Medis — Blok Digestif</strong><br>
+  Trematoda & Cestoda · Universitas Muhammadiyah Surakarta<br>
+  <span style="font-size:11px; opacity:0.6;">Disusun berdasarkan materi kuliah. Untuk kepentingan belajar.</span>
+</footer>
+
+<script>
+// ─── TOGGLE CARDS ───
+function toggleCard(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.org-chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// ─── TABS ───
+function switchTab(groupId, tabId) {
+  const group = document.getElementById(groupId);
+  const panels = document.querySelectorAll(`[id^="${groupId}-"]`);
+  const buttons = group.querySelectorAll('.tab-btn');
+  panels.forEach(p => p.classList.remove('active'));
+  buttons.forEach(b => b.classList.remove('active'));
+  const targetPanel = document.getElementById(`${groupId}-${tabId}`);
+  if (targetPanel) targetPanel.classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ─── QUIZ DATA ───
+const questions = [
+  {
+    q: "Seorang pasien datang dengan gejala nyeri abdomen dan diare. Riwayat: sering makan tanaman air mentah (kangkung, teratai air) di daerah pedesaan Papua. Temuan laboratorium: eosinofilia. Apakah organisme yang paling mungkin?",
+    opts: ["Schistosoma japonicum","Fasciolopsis buski","Taenia saginata","Clonorchis sinensis"],
+    correct: 1,
+    feedback: "✅ Fasciolopsis buski habitatnya di duodenum-jejunum, endemic di Indonesia termasuk Papua. Infeksi melalui makan tumbuhan air yang mengandung metaserkaria. Eosinofilia khas pada infeksi cacing."
+  },
+  {
+    q: "Stadium manakah yang disebut 'stadium infektif' pada sebagian besar Trematoda usus & hati?",
+    opts: ["Mirasidium","Serkaria","Metaserkaria","Redia"],
+    correct: 2,
+    feedback: "✅ Metaserkaria adalah stadium yang telah mengkista (terlindungi oleh kista) dan merupakan stadium infektif yang dapat menginfeksi manusia melalui konsumsi hospes perantara 2."
+  },
+  {
+    q: "Schistosoma BERBEDA dari trematoda lain karena stadium infektifnya adalah...",
+    opts: ["Metaserkaria yang termakan bersama tumbuhan air","Serkaria berekor tunggal","Serkaria berekor GANDA yang menembus kulit langsung","Mirasidium yang masuk melalui mulut"],
+    correct: 2,
+    feedback: "✅ Serkaria Schistosoma berekor ganda dan masuk ke tubuh manusia dengan cara menembus kulit secara langsung — tidak melalui metaserkaria/makanan! Ini adalah perbedaan paling khas."
+  },
+  {
+    q: "Seorang dokter memeriksa feses pasien dengan riwayat makan ikan mentah dari Jepang. Ditemukan telur kecil dengan operkulum. Organisme mana yang memiliki tiga sucker (oral, ventral, dan genital sucker)?",
+    opts: ["Clonorchis sinensis","Fasciolopsis buski","Heterophyes heterophyes","Opisthorchis viverrini"],
+    correct: 2,
+    feedback: "✅ Heterophyes heterophyes khas dengan 3 sucker: oral, ventral, dan GENITAL sucker. Hospes perantara 2-nya ikan air tawar."
+  },
+  {
+    q: "Pasien dari Karangasem, Bali, datang dengan keluhan keluarnya 'cacing putih seperti kotak' dari anus. Riwayat: sering makan lawar (daging babi/sapi kurang matang). Organisme yang paling mungkin adalah:",
+    opts: ["Taenia solium","Taenia saginata","Schistosoma haematobium","Diphyllobothrium latum"],
+    correct: 1,
+    feedback: "✅ T. saginata endemis di Bali (Karangasem) karena kebiasaan makan daging sapi mentah (lawar). Proglotid gravid keluar aktif dari anus — tanda patognomonik taeniasis."
+  },
+  {
+    q: "Manakah dari berikut ini yang BENAR mengenai Taenia solium dibanding Taenia saginata?",
+    opts: [
+      "T. solium tidak bisa menyebabkan sistiserkosis pada manusia",
+      "T. solium skoleksnya tidak memiliki kait (unarmed)",
+      "T. solium bisa menyebabkan neurosistiserkosis bila telur tertelan",
+      "T. saginata lebih berbahaya dari T. solium"
+    ],
+    correct: 2,
+    feedback: "✅ T. solium memiliki armed scolex (berkait/rostelum). Yang paling berbahaya: bila manusia menelan TELUR T. solium → onkosfer menembus usus → beredar ke otak/mata/otot → NEUROSISTISERKOSIS (kejang, penurunan kesadaran)."
+  },
+  {
+    q: "Mengapa infeksi cacing selalu menyebabkan eosinofilia dan peningkatan IgE?",
+    opts: [
+      "Karena cacing langsung menyerang sel darah merah",
+      "Cacing mengeluarkan zat antigenik → APC mengaktifkan eosinofil → degranulasi → histamin & IgE meningkat",
+      "Cacing memproduksi racun yang merangsang sumsum tulang",
+      "Eosinofilia hanya terjadi pada infeksi bakteri, bukan cacing"
+    ],
+    correct: 1,
+    feedback: "✅ Cacing melepaskan antigen → dikenali APC → merekrut eosinofil (responder parasit) → degranulasi → histamin ↑, IgE ↑ → gejala mirip alergi. IgE adalah immunoglobulin khas infeksi parasit."
+  },
+  {
+    q: "Seorang pasien dengan hematuria (darah dalam urin), nyeri pelvis, tinggal di Africa Sub-Saharan. CT scan kandung kemih menunjukkan penebalan dinding. Organisme yang paling mungkin adalah:",
+    opts: ["Schistosoma mansoni","Schistosoma japonicum","Schistosoma haematobium","Fasciola hepatica"],
+    correct: 2,
+    feedback: "✅ S. haematobium habitatnya di vena vesikalis (kandung kemih) → telur menembus dinding kandung kemih ke urin → hematuria. Komplikasi berat: kanker kandung kemih (SCC)."
+  },
+  {
+    q: "Pasien datang dengan kejang onset baru, tidak memiliki riwayat epilepsi, berasal dari Lembah Baliem Papua. CT scan otak menunjukkan lesi kistik multipel. Diagnosis yang paling mungkin adalah:",
+    opts: ["Malaria serebral","Neurosistiserkosis (T. solium)","Abses otak bakteri","Toxoplasmosis"],
+    correct: 1,
+    feedback: "✅ Papua (Lembah Dani) endemis T. solium karena tradisi memasak babi dengan batu panas yang kurang matang. Menelan telur T. solium → sistiserkosis di otak (neurosistiserkosis). CT: kista + scolex dot sign."
+  },
+  {
+    q: "Hospes perantara PERTAMA untuk sebagian besar Trematoda adalah:",
+    opts: ["Ikan air tawar","Moluska/siput","Tumbuhan air","Krustasea (Cyclops)"],
+    correct: 1,
+    feedback: "✅ HP pertama untuk hampir semua trematoda adalah MOLUSKA (siput/keong). Di dalamnya mirasidium berkembang menjadi sporosit → redia → serkaria."
+  },
+  {
+    q: "Obat lini pertama untuk hampir semua infeksi trematoda dan cestoda adalah:",
+    opts: ["Albendazol","Niklosamid","Prazikuantel","Mebendazol"],
+    correct: 2,
+    feedback: "✅ Prazikuantel adalah obat pilihan utama untuk hampir semua trematoda dan cestoda. Albendazol digunakan terutama untuk sistiserkosis. Niklosamid adalah alternatif jika resistensi prazikuantel."
+  },
+  {
+    q: "Clonorchis sinensis dan Opisthorchis viverrini memiliki kesamaan dalam hal:",
+    opts: [
+      "Keduanya endemis hanya di Indonesia",
+      "Keduanya habitatnya di saluran empedu dan HP 2-nya adalah ikan air tawar",
+      "Keduanya menyebabkan sistiserkosis",
+      "Keduanya masuk lewat kulit"
+    ],
+    correct: 1,
+    feedback: "✅ Keduanya termasuk trematoda hepatika dengan habitat di saluran empedu, dan HP kedua-duanya adalah ikan air tawar. Perbedaan: spesies keong HP 1 dan distribusi geografis."
+  },
+  {
+    q: "Diphyllobothrium latum unik karena:",
+    opts: [
+      "Stadium infektifnya adalah mirasidium",
+      "HP 1-nya adalah Cyclops (krustasea) dan dapat menyebabkan defisiensi Vit B12",
+      "Cacing dewasanya tinggal di kandung kemih",
+      "Tidak memerlukan hospes perantara"
+    ],
+    correct: 1,
+    feedback: "✅ D. latum unik: HP 1 = Cyclops (bukan moluska!), HP 2 = ikan air tawar. Cacing dewasa di usus halus bersaing menyerap Vit B12 → anemia megaloblastik. Skoleks dengan bothria (bukan sucker biasa)."
+  },
+  {
+    q: "Pendekatan One Health dalam penanganan taeniasis/sistiserkosis melibatkan kolaborasi antara:",
+    opts: [
+      "Hanya dokter dan pasien",
+      "Hanya Dinas Kesehatan",
+      "Dinas Kesehatan, Dinas Pertanian/Drh, dan komunitas masyarakat",
+      "Hanya spesialis parasitologi"
+    ],
+    correct: 2,
+    feedback: "✅ One Health: Dinas Kesehatan (pengobatan, edukasi) + Dinas Pertanian/Dokter Hewan (inspeksi pemotongan, pengobatan ternak) + Masyarakat (sanitasi, masak matang). Kolaborasi lintas sektoral wajib untuk memutus rantai penularan."
+  },
+  {
+    q: "Seorang ibu peternakan datang dengan nyeri kanan atas, demam, dan eosinofilia berat. Riwayat kerja di sawah dekat peternakan sapi. USG hepar: dilatasi duktus biliaris. Organisme PALING mungkin adalah:",
+    opts: ["Fasciolopsis buski","Schistosoma mansoni","Fasciola hepatica","Taenia saginata"],
+    correct: 2,
+    feedback: "✅ Fasciola hepatica habitatnya di duktus biliaris; hospes definitif utama sapi/domba; manusia dapat terinfeksi via tumbuhan air. Gejala: demam, nyeri RUQ, kolangitis, eosinofilia tinggi (Fasciolosis Eosinophilic Syndrome)."
+  }
+];
+
+let currentQ = 0;
+let score = 0;
+let answered = false;
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  document.getElementById('qCounter').textContent = `Soal ${currentQ + 1} / ${questions.length}`;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('qProgress').style.width = `${(currentQ / questions.length) * 100}%`;
+  document.getElementById('qNextBtn').disabled = true;
+  answered = false;
+
+  const fb = document.getElementById('qFeedback');
+  fb.className = 'q-feedback';
+  fb.textContent = '';
+
+  const opts = document.getElementById('qOptions');
+  opts.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'q-option';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentQ];
+  const opts = document.querySelectorAll('.q-option');
+  opts.forEach(b => b.disabled = true);
+  opts[idx].classList.add(idx === q.correct ? 'correct' : 'wrong');
+  if (idx !== q.correct) opts[q.correct].classList.add('correct');
+
+  const fb = document.getElementById('qFeedback');
+  if (idx === q.correct) {
+    score++;
+    fb.className = 'q-feedback correct show';
+    fb.innerHTML = q.feedback;
+  } else {
+    fb.className = 'q-feedback wrong show';
+    fb.innerHTML = `❌ Jawaban kurang tepat. ${q.feedback}`;
+  }
+
+  document.getElementById('qScore').textContent = `Benar: ${score}`;
+  document.getElementById('qNextBtn').disabled = false;
+  document.getElementById('qNextBtn').textContent = currentQ < questions.length - 1 ? 'Lanjut →' : 'Lihat Hasil';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= questions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-body').style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.classList.add('show');
+  const pct = Math.round((score / questions.length) * 100);
+  document.getElementById('resultScore').textContent = `${pct}%`;
+  document.getElementById('resCorrect').textContent = score;
+  document.getElementById('resWrong').textContent = questions.length - score;
+  document.getElementById('qProgress').style.width = '100%';
+
+  let label, msg;
+  if (pct >= 87) { label = '🏆 Luar Biasa!'; msg = 'Pemahaman trematoda & cestoda kamu sangat solid. Siap untuk responsi!'; }
+  else if (pct >= 73) { label = '🌟 Bagus!'; msg = 'Kamu menguasai sebagian besar materi. Review bagian yang kurang tepat ya.'; }
+  else if (pct >= 53) { label = '📚 Terus Belajar!'; msg = 'Masih ada beberapa konsep yang perlu diperkuat. Baca ulang tabel hospes perantara dan stadium infektif.'; }
+  else { label = '💪 Jangan Menyerah!'; msg = 'Review materi dari awal, fokus pada hospes perantara, stadium infektif, dan perbedaan antar organisme.'; }
+
+  document.getElementById('resultLabel').textContent = label;
+  document.getElementById('resultMsg').textContent = msg;
+}
+
+function restartQuiz() {
+  currentQ = 0; score = 0; answered = false;
+  document.getElementById('quiz-body').style.display = 'block';
+  document.getElementById('quizResult').classList.remove('show');
+  document.getElementById('qScore').textContent = 'Benar: 0';
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
