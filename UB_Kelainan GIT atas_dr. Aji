@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelainan Kongenital Orofasial & GIT Atas 🌸</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Playfair+Display:wght@700&display=swap');
+
+  :root {
+    --pink-light: #ffe0ec;
+    --pink-mid: #ffb3cc;
+    --pink-soft: #ffd6e7;
+    --pink-deep: #e8859c;
+    --yellow-soft: #fff8dc;
+    --yellow-mid: #ffe99a;
+    --yellow-warm: #ffd060;
+    --yellow-deep: #e6c050;
+    --cream: #fffbf5;
+    --text-dark: #3a2a2a;
+    --text-mid: #6b4c54;
+    --text-light: #9a7a84;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(232,133,156,0.15);
+    --shadow-hover: 0 8px 32px rgba(232,133,156,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* FLOATING DECORATIONS */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,179,204,0.3), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -100px; left: -100px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,233,154,0.3), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #ffd6e7 0%, #fff8dc 50%, #ffe0ec 100%);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid var(--pink-mid);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🌸💛🌸💛🌸💛🌸';
+    position: absolute;
+    top: 12px; left: 0; right: 0;
+    font-size: 18px;
+    opacity: 0.5;
+    letter-spacing: 20px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--pink-mid);
+    color: var(--text-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--pink-deep); }
+  .hero p {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .meta-chip {
+    background: white;
+    border: 2px solid var(--pink-mid);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-mid);
+  }
+
+  /* NAVIGATION */
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--pink-soft);
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .nav-btn {
+    white-space: nowrap;
+    background: var(--pink-soft);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--pink-deep);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 50px;
+    scroll-margin-top: 70px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .section-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .icon-pink { background: var(--pink-soft); }
+  .icon-yellow { background: var(--yellow-soft); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--text-dark);
+  }
+  .section-title small {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--pink-soft);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 5px; height: 100%;
+    border-radius: 20px 0 0 20px;
+  }
+  .card-pink::before { background: linear-gradient(180deg, var(--pink-mid), var(--pink-deep)); }
+  .card-yellow::before { background: linear-gradient(180deg, var(--yellow-mid), var(--yellow-deep)); }
+  .card-purple::before { background: linear-gradient(180deg, #d4b8e0, #a87bc0); }
+  .card-green::before { background: linear-gradient(180deg, #b8e0c8, #6db88a); }
+
+  .card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* INFO BOXES */
+  .info-box {
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .info-pink { background: var(--pink-soft); border-left: 4px solid var(--pink-deep); }
+  .info-yellow { background: var(--yellow-soft); border-left: 4px solid var(--yellow-warm); }
+  .info-box strong { color: var(--text-dark); }
+
+  /* MNEMONIC */
+  .mnemonic-box {
+    background: linear-gradient(135deg, var(--pink-soft), var(--yellow-soft));
+    border-radius: 20px;
+    padding: 28px;
+    margin: 24px 0;
+    border: 2px dashed var(--pink-mid);
+    text-align: center;
+  }
+  .mnemonic-box .label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--pink-deep);
+    margin-bottom: 10px;
+  }
+  .mnemonic-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--text-dark);
+    margin: 8px 0;
+    letter-spacing: 6px;
+  }
+  .mnemonic-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .mnemonic-item {
+    background: white;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-mid);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .mnemonic-item span { color: var(--pink-deep); font-size: 18px; }
+
+  /* TABLE */
+  .nice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .nice-table th {
+    background: var(--pink-mid);
+    color: var(--text-dark);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .nice-table td {
+    padding: 11px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0e8ec;
+  }
+  .nice-table tr:last-child td { border-bottom: none; }
+  .nice-table tr:nth-child(even) td { background: #fff5f8; }
+  .nice-table tr:nth-child(odd) td { background: white; }
+
+  /* CLASSIFICATION VISUAL */
+  .tipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .tipe-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 14px;
+    text-align: center;
+    border: 2px solid var(--pink-soft);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .tipe-card:hover { border-color: var(--pink-deep); transform: translateY(-2px); }
+  .tipe-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--pink-deep);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .tipe-name { font-size: 12px; font-weight: 700; color: var(--text-mid); margin-bottom: 6px; }
+  .tipe-pct { font-size: 18px; font-weight: 800; color: var(--text-dark); }
+  .tipe-desc { font-size: 11px; color: var(--text-light); margin-top: 4px; line-height: 1.4; }
+
+  /* RULE OF TEN */
+  .ten-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .ten-card {
+    background: linear-gradient(135deg, var(--yellow-soft), #fffdf0);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--yellow-mid);
+  }
+  .ten-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: var(--yellow-deep);
+    line-height: 1;
+  }
+  .ten-label { font-size: 13px; font-weight: 700; color: var(--text-mid); margin-top: 6px; }
+
+  /* FLOW CHART */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 16px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid var(--pink-mid);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-mid);
+    text-align: center;
+    min-width: 100px;
+  }
+  .flow-arrow {
+    font-size: 20px;
+    color: var(--pink-deep);
+    flex-shrink: 0;
+  }
+
+  /* HIGHLIGHT CHIPS */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .chip-pink { background: var(--pink-soft); color: var(--pink-deep); }
+  .chip-yellow { background: var(--yellow-soft); color: #b8900a; }
+  .chip-danger { background: #ffe8e8; color: #d44; }
+  .chip-success { background: #e8f5e9; color: #2e7d32; }
+
+  /* SKDI BADGE */
+  .skdi-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--pink-deep);
+    color: white;
+    border-radius: 8px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* LISTS */
+  .check-list { list-style: none; padding: 0; }
+  .check-list li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    font-size: 15px;
+    border-bottom: 1px dashed #f0e8ec;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: '✿';
+    position: absolute;
+    left: 0;
+    color: var(--pink-deep);
+    font-size: 14px;
+  }
+
+  /* CLINICAL REASONING */
+  .cr-box {
+    background: linear-gradient(135deg, #fff0f5, #fffef0);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    border: 2px solid var(--pink-mid);
+    position: relative;
+  }
+  .cr-box::before {
+    content: '🧠 Clinical Reasoning';
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--pink-deep);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .cr-step {
+    display: flex;
+    gap: 14px;
+    margin: 12px 0;
+    align-items: flex-start;
+  }
+  .cr-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--pink-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* QUIZ */
+  .quiz-section {
+    background: linear-gradient(135deg, #fff5fa, #fffcf0);
+    border-radius: 24px;
+    padding: 36px;
+    border: 3px solid var(--pink-mid);
+  }
+  .quiz-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+  .quiz-section > p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  .quiz-item {
+    background: white;
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--pink-soft);
+  }
+  .quiz-q-header {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .quiz-num {
+    background: var(--pink-deep);
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .vignette {
+    background: var(--pink-soft);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--pink-deep);
+    line-height: 1.7;
+  }
+  .vignette strong { color: var(--pink-deep); }
+  .options { list-style: none; padding: 0; }
+  .options li { margin: 8px 0; }
+  .option-btn {
+    width: 100%;
+    background: #fafafa;
+    border: 2px solid #f0e8ec;
+    border-radius: 12px;
+    padding: 12px 18px;
+    text-align: left;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .option-btn:hover:not(:disabled) {
+    background: var(--pink-soft);
+    border-color: var(--pink-mid);
+    transform: translateX(4px);
+  }
+  .option-btn.correct {
+    background: #e8f5e9;
+    border-color: #66bb6a;
+    color: #1b5e20;
+    font-weight: 800;
+  }
+  .option-btn.wrong {
+    background: #ffebee;
+    border-color: #ef9a9a;
+    color: #b71c1c;
+  }
+  .option-btn.reveal-correct {
+    background: #e8f5e9;
+    border-color: #66bb6a;
+    color: #1b5e20;
+  }
+  .option-letter {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--pink-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .correct .option-letter { background: #66bb6a; color: white; }
+  .wrong .option-letter { background: #ef9a9a; color: white; }
+  .reveal-correct .option-letter { background: #66bb6a; color: white; }
+  .explanation {
+    margin-top: 16px;
+    background: var(--yellow-soft);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    border-left: 4px solid var(--yellow-warm);
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+  .explanation.show { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  .explanation strong { color: #b8900a; }
+
+  /* SCORE TRACKER */
+  .score-bar {
+    background: var(--pink-soft);
+    border-radius: 20px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .score-display { font-size: 24px; font-weight: 800; color: var(--pink-deep); }
+  .score-label { font-size: 13px; color: var(--text-light); font-weight: 600; }
+  .reset-btn {
+    background: var(--pink-deep);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .reset-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* KEY POINT ALERTS */
+  .key-point {
+    background: linear-gradient(135deg, var(--yellow-soft), #fffdf5);
+    border: 2px solid var(--yellow-warm);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .key-point .icon { font-size: 22px; flex-shrink: 0; }
+  .key-point p { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+
+  /* EMBRYO TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--pink-mid), var(--yellow-mid));
+    border-radius: 3px;
+  }
+  .tl-item {
+    position: relative;
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px dashed #f0e8ec;
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -24px; top: 18px;
+    width: 14px; height: 14px;
+    background: var(--pink-deep);
+    border: 3px solid var(--pink-soft);
+    border-radius: 50%;
+  }
+  .tl-time {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--pink-deep);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .tl-desc { font-size: 14px; color: var(--text-mid); }
+
+  /* DIAGNOSIS PATH */
+  .dx-path {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .dx-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: white;
+    border-radius: 14px;
+    padding: 14px 18px;
+    border: 2px solid var(--pink-soft);
+  }
+  .dx-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--pink-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: linear-gradient(135deg, var(--pink-mid), var(--yellow-mid));
+    padding: 30px;
+    text-align: center;
+    color: var(--text-mid);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 60px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .ten-grid { grid-template-columns: repeat(3, 1fr); }
+    .tipe-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 24px 14px; }
+    .quiz-section { padding: 24px 18px; }
+  }
+
+  /* SMOOTH SCROLL */
+  html { scroll-behavior: smooth; }
+
+  /* PROGRESS */
+  .progress-ring {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📚 Modul Digestif · Bedah Anak</div>
+  <h1>Kelainan Kongenital<br><span>Orofasial & GIT Atas</span></h1>
+  <p>Rangkuman lengkap dr. Aji Prabowo, Sp.B, FICS — Untuk Ujian Blok & UKMPPD 🌸</p>
+  <div class="hero-meta">
+    <div class="meta-chip">🌸 3 Topik Utama</div>
+    <div class="meta-chip">💛 SKDI Referensi</div>
+    <div class="meta-chip">🧠 10 Soal Quiz</div>
+    <div class="meta-chip">✨ Mnemonic</div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-sticky">
+  <button class="nav-btn active" onclick="scrollTo('intro')">🌸 Pendahuluan</button>
+  <button class="nav-btn" onclick="scrollTo('clp')">👄 CLP / Bibir Sumbing</button>
+  <button class="nav-btn" onclick="scrollTo('mikro')">🦷 Mikro/Makrognatia</button>
+  <button class="nav-btn" onclick="scrollTo('ea')">🫁 Atresia Esofagus</button>
+  <button class="nav-btn" onclick="scrollTo('vacterl')">🔗 VACTERL</button>
+  <button class="nav-btn" onclick="scrollTo('quiz')">❓ Quiz</button>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════ PENDAHULUAN ══════════════════════ -->
+  <div class="section" id="intro">
+    <div class="section-header">
+      <div class="section-icon icon-pink">🌸</div>
+      <div class="section-title">
+        <small>Overview</small>
+        Pendahuluan Kelainan Kongenital
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>📌 Definisi & Epidemiologi</h3>
+      <p style="font-size:15px; margin-bottom:14px;"><strong>Kelainan kongenital</strong> adalah kelainan susunan tubuh yang mencolok yang terdapat pada bayi pada saat lahir. Insidensi: <strong>2–3%</strong> dari seluruh kelahiran hidup.</p>
+      <div class="info-box info-yellow">
+        <strong>⚠️ Penting:</strong> Beberapa kelainan baru terlihat setelah beberapa bulan/tahun (contoh: Hirschsprung bisa baru terdiagnosis usia 1–2 tahun). Tetap termasuk <em>kelainan kongenital</em>, bukan kelainan yang didapat!
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>🧬 5 Penyebab Penyakit Secara Umum</h3>
+      <div class="chips">
+        <span class="chip chip-pink">🦠 Infeksi</span>
+        <span class="chip chip-yellow">🧬 Kelainan Kongenital</span>
+        <span class="chip chip-pink">🔬 Neoplasma (Tumor)</span>
+        <span class="chip chip-yellow">💥 Trauma</span>
+        <span class="chip chip-pink">⏳ Degeneratif</span>
+      </div>
+      <p style="font-size:14px; margin-top:12px; color:var(--text-mid);">Hari ini kita fokus pada <strong>kelainan kongenital</strong> khususnya orofasial dan traktus digestifus atas.</p>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🔍 Etiologi — MULTIFAKTORIAL</h3>
+      <p style="font-size:14px; margin-bottom:14px; color:var(--text-mid);">Tidak ada satu penyebab tunggal! Selalu multifaktorial:</p>
+      <table class="nice-table">
+        <tr><th>Faktor</th><th>Contoh</th></tr>
+        <tr><td>🦠 Infeksi</td><td>Rubella, CMV, Herpes, Toksoplasma</td></tr>
+        <tr><td>🏭 Lingkungan</td><td>Zat kimia, defisiensi nutrisi, radiasi</td></tr>
+        <tr><td>💊 Obat Teratogenik</td><td>Metotreksat, Karbamazepin, Asam retinoat</td></tr>
+        <tr><td>🧬 Genetik</td><td>Mutasi gen, kelainan kromosom saat pembentukan zigot</td></tr>
+        <tr><td>👩 Faktor Ibu</td><td>Usia lanjut, trauma awal kehamilan, stres psikis</td></tr>
+      </table>
+    </div>
+
+    <div class="key-point">
+      <div class="icon">💡</div>
+      <p>Fase kritis terjadinya kelainan kongenital = <strong>Trimester I (minggu 1–12)</strong>. Pada fase ini terjadi organogenesis/diferensiasi sel. Obat apa pun harus SANGAT hati-hati diberikan pada ibu hamil di fase ini!</p>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>🔬 Deteksi Prenatal — Mengapa Penting?</h3>
+      <div class="chips">
+        <span class="chip chip-yellow">📱 USG (non-invasif)</span>
+        <span class="chip chip-yellow">🩺 Spesialis Fetomaternal</span>
+        <span class="chip chip-pink">🔬 Laparoskopi (invasif)</span>
+      </div>
+      <p style="margin-top:14px; font-size:14px; color:var(--text-mid);">Deteksi dini → planning tatalaksana → menentukan kualitas hidup jangka panjang bayi.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ BIBIR SUMBING ══════════════════════ -->
+  <div class="section" id="clp">
+    <div class="section-header">
+      <div class="section-icon icon-pink">👄</div>
+      <div class="section-title">
+        <small>Cleft Lip & Palate</small>
+        Celah Bibir & Langit-langit (CLP)
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🧬 Embriologi Wajah</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">± 24 hari (minggu ke-3)</div>
+          <div class="tl-desc">Mulai pembentukan tonjolan maksila dan mandibula</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">5–6 minggu</div>
+          <div class="tl-desc">Muncul tonjolan hidung dan mulut (palatum)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">7–10 minggu ← FASE KRITIS ⚠️</div>
+          <div class="tl-desc"><strong>Fusi</strong> antara tonjolan maksila dan hidung medial untuk membentuk wajah. Jika GAGAL → terbentuk celah (cleft)!</div>
+        </div>
+      </div>
+      <div class="info-box info-pink">
+        <strong>Mekanisme:</strong> Bibir sumbing terjadi akibat kegagalan fusi tonjolan maksila dengan prosesus nasalis medial pada usia kehamilan 7–10 minggu.
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>📝 Klasifikasi LAHSAL (Millard)</h3>
+      <p style="font-size:14px; margin-bottom:14px; color:var(--text-mid);">Sistem paling sederhana & sering digunakan. Deskripsi dari <strong>kanan → kiri pasien</strong> (bukan pemeriksa!)</p>
+
+      <div class="mnemonic-box">
+        <div class="label">🌸 Mnemonic LAHSAL</div>
+        <div class="mnemonic-big">L·A·H·S·A·L</div>
+        <div class="mnemonic-items">
+          <div class="mnemonic-item"><span>L</span> Lips (Bibir)</div>
+          <div class="mnemonic-item"><span>A</span> Alveolus (Gusi)</div>
+          <div class="mnemonic-item"><span>H</span> Hard Palate</div>
+          <div class="mnemonic-item"><span>S</span> Soft Palate</div>
+          <div class="mnemonic-item"><span>A</span> Alveolus Kiri</div>
+          <div class="mnemonic-item"><span>L</span> Lips Kiri</div>
+        </div>
+      </div>
+
+      <table class="nice-table">
+        <tr>
+          <th>Notasi</th><th>Artinya</th>
+        </tr>
+        <tr><td><strong>L / A / H</strong> (huruf besar)</td><td>Celah <strong>komplit</strong> (seluruh bagian terkena)</td></tr>
+        <tr><td><strong>l / a / h</strong> (huruf kecil)</td><td>Celah <strong>inkomplit</strong> (hanya sebagian)</td></tr>
+        <tr><td><strong>–</strong> (strip)</td><td>Normal, tidak ada celah</td></tr>
+        <tr><td>Contoh: <strong>LA–S–al</strong></td><td>Bibir & gusi kanan komplit, palatum lunak, gusi & bibir kiri inkomplit</td></tr>
+      </table>
+
+      <div class="info-box info-yellow">
+        <strong>💡 Ingat:</strong> Celah bibir sumbing KIRI lebih sering daripada kanan. Bilateral bisa terjadi.
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🧬 Etiologi CLP</h3>
+      <ul class="check-list">
+        <li><strong>Herediter</strong>: 75% resesif, 25% dominan — mutasi gen spesifik, kelainan kromosom saat pembuahan zigot</li>
+        <li>Usia kehamilan lanjut pada ibu</li>
+        <li>Obat teratogenik saat kehamilan (mis. antikonvulsan, retinoid)</li>
+        <li>Defisiensi nutrisi (as. folat!)</li>
+        <li>Infeksi: Rubela, Sifilis</li>
+        <li>Paparan radiasi, trauma awal kehamilan, stress psikis</li>
+      </ul>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>⚠️ Komplikasi & Masalah Klinis</h3>
+      <table class="nice-table">
+        <tr><th>Masalah</th><th>Mekanisme</th></tr>
+        <tr><td>🍼 Kesulitan minum ASI</td><td>Celah palatum → tidak bisa membuat tekanan negatif untuk menyusu</td></tr>
+        <tr><td>👃 Suara sengau (nasal)</td><td>Komunikasi rongga mulut-hidung tidak sempurna</td></tr>
+        <tr><td>👂 Tuli konduktif</td><td>Tuba Eustachii tidak terbentuk sempurna → gangguan tekanan telinga tengah</td></tr>
+        <tr><td>😟 Masalah psikologis</td><td>Penampilan fisik berbeda → perlu dukungan keluarga & psikolog</td></tr>
+        <tr><td>🦷 Maloklusi gigi</td><td>Celah alveolus mengganggu pertumbuhan gigi</td></tr>
+      </table>
+    </div>
+
+    <div class="cr-box" style="margin-top: 20px;">
+      <div class="cr-step">
+        <div class="cr-num">1</div>
+        <div><strong>Curiga CLP:</strong> Neonatus dengan kesulitan minum ASI, suara sengau, tampak celah pada bibir/langit-langit</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">2</div>
+        <div><strong>Klasifikasi:</strong> Deskripsikan menggunakan LAHSAL dari kanan → kiri pasien, tentukan komplit/inkomplit</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">3</div>
+        <div><strong>Cari kelainan penyerta:</strong> Ingat, satu kelainan kongenital tidak berdiri sendiri — cek VACTERL!</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">4</div>
+        <div><strong>Tatalaksana:</strong> Operasi sesuai "Rule of Ten"</div>
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🔟 Rule of Ten — Syarat Operasi CLP</h3>
+      <div class="ten-grid">
+        <div class="ten-card">
+          <div class="ten-num">10</div>
+          <div class="ten-label">Berat Badan<br>minimal 10 pounds (~4,5 kg)</div>
+        </div>
+        <div class="ten-card">
+          <div class="ten-num">10</div>
+          <div class="ten-label">Hemoglobin<br>minimal 10 g/dL</div>
+        </div>
+        <div class="ten-card">
+          <div class="ten-num">10</div>
+          <div class="ten-label">Usia<br>minimal 10 minggu</div>
+        </div>
+      </div>
+      <div class="info-box info-pink">
+        <strong>⭐ SKDI Bibir Sumbing = 2</strong> (diagnosis + rujuk) <br>
+        Jika berat badan belum 10 pons meski usia sudah lewat → TUNDA operasi, kejar nutrisi dulu. BB kurang → penyembuhan luka buruk.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ MIKRO/MAKROGNATIA ══════════════════════ -->
+  <div class="section" id="mikro">
+    <div class="section-header">
+      <div class="section-icon icon-yellow">🦷</div>
+      <div class="section-title">
+        <small>Kelainan Mandibula</small>
+        Mikrognatia & Makrognatia
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>🔍 Perbandingan Cepat</h3>
+      <table class="nice-table">
+        <tr><th></th><th>Mikrognatia</th><th>Makrognatia</th></tr>
+        <tr><td><strong>Definisi</strong></td><td>Rahang bawah (mandibula) <strong>terlalu kecil</strong>/hipoplasia</td><td>Rahang bawah <strong>terlalu besar</strong>/protuberansia berlebih</td></tr>
+        <tr><td><strong>Insidensi</strong></td><td>1 : 1.000 kelahiran</td><td>Lebih jarang (angka bervariasi)</td></tr>
+        <tr><td><strong>Gigi</strong></td><td>Retrognasi, crowding</td><td>Malokusi kelas III (prognati)</td></tr>
+        <tr><td><strong>Masalah utama</strong></td><td>Lidah jatuh ke belakang (glossoptosis) → Obstruksi napas!</td><td>Gigi depan bawah lebih maju dari atas</td></tr>
+        <tr><td><strong>Tatalaksana</strong></td><td>Mandibular distraction, ortopedi</td><td>Bedah ortognatik (osteotomi)</td></tr>
+      </table>
+    </div>
+
+    <div class="card card-pink">
+      <h3>⚠️ Mikrognatia — Komplikasi Kritis</h3>
+      <p style="font-size:14px; margin-bottom:14px;"><strong>Glossoptosis</strong> → uvula dan lidah terdorong ke atas/belakang → <strong>obstruksi jalan napas atas → BAHAYA!</strong></p>
+
+      <div class="flow">
+        <div class="flow-box">Mandibula kecil</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Ruang oral sempit</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">Lidah jatuh ke posterior</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box" style="background:#ffebee;border-color:#ef9a9a;">Obstruksi napas</div>
+      </div>
+
+      <div class="info-box info-yellow">
+        <strong>⭐ Pierre Robin Sequence:</strong> Triad klasik = Mikrognatia + Glossoptosis + Celah Palatum. Ingat ini!
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>📅 Mikrognatia — Terbentuk Kapan?</h3>
+      <p style="font-size:14px; margin-bottom:10px; color:var(--text-mid);">Fase kritis: <strong>usia kehamilan 7–11 minggu</strong>. Obat teratogenik pada trimester I sangat berisiko.</p>
+      <div class="chips">
+        <span class="chip chip-yellow">Metotreksat</span>
+        <span class="chip chip-yellow">Karbamazepin</span>
+        <span class="chip chip-yellow">Asam Retinoat</span>
+        <span class="chip chip-pink">Alkohol (FAS)</span>
+      </div>
+      <p style="font-size:13px; margin-top:12px; color:var(--text-light);">Studi Harvard Medical School: dari 20 fetus mikrognatia prenatal, banyak yang memerlukan intervensi bedah post-natal.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ ATRESIA ESOFAGUS ══════════════════════ -->
+  <div class="section" id="ea">
+    <div class="section-header">
+      <div class="section-icon icon-pink">🫁</div>
+      <div class="section-title">
+        <small>Esophageal Atresia / TEF</small>
+        Atresia Esofagus & Fistula Trakeoesofagus
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🧬 Embriologi — Mengapa Bisa Terjadi?</h3>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">Minggu ke-3 (22 hari)</div>
+          <div class="tl-desc"><strong>Endoderm</strong> berdiferensiasi: bagian <strong>ventral</strong> → trakea (saluran napas), bagian <strong>dorsal</strong> → esofagus (saluran cerna)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">Minggu ke-4</div>
+          <div class="tl-desc">Divertikulum laringotrakea mulai terbentuk. Lipatan trakeoesofagus menyatu membentuk <strong>septum trakeoesofagus</strong></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">Minggu ke-4–5 ← FASE KRITIS</div>
+          <div class="tl-desc">Jika <strong>septum menyimpang ke posterior</strong> → atresia esofagus dengan/tanpa fistula trakeoesofagus (TEF)</div>
+        </div>
+      </div>
+
+      <div class="info-box info-pink">
+        <strong>Lapisan jaringan penting:</strong><br>
+        🔴 Endoderm → organ dalam (usus, jantung, esofagus)<br>
+        🟡 Mesoderm → tulang, otot<br>
+        🔵 Ektoderm → saraf, otak, kulit
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>📊 Epidemiologi</h3>
+      <div class="chips">
+        <span class="chip chip-yellow">1 : 1.000–4.000 kelahiran hidup</span>
+        <span class="chip chip-pink">♂ sedikit lebih sering (rasio 1,26:1)</span>
+        <span class="chip chip-yellow">Risiko saudara kandung: 0,5–2%</span>
+        <span class="chip chip-pink">Kembar: risiko 2,56× lebih tinggi</span>
+      </div>
+      <p style="margin-top: 12px; font-size:14px; color:var(--text-mid);">Jika >1 anak terinfeksi dalam keluarga → risiko naik menjadi <strong>20%</strong>!</p>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🏷️ Klasifikasi Gross (A–E) — WAJIB HAFAL!</h3>
+      <div class="tipe-grid">
+        <div class="tipe-card">
+          <div class="tipe-letter">A</div>
+          <div class="tipe-name">EA Murni</div>
+          <div class="tipe-pct">5–13%</div>
+          <div class="tipe-desc">Tanpa fistula. Kedua ujung esofagus buntu.</div>
+        </div>
+        <div class="tipe-card">
+          <div class="tipe-letter">B</div>
+          <div class="tipe-name">EA + Fistula Proksimal</div>
+          <div class="tipe-pct">~1%</div>
+          <div class="tipe-desc">Fistula di ujung proksimal esofagus ke trakea</div>
+        </div>
+        <div class="tipe-card" style="border-color:var(--pink-deep); background:#fff5f8;">
+          <div class="tipe-letter" style="color:#d44;">C</div>
+          <div class="tipe-name">EA + Fistula Distal</div>
+          <div class="tipe-pct" style="color:#d44;">78–86%</div>
+          <div class="tipe-desc">⭐ TERSERING! Fistula di ujung distal ke trakea</div>
+        </div>
+        <div class="tipe-card">
+          <div class="tipe-letter">D</div>
+          <div class="tipe-name">EA + Fistula Proks & Dist</div>
+          <div class="tipe-pct">&lt;1%</div>
+          <div class="tipe-desc">Dua fistula: proksimal dan distal</div>
+        </div>
+        <div class="tipe-card">
+          <div class="tipe-letter">E</div>
+          <div class="tipe-name">Fistula H (Tanpa EA)</div>
+          <div class="tipe-pct">2–6%</div>
+          <div class="tipe-desc">Fistula tipe-H. Tidak ada atresia esofagus.</div>
+        </div>
+      </div>
+
+      <table class="nice-table" style="margin-top:16px;">
+        <tr><th>Tipe</th><th>Prenatal (Polihidramnion?)</th><th>Klinis Post-natal</th></tr>
+        <tr><td><strong>A</strong></td><td>✅ Ya (cairan amnion tidak tertelan)</td><td>Banyak saliva, sesak, sianosis saat minum</td></tr>
+        <tr><td><strong>C</strong> ⭐</td><td>✅ Ya</td><td>Aspirasi → pneumonia, trakeomalasia</td></tr>
+        <tr><td><strong>E</strong></td><td>❌ Tidak</td><td>Batuk berulang, pneumonia rekuren, baru terdiagnosis usia lebih besar</td></tr>
+      </table>
+    </div>
+
+    <div class="cr-box">
+      <div class="cr-step">
+        <div class="cr-num">1</div>
+        <div><strong>Curiga prenatal:</strong> Polihidramnion pada USG → bayi tidak menelan cairan amnion → kemungkinan EA tipe A/C/D</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">2</div>
+        <div><strong>Post-natal:</strong> Bayi baru lahir dengan hipersalivasi, muntah berbusa, sianosis/distres napas saat minum pertama kali</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">3</div>
+        <div><strong>Konfirmasi diagnosis:</strong> Pasang NGT. Jika NGT mentok di tengah jalan (tidak sampai lambung) → curiga EA</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">4</div>
+        <div><strong>Radiologi:</strong> Babygram (foto thorax + abdomen) — lihat posisi ujung NGT. NGT = radio-opak (putih). Ujung NGT tidak mencapai lambung → EA konfirmasi</div>
+      </div>
+      <div class="cr-step">
+        <div class="cr-num">5</div>
+        <div><strong>Cek VACTERL:</strong> Selalu cari kelainan penyerta!</div>
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>🏥 Diagnosis & Tatalaksana</h3>
+      <div class="dx-path">
+        <div class="dx-step">
+          <div class="dx-icon">🔬</div>
+          <div>
+            <strong>Pasang NGT</strong> — Ukur dari hidung → tragus → epigastrium. Jika NGT mentok di setengah jalan → <em>highly suspicious</em> EA
+          </div>
+        </div>
+        <div class="dx-step">
+          <div class="dx-icon">📸</div>
+          <div>
+            <strong>Babygram (Foto Polos)</strong> — Lihat posisi ujung NGT. Ingat: NGT = radio-opak (PUTIH). Normal: ujung NGT di bawah diafragma. EA: ujung NGT stuck di mediastinum
+          </div>
+        </div>
+        <div class="dx-step">
+          <div class="dx-icon">🏥</div>
+          <div>
+            <strong>Tatalaksana definitif:</strong> Operasi anastomosis esofagus (SKDI 3B — tatalaksana awal lalu rujuk spesialis bedah anak)
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info-yellow">
+        <strong>📖 Radiologi — Tabel Kilat:</strong><br>
+        X-Ray: Putih = <strong>radio-opak</strong>, Hitam = <strong>radio-lusen</strong><br>
+        CT Scan: Putih = <strong>hiperdens</strong>, Hitam = <strong>hipodens</strong><br>
+        USG: Putih = <strong>hiperekogenik</strong>, Hitam = <strong>hipoekoik</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ VACTERL ══════════════════════ -->
+  <div class="section" id="vacterl">
+    <div class="section-header">
+      <div class="section-icon icon-yellow">🔗</div>
+      <div class="section-title">
+        <small>Kelainan Penyerta</small>
+        Asosiasi VACTERL
+      </div>
+    </div>
+
+    <div class="card card-pink">
+      <h3>🌟 Prinsip EMAS Kelainan Kongenital</h3>
+      <div class="info-box info-pink" style="font-size:16px; text-align:center; padding: 20px;">
+        <strong>⭐ "Satu kelainan kongenital TIDAK PERNAH berdiri sendiri!"</strong><br>
+        <span style="font-size:14px; color:var(--text-mid);">Selalu cari kelainan penyerta pada setiap pasien dengan kelainan kongenital</span>
+      </div>
+    </div>
+
+    <div class="mnemonic-box">
+      <div class="label">🌸 Mnemonic VACTERL</div>
+      <div class="mnemonic-big">VACTERL</div>
+      <div class="mnemonic-items">
+        <div class="mnemonic-item"><span>V</span> Vertebral anomaly (kelainan tulang belakang/skoliosis)</div>
+        <div class="mnemonic-item"><span>A</span> Anus (atresia ani / anus imperforata)</div>
+        <div class="mnemonic-item"><span>C</span> Cardiac (PJB — penyakit jantung bawaan)</div>
+        <div class="mnemonic-item"><span>T</span> Tracheo-Esophageal fistula</div>
+        <div class="mnemonic-item"><span>E</span> Esophageal atresia</div>
+        <div class="mnemonic-item"><span>R</span> Renal (kelainan ginjal)</div>
+        <div class="mnemonic-item"><span>L</span> Limb (polidaktili / sindaktili)</div>
+      </div>
+    </div>
+
+    <div class="card card-yellow">
+      <h3>🩺 Cara Aplikasi Klinis</h3>
+      <p style="font-size:14px; margin-bottom:14px; color:var(--text-mid);">Saat menemukan bayi dengan EA atau CLP:</p>
+      <ul class="check-list">
+        <li><strong>V</strong>ertebra → Foto tulang belakang, ada skoliosis?</li>
+        <li><strong>A</strong>nus → Inspeksi perineum, ada lubang anus? Patent?</li>
+        <li><strong>C</strong>ardiac → Auskultasi, EKG/Echo, ada PJB?</li>
+        <li><strong>T/E</strong> → Sudah diidentifikasi (EA/TEF)</li>
+        <li><strong>R</strong>enal → USG ginjal, ada hidronefrosis/agenesis?</li>
+        <li><strong>L</strong>imb → Hitung jari, ada polidaktili/sindaktili?</li>
+      </ul>
+    </div>
+
+    <div class="card card-pink">
+      <h3>📊 Ringkasan SKDI — Kelainan Kongenital Digestif</h3>
+      <table class="nice-table">
+        <tr><th>Penyakit</th><th>SKDI</th><th>Artinya</th></tr>
+        <tr><td>Sumbing bibir & palatum</td><td><span class="skdi-badge">2</span></td><td>Diagnosis + rujuk, follow-up pasca rujukan</td></tr>
+        <tr><td>Atresia esofagus</td><td><span class="skdi-badge">2</span></td><td>Diagnosis + rujuk (bedah anak)</td></tr>
+        <tr><td>Hirschsprung</td><td><span class="skdi-badge">2</span></td><td>Diagnosis + rujuk (bedah anak)</td></tr>
+        <tr><td>Atresia anus</td><td><span class="skdi-badge">2</span></td><td>Diagnosis + rujuk (bedah anak)</td></tr>
+        <tr><td>Atresia duodeni</td><td><span class="skdi-badge">2</span></td><td>Diagnosis + rujuk</td></tr>
+      </table>
+      <div class="info-box info-yellow">
+        <strong>SKDI 3B:</strong> Meningitis = 3B (penanganan awal kegawatan lalu rujuk). Untuk EA: dokter umum harus mampu memasang NGT, berikan O₂, stabilisasi, lalu rujuk ke bedah anak.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ QUIZ ══════════════════════ -->
+  <div class="section" id="quiz">
+    <div class="section-header">
+      <div class="section-icon icon-pink">❓</div>
+      <div class="section-title">
+        <small>Self Assessment</small>
+        Quiz — Uji Pemahaman Kamu!
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <h2>🌸 Soal Latihan</h2>
+      <p>Setara level UKMPPD — ada vignette klinis. Cek jawaban setelah memilih opsi!</p>
+
+      <div class="score-bar">
+        <div>
+          <div class="score-display" id="scoreDisplay">0 / 0</div>
+          <div class="score-label">Skor Sementara</div>
+        </div>
+        <div class="progress-ring">
+          <span id="scoreEmoji" style="font-size:28px;">🌸</span>
+        </div>
+        <button class="reset-btn" onclick="resetQuiz()">🔄 Reset Quiz</button>
+      </div>
+
+      <!-- SOAL 1 -->
+      <div class="quiz-item" id="q1">
+        <div class="quiz-q-header">
+          <div class="quiz-num">1</div>
+          <div style="font-weight:800; font-size:15px;">Bibir Sumbing — Klasifikasi</div>
+        </div>
+        <div class="vignette">
+          Bayi laki-laki usia 3 hari dibawa ke poli bedah. Orang tua mengeluhkan anaknya <strong>kesulitan menyusu</strong> dan suaranya terdengar <strong>sengau</strong>. Pada pemeriksaan fisik ditemukan celah pada <strong>bibir kanan yang memanjang hingga gusi kanan</strong>, sisi kiri normal. Langit-langit keras dan lunak tampak utuh.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Bagaimana penulisan klasifikasi LAHSAL yang paling tepat?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q1','A','wrong')"><span class="option-letter">A</span> LA–S––</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q1','B','correct')"><span class="option-letter">B</span> LA––––</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q1','C','wrong')"><span class="option-letter">C</span> LAHSAL</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q1','D','wrong')"><span class="option-letter">D</span> –A–S––</button></li>
+        </ul>
+        <div class="explanation" id="exp-q1">
+          <strong>✅ Jawaban: B — LA––––</strong><br>
+          Kasus: Celah bibir kanan komplit (L besar) + gusi kanan komplit (A besar) + palatum keras normal (–) + palatum lunak normal (–) + gusi kiri normal (–) + bibir kiri normal (–). Maka: <strong>LA––––</strong>. Ingat urutan LAHSAL dibaca dari kanan → kiri pasien!
+        </div>
+      </div>
+
+      <!-- SOAL 2 -->
+      <div class="quiz-item" id="q2">
+        <div class="quiz-q-header">
+          <div class="quiz-num">2</div>
+          <div style="font-weight:800; font-size:15px;">Atresia Esofagus — Tipe Tersering</div>
+        </div>
+        <div class="vignette">
+          Bayi perempuan usia 1 hari dirujuk ke UGD. Ibu mengatakan selama hamil dokter menemukan <strong>cairan ketuban sangat banyak (polihidramnion)</strong>. Post-natal, bayi tampak <strong>berbusa di mulut, batuk-batuk, dan sianosis</strong> setiap diberi minum. Pemasangan NGT gagal — NGT hanya masuk setengah dari perkiraan panjangnya.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Tipe atresia esofagus yang paling mungkin pada kasus ini adalah?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q2','A','wrong')"><span class="option-letter">A</span> Gross Tipe A</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q2','B','wrong')"><span class="option-letter">B</span> Gross Tipe B</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q2','C','correct')"><span class="option-letter">C</span> Gross Tipe C</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q2','D','wrong')"><span class="option-letter">D</span> Gross Tipe E</button></li>
+        </ul>
+        <div class="explanation" id="exp-q2">
+          <strong>✅ Jawaban: C — Gross Tipe C</strong><br>
+          Tipe C adalah TERSERING (78–86% kasus): EA proksimal + fistula distal. Polihidramnion terjadi karena ujung proksimal esofagus buntu → cairan amnion tidak bisa tertelan. Sianosis dan gejala aspirasi timbul karena fistula distal memungkinkan isi lambung naik ke trakea, dan saat minum cairan masuk ke trakea via fistula.
+        </div>
+      </div>
+
+      <!-- SOAL 3 -->
+      <div class="quiz-item" id="q3">
+        <div class="quiz-q-header">
+          <div class="quiz-num">3</div>
+          <div style="font-weight:800; font-size:15px;">Rule of Ten — Operasi CLP</div>
+        </div>
+        <div class="vignette">
+          Bayi laki-laki usia <strong>12 minggu</strong> dengan bibir sumbing dirujuk untuk operasi ke RS. Pemeriksaan didapatkan: <strong>BB 4,2 kg</strong>, <strong>Hb 9,5 g/dL</strong>, tidak ada infeksi aktif. Orang tua sangat antusias dan meminta operasi segera dilakukan.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Apakah bayi ini sudah memenuhi syarat untuk dilakukan operasi?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q3','A','wrong')"><span class="option-letter">A</span> Ya, semua syarat terpenuhi</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q3','B','correct')"><span class="option-letter">B</span> Belum, karena Hb masih di bawah syarat</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q3','C','wrong')"><span class="option-letter">C</span> Belum, karena berat badan masih kurang</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q3','D','wrong')"><span class="option-letter">D</span> Belum, karena usia masih kurang</button></li>
+        </ul>
+        <div class="explanation" id="exp-q3">
+          <strong>✅ Jawaban: B</strong><br>
+          Rule of Ten: Usia ≥10 minggu ✅ (12 minggu), BB ≥10 pounds (≈4,5 kg) ✅ (4,2 kg sebenarnya SEDIKIT kurang, namun yang paling jelas kurang adalah), <strong>Hb ≥10 g/dL ❌ (9,5 g/dL)</strong>. Hb yang rendah berisiko komplikasi anestesi dan penyembuhan luka yang buruk. Operasi ditunda sampai Hb ≥10 g/dL.
+        </div>
+      </div>
+
+      <!-- SOAL 4 -->
+      <div class="quiz-item" id="q4">
+        <div class="quiz-q-header">
+          <div class="quiz-num">4</div>
+          <div style="font-weight:800; font-size:15px;">VACTERL Association</div>
+        </div>
+        <div class="vignette">
+          Bayi baru lahir ditemukan memiliki <strong>atresia esofagus tipe C</strong>. Dokter melakukan pemeriksaan menyeluruh dan menemukan <strong>tidak ada lubang anus, ada murmur jantung, dan jari kaki kiri berjumlah 6 (polidaktili)</strong>. Pemeriksaan USG ginjal didapatkan <strong>agenesis ginjal kiri</strong>.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Kondisi bayi ini paling sesuai dengan?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q4','A','wrong')"><span class="option-letter">A</span> Pierre Robin Sequence</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q4','B','wrong')"><span class="option-letter">B</span> CHARGE Syndrome</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q4','C','correct')"><span class="option-letter">C</span> Asosiasi VACTERL</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q4','D','wrong')"><span class="option-letter">D</span> Trisomi 21</button></li>
+        </ul>
+        <div class="explanation" id="exp-q4">
+          <strong>✅ Jawaban: C — Asosiasi VACTERL</strong><br>
+          Kasus ini memiliki: <strong>T/E</strong>F (EA), <strong>A</strong>nus imperforata, <strong>C</strong>ardiac (murmur), <strong>R</strong>enal (agenesis ginjal), <strong>L</strong>imb (polidaktili). Prinsip: satu kelainan kongenital TIDAK berdiri sendiri. VACTERL: Vertebral-Anorectal-Cardiac-Tracheo-Esophageal-Renal-Limb.
+        </div>
+      </div>
+
+      <!-- SOAL 5 -->
+      <div class="quiz-item" id="q5">
+        <div class="quiz-q-header">
+          <div class="quiz-num">5</div>
+          <div style="font-weight:800; font-size:15px;">Mikrognatia — Komplikasi</div>
+        </div>
+        <div class="vignette">
+          Bayi usia 2 hari datang dengan <strong>kesulitan bernapas</strong>, terutama saat terlentang. Ibu mengatakan anaknya juga sangat sulit menyusu. Pada pemeriksaan didapatkan <strong>mandibula tampak sangat kecil</strong>, saat mulut dibuka lidah tampak <strong>terdorong ke belakang mendekati dinding faring</strong>. Dokter juga menemukan celah pada palatum molle.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Triad ini paling sesuai dengan diagnosis?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q5','A','wrong')"><span class="option-letter">A</span> Treacher Collins Syndrome</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q5','B','correct')"><span class="option-letter">B</span> Pierre Robin Sequence</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q5','C','wrong')"><span class="option-letter">C</span> DiGeorge Syndrome</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q5','D','wrong')"><span class="option-letter">D</span> Goldenhar Syndrome</button></li>
+        </ul>
+        <div class="explanation" id="exp-q5">
+          <strong>✅ Jawaban: B — Pierre Robin Sequence</strong><br>
+          Triad Pierre Robin: <strong>(1) Mikrognatia</strong> + <strong>(2) Glossoptosis</strong> (lidah jatuh ke posterior) + <strong>(3) Celah palatum</strong>. Mikrognatia → ruang oral kecil → lidah terdorong ke posterior (glossoptosis) → obstruksi napas. Celah palatum menyempurnakan triad ini.
+        </div>
+      </div>
+
+      <!-- SOAL 6 -->
+      <div class="quiz-item" id="q6">
+        <div class="quiz-q-header">
+          <div class="quiz-num">6</div>
+          <div style="font-weight:800; font-size:15px;">Embriologi — Periode Kritis</div>
+        </div>
+        <div class="vignette">
+          Seorang wanita G1P0A0 usia 28 tahun mengonsumsi <strong>karbamazepin</strong> (obat epilepsi) sejak sebelum hamil tanpa sepengetahuan dokter. Ia baru menyadari kehamilannya di usia <strong>10 minggu</strong>. Setelah konsultasi, dokter menyarankan USG serial untuk memantau kemungkinan kelainan kongenital.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Organ/struktur manakah yang paling berisiko mengalami kelainan akibat paparan teratogen pada periode ini?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q6','A','wrong')"><span class="option-letter">A</span> Paru-paru dan sistem pernapasan saja</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q6','B','correct')"><span class="option-letter">B</span> Wajah (orofasial), jantung, otak, ekstremitas — organogenesis aktif</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q6','C','wrong')"><span class="option-letter">C</span> Sistem reproduksi saja</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q6','D','wrong')"><span class="option-letter">D</span> Hanya organ yang belum terbentuk sempurna di trimester III</button></li>
+        </ul>
+        <div class="explanation" id="exp-q6">
+          <strong>✅ Jawaban: B</strong><br>
+          Trimester I (minggu 1–12) adalah fase <strong>organogenesis aktif</strong> — semua organ utama dibentuk. Wajah terbentuk minggu ke-7–10, jantung minggu ke-3–8, otak dari awal, ekstremitas minggu ke-5–8. Karbamazepin adalah teratogen dikenal → risiko <strong>spina bifida, celah orofasial, kelainan jantung, hipoplasia jari</strong>. Paparan di minggu ke-10 masih sangat berbahaya.
+        </div>
+      </div>
+
+      <!-- SOAL 7 -->
+      <div class="quiz-item" id="q7">
+        <div class="quiz-q-header">
+          <div class="quiz-num">7</div>
+          <div style="font-weight:800; font-size:15px;">Diagnosis Atresia Esofagus — Radiologi</div>
+        </div>
+        <div class="vignette">
+          Bayi baru lahir dengan hipersalivasi dan sianosis setiap diberi minum. Dokter memasang NGT namun resistance dirasakan setelah 10 cm. Dilakukan foto <strong>babygram</strong> (foto polos dada-abdomen). Hasil: ujung NGT terlihat berhenti di <strong>level torakal atas</strong>, tidak ada udara di lambung.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Interpretasi temuan radiologis yang paling tepat?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q7','A','wrong')"><span class="option-letter">A</span> NGT terlipat di lambung, gambaran normal</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q7','B','wrong')"><span class="option-letter">B</span> NGT menunjukkan hipodens (hitam) karena udara di esofagus</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q7','C','correct')"><span class="option-letter">C</span> NGT tampak radio-opak terhenti di mediastinum atas → EA. Tidak ada udara di lambung konfirmasi tidak ada fistula distal (Tipe A)</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q7','D','wrong')"><span class="option-letter">D</span> Tidak ada informasi yang bisa disimpulkan</button></li>
+        </ul>
+        <div class="explanation" id="exp-q7">
+          <strong>✅ Jawaban: C</strong><br>
+          NGT = radio-OPAK (putih di X-ray). Terhentinya ujung NGT di mediastinum atas = bukti buntunya esofagus. Tidak ada udara di lambung = tidak ada fistula distal (EA tipe A). Jika ada udara di lambung → ada fistula distal → tipe C. Ini adalah langkah diagnosis paling mudah dan cepat untuk EA di fasilitas sederhana!
+        </div>
+      </div>
+
+      <!-- SOAL 8 -->
+      <div class="quiz-item" id="q8">
+        <div class="quiz-q-header">
+          <div class="quiz-num">8</div>
+          <div style="font-weight:800; font-size:15px;">Makrognatia — Kelainan Gigi</div>
+        </div>
+        <div class="vignette">
+          Anak laki-laki usia 14 tahun datang ke klinik dengan keluhan <strong>gigi depan bawah lebih maju dari gigi atas</strong>. Saat menggigit, gigi seri atas dan bawah tidak bertemu. Wajah tampak <strong>dagu menonjol ke depan</strong>. Dokter menyebut kondisi ini sebagai "prognati mandibula".
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Istilah untuk kondisi maloklusi gigi pada kasus ini adalah?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q8','A','wrong')"><span class="option-letter">A</span> Overjet positif</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q8','B','wrong')"><span class="option-letter">B</span> Open bite anterior</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q8','C','correct')"><span class="option-letter">C</span> Maloklusi Kelas III (Prognati)</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q8','D','wrong')"><span class="option-letter">D</span> Retrognati</button></li>
+        </ul>
+        <div class="explanation" id="exp-q8">
+          <strong>✅ Jawaban: C — Maloklusi Kelas III</strong><br>
+          Makrognatia → mandibula lebih maju dari maksila → gigi seri bawah lebih ke depan dari atas (prognati/maloklusi Kelas III). Gigi molar belakang tidak bertemu karena mandibula terlalu maju. Tatalaksana definitif: <strong>bedah ortognatik (osteotomi mandibula)</strong> untuk menyeimbangkan proporsi rahang.
+        </div>
+      </div>
+
+      <!-- SOAL 9 -->
+      <div class="quiz-item" id="q9">
+        <div class="quiz-q-header">
+          <div class="quiz-num">9</div>
+          <div style="font-weight:800; font-size:15px;">Embriologi — Septum Trakeoesofagus</div>
+        </div>
+        <div class="vignette">
+          Pada kuliah embriologi, dosen menjelaskan proses terpisahnya trakea dan esofagus dari usus depan embrionik.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Pernyataan yang BENAR mengenai proses ini adalah?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q9','A','wrong')"><span class="option-letter">A</span> Trakea berkembang dari lapisan mesoderm embrio</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q9','B','wrong')"><span class="option-letter">B</span> Pemisahan terjadi pada trimester II kehamilan</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q9','C','correct')"><span class="option-letter">C</span> Endoderm berdiferensiasi menjadi bagian ventral (trakea) dan dorsal (esofagus) sekitar hari ke-22 kehamilan</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q9','D','wrong')"><span class="option-letter">D</span> Septum trakeoesofagus dibentuk oleh lapisan ektoderm</button></li>
+        </ul>
+        <div class="explanation" id="exp-q9">
+          <strong>✅ Jawaban: C</strong><br>
+          Pada hari ke-22 kehamilan (minggu ke-3), lapisan <strong>endoderm</strong> berdiferensiasi: bagian <strong>ventral</strong> → divertikulum laringotrakea (→ trakea, bronkus, paru) dan bagian <strong>dorsal</strong> → esofagus. Lipatan trakeoesofagus lateral menyatu membentuk septum. Jika septum menyimpang ke posterior → atresia esofagus + TEF.
+        </div>
+      </div>
+
+      <!-- SOAL 10 -->
+      <div class="quiz-item" id="q10">
+        <div class="quiz-q-header">
+          <div class="quiz-num">10</div>
+          <div style="font-weight:800; font-size:15px;">Kasus Integratif</div>
+        </div>
+        <div class="vignette">
+          Bayi perempuan usia 2 jam dirujuk dari puskesmas. Saat lahir, bidan menemukan: <strong>bibir sumbing bilateral komplit</strong>, <strong>tidak ada lubang anus</strong>, dan terdengar <strong>murmur jantung</strong>. Ibu selama hamil mengonsumsi obat-obatan tidak jelas dari dukun beranak. Tidak ada riwayat kelainan serupa di keluarga.
+        </div>
+        <p style="font-size:14px; font-weight:700; margin-bottom:10px;">Tindakan PERTAMA yang dilakukan dokter IGD adalah?</p>
+        <ul class="options">
+          <li><button class="option-btn" onclick="answer(this,'q10','A','wrong')"><span class="option-letter">A</span> Langsung menjadwalkan operasi bibir sumbing</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q10','B','wrong')"><span class="option-letter">B</span> Foto rontgen thorax untuk evaluasi jantung</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q10','C','correct')"><span class="option-letter">C</span> Stabilisasi ABC (airway, breathing, circulation), pasang NGT, evaluasi VACTERL lengkap, lalu rujuk ke bedah anak</button></li>
+          <li><button class="option-btn" onclick="answer(this,'q10','D','wrong')"><span class="option-letter">D</span> Konsul ke dokter gigi untuk perawatan bibir sumbing</button></li>
+        </ul>
+        <div class="explanation" id="exp-q10">
+          <strong>✅ Jawaban: C</strong><br>
+          Prinsip kegawatan neonatus: <strong>ABC dulu!</strong> Bayi dengan bibir sumbing bilateral + atresia ani + murmur = presentasi VACTERL. Stabilisasi: pastikan airway bebas (tidak ada aspirasi), breathing (SpO₂ adekuat), circulation (akses IV). Kemudian pasang NGT untuk evaluasi apakah ada EA juga. Baru rujuk ke bedah anak untuk penanganan definitif. <em>Operasi definitif bibir sumbing menunggu Rule of Ten terpenuhi.</em>
+        </div>
+      </div>
+
+    </div><!-- end quiz-section -->
+  </div><!-- end section -->
+
+</div><!-- end container -->
+
+<footer>
+  <p>🌸 Dibuat dengan cinta untuk perjalanan belajarmu 💛 | Kelainan Kongenital Orofasial & GIT Atas</p>
+  <p style="margin-top:8px; font-size:12px; opacity:0.7;">Referensi: dr. Aji Prabowo Sp.B FICS · SKDI 2012 · Holcomb & Ashcraft Pediatric Surgery · Langman's Medical Embryology</p>
+</footer>
+
+<script>
+  let scores = {};
+  let answered = {};
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  function answer(btn, qId, choice, result) {
+    if (answered[qId]) return;
+    answered[qId] = true;
+
+    const allBtns = btn.closest('.options').querySelectorAll('.option-btn');
+    allBtns.forEach(b => {
+      b.disabled = true;
+      const letter = b.querySelector('.option-letter').textContent;
+      if (b === btn) {
+        b.classList.add(result === 'correct' ? 'correct' : 'wrong');
+      }
+    });
+
+    // If wrong, reveal correct answer
+    if (result === 'wrong') {
+      const correctBtns = btn.closest('.options').querySelectorAll('.option-btn');
+      const exp = document.getElementById('exp-' + qId);
+      const correctMatch = exp.textContent.match(/Jawaban: ([A-E])/);
+      if (correctMatch) {
+        const correctLetter = correctMatch[1];
+        correctBtns.forEach(b => {
+          if (b.querySelector('.option-letter').textContent === correctLetter) {
+            b.classList.add('reveal-correct');
+          }
+        });
+      }
+    }
+
+    scores[qId] = result === 'correct' ? 1 : 0;
+    document.getElementById('exp-' + qId).classList.add('show');
+    updateScore();
+  }
+
+  function updateScore() {
+    const total = Object.keys(scores).length;
+    const correct = Object.values(scores).reduce((a, b) => a + b, 0);
+    document.getElementById('scoreDisplay').textContent = correct + ' / ' + total;
+    
+    const pct = total > 0 ? correct / total : 0;
+    let emoji = '🌸';
+    if (total >= 5) {
+      if (pct >= 0.8) emoji = '🌟';
+      else if (pct >= 0.6) emoji = '💛';
+      else if (pct >= 0.4) emoji = '🌸';
+      else emoji = '📚';
+    }
+    document.getElementById('scoreEmoji').textContent = emoji;
+  }
+
+  function resetQuiz() {
+    scores = {};
+    answered = {};
+    document.querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('correct', 'wrong', 'reveal-correct');
+      b.disabled = false;
+    });
+    document.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+    document.getElementById('scoreDisplay').textContent = '0 / 0';
+    document.getElementById('scoreEmoji').textContent = '🌸';
+  }
+
+  // Sticky nav active state on scroll
+  const sections = ['intro','clp','mikro','ea','vacterl','quiz'];
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = id;
+    });
+    document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i < sections.length && sections[i] === current);
+    });
+  });
+</script>
+</body>
+</html>
