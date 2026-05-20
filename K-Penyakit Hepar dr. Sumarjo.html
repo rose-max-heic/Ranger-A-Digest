@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🫀 Penyakit Hepar — Rangkuman Blok Digestive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #BF7E46;
+  --amber-light: #d4954f;
+  --amber-pale: #FBEDD6;
+  --amber-deep: #8a5a2e;
+  --blue: #97C6E0;
+  --blue-dark: #5a9cbf;
+  --blue-pale: #e8f4fb;
+  --blue-deep: #2d7499;
+  --cream: #fdf8f0;
+  --white: #ffffff;
+  --text: #2e1f0a;
+  --text-muted: #7a5c38;
+  --border: #e8d5b8;
+  --red: #c0392b;
+  --red-pale: #fdf2f0;
+  --green: #2d7a55;
+  --green-pale: #e8f5ee;
+  --purple: #7b5ea7;
+  --purple-pale: #f2eef8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, var(--amber-deep) 0%, var(--amber) 50%, #c8894e 100%);
+  padding: 60px 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(251,237,214,0.12);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 15%;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+  background: rgba(151,198,224,0.1);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: rgba(251,237,214,0.25);
+  border: 1px solid rgba(251,237,214,0.4);
+  color: var(--amber-pale);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--amber-pale);
+}
+.hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.pill {
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ====== NAV ====== */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--amber-deep);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-shadow: 0 3px 16px rgba(143,90,46,0.35);
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(251,237,214,0.65);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  padding: 13px 18px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active {
+  color: var(--amber-pale);
+  border-bottom-color: var(--blue);
+}
+
+/* ====== LAYOUT ====== */
+.container { max-width: 920px; margin: 0 auto; padding: 44px 24px; }
+
+/* ====== SECTIONS ====== */
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--amber-deep);
+  margin-bottom: 6px;
+}
+.section-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 30px;
+}
+
+/* ====== CARDS ====== */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(191,126,70,0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: 0 6px 24px rgba(191,126,70,0.13); transform: translateY(-1px); }
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--amber-deep);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ====== ALERTS ====== */
+.alert {
+  padding: 13px 17px;
+  border-radius: 10px;
+  margin: 13px 0;
+  font-size: 13.5px;
+  display: flex;
+  gap: 10px;
+  line-height: 1.65;
+}
+.alert-amber { background: var(--amber-pale); border-left: 4px solid var(--amber); color: var(--amber-deep); }
+.alert-blue { background: var(--blue-pale); border-left: 4px solid var(--blue-dark); color: var(--blue-deep); }
+.alert-red { background: var(--red-pale); border-left: 4px solid var(--red); color: #7a1a10; }
+.alert-green { background: var(--green-pale); border-left: 4px solid var(--green); color: #1a4a30; }
+.alert-purple { background: var(--purple-pale); border-left: 4px solid var(--purple); color: #4a2a7a; }
+.alert-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+/* Dokter tekankan marker */
+.dr-note {
+  background: linear-gradient(135deg, #fff3e0, #fdecd8);
+  border: 1.5px solid var(--amber);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.dr-note::before {
+  content: '🎤 dr. Sumarjo menekankan: ';
+  font-weight: 700;
+  color: var(--amber-deep);
+}
+
+/* ====== TABLES ====== */
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th {
+  background: var(--amber-deep);
+  color: white;
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+th:first-child { border-radius: 11px 0 0 0; }
+th:last-child { border-radius: 0 11px 0 0; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13.5px; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #fdf8f0; }
+tr:hover td { background: var(--amber-pale); transition: background 0.15s; }
+
+/* ====== GRIDS ====== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media(max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* ====== MINI CARDS ====== */
+.mini-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.mini-card h4 {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  color: var(--amber-deep);
+  margin-bottom: 8px;
+}
+.mini-card p, .mini-card li { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+.mini-card ul { padding-left: 16px; }
+.mini-card li { margin-bottom: 3px; }
+
+/* ====== STYLED LIST ====== */
+.styled-list { list-style: none; padding: 0; }
+.styled-list li {
+  padding: 7px 0 7px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+  position: relative;
+  line-height: 1.65;
+}
+.styled-list li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--amber);
+  font-size: 11px;
+  top: 10px;
+}
+.styled-list li:last-child { border-bottom: none; }
+
+/* ====== CLINICAL REASONING ====== */
+.cr-box {
+  background: linear-gradient(135deg, #e8f4fb, #f5f0ff);
+  border: 1.5px solid var(--blue);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.cr-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  margin-bottom: 10px;
+}
+.cr-steps { counter-reset: cr; list-style: none; padding: 0; }
+.cr-steps li {
+  counter-increment: cr;
+  padding: 7px 0 7px 34px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(151,198,224,0.3);
+  line-height: 1.65;
+}
+.cr-steps li:last-child { border-bottom: none; }
+.cr-steps li::before {
+  content: counter(cr);
+  position: absolute; left: 0; top: 8px;
+  width: 22px; height: 22px;
+  background: var(--blue-dark);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+
+/* ====== SEROLOGI BADGE ====== */
+.sero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  margin: 2px;
+}
+.sero-pos { background: var(--green-pale); color: var(--green); }
+.sero-neg { background: #f3f3f3; color: #777; }
+.sero-igm { background: #fff3e0; color: var(--amber-deep); }
+
+/* ====== SKDI BADGE ====== */
+.skdi { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-left: 6px; vertical-align: middle; }
+.skdi-4a { background: var(--green-pale); color: var(--green); }
+.skdi-3a { background: var(--blue-pale); color: var(--blue-deep); }
+.skdi-3b { background: #fff3e0; color: var(--amber-deep); }
+.skdi-2 { background: #f0f0f0; color: #555; }
+
+/* ====== HIGHLIGHT ====== */
+.hl-amber { background: var(--amber-pale); color: var(--amber-deep); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-blue { background: var(--blue-pale); color: var(--blue-deep); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-red { background: var(--red-pale); color: var(--red); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+.hl-green { background: var(--green-pale); color: var(--green); padding: 1px 7px; border-radius: 5px; font-weight: 600; font-size: 13px; }
+
+/* ====== COLLAPSIBLE ====== */
+.collapse-btn {
+  background: none; border: none;
+  width: 100%; text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0; font-family: inherit;
+}
+.collapse-btn .chev { transition: transform 0.25s; font-size: 11px; color: var(--text-muted); }
+.collapse-btn.open .chev { transform: rotate(180deg); }
+.collapse-body { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.collapse-body.open { display: block; animation: fadeUp 0.25s ease; }
+
+/* ====== MNEMONIC ====== */
+.mnemonic {
+  background: linear-gradient(135deg, var(--amber-pale), #fff);
+  border: 2px solid var(--amber);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.mnemonic-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber-deep); margin-bottom: 6px; }
+.mnemonic-text { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text); font-weight: 700; }
+.mnemonic-sub { font-size: 13px; color: var(--text-muted); margin-top: 6px; line-height: 1.6; }
+
+/* ====== DIVIDER ====== */
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* ====== QUIZ ====== */
+.quiz-q {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.q-num {
+  position: absolute; top: -12px; left: 22px;
+  background: var(--amber-deep); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  padding: 4px 14px; border-radius: 10px;
+}
+.q-vignette {
+  background: var(--amber-pale);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: var(--amber-deep);
+}
+.q-question { font-weight: 600; font-size: 14px; margin-bottom: 14px; color: var(--text); }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt {
+  background: var(--cream);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 15px;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: all 0.18s;
+  color: var(--text);
+}
+.q-opt:hover:not(:disabled) { border-color: var(--amber); background: var(--amber-pale); }
+.q-opt .ol { font-weight: 700; font-size: 12px; min-width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.q-opt.correct { background: var(--green-pale) !important; border-color: var(--green) !important; color: var(--green); }
+.q-opt.correct .ol { background: var(--green); color: white; }
+.q-opt.wrong { background: var(--red-pale) !important; border-color: var(--red) !important; color: var(--red); }
+.q-opt.wrong .ol { background: var(--red); color: white; }
+.q-opt:disabled { cursor: default; }
+.q-exp {
+  display: none;
+  margin-top: 14px;
+  background: var(--green-pale);
+  border-radius: 10px;
+  padding: 14px 17px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #1a4a30;
+  border-left: 3px solid var(--green);
+}
+.q-exp.show { display: block; animation: fadeUp 0.3s ease; }
+.quiz-progress { display: flex; gap: 6px; margin-bottom: 26px; flex-wrap: wrap; }
+.pdot { width: 10px; height: 10px; border-radius: 50%; background: rgba(191,126,70,0.15); transition: background 0.3s; }
+.pdot.ok { background: var(--green); }
+.pdot.no { background: var(--red); }
+.score-card {
+  background: linear-gradient(135deg, var(--amber-deep), var(--amber));
+  color: white; border-radius: 20px; padding: 40px;
+  text-align: center; display: none; margin-top: 28px;
+  animation: fadeUp 0.4s ease;
+}
+.score-card.show { display: block; }
+.score-big { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: var(--amber-pale); line-height: 1; margin: 10px 0; }
+.score-msg { font-size: 15px; opacity: 0.85; margin-top: 8px; }
+.btn-restart { margin-top: 22px; background: white; color: var(--amber-deep); border: none; border-radius: 30px; padding: 12px 28px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+.btn-restart:hover { transform: translateY(-2px); }
+
+/* ====== COMPARE ====== */
+.compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.compare-col { border-radius: 12px; padding: 18px; border: 2px solid; }
+.compare-col.left { background: var(--blue-pale); border-color: var(--blue-dark); }
+.compare-col.right { background: var(--amber-pale); border-color: var(--amber); }
+.compare-col h4 { font-family: 'Lora', serif; font-size: 15px; margin-bottom: 10px; }
+.compare-col.left h4 { color: var(--blue-deep); }
+.compare-col.right h4 { color: var(--amber-deep); }
+.compare-row { display: flex; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 8px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { opacity: 0.6; width: 90px; flex-shrink: 0; font-size: 12px; }
+@media(max-width: 600px) { .compare-wrap { grid-template-columns: 1fr; } }
+
+/* ====== CHILD PUGH ====== */
+.cp-table th { background: var(--amber); }
+.cp-row-a td { background: var(--green-pale) !important; }
+.cp-row-b td { background: #fff8e1 !important; }
+.cp-row-c td { background: var(--red-pale) !important; }
+
+/* ====== RESPONSIVE ====== */
+@media(max-width: 600px) {
+  .hero { padding: 36px 20px 32px; }
+  .container { padding: 28px 16px; }
+  .card { padding: 18px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">📚 Blok Digestive · Semester 6 · dr. Sumarjo Sp.PD-KGEH</div>
+  <h1>Penyakit <em>Hepar</em><br>— Rangkuman Lengkap</h1>
+  <p class="hero-sub">Disusun dari PPT, rekaman kuliah, diperkaya SKDI 2012. Tandai 🎤 = poin yang dr. Sumarjo tekankan langsung di kuliah.</p>
+  <div class="hero-pills">
+    <span class="pill">🟡 Ikterus & Lab</span>
+    <span class="pill">🫀 Fatty Liver / MAFLD</span>
+    <span class="pill">💊 DILI</span>
+    <span class="pill">🦠 Hepatitis A–E</span>
+    <span class="pill">🧱 Sirosis & HCC</span>
+    <span class="pill">🧠 10 Soal Quiz</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="show('overview')">🏠 Overview</button>
+  <button class="nav-btn" onclick="show('ikterus')">🟡 Ikterus</button>
+  <button class="nav-btn" onclick="show('mafld')">🫀 NAFLD/MAFLD</button>
+  <button class="nav-btn" onclick="show('dili')">💊 DILI</button>
+  <button class="nav-btn" onclick="show('hepatitis')">🦠 Hepatitis</button>
+  <button class="nav-btn" onclick="show('abses')">🔴 Abses Hepar</button>
+  <button class="nav-btn" onclick="show('sirosis')">🧱 Sirosis Hati</button>
+  <button class="nav-btn" onclick="show('hcc')">🎗️ HCC</button>
+  <button class="nav-btn" onclick="show('quiz')">🧠 Quiz</button>
+</div>
+
+<div class="container">
+
+<!-- ======================================= OVERVIEW ======================================= -->
+<div id="sec-overview" class="section active">
+  <h2 class="section-heading">Peta Materi & Konsep Dasar</h2>
+  <p class="section-desc">Dari rekaman kuliah dr. Sumarjo — kerangka berpikir penyakit hepar dari hulu ke hilir.</p>
+
+  <div class="dr-note">Jangan pernah lihat penyakit hati secara tunggal. Kalau ada sirosis, cari kaosanya. Kalau ada HCC, cari sirosis dan kaosanya. Tiga penyakit → tiga diagnosis → tiga terapi yang berbeda!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🗺️</span> Alur Besar Penyakit Hepar</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Grand Story Penyakit Hepar</div>
+      <ol class="cr-steps">
+        <li><strong>Kausa / Trigger:</strong> Metabolik (MAFLD), Infeksi (Hepatitis), Obat (DILI), Alkohol</li>
+        <li><strong>Kerusakan hepatosit berulang</strong> → setiap kerusakan digantikan jaringan fibrosis</li>
+        <li><strong>Fibrosis</strong> → bertumpuk bertahun-tahun → <strong>Sirosis Hati</strong> (F4)</li>
+        <li><strong>Sirosis + waktu</strong> → regenerasi nodul abnormal → <strong>HCC</strong></li>
+        <li><strong>Deteksi dini</strong> = kunci keselamatan pasien!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📋</span> SKDI — Level Penyakit yang Wajib Dikuasai</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Level</th><th>Artinya</th><th>Penyakit Hepar</th></tr>
+        <tr><td><span class="skdi skdi-4a">4A</span></td><td>Diagnosis + tatalaksana mandiri tuntas</td><td>Hepatitis A, Gastritis, GERD</td></tr>
+        <tr><td><span class="skdi skdi-3a">3A</span></td><td>Diagnosis + terapi awal + rujuk (non-emergensi)</td><td>Hepatitis B, Abses hepar amuba, NAFLD</td></tr>
+        <tr><td><span class="skdi skdi-3b">3B</span></td><td>Diagnosis + terapi awal + rujuk (<strong>emergensi</strong>)</td><td>Kolesistitis, Hepatitis C akut berat</td></tr>
+        <tr><td><span class="skdi skdi-2">2</span></td><td>Diagnosis + rujuk</td><td>Sirosis hati, HCC, Hepatitis C kronis</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🧪</span> Enzim Liver — Arti Klinis</div>
+    <div class="grid-2">
+      <div>
+        <div class="alert alert-amber"><span class="alert-icon">💡</span><div><strong>SGPT/ALT</strong> — khas kerusakan hepatosit. Kalau naik, lihat dulu ke hepar. SGOT bisa dari organ lain (paru, jantung).</div></div>
+        <div class="alert alert-blue"><span class="alert-icon">💡</span><div><strong>GGT + ALP ↑↑</strong> — khas gangguan post-hepatik (kolestasis, obstruksi bilier). Ini yang harus dicurigai kalau ada ikterik + GGT tinggi.</div></div>
+      </div>
+      <div>
+        <div class="alert alert-green"><span class="alert-icon">💡</span><div><strong>Bilirubin direk ↑</strong> → kolestasis / post-hepatik. <strong>Bilirubin indirek ↑</strong> → hemolisis / pre-hepatik.</div></div>
+        <div class="dr-note" style="margin:0;">SGPT khas hepatosit! SGOT bisa dari mana-mana. Kalau mau nilai kerusakan hati spesifik, lihat GPT-nya.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= IKTERUS ======================================= -->
+<div id="sec-ikterus" class="section">
+  <h2 class="section-heading">🟡 Ikterus — Pendekatan Klinis</h2>
+  <p class="section-desc">Gejala paling sering pada penyakit hati — 3 jalur patofisiologi yang harus kamu hafal!</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🔬</span> 3 Tipe Ikterus & Bedanya di Lab</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Pre-Hepatik (Hemolitik)</th>
+          <th>Hepatik (Hepatoselular)</th>
+          <th>Post-Hepatik (Obstruktif)</th>
+        </tr>
+        <tr>
+          <td><strong>Bilirubin indirek</strong></td>
+          <td>↑↑ (dominan)</td>
+          <td>↑</td>
+          <td>Normal (awal)</td>
+        </tr>
+        <tr>
+          <td><strong>Bilirubin direk</strong></td>
+          <td>Normal</td>
+          <td>↑</td>
+          <td>↑↑ (dominan)</td>
+        </tr>
+        <tr>
+          <td><strong>SGOT/SGPT</strong></td>
+          <td>Normal</td>
+          <td>↑↑ (khas!)</td>
+          <td>Normal / ↑ ringan</td>
+        </tr>
+        <tr>
+          <td><strong>GGT & ALP</strong></td>
+          <td>Normal</td>
+          <td>↑</td>
+          <td>↑↑ (khas!)</td>
+        </tr>
+        <tr>
+          <td><strong>Warna BAB</strong></td>
+          <td>Normal / gelap</td>
+          <td>Agak pucat</td>
+          <td><span class="hl-red">Dempul / putih</span></td>
+        </tr>
+        <tr>
+          <td><strong>Warna urin</strong></td>
+          <td>Normal</td>
+          <td>Gelap (teh)</td>
+          <td><span class="hl-red">Sangat gelap (teh)</span></td>
+        </tr>
+        <tr>
+          <td><strong>Urobilinogen urin</strong></td>
+          <td>+ (normal-tinggi)</td>
+          <td>+ (normal)</td>
+          <td><span class="hl-red">Tidak ada</span></td>
+        </tr>
+        <tr>
+          <td><strong>Van Den Bergh</strong></td>
+          <td>Indirect positive (reaksi II +)</td>
+          <td>Biphasic positive (I & II +)</td>
+          <td>Direct positive (reaksi I + diazo)</td>
+        </tr>
+      </table>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Key Point Soal:</strong> BAB dempul + BAK teh + GGT ↑↑ → post-hepatik. Bisa karena batu CBD, karsinoma pankreas, atau sklerosing kolangitis.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🧠</span> Clinical Reasoning Ikterus</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Cara Berpikir Sistematis</div>
+      <ol class="cr-steps">
+        <li>Ada ikterus (sklera/kulit kuning) → tanya: BAB warna apa? BAK warna apa?</li>
+        <li>BAB dempul + BAK gelap → curiga post-hepatik → cek GGT, ALP, bilirubin direk</li>
+        <li>Periksa apakah ada nyeri kolik (batu) atau massa tanpa nyeri (tumor pankreas)</li>
+        <li>Courvoisier sign (+): kantung empedu teraba tanpa nyeri → tumor pankreas sampai terbukti bukan</li>
+        <li>Konfirmasi dengan USG → CT scan bila perlu</li>
+      </ol>
+    </div>
+    <div class="dr-note">Kalau pasien ikterik dan GGT-nya tinggi, kita harus curiga ke arah post-hepatik baik intrahepatik maupun ekstrahepatik. Jangan langsung mengira hepatitis!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🩺</span> Penyebab Berdasarkan Lokasi</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--red);">
+        <h4>Pre-Hepatik</h4>
+        <ul>
+          <li>Anemia hemolitik</li>
+          <li>Sickle cell disease</li>
+          <li>Malaria berat</li>
+          <li>Transfusi inkompatibel</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Hepatik</h4>
+        <ul>
+          <li>Hepatitis A, B, C</li>
+          <li>DILI (OAT, dll)</li>
+          <li>Hepatitis autoimun</li>
+          <li>Gilbert syndrome</li>
+          <li>Sirosis hepatis</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue-dark);">
+        <h4>Post-Hepatik</h4>
+        <ul>
+          <li>Batu CBD (tersering!)</li>
+          <li>Ca pankreas caput</li>
+          <li>Kolangitis</li>
+          <li>Sklerosing kolangitis</li>
+          <li>Ca ampulla Vateri</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================= MAFLD ======================================= -->
+<div id="sec-mafld" class="section">
+  <h2 class="section-heading">🫀 NAFLD / MAFLD — Perlemakan Hati</h2>
+  <p class="section-desc">Dulu disebut NAFLD, kini disebut MAFLD — lebih inklusif karena tidak hanya tentang lemak. SKDI 3A.</p>
+
+  <div class="dr-note">Sekarang kita tidak membedakan apakah ini karena alkohol atau lemak atau diabetes — semuanya masuk ke MAFLD. Lifestyle modification itu mutlak!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📖</span> Definisi & Spektrum</div>
+    <div class="grid-2">
+      <div>
+        <div class="alert alert-amber"><span class="alert-icon">📌</span><div><strong>NAFLD</strong> = perlemakan hepar yang <em>tidak disebabkan alkohol</em> (konsumsi &lt;20 g/hari).<br><br><strong>NAFL</strong>: steatosis (+), tidak ada inflamasi<br><strong>NASH</strong>: steatosis (+) + inflamasi + degenerasi hepatosit</div></div>
+      </div>
+      <div>
+        <div class="alert alert-blue"><span class="alert-icon">📌</span><div><strong>MAFLD</strong> (istilah baru) = metabolic dysfunction-associated fatty liver disease. Cakupan lebih luas: termasuk alkohol, diabetes, obesitas, hipertensi, dislipidemia.</div></div>
+      </div>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat Spektrum</div>
+      <div class="mnemonic-text">Normal → NAFL → NASH → Fibrosis → Sirosis → HCC</div>
+      <div class="mnemonic-sub">Bayangkan hati yang perlahan-lahan tenggelam. Setiap tahap lebih berbahaya dari sebelumnya. NASH = titik balik penting!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚠️</span> Faktor Risiko & Klinis</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; color:var(--amber-deep); margin-bottom:8px; font-size:13px;">Faktor Risiko</p>
+        <ul class="styled-list">
+          <li>Obesitas (terutama visceral)</li>
+          <li>Diabetes melitus tipe 2</li>
+          <li>Dislipidemia</li>
+          <li>Hipertensi</li>
+          <li>Riwayat kolesistektomi</li>
+          <li>Sindrom metabolik</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; color:var(--amber-deep); margin-bottom:8px; font-size:13px;">Klinis & Lab</p>
+        <ul class="styled-list">
+          <li><strong>Sering asimtomatis!</strong></li>
+          <li>Malaise, nyeri perut kanan atas</li>
+          <li>Hepatomegali</li>
+          <li>SGOT/SGPT ↑ 2–5x normal</li>
+          <li>ALP ↑ 2–3x normal</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">🔬</span> Diagnosis</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Pendekatan Diagnosis</div>
+      <ol class="cr-steps">
+        <li><strong>Klinis + lab:</strong> SGOT/SGPT ↑ + faktor risiko → curigai NAFLD/MAFLD</li>
+        <li><strong>USG abdomen:</strong> "Bright liver" = hiperekogenik → infiltrasi lemak difus (gold standard praktis)</li>
+        <li><strong>Fibroscan/SWE USG:</strong> ukur kekakuan hati → nilai derajat fibrosis (Metavir F1–F4)</li>
+        <li><strong>Biopsi hepar (gold standard)</strong>: &gt;5% hepatosit steatotik. Jarang dilakukan karena invasif.</li>
+      </ol>
+    </div>
+    <div class="dr-note">USG itu yang paling gampang. Kalau ada hepatorenal kontras meningkat (hepar lebih putih dari korteks ginjal) → itu tanda bright liver = infiltrasi lemak. Tapi kalau pasiennya CKD, ginjalnya juga putih, jadi harus dibandingkan dengan ginjal yang normal!</div>
+    <div class="alert alert-blue"><span class="alert-icon">💡</span><div><strong>Metavir Score:</strong> F0 = normal, F1 = fibrosis ringan, F2 = fibrosis sedang, F3 = fibrosis berat, F4 = sirosis. Terapi mulai setelah ada tanda fibrosis!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">💊</span> Tatalaksana</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; margin-bottom:8px; font-size:13px; color:var(--amber-deep);">Non-Farmakologi (WAJIB!)</p>
+        <ul class="styled-list">
+          <li>Penurunan berat badan 5–10%</li>
+          <li>Diet rendah lemak jenuh, kalori terkontrol</li>
+          <li>Olahraga teratur</li>
+          <li>Berhenti alkohol (bila ada)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; margin-bottom:8px; font-size:13px; color:var(--amber-deep);">Farmakologi</p>
+        <ul class="styled-list">
+          <li>Antilipid: Gemfibrozil, Atorvastatin</li>
+          <li>Antidiabetes: Metformin, Pioglitazone</li>
+          <li>Antioksidan: Vitamin C, Vitamin E</li>
+          <li>Hepatoprotektor: UDCA (asam ursodeoksikolat)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dr-note">Ada yang bilang fibrosis karena MAFLD itu reversibel, ada yang bilang tidak. Biopsi bisa menilai apakah jaringan retikular berkurang atau tidak setelah terapi.</div>
+  </div>
+</div>
+
+<!-- ======================================= DILI ======================================= -->
+<div id="sec-dili" class="section">
+  <h2 class="section-heading">💊 Drug-Induced Liver Injury (DILI)</h2>
+  <p class="section-desc">Kerusakan hati akibat obat-obatan hepatotoksik — sering bersifat ringan dan reversibel setelah obat dihentikan.</p>
+
+  <div class="dr-note">Yang paling sering di Indonesia itu DILI karena OAT (isoniazid, rifampisin, pirazinamid). Kalau pasien TB tiba-tiba SGPT naik — pikirkan DILI! Stop semua OAT dulu, tunggu membaik, mulai ulang dengan tapering up dari etambutol dulu.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">⚠️</span> Definisi, Faktor Risiko & Klinis</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Faktor Risiko</p>
+        <ul class="styled-list">
+          <li>Alkoholisme</li>
+          <li>Infeksi hepatitis B atau C aktif</li>
+          <li>Transaminase sudah meningkat sebelumnya</li>
+          <li>Status gizi kurang</li>
+          <li>Penggunaan BEBERAPA obat hepatotoksik bersamaan</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Klinis & Lab</p>
+        <ul class="styled-list">
+          <li>Malaise, lemah, mual</li>
+          <li>Pruritus (gatal) — karena kolestasis</li>
+          <li>Ikterus</li>
+          <li>Nyeri RUQ</li>
+          <li>BAK teh, BAB pucat (kolestasis)</li>
+          <li>SGOT, SGPT, bilirubin ↑</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">🚨</span><div><strong>Obat paling sering → DILI:</strong> <span class="hl-red">Isoniazid, Rifampisin, Pirazinamid</span> (OAT). Juga: acetaminophen, statin, amiodarone, ketoconazole, MTX, valproic acid.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🩺</span> Tipe DILI & Tatalaksana</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Tipe Hepatitis</h4>
+        <p>SGOT/SGPT dominan ↑. Mirip hepatitis akut.</p>
+        <p style="margin-top:6px;"><strong>Stop obat → hepatoprotektor → SGPT biasanya normal dalam 1–2 bulan.</strong></p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue-dark);">
+        <h4>Tipe Kolestasis</h4>
+        <p>Bilirubin direk ↑↑, GGT ↑↑. BAB dempul, gatal.</p>
+        <p style="margin-top:6px;"><strong>Pemulihan bilirubin lebih LAMBAT dari SGPT!</strong></p>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--purple);">
+        <h4>Tipe Campuran</h4>
+        <p>Kombinasi keduanya. Paling berat, pemulihan paling lama.</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p style="font-weight:600; margin-bottom:10px; font-size:13.5px;">Tatalaksana DILI karena OAT:</p>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Tapering Up OAT setelah DILI</div>
+      <ol class="cr-steps">
+        <li>Stop SEMUA OAT saat DILI terdeteksi</li>
+        <li>Tunggu SGPT normal (bisa 1–3 bulan)</li>
+        <li>Mulai ulang dengan <strong>Etambutol</strong> saja dulu</li>
+        <li>Tambah Isoniazid dosis rendah → naikkan bertahap</li>
+        <li>Tambah Rifampisin → tambah Pirazinamid terakhir</li>
+        <li>Setelah full dosis, hitung 6 bulan pengobatan ulang dari awal</li>
+      </ol>
+    </div>
+    <div class="dr-note">Sebelum memberikan OAT, periksa SGPT dulu dan cari faktor risiko. Kalau ada, mulai dengan tapering up dari etambutol — daripada langsung full dose dan terjadi gagal hati!</div>
+  </div>
+</div>
+
+<!-- ======================================= HEPATITIS ======================================= -->
+<div id="sec-hepatitis" class="section">
+  <h2 class="section-heading">🦠 Hepatitis — A, B, C, D, E</h2>
+  <p class="section-desc">Peradangan hepar oleh virus — pahami perbedaan transmisi, serologi, dan tatalaksana.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📊</span> Overview 5 Hepatitis Virus</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Hepatitis</th><th>Virus</th><th>Transmisi</th><th>Sifat</th><th>SKDI</th></tr>
+        <tr><td><strong>A</strong></td><td>Picornavirus (RNA)</td><td>Fecal-oral</td><td>Akut saja, self-limited</td><td><span class="skdi skdi-4a">4A</span></td></tr>
+        <tr><td><strong>B</strong></td><td>Hepadnavirus (DNA)</td><td>Darah/cairan tubuh</td><td>Akut/kronik</td><td><span class="skdi skdi-3a">3A</span></td></tr>
+        <tr><td><strong>C</strong></td><td>Flavivirus (RNA)</td><td>Darah/cairan tubuh</td><td>Akut/kronik (90% kronik!)</td><td><span class="skdi skdi-2">2</span></td></tr>
+        <tr><td><strong>D</strong></td><td>Hepatitis delta virus</td><td>Darah — HANYA koinfeksi HBV</td><td>Akut/kronik</td><td><span class="skdi skdi-2">2</span></td></tr>
+        <tr><td><strong>E</strong></td><td>Orthohepevirus A (RNA)</td><td>Fecal-oral</td><td>Akut, berbahaya di ibu hamil</td><td><span class="skdi skdi-3a">3A</span></td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-label">🧠 Cara Ingat Transmisi</div>
+      <div class="mnemonic-text">"A & E = fEcal" (Huruf vokal = fecal-oral). B, C, D = darah/cairan</div>
+      <div class="mnemonic-sub">Hepatitis D = parasit — tidak bisa hidup tanpa hepatitis B! Selalu koinfeksi atau superinfeksi.</div>
+    </div>
+  </div>
+
+  <!-- HEPATITIS A -->
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0;"><span class="card-icon" style="background:var(--green-pale)">🅰️</span> Hepatitis A <span class="skdi skdi-4a">4A</span></span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <div class="grid-2">
+        <div>
+          <p style="font-weight:600; color:var(--amber-deep); margin-bottom:8px; font-size:13px;">Klinis</p>
+          <ul class="styled-list">
+            <li>Demam, nafsu makan menurun</li>
+            <li>Sklera ikterik</li>
+            <li>Nyeri otot dan sendi (myalgia, artralgia)</li>
+            <li>Urin seperti teh, feses seperti dempul</li>
+            <li>Hepatomegali</li>
+          </ul>
+          <div class="alert alert-amber" style="margin-top:10px;"><span class="alert-icon">⚠️</span><div>Sering outbreak karena fecal-oral. Kontaminasi sumber air = satu kampung bisa kena sekaligus!</div></div>
+        </div>
+        <div>
+          <p style="font-weight:600; color:var(--amber-deep); margin-bottom:8px; font-size:13px;">Penunjang</p>
+          <ul class="styled-list">
+            <li>Bilirubin total & direk ↑</li>
+            <li>SGOT/SGPT ↑ 2x normal</li>
+            <li><span class="hl-red">IgM anti-HAV (+) = infeksi AKUT</span></li>
+            <li>IgG anti-HAV (+) = pernah infeksi / vaksinasi</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dr-note">Yang harus diperiksa itu IgM anti-HAV ya, bukan IgG! IgG bisa positif seumur hidup setelah infeksi atau vaksinasi. Kalau mau tahu infeksi akut — IgM!</div>
+      <div class="divider"></div>
+      <p style="font-weight:600; margin-bottom:8px; font-size:13.5px;">Tatalaksana (Simtomatik saja):</p>
+      <div class="grid-2">
+        <ul class="styled-list">
+          <li>Tirah baring + asupan kalori dan cairan adekuat</li>
+          <li>Demam: Ibuprofen 2x400mg</li>
+          <li>Mual: antiemetik</li>
+        </ul>
+        <ul class="styled-list">
+          <li>Perut kembung: H2-blocker atau PPI</li>
+          <li>Hepatoprotektor: kurkuma</li>
+          <li>Tidak ada antivirus spesifik!</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px; font-size:13.5px; color:var(--text-muted);"><strong>Komplikasi:</strong> Hepatitis A fulminan (jarang), ensefalopati hepatikum, koagulopati.</p>
+    </div>
+  </div>
+
+  <!-- HEPATITIS B -->
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0;"><span class="card-icon" style="background:var(--blue-pale)">🅱️</span> Hepatitis B <span class="skdi skdi-3a">3A</span></span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <div class="alert alert-blue"><span class="alert-icon">📌</span><div>Infeksi HBV pada <strong>dewasa</strong>: 90% sembuh, 10% kronik. Infeksi pada <strong>bayi/anak</strong>: TERBALIK — 90% kronik, 10% sembuh. Itulah kenapa imunisasi pada bayi baru lahir sangat penting!</div></div>
+      
+      <div class="dr-note">Kalau ibu hamil HBsAg positif dan HBV DNA positif, harus diobati! Bukan untuk ngobatin ibunya, tapi untuk mencegah transmisi vertikal ke bayi.</div>
+
+      <div class="divider"></div>
+      <p style="font-weight:600; margin-bottom:10px; font-size:14px; color:var(--amber-deep);">Serologi Hepatitis B — Yang Paling Sering Diuji!</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Diagnosis</th><th>HBsAg</th><th>Anti-HBs</th><th>Anti-HBc</th><th>HBeAg</th></tr>
+          <tr><td><strong>Infeksi Akut</strong></td><td><span class="sero-pos">+</span></td><td><span class="sero-neg">−</span></td><td><span class="sero-igm">IgM +</span></td><td><span class="sero-pos">+</span></td></tr>
+          <tr><td><strong>Window Period</strong></td><td><span class="sero-neg">−</span></td><td><span class="sero-neg">−</span></td><td><span class="sero-igm">IgM +</span></td><td>+/−</td></tr>
+          <tr><td><strong>Sembuh dari Akut</strong></td><td><span class="sero-neg">−</span></td><td><span class="sero-pos">+</span></td><td><span class="sero-igm">IgG +</span></td><td><span class="sero-neg">−</span></td></tr>
+          <tr><td><strong>Imunisasi</strong></td><td><span class="sero-neg">−</span></td><td><span class="sero-pos">+</span></td><td><span class="sero-neg">−</span></td><td><span class="sero-neg">−</span></td></tr>
+          <tr><td><strong>Kronik</strong></td><td><span class="sero-pos">+</span></td><td><span class="sero-neg">−</span></td><td><span class="sero-igm">IgG +</span></td><td>+/−</td></tr>
+        </table>
+      </div>
+      <div class="alert alert-amber"><span class="alert-icon">🎯</span><div><strong>Kunci membedakan akut vs kronik:</strong> Anti-HBc IgM = akut. Anti-HBc IgG = kronik / pernah infeksi. HBsAg + Anti-HBs = tidak mungkin bersamaan kecuali false positif.</div></div>
+
+      <div class="divider"></div>
+      <p style="font-weight:600; margin-bottom:8px; font-size:14px; color:var(--amber-deep);">Perjalanan Penyakit Hepatitis B Kronik</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Fase</th><th>HBV DNA</th><th>ALT</th><th>Kerusakan Hati</th></tr>
+          <tr><td>Imunotoleran</td><td>Tinggi</td><td>Normal</td><td>Minimal</td></tr>
+          <tr><td>Immune Clearance</td><td>Fluktuatif ↑</td><td>Fluktuatif ↑</td><td>Aktif terjadi</td></tr>
+          <tr><td>Inaktif</td><td>Rendah &lt;2000 IU/mL</td><td>Normal</td><td>Minimal</td></tr>
+          <tr><td>Reaktivasi</td><td>Kembali &gt;2000 IU/mL</td><td>Naik lagi</td><td>Berlanjut</td></tr>
+        </table>
+      </div>
+      <div class="dr-note">Pada fase inaktif, ALT normal tapi kerusakan hati tetap minimal. Kalau tidak dibiopsi, tidak kelihatan. Makanya hepatitis B kronik sering tidak sadar sudah terjadi fibrosis!</div>
+
+      <div class="divider"></div>
+      <p style="font-weight:600; margin-bottom:8px; font-size:14px; color:var(--amber-deep);">Tatalaksana Hepatitis B Kronik</p>
+      <div class="alert alert-amber"><span class="alert-icon">💊</span><div><strong>Lini pertama:</strong> Entecavir (NTV) atau Tenofovir (TDF/TAF) — analog nukleosid/nukleotid (NUC). Pemberiannya bisa seumur hidup atau sampai terjadi serokonversi HBsAg.</div></div>
+      <div class="alert alert-blue"><span class="alert-icon">📌</span><div><strong>Indikasi terapi (WHO terbaru):</strong> HBV DNA &gt;20.000 → obati. &lt;20.000 → monitor. Kecuali ada faktor risiko (DM, tidak bisa monitor, ibu hamil).</div></div>
+      <div class="dr-note">Kalau HBV DNA turun setelah obat — itu BAGUS, artinya obat mempan. Jangan dihentikan! Teruskan. Yang harus khawatir adalah kalau HBV DNA naik lagi saat sedang terapi — itu resistensi!</div>
+    </div>
+  </div>
+
+  <!-- HEPATITIS C -->
+  <div class="card">
+    <button class="collapse-btn" onclick="toggle(this)">
+      <span class="card-title" style="margin:0;"><span class="card-icon" style="background:var(--purple-pale)">©️</span> Hepatitis C <span class="skdi skdi-2">SKDI 2</span></span>
+      <span class="chev">▼</span>
+    </button>
+    <div class="collapse-body">
+      <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Kebalikan dari Hepatitis B!</strong> Dewasa terinfeksi HCV: 90% kronik, hanya 10% sembuh spontan. Progres ke sirosis lebih CEPAT dari HBV.</div></div>
+      
+      <div class="grid-2">
+        <div>
+          <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Faktor Risiko</p>
+          <ul class="styled-list">
+            <li>Penasun (jarum suntik tidak steril)</li>
+            <li>Transfusi darah terkontaminasi</li>
+            <li>Transmisi seksual</li>
+            <li>Perinatal dari ibu HCV +</li>
+            <li>Petugas kesehatan (needlestick)</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Serologi HCV</p>
+          <div class="table-wrap" style="margin:0;">
+            <table>
+              <tr><th>Anti-HCV</th><th>HCV RNA</th><th>Interpretasi</th></tr>
+              <tr><td>−</td><td>+</td><td>Infeksi akut awal</td></tr>
+              <tr><td>+</td><td>−</td><td>Infeksi mereda / kronik RNA tak terdeteksi</td></tr>
+              <tr><td>+</td><td>+</td><td>Infeksi akut/kronik aktif</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="alert alert-blue"><span class="alert-icon">💊</span><div><strong>Tatalaksana kronik:</strong> DAA (Direct Acting Antiviral) — Sofosbuvir + pendamping (Daclatasvir/Velpatasvir) selama 12 minggu. Bila RNA masih (+) minggu ke-24, perpanjang 24 minggu atau ganti regimen.</div></div>
+      <div class="dr-note">Sembuhnya HCV tidak mengurangi risiko sirosis dan HCC kalau sudah terlanjur ada fibrosis. Deteksi dini sebelum fibrosis itu kuncinya! Dan belum ada vaksin untuk HCV karena strainnya terus berubah.</div>
+    </div>
+  </div>
+
+  <!-- IMUNISASI -->
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--green-pale)">💉</span> Imunisasi Hepatitis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Imunisasi</th><th>Jenis</th><th>Indikasi</th></tr>
+        <tr>
+          <td>Hepatitis A</td>
+          <td>Aktif</td>
+          <td>Bepergian ke daerah endemis, petugas kesehatan, food handler</td>
+        </tr>
+        <tr>
+          <td>Hepatitis B Aktif</td>
+          <td>Aktif (HBsAg dilemahkan)</td>
+          <td>Bayi baru lahir, kelompok risiko tinggi. Berhasil = anti-HBs +</td>
+        </tr>
+        <tr>
+          <td>Hepatitis B Pasif (HBIG)</td>
+          <td>Pasif (antibodi siap)</td>
+          <td>Bayi dari ibu HBsAg +, orang tertusuk jarum pasien HBV tanpa riwayat vaksinasi. Efektif max 6 bulan.</td>
+        </tr>
+        <tr>
+          <td>Hepatitis C</td>
+          <td>—</td>
+          <td><span class="hl-red">Belum ada!</span> Strain terlalu heterogen.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="dr-note">Imunisasi hepatitis B pasif diberikan pada bayi dari ibu HBsAg + bersamaan dengan imunisasi aktif. Meskipun ibunya sudah diobati selama hamil, bayi tetap perlu HBIG karena HBV DNA bisa masih ada saat melahirkan!</div>
+  </div>
+</div>
+
+<!-- ======================================= ABSES ======================================= -->
+<div id="sec-abses" class="section">
+  <h2 class="section-heading">🔴 Abses Hepar</h2>
+  <p class="section-desc">Massa berisi pus di parenkim hepar — bedakan piogenik vs amuba!</p>
+
+  <div class="dr-note">Ludwig sign (+) = nyeri tekan pada ICS V/VI → khas untuk abses hepar. Aspirat abses amuba seperti "anchovy sauce" — merah tengguli seperti saus kecap manis!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--red-pale)">🆚</span> Abses Piogenik vs Amuba</div>
+    <div class="compare-wrap">
+      <div class="compare-col left">
+        <h4>🦠 Abses Piogenik</h4>
+        <div class="compare-row"><span>Etiologi:</span>E. coli, Klebsiella, Streptococcus</div>
+        <div class="compare-row"><span>Jumlah:</span>Sering <strong>multiple</strong></div>
+        <div class="compare-row"><span>Lokasi:</span>Salah satu lobus</div>
+        <div class="compare-row"><span>Onset:</span>Subakut</div>
+        <div class="compare-row"><span>Aspirat:</span>Pus kuning kehijauan</div>
+        <div class="compare-row"><span>Ikterik:</span>Ringan</div>
+        <div class="compare-row"><span>Diagnosis:</span>USG/CT + Aspirasi</div>
+        <div class="compare-row"><span>Terapi:</span>Drainase + Antibiotik IV</div>
+      </div>
+      <div class="compare-col right">
+        <h4>🪲 Abses Amuba (E. histolytica)</h4>
+        <div class="compare-row"><span>Etiologi:</span>Entamoeba histolytica</div>
+        <div class="compare-row"><span>Jumlah:</span>Biasanya <strong>soliter</strong></div>
+        <div class="compare-row"><span>Lokasi:</span>Lobus kanan dekat diafragma</div>
+        <div class="compare-row"><span>Onset:</span>Akut, <strong>walking dysentery</strong></div>
+        <div class="compare-row"><span>Aspirat:</span><span class="hl-amber">Anchovy sauce (merah tengguli)</span></div>
+        <div class="compare-row"><span>Ikterik:</span>Sedang</div>
+        <div class="compare-row"><span>Diagnosis:</span>USG/CT + Serologi (titer ≥0.5)</div>
+        <div class="compare-row"><span>Terapi:</span><span class="hl-green">Metronidazole 3×750mg IV 7–10 hari</span></div>
+      </div>
+    </div>
+    <div class="alert alert-amber"><span class="alert-icon">💡</span><div><strong>Walking dysentery</strong> = diare berdarah berlendir tapi pasien masih bisa jalan (dehidrasi ringan). Ini ciri khas amuba yang membedakan dari shigella.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🔧</span> Tatalaksana Drainase</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Kapan Drainase dan Cara Apa?</div>
+      <ol class="cr-steps">
+        <li><strong>Needle aspiration:</strong> abses &lt;5 cm</li>
+        <li><strong>Percutaneous drainase (pigtail catheter):</strong> usia &gt;55 tahun, ukuran &gt;5 cm, mengenai 2 lobus, gagal antibiotik</li>
+        <li><strong>Pembedahan (laparotomi/laparoskopi):</strong> peritonitis, dinding abses tebal, ruptur, gagal prosedur perkutan</li>
+      </ol>
+    </div>
+    <div class="alert alert-blue"><span class="alert-icon">💡</span><div><strong>Antibiotik piogenik lini utama:</strong> Ampisilin 4×2g IV + Gentamisin 1×5 mg/kgBB IV + Metronidazole 3×500mg. Atau: Ceftriaxone 2×1-2g + Metronidazole 3×500mg.</div></div>
+  </div>
+</div>
+
+<!-- ======================================= SIROSIS ======================================= -->
+<div id="sec-sirosis" class="section">
+  <h2 class="section-heading">🧱 Sirosis Hati</h2>
+  <p class="section-desc">Tahap akhir fibrosis hepatik — arsitektur hati terdistorsi, nodul regeneratif terbentuk. SKDI 2.</p>
+
+  <div class="dr-note">Di Asia Tenggara penyebab utama sirosis adalah hepatitis B dan C. Kalau ketemu pasien dengan tanda-tanda sirosis — WAJIB cari kaosanya! Kaosa berbeda, pengobatan pun berbeda.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🧠</span> Patofisiologi Singkat</div>
+    <div class="cr-box">
+      <div class="cr-label">🧠 Dua Jalur Manifestasi Sirosis</div>
+      <ol class="cr-steps">
+        <li><strong>Fibrosis akumulasi</strong> → penyumbatan aliran portal → <span class="hl-amber">Hipertensi Portal</span></li>
+        <li>Hipertensi portal → splenomegali, asites, caput medusae, varises esofagus</li>
+        <li><strong>Hilangnya fungsi hepatoselular</strong> → sintesis protein ↓, detoksifikasi ↓</li>
+        <li>Fungsi menurun → hipoalbuminemia, koagulopati, hiperestrogenisme, hiperammonemia</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🩺</span> Stigmata Hepar — Tanda Klinis Sirosis</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Hipertensi Portal</p>
+        <ul class="styled-list">
+          <li>Splenomegali</li>
+          <li>Asites</li>
+          <li>Caput medusae (vena kolateral periumbilikal)</li>
+          <li>Varises esofagus → hematemesis/melena</li>
+          <li>Hemoroid</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Disfungsi Hepatoselular</p>
+        <ul class="styled-list">
+          <li><strong>Spider nevi, eritema palmaris</strong> → hiperestrogenisme</li>
+          <li>Ginekomastia, atrofi testis → hiperestrogenisme</li>
+          <li>Leukonikia → hipoalbuminemia</li>
+          <li>Dupuytren contracture → kolagen abnormal</li>
+          <li><strong>Asterixis</strong> (liver flap) → ensefalopati hepatik</li>
+          <li>Terry's nail, finger clubbing → hipoalbuminemia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>Asterixis = liver flap:</strong> Pasien tidak bisa mempertahankan posisi tangan diekstensikan — tangan "mengepak" seperti sayap. Ini tanda ensefalopati hepatik karena hiperammonemia!</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🧪</span> Penunjang & Kriteria Diagnosis</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Lab</p>
+        <ul class="styled-list">
+          <li>SGOT &gt;&gt; SGPT (khas sirosis!)</li>
+          <li>ALP ↑ 2–3x bilirubin</li>
+          <li>Albumin ↓, Globulin ↑ (rasio terbalik)</li>
+          <li>PT memanjang, INR ↑</li>
+          <li>Na+ serum ↓</li>
+          <li>Anemia, trombositopenia, leukopenia</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Pencitraan</p>
+        <ul class="styled-list">
+          <li>USG: hati mengecil, permukaan ireguler, vena porta melebar</li>
+          <li>Fibroscan/SWE: liver stiffness ↑</li>
+          <li>Biopsi: gold standard, tapi jarang perlu kalau klinis sudah jelas</li>
+        </ul>
+        <div class="alert alert-amber" style="margin-top:8px;"><span class="alert-icon">💡</span><div><strong>5 dari 7 kriteria Soeharjo-Soebandiri</strong> terpenuhi = sirosis hepatis (eritema palmaris, spider nevi, hepatosplenomegali, rasio albumin terbalik, asites, sirkulasi kolateral, hematemesis/melena)</div></div>
+      </div>
+    </div>
+    <div class="dr-note">Ukuran hepar mengecil + stigmata hepar → sirosis. Ukuran hepar membesar bernodule + AFP meningkat → HCC. Ini beda!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">📊</span> Child-Pugh Score — Derajat Keparahan Sirosis</div>
+    <div class="table-wrap">
+      <table class="cp-table">
+        <tr><th>Parameter</th><th>1 poin</th><th>2 poin</th><th>3 poin</th></tr>
+        <tr><td><strong>Ensefalopati</strong></td><td>Tidak ada</td><td>Ringan-sedang (grade 1-2)</td><td>Berat (grade 3-4)</td></tr>
+        <tr><td><strong>Asites</strong></td><td>Tidak ada</td><td>Ringan-sedang (responsif diuretik)</td><td>Berat (refrakter)</td></tr>
+        <tr><td><strong>Bilirubin (mg/dL)</strong></td><td>&lt;2</td><td>2–3</td><td>&gt;3</td></tr>
+        <tr><td><strong>Albumin (g/dL)</strong></td><td>&gt;3.5</td><td>2.8–3.5</td><td>&lt;2.8</td></tr>
+        <tr><td><strong>PT pemanjangan / INR</strong></td><td>&lt;4 / &lt;1.7</td><td>4–6 / 1.7–2.3</td><td>&gt;6 / &gt;2.3</td></tr>
+      </table>
+    </div>
+    <div class="grid-3">
+      <div class="mini-card cp-row-a"><h4>Kelas A: 5–6 poin</h4><p>Fungsi hepar baik. Prognosis: 1-yr survival ~100%</p></div>
+      <div class="mini-card cp-row-b"><h4>Kelas B: 7–9 poin</h4><p>Gangguan fungsi sedang. 1-yr survival ~80%</p></div>
+      <div class="mini-card cp-row-c"><h4>Kelas C: 10–15 poin</h4><p>Disfungsi hati lanjut. 1-yr survival ~45%</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">💊</span> Tatalaksana Komplikasi Sirosis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Komplikasi</th><th>Tatalaksana</th></tr>
+        <tr>
+          <td><strong>Asites grade 2–3</strong></td>
+          <td>Diuretik: Spironolacton 100 mg/hari ± Furosemid. Restriksi garam &lt;2g/hari. Asites berat (grade 3): parasentesis volume besar + infus albumin.</td>
+        </tr>
+        <tr>
+          <td><strong>Varises Esofagus</strong></td>
+          <td>Profilaksis: Beta-blocker nonselektif (Propranolol 20–40 mg/hari). Akut: EVL + Octreotide IV. Lihat bagian UGI Bleeding.</td>
+        </tr>
+        <tr>
+          <td><strong>Ensefalopati Hepatik</strong></td>
+          <td>Restriksi protein. Episode pertama: Laktulosa 25 mL tiap 1–2 jam sampai BAB 2×/hari. Episode kedua: Rifaximin 2×550 mg.</td>
+        </tr>
+        <tr>
+          <td><strong>Spontaneous Bacterial Peritonitis (SBP)</strong></td>
+          <td>Terapeutik: Cefotaxim 2g/8-12 jam IV atau Ceftriaxone 2g/24 jam IV. Profilaksis: Cotrimoxazole 800/160 mg/hari (Child A) atau Ciprofloxacin 500 mg/hari (Child B-C).</td>
+        </tr>
+      </table>
+    </div>
+    <div class="dr-note">Untuk ensefalopati hepatikum, kita berikan LOLA (L-Ornithine L-Aspartate) untuk mengikat amonia yang beredar di sirkulasi perifer karena hati sudah tidak bisa mendegradasi amonia!</div>
+  </div>
+</div>
+
+<!-- ======================================= HCC ======================================= -->
+<div id="sec-hcc" class="section">
+  <h2 class="section-heading">🎗️ Hepatocellular Carcinoma (HCC)</h2>
+  <p class="section-desc">Keganasan primer sel hepatosit — tahap akhir dari cascade hepatitis kronik. SKDI 2.</p>
+
+  <div class="dr-note">HCC itu harapan hidupnya tergantung deteksi dini. Kalau sudah lanjut, hanya bisa paliatif. Makanya monitoring setiap 6 bulan (USG bergantian dengan AFP) pada semua pasien sirosis itu wajib!</div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">⚠️</span> Faktor Risiko & Klinis</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Faktor Risiko</p>
+        <ul class="styled-list">
+          <li>Sirosis hati (faktor terbesar)</li>
+          <li>Hepatitis B/C kronik</li>
+          <li>Hemokromatosis</li>
+          <li><span class="hl-amber">Aflatoksin</span> (dari Aspergillus flavus)</li>
+          <li>Alkohol berat</li>
+          <li>MAFLD/NASH berat</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; font-size:13px; color:var(--amber-deep); margin-bottom:8px;">Klinis</p>
+        <ul class="styled-list">
+          <li>Nyeri perut kanan atas</li>
+          <li>Nyeri bahu kanan (referred pain)</li>
+          <li>Hepatomegali — <span class="hl-amber">teraba keras dungkul-dungkul</span></li>
+          <li>Bruit pada auskultasi</li>
+          <li>Penurunan berat badan, fatigue</li>
+          <li>Asites, ikterus (stadium lanjut)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--blue-pale)">🔬</span> Diagnosis HCC</div>
+    <div class="grid-3">
+      <div class="mini-card" style="border-top: 3px solid var(--amber);">
+        <h4>Kriteria A</h4>
+        <ul>
+          <li>Penyakit hati yang mendasari (HBV/HCV/sirosis)</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--blue-dark);">
+        <h4>Kriteria B</h4>
+        <ul>
+          <li>AFP ≥ 200 ng/mL dan cenderung meningkat</li>
+          <li>PIVKA-II ≥ 40 mAU/mL</li>
+        </ul>
+      </div>
+      <div class="mini-card" style="border-top: 3px solid var(--green);">
+        <h4>Kriteria C</h4>
+        <ul>
+          <li>CT scan / MRI 3 fase: hipervaskular arterial + washout vena porta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-amber" style="margin-top:12px;"><span class="alert-icon">🎯</span><div><strong>Diagnosis dapat ditegakkan jika:</strong> A+B+C, A+C, atau B+C. Bila hanya A+B → perlu CT/MRI 3 fase. Bila hanya C → perlu biopsi. Nodul atipikal → pemeriksaan lanjutan.</div></div>
+    <div class="dr-note">AFP itu tumor marker, bukan untuk diagnosis awal. Untuk monitoring! PIVKA-II lebih sensitif — kalau PIVKA-II naik, sebentar lagi AFP akan ikut naik. Tapi harganya lebih mahal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon" style="background:var(--amber-pale)">🩺</span> Tatalaksana Berdasarkan Ukuran Tumor</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Ukuran Tumor</th><th>Pilihan Terapi</th></tr>
+        <tr><td>&lt;3 cm (stadium sangat awal)</td><td>Reseksi segmental atau transplantasi hepar (bila memenuhi kriteria Milano)</td></tr>
+        <tr><td>3–5 cm</td><td>Reseksi hepar atau RFA (Radiofrequency Ablation)</td></tr>
+        <tr><td>5–10 cm</td><td>RFA atau ablasi alkohol</td></tr>
+        <tr><td>&gt;10 cm</td><td>TACE (Transarterial Chemoembolization) — embolisasi arteri hepatika yang memperdarai tumor</td></tr>
+        <tr><td>Stadium lanjut / &gt;50% volume hepar</td><td>Kemoterapi oral: Lenvatinib (lini 1 di Indonesia, dijamin BPJS). Supportive care.</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⚠️</span><div><strong>TACE tidak boleh</strong> dilakukan bila ada trombosis vena porta! Karena hepar mendapat darah dari arteri hepatika DAN vena porta. Kalau arteri disumbat + vena porta juga tersumbat → nekrosis total hepar!</div></div>
+    <div class="dr-note">Monitoring HCC pada sirosis: USG tiap 6 bulan bergantian dengan AFP. Jadi 6 bulan USG, 12 bulan AFP, 18 bulan USG, 24 bulan AFP — supaya lebih banyak waktu untuk menangkap HCC yang masih kecil!</div>
+  </div>
+</div>
+
+<!-- ======================================= QUIZ ======================================= -->
+<div id="sec-quiz" class="section">
+  <h2 class="section-heading">🧠 Quiz — Uji Pemahamanmu!</h2>
+  <p class="section-desc">10 soal vignette berbasis materi kuliah dr. Sumarjo + konteks SKDI. Semangat!</p>
+
+  <div class="quiz-progress" id="quizProg"></div>
+
+  <!-- Q1 -->
+  <div class="quiz-q" id="q1">
+    <div class="q-num">SOAL 01 / IKTERUS</div>
+    <div class="q-vignette">Pria 55 tahun, perokok, datang dengan mata dan kulit kuning sejak 2 minggu, disertai BAB seperti dempul dan BAK sangat gelap seperti teh pekat. Tidak ada nyeri. Pemeriksaan abdomen: teraba massa di hipokondrium kanan. Lab: bilirubin direk ↑↑, GGT ↑↑, SGPT normal.</div>
+    <p class="q-question">Tipe ikterus apakah ini dan kemungkinan penyebab yang paling perlu dipikirkan?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Ikterus pre-hepatik — anemia hemolitik</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Ikterus hepatik — hepatitis A akut</button>
+      <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>Ikterus post-hepatik — karsinoma kaput pankreas</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>Ikterus hepatik — DILI karena rokok</button>
+      <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Ikterus pre-hepatik — malaria berat</button>
+    </div>
+    <div class="q-exp" id="exp-q1">
+      ✅ <strong>C. Ikterus post-hepatik — karsinoma kaput pankreas</strong><br><br>
+      BAB dempul + BAK sangat gelap + GGT ↑↑ + SGPT normal → klasik post-hepatik. Adanya massa di hipokondrium kanan tanpa nyeri = Courvoisier sign → kantung empedu teraba tapi tidak nyeri = tumor pankreas sampai terbukti tidak. Karsinoma kaput pankreas menyumbat CBD di daerah distal. Bilirubin yang sudah terkonjugasi tidak bisa masuk duodenum → BAB dempul, BAK gelap. GGT ↑↑ karena kolestasis berat.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-q" id="q2">
+    <div class="q-num">SOAL 02 / HEPATITIS A</div>
+    <div class="q-vignette">Seorang mahasiswi 19 tahun tinggal di asrama pesantren. Tiba-tiba 8 orang teman sekamarnya sakit bersamaan dengan keluhan demam, mual, mata kuning. Pasien sendiri juga demam 38.5°C, sklera ikterik, hepatomegali. Lab: SGPT ↑ 3x normal, IgM anti-HAV (+), IgG anti-HAV (−).</div>
+    <p class="q-question">Apa interpretasi serologi yang paling tepat?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>Pernah terinfeksi hepatitis A, sudah sembuh</button>
+      <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">B</span>Infeksi hepatitis A akut sedang berlangsung</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">C</span>Sudah pernah divaksinasi hepatitis A</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>Infeksi hepatitis A kronik</button>
+      <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Window period hepatitis A</button>
+    </div>
+    <div class="q-exp" id="exp-q2">
+      ✅ <strong>B. Infeksi hepatitis A akut sedang berlangsung</strong><br><br>
+      <strong>IgM anti-HAV (+)</strong> = infeksi AKUT yang sedang terjadi. IgM muncul ~2 minggu setelah infeksi dan mencapai puncak 4–5 minggu. IgG baru muncul setelahnya dan bertahan seumur hidup. Konteks outbreak (8 orang sekamar sakit bersamaan) sangat mendukung hepatitis A via fecal-oral — mungkin ada sumber air atau makanan yang terkontaminasi. Tatalaksana: simtomatik, tirah baring, tidak ada antivirus.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-q" id="q3">
+    <div class="q-num">SOAL 03 / HEPATITIS B SEROLOGI</div>
+    <div class="q-vignette">Pria 35 tahun asimtomatik, periksa kesehatan rutin. Hasil lab: HBsAg (−), Anti-HBs (+), Anti-HBc IgG (+), HBeAg (−).</div>
+    <p class="q-question">Interpretasi serologi yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Infeksi hepatitis B akut</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>Hepatitis B kronik aktif</button>
+      <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">C</span>Sembuh dari infeksi hepatitis B akut</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Hanya pernah divaksinasi saja</button>
+      <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Window period hepatitis B</button>
+    </div>
+    <div class="q-exp" id="exp-q3">
+      ✅ <strong>C. Sembuh dari infeksi hepatitis B akut</strong><br><br>
+      Pola ini: HBsAg (−) + Anti-HBs (+) + Anti-HBc IgG (+) = <strong>sembuh dari infeksi akut</strong>. Bedanya dari orang yang hanya divaksinasi: vaksinasi akan menghasilkan Anti-HBs (+) tapi Anti-HBc TETAP (−) karena tidak pernah terinfeksi, sehingga tidak ada respons anti-core. Anti-HBc IgG positif berarti pernah terinfeksi (ada respons terhadap core antigen). IgM = akut, IgG = kronik/pernah infeksi.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-q" id="q4">
+    <div class="q-num">SOAL 04 / HEPATITIS B TATALAKSANA</div>
+    <div class="q-vignette">Seorang ibu hamil 28 minggu datang untuk ANC. Dari skrining: HBsAg (+). Diperiksa HBV DNA: 50.000 IU/mL. ALT dalam batas normal.</div>
+    <p class="q-question">Tindakan yang paling tepat dilakukan adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Observasi saja karena ALT normal, terapi tidak diperlukan</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Berikan imunoglobulin hepatitis B (HBIG) kepada ibu sekarang</button>
+      <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Berikan antivirus (Tenofovir) untuk mencegah transmisi vertikal ke janin</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Rujuk untuk terminasi kehamilan</button>
+      <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>Cukup berikan HBIG pada bayi setelah lahir saja</button>
+    </div>
+    <div class="q-exp" id="exp-q4">
+      ✅ <strong>C. Berikan antivirus (Tenofovir) untuk mencegah transmisi vertikal</strong><br><br>
+      Pada ibu hamil, ambang terapi lebih rendah: HBV DNA &gt;2.000 IU/mL = sudah harus diterapi. Kasus ini HBV DNA = 50.000 → jauh melebihi threshold. Tujuannya BUKAN mengobati ibu (ALT normal, tidak ada gejala) tapi mencegah transmisi vertikal ke bayi. Tenofovir adalah pilihan aman di kehamilan. Bayi tetap harus mendapat HBIG + vaksin aktif saat lahir meskipun ibu sudah diobati — karena HBV DNA bisa masih ada saat melahirkan.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-q" id="q5">
+    <div class="q-num">SOAL 05 / NAFLD/MAFLD</div>
+    <div class="q-vignette">Pria 42 tahun, IMT 32 (obese), DM tipe 2 tidak terkontrol, datang dengan keluhan malaise dan nyeri perut kanan atas ringan. SGOT 68 (N: &lt;40), SGPT 110 (N: &lt;40). USG abdomen: hepatomegali, ekogenisitas hepar meningkat (lebih putih dari korteks ginjal kanan).</div>
+    <p class="q-question">Gambaran USG "hepar lebih putih dari korteks ginjal" ini disebut apa dan menandakan apa?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Hypoechoic liver — tanda abses hepar</button>
+      <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">B</span>Bright liver / Hyperechoic liver — infiltrasi lemak difus (fatty liver)</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">C</span>Hyperechoic nodule — tanda kalsifikasi</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Heterogeneous liver — tanda sirosis</button>
+      <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Normal — tidak ada kelainan</button>
+    </div>
+    <div class="q-exp" id="exp-q5">
+      ✅ <strong>B. Bright liver / Hyperechoic liver — infiltrasi lemak difus</strong><br><br>
+      "Bright liver" = hepar hiperekogenik dibandingkan korteks ginjal = infiltrasi lemak difus = NAFLD/MAFLD. Ini adalah temuan USG khas fatty liver. Penilaian harus menggunakan ginjal yang NORMAL sebagai pembanding — kalau pasien CKD, ginjal juga hiperekogenik sehingga tidak valid. Pasien ini obesitas + DM tipe 2 = dua faktor risiko MAFLD utama + SGOT/SGPT 2–3x normal = sangat mendukung NAFLD/MAFLD.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-q" id="q6">
+    <div class="q-num">SOAL 06 / DILI</div>
+    <div class="q-vignette">Pasien TB paru baru memulai pengobatan OAT RHZE (Rifampisin, Isoniazid, Pirazinamid, Etambutol) 3 minggu lalu. Sekarang mengeluh mual, kulit gatal, mata kuning. Lab: SGOT 180, SGPT 250, bilirubin direk 3.2 mg/dL.</div>
+    <p class="q-question">Apa langkah pertama yang paling tepat dilakukan?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Lanjutkan OAT, tambah hepatoprotektor kurkuma</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>Ganti Rifampisin dengan Streptomisin saja</button>
+      <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">C</span>Stop semua OAT, berikan hepatoprotektor, tunggu SGPT normal, lalu tapering up ulang</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Lanjutkan OAT karena TB lebih berbahaya dari DILI ringan</button>
+      <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Stop semua OAT selamanya, TB tidak bisa diobati</button>
+    </div>
+    <div class="q-exp" id="exp-q6">
+      ✅ <strong>C. Stop semua OAT → hepatoprotektor → tapering up ulang setelah SGPT normal</strong><br><br>
+      Ini adalah DILI tipe kolestasis (bilirubin direk ↑ + gatal + ikterik) + hepatitis (SGPT ↑ 6x normal). Semua OAT (R, H, Z) bersifat hepatotoksik. Langkah: (1) Stop SEMUA OAT, (2) berikan hepatoprotektor, (3) tunggu SGPT kembali normal (bisa 1–3 bulan), (4) mulai ulang dengan tapering up dari Etambutol saja → tambah Isoniazid → Rifampisin → Pirazinamid perlahan, (5) setelah full dosis, hitung 6 bulan pengobatan dari awal. Jangan lanjutkan tanpa stop dulu — bisa terjadi gagal hati akut!
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-q" id="q7">
+    <div class="q-num">SOAL 07 / ABSES HEPAR</div>
+    <div class="q-vignette">Pria 38 tahun dari daerah pedesaan datang dengan demam tinggi 39°C sejak 1 minggu, nyeri perut kanan atas, dan riwayat BAB berdarah berlendir 2 minggu lalu tetapi pasien masih bisa beraktivitas normal. USG: lesi hipoekoik soliter di lobus kanan hepar 4 cm, berdekatan dengan diafragma.</div>
+    <p class="q-question">Diagnosis paling mungkin dan tatalaksana utamanya adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>Abses piogenik — drainase + antibiotik spektrum luas</button>
+      <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">B</span>Abses amuba — Metronidazole 3×750mg selama 7–10 hari</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">C</span>Kista hidatid — albendazole + drainase</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>HCC — AFP + CT scan 3 fase</button>
+      <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Abses piogenik — laparotomi emergensi</button>
+    </div>
+    <div class="q-exp" id="exp-q7">
+      ✅ <strong>B. Abses amuba — Metronidazole 3×750mg IV 7–10 hari</strong><br><br>
+      Clue abses amuba: (1) Soliter di lobus KANAN dekat diafragma, (2) riwayat "walking dysentery" — BAB berdarah berlendir tapi pasien masih bisa beraktivitas normal (tidak dehidrasi berat), (3) dari pedesaan (sanitasi kurang), (4) ukuran 4 cm. Abses piogenik biasanya multiple dan pasien lebih tampak sakit berat. Konfirmasi: USG/CT + serologi amuba titer ≥0,5. Bila ukuran &lt;5 cm, obat saja sudah cukup. Needle aspiration bila tidak respons farmakologi.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-q" id="q8">
+    <div class="q-num">SOAL 08 / SIROSIS HEPATIS</div>
+    <div class="q-vignette">Wanita 52 tahun dengan riwayat hepatitis B kronik 15 tahun datang dengan perut membesar sejak 1 bulan. Pemeriksaan fisik: spider nevi di punggung, eritema palmaris, asites (+), splenomegali, shifting dullness (+). Lab: albumin 2.1 g/dL, globulin 4.8 g/dL, SGOT 85 &gt;&gt; SGPT 42, bilirubin normal, PT memanjang. Child-Pugh: 11 poin.</div>
+    <p class="q-question">Tatalaksana asites pada pasien ini yang paling tepat adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Furosemide saja 40 mg/hari</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">B</span>Diet tinggi garam untuk meningkatkan albumin</button>
+      <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">C</span>Spironolacton + restriksi garam &lt;2g/hari + mungkin parasentesis + albumin infus</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>Tidak perlu terapi, asites sirosis tidak berbahaya</button>
+      <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Langsung transplantasi hepar</button>
+    </div>
+    <div class="q-exp" id="exp-q8">
+      ✅ <strong>C. Spironolacton + restriksi garam + parasentesis + albumin infus</strong><br><br>
+      Child-Pugh 11 = Kelas C (disfungsi berat). Asites grade 2–3. Tatalaksana: Spironolacton 100 mg/hari (diuretik hemat kalium — paling efektif untuk asites sirosis) + restriksi garam &lt;2g/hari + hindari junk food. Bila asites berat (grade 3) atau tidak respons → parasentesis volume besar + infus albumin (untuk mencegah paracentesis-induced circulatory dysfunction / PICD). Furosemide saja tidak cukup karena bisa menyebabkan hipokalemia. Diet tinggi garam justru memperburuk asites.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-q" id="q9">
+    <div class="q-num">SOAL 09 / HCC</div>
+    <div class="q-vignette">Pria 60 tahun dengan sirosis hepatis karena HCV kronik, rutin kontrol 6 bulanan. Pada USG screening ditemukan nodul 2.5 cm di segmen VI hepar. CT scan 3 fase: nodul hipervaskular pada fase arterial + washout pada fase portal. AFP 450 ng/mL (N: &lt;20) dan cenderung meningkat.</div>
+    <p class="q-question">Apakah diagnosis dapat ditegakkan dan apa pilihan terapi yang paling tepat?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>Belum bisa ditegakkan, perlu biopsi dulu</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>HCC — tatalaksana TACE segera</button>
+      <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">C</span>HCC sudah dapat ditegakkan (A+B+C) — pilihan terapi: reseksi segmental atau RFA</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">D</span>HCC — hanya supportive care karena sudah lanjut</button>
+      <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Bukan HCC, AFP tinggi bisa dari banyak penyebab</button>
+    </div>
+    <div class="q-exp" id="exp-q9">
+      ✅ <strong>C. HCC dapat ditegakkan — terapi reseksi segmental atau RFA</strong><br><br>
+      Memenuhi semua kriteria: (A) sirosis karena HCV kronik, (B) AFP ≥200 dan meningkat, (C) CT scan 3 fase: hipervaskular arterial + washout porta → gambaran khas HCC. Kombinasi A+B+C → diagnosis HCC TANPA biopsi. Ukuran tumor 2.5 cm → stadium awal. Pilihan terapi: reseksi segmental bila fungsi hati masih memadai (Child-Pugh A/B) atau RFA (radiofrequency ablation). TACE untuk ukuran &gt;10 cm atau tidak bisa operasi. Biopsi hanya bila gambaran atipikal.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-q" id="q10">
+    <div class="q-num">SOAL 10 / HEPATITIS C KRONIK</div>
+    <div class="q-vignette">Seorang mantan pengguna narkoba suntik 45 tahun, didiagnosis HCV kronik sejak 5 tahun lalu. Anti-HCV (+), HCV RNA 2.5 juta IU/mL. Fibroscan: 12 kPa (= F3, fibrosis berat). Tidak ada sirosis.</div>
+    <p class="q-question">Tatalaksana yang paling tepat dan pernyataan yang BENAR tentang hepatitis C adalah?</p>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Hepatitis C dapat disembuhkan dengan vaksinasi</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Terapi tidak diperlukan karena tidak ada sirosis</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">C</span>Berikan interferon alfa 48 minggu saja</button>
+      <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">D</span>Berikan DAA (Sofosbuvir + kombinasi) 12 minggu; setelah sembuh tetap perlu monitoring fibrosis dan HCC</button>
+      <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Hepatitis C lebih mudah sembuh spontan dibandingkan hepatitis B</button>
+    </div>
+    <div class="q-exp" id="exp-q10">
+      ✅ <strong>D. DAA 12 minggu + monitoring fibrosis/HCC setelahnya</strong><br><br>
+      HCV kronik dengan fibrosis F3 → harus diobati segera sebelum berkembang ke sirosis. DAA (Direct Acting Antiviral) berbasis Sofosbuvir adalah standard saat ini — cure rate &gt;95%. Monitor SVR (Sustained Virologic Response): cek HCV RNA minggu ke-12, 24, 48 setelah terapi. Penting: sembuhnya HCV TIDAK menghilangkan risiko sirosis dan HCC kalau sudah ada fibrosis berat! Tetap perlu monitoring USG dan AFP berkala. Vaksin HCV tidak ada. Hepatitis C justru lebih sering kronik (90%) dibanding HBV. Interferon saja tanpa DAA sudah tidak jadi pilihan utama.
+    </div>
+  </div>
+
+  <!-- Score card -->
+  <div class="score-card" id="scoreCard">
+    <div style="font-size:36px; margin-bottom:8px;">🎉</div>
+    <div class="score-big" id="scoreNum">0</div>
+    <div style="font-size:18px; opacity:0.8; margin-top:4px;">/ 10</div>
+    <p class="score-msg" id="scoreMsg"></p>
+    <button class="btn-restart" onclick="resetQuiz()">🔁 Ulangi Quiz</button>
+  </div>
+
+</div><!-- /quiz -->
+</div><!-- /container -->
+
+<script>
+// ====== NAV ======
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ====== COLLAPSE ======
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// ====== QUIZ ======
+let answered = {}, score = 0, total = 10;
+
+function initDots() {
+  const p = document.getElementById('quizProg');
+  p.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pdot';
+    d.id = 'dot' + i;
+    p.appendChild(d);
+  }
+}
+
+function ans(btn, qid, correct) {
+  if (answered[qid]) return;
+  answered[qid] = true;
+  const qNum = parseInt(qid.replace('q', ''));
+  const card = document.getElementById(qid);
+  card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; });
+  if (correct) {
+    btn.classList.add('correct');
+    score++;
+    document.getElementById('dot' + qNum).classList.add('ok');
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('dot' + qNum).classList.add('no');
+    // Show correct
+    card.querySelectorAll('.q-opt').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) b.classList.add('correct');
+    });
+  }
+  const exp = document.getElementById('exp-' + qid);
+  if (exp) exp.classList.add('show');
+  if (Object.keys(answered).length === total) setTimeout(showScore, 700);
+}
+
+function showScore() {
+  const sc = document.getElementById('scoreCard');
+  sc.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const msgs = ['Ayo belajar lagi, semangat! 💪', 'Masih perlu review nih! 📖', 'Lumayan! Sedikit lagi! 🌟', 'Bagus banget! Hampir sempurna! 🔥', 'SEMPURNA! Dokter siap! 🎊'];
+  const idx = score <= 3 ? 0 : score <= 5 ? 1 : score <= 7 ? 2 : score <= 9 ? 3 : 4;
+  document.getElementById('scoreMsg').textContent = msgs[idx];
+  sc.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+function resetQuiz() {
+  answered = {}; score = 0;
+  document.querySelectorAll('.q-opt').forEach(b => { b.disabled = false; b.classList.remove('correct', 'wrong'); });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreCard').classList.remove('show');
+  initDots();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+initDots();
+</script>
+</body>
+</html>

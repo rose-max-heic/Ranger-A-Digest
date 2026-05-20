@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blok Digestif — dr. Sumarjo | Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #C5C4BF;
+    --mocha: #977C60;
+    --lavender: #A88ACA;
+    --plum: #5D336D;
+    --plum-dark: #3d2248;
+    --cream: #F7F5F0;
+    --white: #FFFFFF;
+    --text: #2a1f2e;
+    --muted: #7a6b82;
+    --border: #e0dcd8;
+    --sand-pale: #f0efec;
+    --mocha-pale: #f5ede4;
+    --lavender-pale: #f0eaf8;
+    --plum-pale: #ede7f3;
+    --red: #c0392b;
+    --red-pale: #fdf0ee;
+    --green: #2e7d5e;
+    --green-pale: #e8f5ee;
+    --amber: #b8860b;
+    --amber-pale: #fdf6e3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 14px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: 270px;
+    height: 100vh;
+    background: var(--plum-dark);
+    overflow-y: auto;
+    z-index: 200;
+    scrollbar-width: thin;
+    scrollbar-color: var(--lavender) transparent;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 3px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--lavender); border-radius: 2px; }
+
+  .sidebar-header {
+    background: linear-gradient(160deg, var(--plum) 0%, var(--plum-dark) 100%);
+    padding: 28px 22px 22px;
+    border-bottom: 2px solid var(--lavender);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .sidebar-header .logo-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lavender);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .sidebar-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--white);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .sidebar-header h2 em {
+    font-style: italic;
+    color: var(--lavender);
+  }
+
+  .sidebar-header .by {
+    font-size: 11px;
+    color: var(--sand);
+    margin-top: 6px;
+    opacity: 0.8;
+  }
+
+  .nav-group-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mocha);
+    padding: 16px 22px 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 22px;
+    color: rgba(197,196,191,0.75);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .nav-item:hover, .nav-item.active {
+    color: var(--lavender);
+    border-left-color: var(--lavender);
+    background: rgba(168,138,202,0.1);
+  }
+
+  .nav-item .nav-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--mocha);
+    flex-shrink: 0;
+    min-width: 20px;
+  }
+
+  /* ===== MAIN ===== */
+  .main {
+    margin-left: 270px;
+    min-height: 100vh;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--plum-dark) 0%, var(--plum) 50%, #7a4d93 100%);
+    padding: 64px 56px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(168,138,202,0.12);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(197,196,191,0.06);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(168,138,202,0.25);
+    border: 1px solid rgba(168,138,202,0.4);
+    color: var(--lavender);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--white);
+    line-height: 1.1;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em { color: var(--lavender); font-style: italic; }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 580px;
+    line-height: 1.7;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .hero-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ===== CONTENT ===== */
+  .content {
+    padding: 44px 56px;
+  }
+
+  .section { display: none; animation: fadeSlide 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--lavender);
+  }
+
+  .section-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--plum), var(--lavender));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(93,51,109,0.3);
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--plum-dark);
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(93,51,109,0.05);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .card:hover { box-shadow: 0 6px 24px rgba(93,51,109,0.1); transform: translateY(-1px); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--plum-dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  .badge-plum { background: var(--plum-pale); color: var(--plum); }
+  .badge-mocha { background: var(--mocha-pale); color: #6b4f2e; }
+  .badge-lavender { background: var(--lavender-pale); color: #6650a4; }
+  .badge-red { background: var(--red-pale); color: var(--red); }
+  .badge-green { background: var(--green-pale); color: var(--green); }
+  .badge-amber { background: var(--amber-pale); color: var(--amber); }
+
+  /* ===== DOCTOR NOTES ===== */
+  .dr-note {
+    background: linear-gradient(135deg, var(--plum-pale), #f8f5fc);
+    border: 2px solid var(--lavender);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--plum-dark);
+    position: relative;
+  }
+
+  .dr-note::before {
+    content: '🎙️ dr. Sumarjo:';
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 6px;
+  }
+
+  /* ===== ALERTS ===== */
+  .alert {
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin: 12px 0;
+    font-size: 13.5px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.65;
+  }
+
+  .alert-icon { font-size: 17px; flex-shrink: 0; }
+  .alert-red { background: var(--red-pale); border-left: 4px solid var(--red); color: #7a1c12; }
+  .alert-green { background: var(--green-pale); border-left: 4px solid var(--green); color: #1a4a35; }
+  .alert-amber { background: var(--amber-pale); border-left: 4px solid var(--amber); color: #5a4000; }
+  .alert-plum { background: var(--plum-pale); border-left: 4px solid var(--plum); color: var(--plum-dark); }
+  .alert-lavender { background: var(--lavender-pale); border-left: 4px solid var(--lavender); color: #3d2580; }
+  .alert-sand { background: var(--sand-pale); border-left: 4px solid var(--mocha); color: #4a3420; }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 18px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  th {
+    background: linear-gradient(135deg, var(--plum), var(--lavender));
+    color: var(--white);
+    padding: 11px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  td { padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--sand-pale); }
+  tr:hover td { background: var(--lavender-pale); }
+
+  /* ===== GRIDS ===== */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  @media(max-width: 900px) {
+    .g2, .g3 { grid-template-columns: 1fr; }
+    .sidebar { transform: translateX(-270px); }
+    .main { margin-left: 0; }
+    .hero { padding: 40px 24px 36px; }
+    .content { padding: 28px 20px; }
+  }
+
+  /* ===== MINI CARD ===== */
+  .mini { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+  .mini h4 { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--plum-dark); margin-bottom: 8px; }
+  .mini ul { padding-left: 16px; }
+  .mini li { font-size: 13px; color: var(--muted); margin-bottom: 3px; }
+  .mini p { font-size: 13px; color: var(--muted); }
+
+  /* ===== MNEMONIC ===== */
+  .mnemonic {
+    background: linear-gradient(135deg, var(--mocha-pale), var(--sand-pale));
+    border: 2px solid var(--mocha);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+
+  .mnemonic-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mocha);
+    margin-bottom: 8px;
+  }
+
+  .mnemonic-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--plum-dark);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  .mnemonic-exp { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+
+  /* ===== COMPARE ===== */
+  .compare-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .compare-box { border-radius: 14px; padding: 18px 20px; border: 2px solid; }
+  .compare-box.a { background: var(--lavender-pale); border-color: var(--lavender); }
+  .compare-box.b { background: var(--mocha-pale); border-color: var(--mocha); }
+  .compare-box h4 { font-family: 'Playfair Display', serif; font-size: 15px; margin-bottom: 10px; }
+  .compare-box.a h4 { color: var(--plum); }
+  .compare-box.b h4 { color: #6b4f2e; }
+  .compare-row { display: flex; gap: 8px; font-size: 12.5px; padding: 4px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .compare-row:last-child { border: none; }
+  .compare-label { min-width: 100px; opacity: 0.65; flex-shrink: 0; }
+
+  /* ===== FLOW ===== */
+  .flow-wrap { margin: 14px 0; }
+  .flow-box {
+    background: var(--white);
+    border: 2px solid var(--lavender);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .flow-box.danger { border-color: var(--red); background: var(--red-pale); color: var(--red); }
+  .flow-box.success { border-color: var(--green); background: var(--green-pale); color: var(--green); }
+  .flow-arrow { text-align: center; color: var(--lavender); font-size: 18px; margin: 4px 0; line-height: 1; }
+
+  /* ===== STYLED LIST ===== */
+  .slist { list-style: none; padding: 0; }
+  .slist li { padding: 7px 0 7px 22px; border-bottom: 1px solid var(--border); font-size: 13.5px; position: relative; }
+  .slist li:last-child { border: none; }
+  .slist li::before { content: '▸'; position: absolute; left: 0; color: var(--lavender); font-size: 11px; top: 10px; }
+
+  /* ===== SKDI BADGES ===== */
+  .skdi { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 8px; font-size: 10px; font-weight: 700; margin-left: 6px; }
+  .skdi-4a { background: #d4edda; color: #155724; }
+  .skdi-3b { background: #fff3cd; color: #856404; }
+  .skdi-3a { background: #cce5ff; color: #004085; }
+  .skdi-2 { background: #e2e3e5; color: #383d41; }
+
+  /* ===== COLLAPSIBLE ===== */
+  .collapse-btn {
+    background: none; border: none; width: 100%; text-align: left;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    padding: 0; font-family: inherit; font-family: 'Playfair Display', serif;
+    font-size: 16px; color: var(--plum-dark); font-weight: 600;
+  }
+  .collapse-btn .chev { transition: transform 0.25s; font-size: 12px; color: var(--muted); }
+  .collapse-btn.open .chev { transform: rotate(180deg); }
+  .collapse-content { display: none; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .collapse-content.open { display: block; animation: fadeSlide 0.25s ease; }
+
+  /* ===== QUIZ ===== */
+  .quiz-wrap { max-width: 820px; }
+  .qcard { background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; padding: 28px; margin-bottom: 28px; position: relative; box-shadow: 0 2px 10px rgba(93,51,109,0.05); }
+  .q-num { position: absolute; top: -13px; left: 22px; background: var(--plum); color: white; font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 4px 14px; border-radius: 10px; }
+  .q-vignette { background: var(--plum-pale); border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; font-size: 13.5px; line-height: 1.75; border-left: 4px solid var(--plum); color: var(--plum-dark); }
+  .q-question { font-weight: 600; font-size: 14px; margin-bottom: 14px; color: var(--text); line-height: 1.55; }
+  .q-opts { display: flex; flex-direction: column; gap: 8px; }
+
+  .q-opt {
+    background: var(--sand-pale);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--text);
+  }
+
+  .q-opt:hover:not(:disabled) { border-color: var(--lavender); background: var(--lavender-pale); }
+  .q-opt .ol { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; width: 20px; height: 20px; border-radius: 6px; background: white; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .q-opt.correct { background: var(--green-pale) !important; border-color: var(--green) !important; color: #155724 !important; }
+  .q-opt.correct .ol { background: var(--green); color: white; border-color: var(--green); }
+  .q-opt.wrong { background: var(--red-pale) !important; border-color: var(--red) !important; color: var(--red) !important; }
+  .q-opt.wrong .ol { background: var(--red); color: white; border-color: var(--red); }
+  .q-opt:disabled { cursor: default; }
+
+  .q-exp { display: none; margin-top: 16px; background: var(--green-pale); border-radius: 10px; padding: 14px 18px; font-size: 13px; line-height: 1.75; color: #1a4a35; border-left: 3px solid var(--green); }
+  .q-exp.show { display: block; animation: fadeSlide 0.3s ease; }
+
+  .quiz-progress { margin-bottom: 24px; }
+  .progress-dots { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pdot { width: 10px; height: 10px; border-radius: 50%; background: var(--sand); transition: all 0.3s; }
+  .pdot.correct { background: var(--green); }
+  .pdot.wrong { background: var(--red); }
+
+  .score-card { background: linear-gradient(135deg, var(--plum-dark), var(--plum)); color: white; border-radius: 20px; padding: 40px; text-align: center; display: none; margin-top: 28px; }
+  .score-card.show { display: block; animation: fadeSlide 0.4s ease; }
+  .score-big { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: var(--lavender); line-height: 1; }
+  .score-card p { margin-top: 10px; opacity: 0.85; font-size: 15px; }
+  .btn-retry { background: var(--lavender); color: white; border: none; border-radius: 30px; padding: 12px 28px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 20px; transition: all 0.2s; }
+  .btn-retry:hover { background: #9578bc; transform: translateY(-2px); }
+
+  /* ===== MENU TOGGLE ===== */
+  .menu-toggle { display: none; position: fixed; top: 16px; left: 16px; z-index: 300; background: var(--plum); border: none; border-radius: 10px; width: 42px; height: 42px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 10px; box-shadow: 0 4px 14px rgba(93,51,109,0.4); }
+  .menu-toggle span { display: block; width: 20px; height: 2px; background: white; border-radius: 2px; }
+  @media(max-width: 900px) { .menu-toggle { display: flex; } .sidebar.open { transform: translateX(0); } }
+
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 150; }
+  @media(max-width: 900px) { .overlay.show { display: block; } }
+
+  /* ===== SKDI OVERVIEW BOX ===== */
+  .skdi-overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 14px 0; }
+  .skdi-box { border-radius: 12px; padding: 14px 16px; border: 2px solid; }
+  .skdi-box .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; line-height: 1; }
+  .skdi-box .label { font-size: 11px; margin-top: 4px; font-weight: 600; }
+  .skdi-box.s4a { border-color: var(--green); background: var(--green-pale); color: var(--green); }
+  .skdi-box.s3b { border-color: var(--amber); background: var(--amber-pale); color: var(--amber); }
+  .skdi-box.s3a { border-color: var(--lavender); background: var(--lavender-pale); color: var(--plum); }
+  .skdi-box.s2 { border-color: var(--sand); background: var(--sand-pale); color: #5a4a3a; }
+
+  /* ===== DIVIDER ===== */
+  .divider { height: 1px; background: linear-gradient(to right, var(--lavender), transparent); margin: 28px 0; }
+
+  h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--plum-dark); margin: 24px 0 12px; }
+  h3:first-child { margin-top: 0; }
+  p { margin-bottom: 10px; font-size: 13.5px; line-height: 1.75; }
+
+  .code { font-family: 'JetBrains Mono', monospace; background: var(--sand-pale); padding: 2px 7px; border-radius: 5px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <span class="logo-tag">📖 Blok Digestif · Semester 6</span>
+    <h2>Penyakit <em>Esofagus</em><br>& Lambung & Usus</h2>
+    <p class="by">dr. Sumarjo, Sp.PD-KGEH</p>
+  </div>
+
+  <div class="nav-group-label">Overview</div>
+  <a class="nav-item active" onclick="show('overview')"><span class="nav-num">00</span>Intro & Anatomi Kunci</a>
+
+  <div class="nav-group-label">Esofagus</div>
+  <a class="nav-item" onclick="show('hiccup')"><span class="nav-num">01</span>Hiccup / Cegukan</a>
+  <a class="nav-item" onclick="show('achalasia')"><span class="nav-num">02</span>Achalasia</a>
+  <a class="nav-item" onclick="show('corrosive')"><span class="nav-num">03</span>Lesi Korosif Esofagus</a>
+  <a class="nav-item" onclick="show('varises')"><span class="nav-num">04</span>Varises Esofagus</a>
+  <a class="nav-item" onclick="show('gerd')"><span class="nav-num">05</span>GERD</a>
+  <a class="nav-item" onclick="show('barrett')"><span class="nav-num">06</span>Barrett Esofagus</a>
+  <a class="nav-item" onclick="show('ruptur')"><span class="nav-num">07</span>Ruptur Esofagus</a>
+
+  <div class="nav-group-label">Lambung</div>
+  <a class="nav-item" onclick="show('dispepsia')"><span class="nav-num">08</span>Dispepsia</a>
+  <a class="nav-item" onclick="show('gastritis')"><span class="nav-num">09</span>Gastritis Erosiva</a>
+  <a class="nav-item" onclick="show('ulkus')"><span class="nav-num">10</span>Ulkus Peptikum</a>
+
+  <div class="nav-group-label">Usus</div>
+  <a class="nav-item" onclick="show('ibs')"><span class="nav-num">11</span>IBS</a>
+  <a class="nav-item" onclick="show('ibd')"><span class="nav-num">12</span>IBD (UC & Crohn)</a>
+  <a class="nav-item" onclick="show('divertikel')"><span class="nav-num">13</span>Divertikulosis</a>
+  <a class="nav-item" onclick="show('intususepsi')"><span class="nav-num">14</span>Intususepsi</a>
+
+  <div class="nav-group-label">Latihan</div>
+  <a class="nav-item" onclick="show('quiz')"><span class="nav-num">✦</span>Quiz Soal Vignet</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="hero">
+    <div class="hero-tag">📚 Blok Digestif — Semester 6</div>
+    <h1>Esofagus, Lambung<br>& <em>Usus</em></h1>
+    <p class="hero-sub">Rangkuman komprehensif dari PPT & rekaman kuliah dr. Sumarjo, Sp.PD-KGEH — diperkaya dengan SKDI 2012, catatan penting dosen, clinical reasoning, dan soal vignet.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">🎙️ Verbatim dr. Sumarjo</span>
+      <span class="hero-pill">📋 SKDI-mapped</span>
+      <span class="hero-pill">🧠 Clinical Reasoning</span>
+      <span class="hero-pill">🩺 10 Soal Quiz Vignet</span>
+      <span class="hero-pill">⚠️ Alarm Symptoms</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ===== OVERVIEW ===== -->
+    <div id="sec-overview" class="section active">
+      <div class="section-header">
+        <div class="section-icon">🗺️</div>
+        <div>
+          <h2>Overview & Anatomi Kunci</h2>
+          <p>Konsep dasar yang harus dikuasai sebelum masuk ke penyakit spesifik</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔑 Klep-Klep Kritis di Saluran Cerna <span class="badge badge-red">⭐ Dasar Segalanya</span></div>
+        <div class="dr-note">
+          Saluran cerna itu dari mulut sampai anus itu "terbelah" — seolah tabung yang menyambung. Semuanya diperdarai dan venanya TIDAK langsung ke jantung, tapi masuk ke VENA PORTA dulu → hepar → baru ke vena cava. Artinya hepar adalah penyaring dari semua yang diserap!
+        </div>
+
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <tr><th>Klep / Sfingter</th><th>Lokasi</th><th>Fungsi</th><th>Gangguan = ?</th></tr>
+            <tr><td><strong>Epiglotis</strong></td><td>Orofaring</td><td>Cegah refleks ke trakea</td><td>LPRD (Laryngopharyngeal Reflux)</td></tr>
+            <tr><td><strong>LES (Lower Esophageal Sphincter)</strong></td><td>Esofago-gastrik</td><td>Cegah asam lambung naik ke esofagus</td><td>GERD, Barrett, Achalasia</td></tr>
+            <tr><td><strong>Pilorus</strong></td><td>Gaster-duodenum</td><td>Cegah refleks empedu ke gaster</td><td>Dismotilitas, mual, kembung</td></tr>
+            <tr><td><strong>Sfingter Ani</strong></td><td>Anus</td><td>Cegah inkontinensia</td><td>Inkontinensia alvi</td></tr>
+          </table>
+        </div>
+
+        <div class="alert alert-plum">
+          <span class="alert-icon">💡</span>
+          <div><strong>Konsep kunci dr. Sumarjo:</strong> Semua klep ini merupakan mekanisme proteksi. Kalau klep gagal → isi dari bagian sebelah mengkontaminasi bagian berikutnya → inflamasi → komplikasi!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Peta SKDI Penyakit Digestif</div>
+        <div class="skdi-overview">
+          <div class="skdi-box s4a">
+            <div class="num">4A</div>
+            <div class="label">Tangani mandiri tuntas</div>
+          </div>
+          <div class="skdi-box s3b">
+            <div class="num">3B</div>
+            <div class="label">Emergensi + rujuk</div>
+          </div>
+          <div class="skdi-box s3a">
+            <div class="num">3A</div>
+            <div class="label">Terapi awal + rujuk</div>
+          </div>
+          <div class="skdi-box s2">
+            <div class="num">2</div>
+            <div class="label">Diagnosis + rujuk</div>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <tr><th>Penyakit</th><th>SKDI</th><th>Catatan</th></tr>
+            <tr><td>Gastritis</td><td><span class="skdi skdi-4a">4A</span></td><td>Tangani sendiri. Tapi tanpa endoskopi, diagnosis = dispepsia fungsional (BPJS!)</td></tr>
+            <tr><td>Refluks gastroesofagus (GERD)</td><td><span class="skdi skdi-4a">4A</span></td><td>PPI + prokinetik 8 minggu</td></tr>
+            <tr><td>Ulkus peptikum</td><td><span class="skdi skdi-3a">3A</span></td><td>Terapi awal, eradikasi H. pylori, rujuk jika alarm (+)</td></tr>
+            <tr><td>Kolesistitis</td><td><span class="skdi skdi-3b">3B</span></td><td>Emergensi</td></tr>
+            <tr><td>Perdarahan GI</td><td><span class="skdi skdi-3b">3B</span></td><td>Resusitasi → rujuk</td></tr>
+            <tr><td>Varises esofagus</td><td><span class="skdi skdi-2">2</span></td><td>Kenali, rujuk</td></tr>
+            <tr><td>Barrett esofagus</td><td><span class="skdi skdi-2">2</span></td><td>Premaligna, rujuk</td></tr>
+            <tr><td>IBD (UC, Crohn)</td><td><span class="skdi skdi-3a">3A</span></td><td>Diagnosis + terapi awal + rujuk</td></tr>
+            <tr><td>Divertikulosis/divertikulitis</td><td><span class="skdi skdi-3a">3A</span></td><td>Terapi awal, antibiotik, rujuk jika komplikasi</td></tr>
+            <tr><td>Intususepsi</td><td><span class="skdi skdi-3b">3B</span></td><td>Emergensi terutama pada anak</td></tr>
+            <tr><td>IBS</td><td><span class="skdi skdi-3a">3A</span></td><td>Fungsional, diagnosis klinis + kolonoskopi</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🩸 Manifestasi Perdarahan GI — Beda Warna, Beda Makna</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Istilah</th><th>Tampilan</th><th>Lokasi Asal</th><th>Mekanisme</th></tr>
+            <tr><td><strong>Hematemesis</strong></td><td>Muntah darah hitam (ampas kopi)</td><td>UGIB: esofagus, gaster, duodenum</td><td>Darah teroksidasi HCl → hitam</td></tr>
+            <tr><td><strong>Melena</strong></td><td>BAB hitam, tar-like, bau busuk</td><td>UGIB atau usus halus proksimal</td><td>>50cc darah, transit lambat</td></tr>
+            <tr><td><strong>Hematosesia</strong></td><td>BAB merah segar/marun</td><td>LGIB (atau UGIB masif!)</td><td>Transit cepat, darah tidak teroksidasi</td></tr>
+            <tr><td><strong>Occult bleeding</strong></td><td>Tidak kelihatan, FOBT (+)</td><td>Di mana saja</td><td>Volume kecil ~10cc</td></tr>
+          </table>
+        </div>
+        <div class="alert alert-red">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Jebakan klasik!</strong> Hematosesia tidak selalu LGIB. Pada UGIB masif (transit sangat cepat) bisa muncul hematosesia. Batas atas-bawah: <strong>Ligamentum Treitz</strong> di jejunum proksimal.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== HICCUP ===== -->
+    <div id="sec-hiccup" class="section">
+      <div class="section-header">
+        <div class="section-icon">😮‍💨</div>
+        <div><h2>Hiccup / Cegukan / Singultus</h2><p>Gerakan inspirasi involunter yang melibatkan diafragma dan otot interkostal</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Klasifikasi & Definisi</div>
+        <div class="g3">
+          <div class="mini" style="border-left: 3px solid var(--green);">
+            <h4>Hiccup Bouts</h4>
+            <p>Berlangsung beberapa menit. Biasa, tidak patologis.</p>
+          </div>
+          <div class="mini" style="border-left: 3px solid var(--amber);">
+            <h4>Hiccup Persistent</h4>
+            <p>Berlangsung <strong>&gt; 48 jam</strong>. Perlu investigasi lebih lanjut.</p>
+          </div>
+          <div class="mini" style="border-left: 3px solid var(--red);">
+            <h4>Hiccup Intractable</h4>
+            <p>Berlangsung <strong>&gt; 1 bulan</strong>. Wajib cari penyebab organik!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔍 Penyebab Penting <span class="badge badge-red">Perlu Tahu!</span></div>
+        <div class="dr-note">
+          Yang paling penting untuk diketahui: curigai GERD! Kalau LES tidak bisa merelaksasi, peristaltik esofagus berbalik arah (proksimal bukan distal) → terjadi cegukan. Selain itu, uremia/hiperurisemia juga bisa menyebabkan hiccup persisten — pasien uremia ditandai cegukan yang tidak berhenti!
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Kategori</th><th>Contoh Penyebab</th></tr>
+            <tr><td>Psikogenik</td><td>Histeria, syok, ketakutan, gangguan konversi, malingering</td></tr>
+            <tr><td>SSP</td><td>Malformasi kongenital, keganasan, multiple sclerosis, infeksi, trauma</td></tr>
+            <tr><td>Iritasi Diafragma</td><td>Hernia hiatus, <strong>abses subfrenikus</strong>, infark miokard, perikarditis</td></tr>
+            <tr><td>Iritasi N. Vagus</td><td>Benda asing telinga, refluks, tumor esofagus, infeksi THT</td></tr>
+            <tr><td><strong>Metabolik ⭐</strong></td><td><strong>Uremia, hiponatremia, hipokalemi, demam, hiperkapnia</strong></td></tr>
+            <tr><td>Iatrogenik</td><td>Dexamethasone, benzodiazepin, barbiturat, alpha-methyldopa, propofol</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana</div>
+        <div class="g2">
+          <div>
+            <h3>Non-Farmakologi</h3>
+            <ul class="slist">
+              <li>Menahan napas (vagal maneuver)</li>
+              <li>Hiperventilasi</li>
+              <li>Stimulasi dermatom C3-5 (ketuk/gosok belakang leher dengan cairan dingin)</li>
+              <li>Stimulasi uvula langsung dengan sendok/cotton bud</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Farmakologi</h3>
+            <ul class="slist">
+              <li><strong>Baclofen 5mg/8jam</strong> — lini 1 (hati-hati geriatri → delirium, ataksia!)</li>
+              <li><strong>Metoclopramide 10mg/8jam</strong> 10–20 hari — lini 2 (alternatif murah!)</li>
+              <li><strong>Chlorpromazine 35mg/8jam</strong> 4 minggu — lini 3 (sedasi, diskinesia jangka panjang)</li>
+              <li>Gabapentin / Pregabalin — jika ada gangguan neurologis</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dr-note" style="margin-top:14px;">
+          Di Indonesia Baclofen susah ditemukan. Alternatif murah: Metoclopramide (Domperidone juga bisa). Ondan­setron TIDAK boleh untuk prokinetik GERD/cegukan — dia sifatnya sentral, tidak mempengaruhi peristaltik esofagus!
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ACHALASIA ===== -->
+    <div id="sec-achalasia" class="section">
+      <div class="section-header">
+        <div class="section-icon">🚧</div>
+        <div><h2>Achalasia Esofagus</h2><p>Kegagalan relaksasi LES — "pintu" selalu tertutup</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Clinical Reasoning Achalasia</div>
+        <div class="dr-note">
+          Bayangkan LES itu seperti pintu gerbang. Normalnya: ada makanan datang → pintu buka → masuk ke lambung. Pada achalasia: degenerasi pleksus Auerbach dan serat nervus vagus → otot polos LES tidak bisa dapat sinyal "buka" → pintu selalu tertutup. Makanan numpuk di esofagus → esofagus melebar tapi LES menyempit → gambaran "bird beak" / "rat tail"!
+        </div>
+        <div class="flow-wrap">
+          <div class="flow-box">Degenerasi pleksus Auerbach + serat N. Vagus LES</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Otot polos LES gagal relaksasi → LES selalu TERTUTUP</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Makanan tidak bisa turun ke gaster → akumulasi di esofagus</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box danger">Esofagus melebar proksimal + LES menyempit → Bird Beak Sign 🐦</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🩺 Gejala Klinis & Penunjang</div>
+        <div class="g2">
+          <div>
+            <h3>Gejala Klinis (Ingat urutan!)</h3>
+            <ul class="slist">
+              <li>Disfagia — perlahan memberat <em>(mulai dari "terasa ada yang mengganjal" sampai tidak bisa makan sama sekali)</em></li>
+              <li>Nyeri dada — bertambah setelah makan</li>
+              <li>Nyeri ulu hati</li>
+              <li>Muntah — <strong>isi masih UTUH, belum bercampur asam lambung</strong> ⭐</li>
+              <li>BB turun tanpa sebab</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Pemeriksaan Penunjang</h3>
+            <ul class="slist">
+              <li><strong>Esofagogram barium (OMD)</strong> → tes awal → <strong>Bird Beak Sign / Rat Tail Sign</strong> 🐦</li>
+              <li><strong>EGD (Endoskopi)</strong> → eksklusi lesi premaligna dan maligna</li>
+              <li><strong>Manometri esofagus</strong> → <em>Gold Standard</em> → LES relaksasi tidak komplit, tekanan LES tinggi, tidak ada peristaltis</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dr-note">
+          Untuk diagnosis OMD: pasien dipuasakan 1–2×24 jam dulu supaya esofagusnya kosong. Kalau obstruksinya tidak total, dengan gravitasi masih bisa turun sedikit. Setelah kosong, baru diberi kontras dan di-rontgen.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana — Dari Konservatif ke Definitif</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Terapi</th><th>Mekanisme</th><th>Keterangan</th></tr>
+            <tr><td><strong>ISDN 5mg</strong></td><td>Relaksasi LES (nitrat)</td><td>10–15 menit sebelum makan</td></tr>
+            <tr><td><strong>CCB (Calcium Channel Blocker)</strong></td><td>Relaksasi otot polos LES</td><td>Alternatif ISDN</td></tr>
+            <tr><td><strong>Injeksi Botulinum Toxin</strong></td><td>Hambat kontraksi otot LES</td><td>Efek sementara</td></tr>
+            <tr><td><strong>Dilatasi Pneumatik / Busi</strong></td><td>Robekan mekanik lapisan muskuler LES</td><td>Kambuh ~2–3 tahun. Di RS Boyolali (dr. Sumarjo pakai ini!)</td></tr>
+            <tr><td><strong>Myotomi Heller</strong></td><td>Potong lapisan muskuler dari luar (bedah)</td><td>Definitif, keberhasilan tinggi</td></tr>
+            <tr><td><strong>POEM</strong> ⭐</td><td>Per Oral Endoscopic Myotomy — potong muskuler dari dalam lumen</td><td>Keberhasilan ~100%, tidak ada bekas luka luar. <em>Baru bisa di Jakarta!</em></td></tr>
+          </table>
+        </div>
+        <div class="dr-note">
+          POEM = Per Oral Endoscopic Myotomy. Inisinya dari dalam lumen, laser potong muskuler, mukosa ditutup klip endoskopi. Hampir 100% berhasil. Bedanya dengan myotomi heller: kalau heller ada luka di dada, kalau POEM tidak ada bekas luka yang kelihatan dari luar.
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CORROSIVE ===== -->
+    <div id="sec-corrosive" class="section">
+      <div class="section-header">
+        <div class="section-icon">⚗️</div>
+        <div><h2>Lesi Korosif Esofagus</h2><p>Esofagitis akibat ingesti zat asam/basa korosif</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🚨 Prinsip Tatalaksana Darurat <span class="badge badge-red">KRITIS!</span></div>
+        <div class="alert alert-red">
+          <span class="alert-icon">🚨</span>
+          <div><strong>JANGAN DIMUNTAHKAN!</strong> Zat korosif yang dimuntahkan akan kontak lagi dengan esofagus → kerusakan dua kali lipat! Langsung pasang NGT → bilas lambung lewat selang.</div>
+        </div>
+        <div class="dr-note">
+          Sering terjadi pada tentamen suicide (pakai pembersih lantai yang asam) atau kecelakaan kerja. Ada kasus — pasien petani yang kira ini air minum Aqua, ternyata obat pembasmi serangga. Yang minum pembersih lantai sebenarnya tidak berniat bunuh diri, tapi akibatnya bisa mati karena struktur esofagus!
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Klasifikasi Zargar (Endoskopi)</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Derajat</th><th>Gambaran Endoskopi</th><th>Risiko</th></tr>
+            <tr><td><strong>0</strong></td><td>Mukosa normal</td><td>—</td></tr>
+            <tr><td><strong>I</strong></td><td>Mukosa edema dan eritem</td><td>Rendah</td></tr>
+            <tr><td><strong>IIA</strong></td><td>Perdarahan, erosi, luka superfisial</td><td>Sedang</td></tr>
+            <tr><td><strong>IIB</strong></td><td>Luka perdarahan sirkumferensial, eksudat</td><td>Sedang-tinggi</td></tr>
+            <tr><td><strong>IIIA</strong></td><td>Nekrosis fokal, luka gelap keabu-hitam</td><td>Tinggi</td></tr>
+            <tr><td><strong>IIIB</strong></td><td>Nekrosis ekstensi, gelap keabuan/hitam</td><td>Sangat tinggi — striktur!</td></tr>
+            <tr><td><strong>IV</strong></td><td>Perforasi</td><td>Fatal — pneumothorax!</td></tr>
+          </table>
+        </div>
+        <div class="alert alert-amber">
+          <span class="alert-icon">⚠️</span>
+          <div><strong>Komplikasi perforasi esofagus:</strong> Udara masuk rongga dada → Pneumothorax! Perlu WSD (Water Sealed Drainage) segera untuk dekompresi. Kalau perforasi di gaster: tampak udara bebas di rongga abdomen pada foto BNO.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana</div>
+        <ul class="slist">
+          <li><strong>Larutan alkali</strong> → dinetralkan dengan cuka, lemon, atau jeruk</li>
+          <li><strong>Larutan asam</strong> → dinetralkan dengan susu atau antasida</li>
+          <li><strong>Jika hipovolemia</strong> → koreksi cairan</li>
+          <li><strong>PPI</strong> → turunkan pH sampai kondisi basa → percepat penyembuhan luka</li>
+          <li><strong>Kortikosteroid</strong> (simtomatik) → cegah fibrosis/striktur</li>
+          <li><strong>Puasa 1–2×24 jam</strong> → healing dulu, baru makanan cair</li>
+        </ul>
+        <div class="dr-note">
+          Kalau kerusakannya sampai lapisan muskuler (IIIA/B) → pasti akan terjadi STRIKTUR! Nanti harus operasi: esofagus dipotong, digantikan oleh kolon asenden yang ditarik ke atas. Efek sampingnya: bau mulut seperti bau feses (tidak ada klep, tidak ada pencampuran dengan asam) — ini yang terjadi pada pasien guru yang dr. Sumarjo ceritakan.
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VARISES ===== -->
+    <div id="sec-varises" class="section">
+      <div class="section-header">
+        <div class="section-icon">🩸</div>
+        <div><h2>Varises Esofagus</h2><p>Manifestasi dari hipertensi porta — perdarahan bisa fatal!</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Patofisiologi — Kenapa Bisa Ada Varises?</div>
+        <div class="flow-wrap">
+          <div class="flow-box">Sirosis hepar / Penyakit porta → Fibrosis / Sumbatan</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Resistensi aliran darah portal meningkat → Tekanan vena porta naik</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Darah "cari jalan keluar" → Kolateral venosa melebar</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box danger">Varises esofagus, gaster, hemoroid, caput medusae — semua ini adalah tanda hipertensi porta!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Penyebab Hipertensi Porta</div>
+        <div class="g3">
+          <div class="mini" style="border-top: 3px solid var(--lavender);">
+            <h4>Pre-hepatik</h4>
+            <ul>
+              <li>Oklusi vena porta: trombus, tumor</li>
+              <li>Hiperplasia regeneratif nodular</li>
+              <li>Schistosomiasis, HIV</li>
+            </ul>
+          </div>
+          <div class="mini" style="border-top: 3px solid var(--plum);">
+            <h4>Intra-hepatik ⭐</h4>
+            <ul>
+              <li><strong>Sirosis hepatis (paling sering!)</strong></li>
+              <li>Hepatitis B/C kronik</li>
+              <li>NAFLD</li>
+              <li>Penyakit fibrotik</li>
+            </ul>
+          </div>
+          <div class="mini" style="border-top: 3px solid var(--mocha);">
+            <h4>Post-hepatik</h4>
+            <ul>
+              <li>Obstruksi vena hepatika</li>
+              <li>CHF</li>
+              <li>Penyakit veno-oklusif</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana Perdarahan Varises</div>
+        <div class="alert alert-red">
+          <span class="alert-icon">🚨</span>
+          <div><strong>Mortality ruptur varises: 60%!</strong> Bandingkan dengan non-variseal bleeding: 8–12%. Ini harus ditangani CEPAT!</div>
+        </div>
+        <div class="g2">
+          <div>
+            <h3>Akut (Farmakologi)</h3>
+            <ul class="slist">
+              <li><strong>Terlipressin</strong> → turunkan tekanan vena porta SPESIFIK, tidak mempengaruhi vena sistemik → mahal sekali (~Rp juta/4 hari)</li>
+              <li><strong>Somatostatin / Octreotide</strong> → analog somatostatin, lebih terjangkau</li>
+              <li><strong>Vasopressin</strong> → juga efektif tapi menurunkan tekanan vena sistemik → hati-hati pada pasien syok!</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Endoskopi & Lainnya</h3>
+            <ul class="slist">
+              <li><strong>EVL (Endoscopic Variceal Ligation)</strong> → Band ligation → first choice</li>
+              <li>Injeksi Cyanoacrylate → untuk varises gaster (GOV2, IGV1)</li>
+              <li>Beta-bloker (Propranolol/Nadolol) → profilaksis jangka panjang</li>
+              <li>TIPS → jika gagal endoskopi</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dr-note">
+          Terlipressin itu lebih baik dari vasopressin karena spesifik untuk vena porta. Vasopressin juga turunkan vena sistemik — jadi kalau pasien sudah shock, kita gak bisa pakai vasopressin, pakainya terlipressin. Cuma memang mahal!
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GERD ===== -->
+    <div id="sec-gerd" class="section">
+      <div class="section-header">
+        <div class="section-icon">🔥</div>
+        <div><h2>GERD — Gastroesophageal Reflux Disease</h2><p>Melemahnya LES → asam lambung naik ke esofagus. SKDI 4A!</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Patofisiologi — Analogi Sederhana</div>
+        <div class="dr-note">
+          GERD = ketidakseimbangan antara mekanisme yang mencegah refluks vs yang memicu refluks. Bayangkan ember air bocor: "ember" = esofagus, "air" = asam lambung. Normalnya ada penutup kuat (LES). Kalau penutupnya lemah (LES hipotensi) + produksi air terlalu banyak (hipersekresi asam) → bocor ke esofagus!
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Faktor Risiko</th><th>Mekanisme</th></tr>
+            <tr><td>Obesitas</td><td>Tekanan intraabdominal naik → mendorong isi lambung ke atas</td></tr>
+            <tr><td>Merokok, Alkohol</td><td>Relaksasi LES + merusak mukosa</td></tr>
+            <tr><td>Kopi, Coklat, Lemak, Soda</td><td>Relaksasi LES, meningkatkan sekresi asam</td></tr>
+            <tr><td><strong>Kehamilan</strong></td><td><strong>Progesteron → relaksasi LES</strong> ⭐</td></tr>
+            <tr><td>Stres psikologis</td><td>Meningkatkan sekresi asam lambung</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🩺 Gejala Klinis</div>
+        <div class="g2">
+          <div>
+            <h3>Esofageal (Tipikal)</h3>
+            <ul class="slist">
+              <li><strong>Heartburn</strong> — rasa terbakar di dada, di belakang tulang dada</li>
+              <li><strong>Regurgitasi</strong> — asam/pahit di lidah, atau mikroregurgitan (sisa nasi kecil setelah bangun tidur)</li>
+              <li>Odinofagia, disfagia</li>
+              <li>Sering sendawa, cegukan rekuren</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Ekstraesofageal (Atypical)</h3>
+            <ul class="slist">
+              <li>Batuk kronis (LPRD)</li>
+              <li>Suara serak</li>
+              <li>Erosi gigi</li>
+              <li>Asma yang memburuk malam hari</li>
+              <li>Pneumonia aspirasi berulang</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert alert-red" style="margin-top:14px;">
+          <span class="alert-icon">🚨</span>
+          <div><strong>ALARM SYMPTOMS — Langsung Endoskopi!</strong> Disfagia progresif • Odinofagia • GI bleeding • Pneumonia aspirasi • Anemia defisiensi besi • Massa epigastrik • Batuk persisten • BB turun progresif • Nyeri persisten • Mual/muntah sering</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔬 Alur Diagnosis</div>
+        <div class="dr-note">
+          Alur: Curiga GERD → GERD-Q Score dulu. Kalau score 8–18: GERD (+). Kalau ada alarm symptom → langsung endoskopi. Kalau tidak ada alarm symptom → PPI Test selama 2 minggu. Kalau gejala hilang dengan PPI dan kambuh waktu PPI dihentikan → GERD (+)!
+        </div>
+        <div class="g2">
+          <div>
+            <h3>GERD-Q Score</h3>
+            <p style="font-size:13px; color:var(--muted);">6 pertanyaan, frekuensi gejala dalam 1 minggu terakhir:</p>
+            <ul class="slist">
+              <li>Heartburn berapa sering?</li>
+              <li>Regurgitasi berapa sering?</li>
+              <li>Nyeri ulu hati?</li>
+              <li>Mual?</li>
+              <li>Susah tidur karena gejala?</li>
+              <li>Konsumsi obat tambahan?</li>
+            </ul>
+            <div class="alert alert-green" style="margin-top:10px;">
+              <span class="alert-icon">✅</span>
+              <div>Skor ≤7: bukan GERD. Skor 8–18: GERD!</div>
+            </div>
+          </div>
+          <div>
+            <h3>PPI Test</h3>
+            <ul class="slist">
+              <li>Hanya pada pasien <strong>tanpa tanda bahaya</strong></li>
+              <li>PPI dosis ganda selama <strong>2 minggu</strong> tanpa endoskopi dahulu</li>
+              <li>Tambahkan prokinetik (metoclopramide/domperidone)</li>
+              <li>Gejala hilang → GERD (+), lanjut 4–8 minggu</li>
+              <li>Gejala menetap → endoskopi!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana</div>
+        <div class="g2">
+          <div>
+            <h3>Non-Farmakologi ⭐</h3>
+            <ul class="slist">
+              <li>Turunkan BB jika obesitas</li>
+              <li>Hindari makanan pemicu (lemak, kopi, coklat, soda, pedas, asam)</li>
+              <li>Tinggikan bantal 15–20 cm + posisi miring kanan saat tidur</li>
+              <li>Hentikan rokok dan alkohol</li>
+              <li><strong>Makan malam PALING LAMBAT 3 jam sebelum tidur</strong> ⭐</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Farmakologi</h3>
+            <div class="table-wrap">
+              <table>
+                <tr><th>Obat</th><th>Dosis</th></tr>
+                <tr><td>Pantoprazole</td><td>1–2 × 40 mg</td></tr>
+                <tr><td>Esomeprazole</td><td>1–2 × 40 mg</td></tr>
+                <tr><td>Lansoprazole</td><td>1–2 × 30 mg</td></tr>
+                <tr><td>Omeprazole</td><td>1–2 × 20 mg</td></tr>
+                <tr><td>Rabeprazole</td><td>1–2 × 20 mg</td></tr>
+              </table>
+            </div>
+            <div class="alert alert-amber" style="margin-top:8px;">
+              <span class="alert-icon">⏱️</span>
+              <div>Durasi terapi GERD: <strong>8 minggu</strong>. Setelah sembuh: on-demand!</div>
+            </div>
+          </div>
+        </div>
+        <div class="dr-note">
+          GERD itu sifatnya REKUREN — tidak bisa sembuh total. Setelah sembuh, edukasi pasien bahwa penyakit ini on-demand: kalau kambuh langsung minum PPI + prokinetik sampai gejala membaik. Tidak perlu sampai 8 minggu lagi!
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== BARRETT ===== -->
+    <div id="sec-barrett" class="section">
+      <div class="section-header">
+        <div class="section-icon">🔬</div>
+        <div><h2>Barrett Esofagus</h2><p>Komplikasi GERD kronis → premaligna → kanker esofagus</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Konsep Metaplasia — Kenapa Berbahaya?</div>
+        <div class="dr-note">
+          GERD yang tidak diobati terus-menerus → mukosa esofagus (epitel skuamosa berlapis) rusak berulang → digantikan oleh epitel kolumnar (epitel gaster/intestinal) → ini namanya METAPLASIA. Mengapa bahaya? Karena epitel yang baru ini rentan terhadap displasia → kanker! Bayangkan seperti sel yang "resign" dari tugasnya dan digantikan oleh sel yang salah posisi — sel yang salah posisi ini lebih mudah jadi ganas.
+        </div>
+        <div class="flow-wrap">
+          <div class="flow-box">GERD kronis → paparan asam berulang</div>
+          <div class="flow-arrow">↓ NERD 60–70%</div>
+          <div class="flow-box" style="border-color:var(--amber);">Erosive Esophagitis 20–30%</div>
+          <div class="flow-arrow">↓ 6–7%</div>
+          <div class="flow-box" style="border-color:var(--red);">Barrett Esofagus (metaplasia kolumnar + sel goblet)</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box danger">Adenokarsinoma Esofagus!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Diagnosis & Skrining</div>
+        <ul class="slist">
+          <li>Diagnosis standar: <strong>endoskopi + biopsi</strong> → konfirmasi metaplasia kolumnar ≥1 cm + sel goblet</li>
+          <li>Skrining (ACG 2022): GERD kronis + ≥3 faktor risiko (pria, usia >50 tahun, obesitas)</li>
+          <li>Tatalaksana: <strong>PPI + Terapi Ablasi Endoskopi + EET (Endoscopic Eradication Therapy)</strong></li>
+        </ul>
+        <div class="alert alert-plum">
+          <span class="alert-icon">💡</span>
+          <div>Setelah reseksi barrett → risiko refluks tinggi karena tidak ada LES → sekarang ada teknologi <em>cincin magnet</em> di anastomosis! Magnet menutup otomatis setelah makan. Sebelum makan dibuka dengan kunci magnet. Canggih!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RUPTUR ===== -->
+    <div id="sec-ruptur" class="section">
+      <div class="section-header">
+        <div class="section-icon">💥</div>
+        <div><h2>Ruptur Esofagus</h2><p>Mallory-Weiss vs Boerhaave — penting dibedakan!</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚖️ Perbandingan Mallory-Weiss vs Boerhaave</div>
+        <div class="compare-wrap">
+          <div class="compare-box a">
+            <h4>Mallory-Weiss Tear</h4>
+            <div class="compare-row"><span class="compare-label">Letak</span><span>Mukosa hingga submukosa</span></div>
+            <div class="compare-row"><span class="compare-label">Penyebab</span><span>Muntah berulang, tekanan intraesofageal naik</span></div>
+            <div class="compare-row"><span class="compare-label">Gejala</span><span>Hematemesis, nyeri ulu hati</span></div>
+            <div class="compare-row"><span class="compare-label">Terapi</span><span>Observasi → bisa sembuh spontan</span></div>
+          </div>
+          <div class="compare-box b">
+            <h4>Sindrom Boerhaave</h4>
+            <div class="compare-row"><span class="compare-label">Letak</span><span><strong>Transmural</strong> (full thickness)</span></div>
+            <div class="compare-row"><span class="compare-label">Penyebab</span><span>Sama, tapi lebih berat</span></div>
+            <div class="compare-row"><span class="compare-label">Gejala</span><span>Emfisema subkutan, odinofagia, sesak, syok, <strong>Hamman's crunch</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Terapi</span><span><strong>Pembedahan</strong> (risiko sepsis, perforasi)</span></div>
+          </div>
+        </div>
+        <div class="alert alert-amber" style="margin-top:14px;">
+          <span class="alert-icon">🔊</span>
+          <div><strong>Hamman's Crunch:</strong> Bunyi seperti keriting/crunching saat auskultasi jantung — akibat pneumomediastinum (udara di sekitar jantung). Tanda patognomonik Boerhaave!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DISPEPSIA ===== -->
+    <div id="sec-dispepsia" class="section">
+      <div class="section-header">
+        <div class="section-icon">😬</div>
+        <div><h2>Dispepsia</h2><p>Keluhan ulu hati ≥4 minggu — bisa fungsional atau organik!</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🗺️ Peta Dispepsia</div>
+        <div class="flow-wrap">
+          <div class="flow-box"><strong>DISPEPSIA</strong> — gejala saluran cerna atas ≥4 minggu</div>
+          <div class="flow-arrow">↓ ↓</div>
+          <div class="g2">
+            <div class="flow-box" style="border-color:var(--lavender);">
+              <strong>Dispepsia Fungsional</strong><br>
+              Endoskopi normal, tidak ada kelainan organik<br>
+              <em>Ulcer-like type: nyeri epigastrium</em><br>
+              <em>Dismotility-like type: mual, kembung, cepat kenyang</em>
+            </div>
+            <div class="flow-box" style="border-color:var(--red);">
+              <strong>Dispepsia Organik</strong><br>
+              Ada kelainan struktur di endoskopi<br>
+              <em>→ Ulkus peptikum</em><br>
+              <em>→ Gastritis erosiva</em>
+            </div>
+          </div>
+        </div>
+        <div class="dr-note">
+          PENTING BPJS: Kalau belum ada hasil endoskopi, diagnosis yang bisa ditulis adalah DISPEPSIA FUNGSIONAL atau GERD — bukan gastritis! Gastritis harus ada bukti endoskopi.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Kriteria Roma IV (Dispepsia Fungsional)</div>
+        <ul class="slist">
+          <li>Nyeri epigastrium, rasa terbakar epigastrium, rasa penuh setelah makan, cepat kenyang yang mengganggu</li>
+          <li>Berlangsung selama <strong>3 bulan terakhir</strong>, onset <strong>6 bulan</strong> sebelum diagnosis</li>
+          <li><strong>Tanpa kelainan organik</strong> yang dibuktikan dengan endoskopi</li>
+        </ul>
+        <div class="alert alert-red" style="margin-top:12px;">
+          <span class="alert-icon">🚨</span>
+          <div><strong>Alarm Symptoms Dispepsia → Langsung Endoskopi!</strong> BB turun • Disfagia progresif • Muntah persisten • Perdarahan saluran cerna (hematemesis/melena) • Anemia, demam • Massa abdomen atas • Riwayat kanker lambung keluarga • <strong>Onset baru >50 tahun</strong> ⭐</div>
+        </div>
+        <div class="dr-note">
+          Kalau pasien datang dengan keluhan "maag" tapi usianya sudah 50 tahun ke atas dan sebelumnya tidak pernah punya keluhan serupa → ini ALARM SYMPTOM! Harus endoskopi untuk menyingkirkan Ca gaster. Satu alarm symptom saja sudah cukup untuk melakukan endoskopi!
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Tatalaksana Dispepsia</div>
+        <div class="flow-wrap">
+          <div class="flow-box">Dispepsia tidak diselidiki</div>
+          <div class="flow-arrow">↓ Usia >50 / Alarm symptom (+)?</div>
+          <div class="g2">
+            <div>
+              <div class="flow-box" style="border-color:var(--red);">Ya → Endoskopi</div>
+              <div class="flow-arrow">↓ Ada kelainan organik?</div>
+              <div class="flow-box" style="border-color:var(--amber);">Ya → Terapi sesuai diagnosis organik</div>
+            </div>
+            <div>
+              <div class="flow-box" style="border-color:var(--green);">Tidak → Terapi empiris PPI ± prokinetik<br>(Test and treat H. pylori di daerah prevalensi tinggi)</div>
+              <div class="flow-arrow">↓ Tidak respons</div>
+              <div class="flow-box">PPI → TCA → Prokinetik → Terapi psikologis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GASTRITIS ===== -->
+    <div id="sec-gastritis" class="section">
+      <div class="section-header">
+        <div class="section-icon">🔴</div>
+        <div><h2>Gastritis Erosiva</h2><p>Erosi mukosa gaster — dispepsia organik, perlu endoskopi!</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Patofisiologi</div>
+        <div class="flow-wrap">
+          <div class="flow-box">Faktor perusak: NSAID kronik, alkohol, hipoksia jaringan (syok)</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Inhibisi prostaglandin → berkurangnya sekresi bikarbonat (barrier mukosa)</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">Pepsin + asam lambung menembus lamina propria</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box danger">Erosi mukosa → perdarahan kecil → hematemesis, melena</div>
+        </div>
+        <div class="dr-note">
+          NSAID itu bukan langsung "mengiritasi" lambung! Mekanismenya: NSAID menghambat enzim COX → menghambat sintesis prostaglandin → prostaglandin tidak bisa memicu sekresi bikarbonat → barrier mukosa hilang → asam langsung mengiritasi mukosa. Jadi efeknya TIDAK LANGSUNG!
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔑 Poin Kritis</div>
+        <div class="alert alert-amber">
+          <span class="alert-icon">⚠️</span>
+          <div>Kalau erosi ukurannya <strong>&gt;0,5 cm</strong> → diagnosis berubah menjadi <strong>ULKUS PEPTIKUM</strong>! Ini penting untuk endoskopi.</div>
+        </div>
+        <div class="alert alert-lavender">
+          <span class="alert-icon">💊</span>
+          <div><strong>Obat baru:</strong> PCAB (Potassium-Competitive Acid Blocker) — Vonoprazan, Tegoprazan. Lebih kuat dari PPI karena menghambat pompa proton DAN pompa potasium DAN antihistamin H2! Triple blockade.</div>
+        </div>
+        <div class="alert alert-sand">
+          <span class="alert-icon">📌</span>
+          <div><strong>H2 Blocker (Ranitidin, Famotidin)</strong> sudah TIDAK dipakai lagi untuk tatalaksana dispepsia, gastritis, ulkus! Langsung PPI. H2 blocker hanya blok histamin, tidak blok pompa proton.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ULKUS ===== -->
+    <div id="sec-ulkus" class="section">
+      <div class="section-header">
+        <div class="section-icon">🕳️</div>
+        <div><h2>Ulkus Peptikum</h2><p>Diskontinuitas mukosa ≥5mm, sampai ke submukosa — SKDI 3A</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⭐ Cara Membedakan Ulkus Gaster vs Duodenum <span class="badge badge-red">Khas Soal!</span></div>
+        <div class="compare-wrap">
+          <div class="compare-box a">
+            <h4>🔴 Ulkus Gaster</h4>
+            <div class="compare-row"><span class="compare-label">Nyeri kapan?</span><span><strong>Memberat SAAT makan</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Mekanisme</span><span>Makanan masuk → HCl dikeluarkan → HCl langsung terpapar ke ulkus di gaster → NYERI</span></div>
+            <div class="compare-row"><span class="compare-label">Perut kosong</span><span>Nyeri MEREDA</span></div>
+            <div class="compare-row"><span class="compare-label">Lokasi nyeri</span><span>Epigastrium kiri</span></div>
+          </div>
+          <div class="compare-box b">
+            <h4>🟠 Ulkus Duodenum</h4>
+            <div class="compare-row"><span class="compare-label">Nyeri kapan?</span><span><strong>Memberat 15–30 menit SETELAH makan</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Mekanisme</span><span>Makanan masuk → HCl dipakai untuk mencerna di gaster → ulkus di duodenum belum terpapar → TIDAK nyeri. Setelah pengosongan → makanan asam masuk duodenum → NYERI</span></div>
+            <div class="compare-row"><span class="compare-label">Perut kosong</span><span>Nyeri MEREDA (belum terpapar HCl)</span></div>
+            <div class="compare-row"><span class="compare-label">Lokasi nyeri</span><span>Epigastrium kanan dari garis tengah</span></div>
+          </div>
+        </div>
+        <div class="mnemonic">
+          <div class="mnemonic-label">🧠 Cara Ingat</div>
+          <div class="mnemonic-text">Gaster = Saat makan → NYERI ("G" = langsung kena). Duodenum = Setelah makan → NYERI ("D" = Delayed)</div>
+          <div class="mnemonic-exp">Atau ingat: Ulkus Gaster = nyeri Gara-gara makan. Ulkus Duodenum = nyeri setelah makan Diserap di Duodenum.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🦠 Faktor Pencetus — "7S" <span class="badge badge-lavender">Mnemonic!</span></div>
+        <div class="g3">
+          <div class="mini"><h4>H. Pylori</h4><p>Paling sering (60–70%). Tahan asam dengan urea. Deteksi: UBT, HPSA, RUT</p></div>
+          <div class="mini"><h4>Pills (NSAID)</h4><p>Hambat COX → hambat prostaglandin → erosi. Penyebab ke-2 terbanyak</p></div>
+          <div class="mini"><h4>Stress</h4><p>Stress ulcer → ICU, syok, trauma → hipoksia mukosa</p></div>
+          <div class="mini"><h4>Smoking</h4><p>Nikotin → hambat prostaglandin, kurangi aliran darah mukosa</p></div>
+          <div class="mini"><h4>Spirit (Alkohol)</h4><p>Iritasi langsung + hambat prostaglandin</p></div>
+          <div class="mini"><h4>Sugar & Stomach Cancer</h4><p>DM → neuropati → dismotilitas. Ca gaster bisa tampak seperti ulkus!</p></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔬 Deteksi H. Pylori — Pilih yang Mana?</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Metode</th><th>Mekanisme</th><th>Sensitivitas</th><th>Kelemahan</th></tr>
+            <tr><td><strong>UBT (Urea Breath Test)</strong></td><td>Deteksi urease H. pylori di nafas</td><td>Tinggi ⭐</td><td>Mahal, harus stop PPI 2 minggu → pasien kesakitan</td></tr>
+            <tr><td><strong>HPSA (H. pylori Stool Antigen)</strong></td><td>Antigen H. pylori di feses</td><td>Sedang</td><td>Tidak perlu stop PPI! Lebih mudah. Sensitivitas lebih rendah</td></tr>
+            <tr><td><strong>Rapid Urease Test (RUT)</strong></td><td>Deteksi urease di biopsi mukosa</td><td>Tinggi</td><td>Perlu endoskopi. Tapi bisa sekalian dengan endoskopi diagnostik</td></tr>
+            <tr><td><strong>Biopsi + Histopatologi</strong></td><td>Lihat langsung kuman di mukosa</td><td>Tertinggi</td><td>10 tempat biopsi, invasif, mahal. Bisa terjadi perdarahan pasca biopsi</td></tr>
+          </table>
+        </div>
+        <div class="dr-note">
+          Di RS Boyolali dr. Sumarjo biasanya pakai Rapid Urease Test (RUT) sekalian saat endoskopi. Banyak yang tidak terdeteksi dengan HPSA maupun UBT tapi positif di RUT. Jadi yang paling bisa dipercaya itu RUT atau biopsi!
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Eradikasi H. Pylori</div>
+        <div class="g2">
+          <div>
+            <h3>Triple Therapy (14 hari) — Lini Pertama</h3>
+            <ul class="slist">
+              <li><strong>PPI</strong> 2×1</li>
+              <li><strong>Clarithromycin</strong> 2×500mg</li>
+              <li><strong>Amoxicillin</strong> 2×1000mg</li>
+            </ul>
+            <div class="alert alert-amber" style="margin-top:8px;">
+              <span class="alert-icon">💡</span>
+              <div>Di klinik sering diganti: Clarithromycin → <strong>Metronidazole 3×500mg</strong> (lebih murah). Efek samping: mual → tambahkan antiemetik!</div>
+            </div>
+          </div>
+          <div>
+            <h3>Quadruple Therapy — Jika Alergi Amoxicillin</h3>
+            <ul class="slist">
+              <li><strong>Bismuth</strong> 120–300mg</li>
+              <li><strong>PPI</strong> 2×1</li>
+              <li><strong>Metronidazole</strong> 3×500mg</li>
+              <li><strong>Tetrasiklin</strong> 4×250mg</li>
+            </ul>
+            <div class="alert alert-red" style="margin-top:8px;">
+              <span class="alert-icon">⚠️</span>
+              <div>Tetrasiklin → <strong>kontraindikasi pada anak dan remaja</strong>! Gigi bisa kuning permanen!</div>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-amber" style="margin-top:14px;">
+          <span class="alert-icon">⏱️</span>
+          <div><strong>Durasi terapi:</strong> GERD = 8 minggu | Ulkus peptikum = 7–14 hari | Gastritis erosiva = 7–14 hari</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚠️ Komplikasi Ulkus — Ingat "PEPSS"</div>
+        <ul class="slist">
+          <li><strong>Perforasi</strong> → peritonitis (emergency bedah!)</li>
+          <li><strong>Eat less</strong> → weight loss (nyeri saat makan → takut makan → kurus)</li>
+          <li><strong>Penetrasi</strong> → ke organ sekitar (pankreas, hati)</li>
+          <li><strong>Striktur</strong> → stenosis, obstruksi</li>
+          <li><strong>Sekunder perdarahan</strong> → hematemesis, melena</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== IBS ===== -->
+    <div id="sec-ibs" class="section">
+      <div class="section-header">
+        <div class="section-icon">😰</div>
+        <div><h2>IBS — Irritable Bowel Syndrome</h2><p>Fungsional, kronik, rekuren — terkait stres! SKDI 3A</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🧠 Konsep Dasar IBS</div>
+        <div class="dr-note">
+          IBS itu seperti dispepsia tapi di usus besar. Sifatnya FUNGSIONAL — tidak ada kelainan anatomi. Untuk menegakkan IBS HARUS sudah melakukan kolonoskopi untuk menyingkirkan organik. Kalau belum kolonoskopi → belum bisa penegakan IBS! Predisposisi terbesar: stres psikologis dan infeksi usus berat sebelumnya.
+        </div>
+        <div class="g2">
+          <div class="mini" style="border-left: 3px solid var(--lavender);">
+            <h4>Ciri Khas IBS</h4>
+            <ul>
+              <li>Prevalensi: wanita, usia 20–30 tahun</li>
+              <li><strong>Membaik dengan defekasi</strong> ⭐</li>
+              <li>25% waktu adalah 3 minggu dalam 3 bulan</li>
+              <li>Kronik berulang, tidak mengancam jiwa</li>
+            </ul>
+          </div>
+          <div class="mini" style="border-left: 3px solid var(--plum);">
+            <h4>Alarm Symptoms IBS → Kolonoskopi!</h4>
+            <ul>
+              <li>Anemia, onset usia >50 tahun</li>
+              <li>Riwayat keluarga CA kolon</li>
+              <li>Darah pada feses (harus cek benzidine/fecal calprotectin)</li>
+              <li>Massa abdomen + demam</li>
+              <li>Asites, BB turun</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Klasifikasi IBS</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Tipe</th><th>Karakteristik Feses</th><th>Terapi Utama</th></tr>
+            <tr><td><strong>IBS-C (Constipation)</strong></td><td>≥25% hard/lumpy, <25% loose/watery</td><td>Bulking agents, laksatif, antagonis 5-HT</td></tr>
+            <tr><td><strong>IBS-D (Diarrhea)</strong></td><td>≥25% loose/watery, <25% hard</td><td>Antidare, antibiotik, probiotik, antidepresan</td></tr>
+            <tr><td><strong>IBS-M (Mixed)</strong></td><td>≥25% hard DAN ≥25% loose</td><td>Kombinasi</td></tr>
+            <tr><td><strong>IBS-U (Unspecified)</strong></td><td>Tidak masuk 3 kategori di atas</td><td>Individual</td></tr>
+          </table>
+        </div>
+        <div class="alert alert-plum">
+          <span class="alert-icon">💡</span>
+          <div>Untuk IBS, kombinasi <strong>psikoterapi + psikofarmaka</strong> memberikan hasil terbaik. Antidepresan (amitriptyline) bisa dipakai untuk IBS-D dan nyeri. Edukasi penting: IBS TIDAK mengancam jiwa!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== IBD ===== -->
+    <div id="sec-ibd" class="section">
+      <div class="section-header">
+        <div class="section-icon">🔥</div>
+        <div><h2>IBD — Inflammatory Bowel Disease</h2><p>UC vs Crohn's Disease — paling sering diuji! SKDI 3A</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚖️ UC vs Crohn's — Perbandingan Lengkap <span class="badge badge-red">⭐ Wajib Hafal!</span></div>
+        <div class="compare-wrap">
+          <div class="compare-box a">
+            <h4>🟢 Kolitis Ulseratif (UC)</h4>
+            <div class="compare-row"><span class="compare-label">Lokasi</span><span>Hanya kolon + rektum</span></div>
+            <div class="compare-row"><span class="compare-label">Rektum</span><span><strong>SELALU terlibat</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Pola</span><span><strong>Continuous</strong> (tidak ada skip)</span></div>
+            <div class="compare-row"><span class="compare-label">Kedalaman</span><span>Mukosa + submukosa saja</span></div>
+            <div class="compare-row"><span class="compare-label">Granuloma?</span><span>Tidak ada</span></div>
+            <div class="compare-row"><span class="compare-label">Fistula?</span><span>Jarang</span></div>
+            <div class="compare-row"><span class="compare-label">Histologi</span><span><strong>Distorsi/abses kripta</strong>, infiltrasi difus mukosa</span></div>
+            <div class="compare-row"><span class="compare-label">Serologi</span><span><strong>p-ANCA</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Radiologi</span><span>Barium enema: <strong>Lead pipe sign</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Endoskopi</span><span>Diffuse erythema, ulkus dangkal</span></div>
+            <div class="compare-row"><span class="compare-label">Gejala khas</span><span>Bloody diarrhea, tenesmus, frekuensi BAB tinggi</span></div>
+          </div>
+          <div class="compare-box b">
+            <h4>🟠 Crohn's Disease (CD)</h4>
+            <div class="compare-row"><span class="compare-label">Lokasi</span><span>Seluruh GI tract (mulut–anus)</span></div>
+            <div class="compare-row"><span class="compare-label">Rektum</span><span>Hanya 10% terlibat</span></div>
+            <div class="compare-row"><span class="compare-label">Pola</span><span><strong>Skip lesions</strong> (cobblestone!)</span></div>
+            <div class="compare-row"><span class="compare-label">Kedalaman</span><span><strong>Transmural</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Granuloma?</span><span><strong>Ada (patognomonik!)</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Fistula?</span><span><strong>Sering!</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Histologi</span><span><strong>Granuloma non-kaseosa</strong>, inflamasi transmural, fisura</span></div>
+            <div class="compare-row"><span class="compare-label">Serologi</span><span><strong>ASCA</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Radiologi</span><span>Barium enema: <strong>String sign</strong></span></div>
+            <div class="compare-row"><span class="compare-label">Endoskopi</span><span><strong>Cobblestone appearance</strong>, ulkus longitudinal</span></div>
+            <div class="compare-row"><span class="compare-label">Gejala khas</span><span>Diare non-bloody, nyeri perut, malnutrisi, lesi perianal</span></div>
+          </div>
+        </div>
+
+        <div class="mnemonic" style="margin-top:16px;">
+          <div class="mnemonic-label">🧠 Mnemonic Crohn's Disease: "CHRISTMAS"</div>
+          <div class="mnemonic-text">C-H-R-I-S-T-M-A-S</div>
+          <div class="mnemonic-exp"><strong>C</strong>obblestone • <strong>H</strong>igh temperature (demam) • <strong>R</strong>educed lumen • <strong>I</strong>ntestinal fistula • <strong>S</strong>kip lesion • <strong>T</strong>ransmural inflammation • <strong>M</strong>alabsorption • <strong>A</strong>bdominal pain • <strong>S</strong>tring sign</div>
+        </div>
+
+        <div class="mnemonic" style="margin-top:12px;">
+          <div class="mnemonic-label">🧠 Mnemonic UC: "ULCERS"</div>
+          <div class="mnemonic-text">U-L-C-E-R-S</div>
+          <div class="mnemonic-exp"><strong>U</strong>lcer • <strong>L</strong>ead pipe sign • <strong>C</strong>ontinuous lesion • <strong>E</strong>xtend proximally (from rectum) • <strong>R</strong>ed diarrhea (bloody) • <strong>S</strong>ubmucosa/mucosa inflammation</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🌐 Manifestasi Ekstraintestinal IBD</div>
+        <div class="g3">
+          <div class="mini"><h4>👁️ Mata</h4><ul><li>Uveitis</li><li>Episkleritis</li></ul></div>
+          <div class="mini"><h4>🦴 Sendi</h4><ul><li>Sakroiliitis</li><li>Artritis perifer</li></ul></div>
+          <div class="mini"><h4>🫀 Kulit</h4><ul><li>Pyoderma gangrenosum</li><li>Erythema nodosum</li></ul></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💊 Pengobatan IBD</div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Obat</th><th>Untuk</th><th>Fase</th><th>ES Penting</th></tr>
+            <tr><td><strong>5-ASA (Mesalazin, Sulfasalazin)</strong></td><td>UC (mild-mod)</td><td>Induksi + Maintenance</td><td>Nefrotoksisitas!</td></tr>
+            <tr><td><strong>Kortikosteroid</strong></td><td>UC + CD</td><td>Induksi SAJA</td><td>Hipertensi, DM, osteoporosis</td></tr>
+            <tr><td><strong>Azatioprin/6-MP</strong></td><td>UC + CD</td><td>Maintenance SAJA</td><td>Supresi sumsum tulang</td></tr>
+            <tr><td><strong>Methotrexate</strong></td><td>CD saja!</td><td>Maintenance</td><td>Hepatotoksik, pneumonitis</td></tr>
+            <tr><td><strong>Anti-TNF (Infliximab, Adalimumab)</strong></td><td>UC + CD (moderate-severe)</td><td>Induksi + Maintenance</td><td>Infeksi, TB reaktivasi!</td></tr>
+            <tr><td><strong>Vedolizumab</strong></td><td>UC + CD</td><td>Induksi + Maintenance</td><td>ISPA</td></tr>
+          </table>
+        </div>
+        <div class="alert alert-red">
+          <span class="alert-icon">⚠️</span>
+          <div>Sebelum Anti-TNF: <strong>WAJIB skrining TB!</strong> Anti-TNF bisa reaktivasi TB laten → fatal. Sebelum Azatioprin: cek aktivitas enzim TPMT.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DIVERTIKEL ===== -->
+    <div id="sec-divertikel" class="section">
+      <div class="section-header">
+        <div class="section-icon">🫧</div>
+        <div><h2>Divertikulosis & Divertikulitis</h2><p>Kantong-kantong di dinding kolon — paling sering di sigmoid</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Terminologi</div>
+        <div class="g3">
+          <div class="mini" style="border-top:3px solid var(--lavender);">
+            <h4>Divertikulum</h4>
+            <p>Satu kantong (outpouching) dinding usus</p>
+          </div>
+          <div class="mini" style="border-top:3px solid var(--plum);">
+            <h4>Divertikulosis</h4>
+            <p>Beberapa divertikula, biasanya asimtomatik</p>
+          </div>
+          <div class="mini" style="border-top:3px solid var(--red);">
+            <h4>Divertikulitis</h4>
+            <p>Divertikula yang meradang/terinfeksi → nyeri, demam</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🩺 Klinis, Penunjang & Tatalaksana</div>
+        <div class="g2">
+          <div>
+            <h3>Klinis</h3>
+            <ul class="slist">
+              <li>Umumnya <strong>asimtomatik</strong></li>
+              <li>Nyeri perut LLQ (kiri bawah), demam, anoreksia, mual</li>
+              <li>Konstipasi (lebih umum) atau diare</li>
+              <li>Perdarahan per rektal (LGIB yang paling sering!)</li>
+            </ul>
+            <h3 style="margin-top:16px;">Penunjang</h3>
+            <ul class="slist">
+              <li>Darah rutin</li>
+              <li>BNO 3 posisi</li>
+              <li><strong>CT scan abdomen</strong> (gold standard)</li>
+              <li>Endoskopi</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Tatalaksana</h3>
+            <ul class="slist">
+              <li>Konsumsi serat dan cairan cukup</li>
+              <li>Bowel rest</li>
+              <li>Antibiotik (kondisi stabil)</li>
+              <li><strong>Perforasi / perdarahan masif → bedah!</strong></li>
+            </ul>
+            <div class="alert alert-amber" style="margin-top:14px;">
+              <span class="alert-icon">⚠️</span>
+              <div>Faktor risiko: usia >40 tahun, diet rendah serat + tinggi lemak, obesitas, sedentary, NSAID, opioid</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== INTUSUSEPSI ===== -->
+    <div id="sec-intususepsi" class="section">
+      <div class="section-header">
+        <div class="section-icon">🌀</div>
+        <div><h2>Intususepsi / Invaginasi</h2><p>Usus masuk ke usus — emergeny pada anak <3 tahun</p></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Gambaran Klinis & Penunjang</div>
+        <div class="g2">
+          <div>
+            <h3>Khas pada Anak (Classic Triad)</h3>
+            <ul class="slist">
+              <li><strong>Nyeri kolik abdomen</strong> (tiba-tiba, intermitten)</li>
+              <li><strong>Massa abdomen teraba</strong> (sausage-shaped)</li>
+              <li><strong>Red Jelly Stool</strong> (feses seperti jeli merah) ⭐</li>
+            </ul>
+            <div class="alert alert-amber" style="margin-top:10px;">
+              <span class="alert-icon">⚠️</span>
+              <div>Pada dewasa jarang, tapi kalau ada → pikirkan polip atau karsinoma kolon sebagai lead point!</div>
+            </div>
+          </div>
+          <div>
+            <h3>Penunjang</h3>
+            <ul class="slist">
+              <li><strong>USG</strong> → <strong>Doughnut sign / Target sign / Bull's eye</strong> ⭐ (usus dalam usus tampak melingkar)</li>
+              <li><strong>Barium enema</strong> → <strong>Coiled spring appearance / Cupping sign</strong></li>
+            </ul>
+            <h3 style="margin-top:14px;">Tatalaksana</h3>
+            <ul class="slist">
+              <li>Anak → reduksi pneumatik atau hidrostatik (non-bedah)</li>
+              <li>Dewasa → biasanya reduksi pneumatik/hidrostatik atau bedah</li>
+              <li>Pembedahan direkomendasikan bila ada komplikasi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== QUIZ ===== -->
+    <div id="sec-quiz" class="section">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div><h2>Quiz Soal Vignet</h2><p>10 soal dengan konteks klinis — mirip format ujian blok</p></div>
+      </div>
+
+      <div class="quiz-wrap">
+        <div class="quiz-progress">
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:8px;">
+            <span>Progress Quiz</span>
+            <span id="progText">0 / 10 dijawab</span>
+          </div>
+          <div style="background:var(--sand); border-radius:10px; height:5px;">
+            <div id="progBar" style="background:var(--lavender); height:5px; border-radius:10px; width:0%; transition:width 0.5s;"></div>
+          </div>
+          <div class="progress-dots" style="margin-top:10px;" id="pdots"></div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="qcard" id="q1">
+          <div class="q-num">SOAL 01 · GERD</div>
+          <div class="q-vignette">Wanita 35 tahun datang dengan keluhan rasa terbakar di dada dan rasa pahit/asam di mulut terutama setelah makan malam dan saat berbaring. Keluhan sudah 3 bulan. Tidak ada penurunan berat badan, tidak ada disfagia. TD 120/80, nadi 80×/menit, tidak ada nyeri tekan abdomen.</div>
+          <div class="q-question">Apakah langkah diagnostik pertama yang paling tepat?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">A</span>Langsung endoskopi karena ini gejala esofagus</button>
+            <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">B</span>Barium meal esofagus (OMD)</button>
+            <button class="q-opt" onclick="ans(this,'q1',true)"><span class="ol">C</span>GERD-Q score, lalu PPI test selama 2 minggu</button>
+            <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">D</span>pH-metri ambulatori 24 jam</button>
+            <button class="q-opt" onclick="ans(this,'q1',false)"><span class="ol">E</span>Manometri esofagus</button>
+          </div>
+          <div class="q-exp" id="eq1">✅ <strong>C — GERD-Q score → PPI test</strong><br><br>Pada pasien TANPA alarm symptoms (tidak ada disfagia, BB turun, perdarahan), langkah pertama adalah penilaian klinis dengan <strong>GERD-Q score</strong>. Jika skor 8–18 → GERD (+) → berikan PPI + prokinetik selama 2 minggu (PPI test). Jika gejala membaik → GERD confirmed, lanjut 8 minggu total.<br><br>Endoskopi (A) bukan langkah pertama tanpa alarm symptoms. OMD (B) untuk achalasia. pH-metri (D) tidak rutin. Manometri (E) juga tidak rutin.</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="qcard" id="q2">
+          <div class="q-num">SOAL 02 · ULKUS PEPTIKUM</div>
+          <div class="q-vignette">Pria 45 tahun datang dengan nyeri ulu hati yang terasa memberat 15–30 menit setelah makan, lalu membaik saat perut kosong. Keluhan sudah 6 minggu. Minum aspirin rutin untuk nyeri sendi. Endoskopi: ulkus di bulbus duodeni, rapid urease test (+).</div>
+          <div class="q-question">Apa tatalaksana yang paling tepat?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">A</span>PPI tunggal selama 8 minggu</button>
+            <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">B</span>Antasida 4 kali sehari selama 2 minggu</button>
+            <button class="q-opt" onclick="ans(this,'q2',true)"><span class="ol">C</span>PPI + Clarithromycin + Amoxicillin (triple therapy) 14 hari</button>
+            <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">D</span>H2 blocker + Metronidazole 7 hari</button>
+            <button class="q-opt" onclick="ans(this,'q2',false)"><span class="ol">E</span>Sukralfat saja selama 4 minggu</button>
+          </div>
+          <div class="q-exp" id="eq2">✅ <strong>C — Triple therapy 14 hari</strong><br><br>RUT (+) artinya ada infeksi H. pylori → WAJIB eradikasi! Triple therapy lini pertama: PPI 2×1 + Clarithromycin 2×500mg + Amoxicillin 2×1000mg selama 14 hari.<br><br>Nyeri memberat 15–30 menit SETELAH makan → khas ulkus DUODENUM (delay: makanan masuk duodenum baru nyeri). Beda dengan ulkus gaster yang nyeri SAAT makan.<br><br>H2 blocker (D) sudah tidak direkomendasikan sebagai terapi utama.</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="qcard" id="q3">
+          <div class="q-num">SOAL 03 · ACHALASIA</div>
+          <div class="q-vignette">Pria 38 tahun mengeluh sulit menelan yang makin memberat sejak 8 bulan. Awalnya hanya terasa makanan mengganjal, sekarang bahkan minum pun sering balik lagi. Muntah berisi makanan yang dimakan, tanpa bercampur asam. BB turun 8 kg. Pemeriksaan barium meal: gambaran penyempitan di ujung distal esofagus dengan dilatasi di atasnya.</div>
+          <div class="q-question">Apa gambaran radiologi yang KHAS pada kondisi ini?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">A</span>Lead pipe sign</button>
+            <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">B</span>String sign</button>
+            <button class="q-opt" onclick="ans(this,'q3',true)"><span class="ol">C</span>Bird beak sign / Rat tail sign</button>
+            <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">D</span>Cobblestone appearance</button>
+            <button class="q-opt" onclick="ans(this,'q3',false)"><span class="ol">E</span>Double bubble sign</button>
+          </div>
+          <div class="q-exp" id="eq3">✅ <strong>C — Bird beak sign / Rat tail sign</strong><br><br>Ini adalah ACHALASIA. Gambaran khas pada esofagogram barium: penyempitan di LES (distal) yang tampak seperti paruh burung/ekor tikus, dengan dilatasi esofagus proksimal di atasnya.<br><br>Lainnya: Lead pipe sign (UC), String sign (Crohn's barium enema), Cobblestone appearance (endoskopi Crohn's), Double bubble sign (atresia duodeni pada neonatus).<br><br>Khas achalasia: muntah masih utuh (belum bercampur asam lambung) karena makanan tidak pernah sampai ke gaster!</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="qcard" id="q4">
+          <div class="q-num">SOAL 04 · IBD</div>
+          <div class="q-vignette">Pria 28 tahun datang dengan diare bercampur darah dan lendir sejak 4 bulan, disertai nyeri perut kiri bawah dan tenesmus. BAB 8-10 kali/hari. Kolonoskopi: mukosa eritema difus, granular, rapuh, continuous dari rektum hingga kolon sigmoid. Biopsi: distorsi kripta, abses kripta, infiltrasi neutrofil, tidak ada granuloma.</div>
+          <div class="q-question">Diagnosis dan terapi lini pertama yang paling tepat?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">A</span>Crohn's disease — Methotrexate</button>
+            <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">B</span>Crohn's disease — Anti-TNF (Infliximab)</button>
+            <button class="q-opt" onclick="ans(this,'q4',true)"><span class="ol">C</span>Kolitis ulseratif — 5-ASA (Mesalazin)</button>
+            <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">D</span>Kolitis ulseratif — Kortikosteroid jangka panjang</button>
+            <button class="q-opt" onclick="ans(this,'q4',false)"><span class="ol">E</span>Kolitis infeksiosa — Antibiotik</button>
+          </div>
+          <div class="q-exp" id="eq4">✅ <strong>C — UC, terapi 5-ASA</strong><br><br>Clue UC: (1) Continuous dari rektum ke atas — TIDAK ada skip, (2) Tidak ada granuloma, (3) Distorsi/abses kripta, (4) Hanya kolon, (5) Bloody diarrhea + tenesmus.<br><br>5-ASA (Mesalazin/Sulfasalazin) adalah first-line untuk UC mild-moderate → induksi + maintenance.<br><br>Methotrexate (A) → untuk CD saja, bukan UC! Anti-TNF untuk moderate-severe refrakter. Kortikosteroid hanya induksi, bukan jangka panjang.</div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="qcard" id="q5">
+          <div class="q-num">SOAL 05 · VARISES ESOFAGUS</div>
+          <div class="q-vignette">Pria 52 tahun dengan riwayat hepatitis B kronik datang ke IGD dengan muntah darah segar sebanyak ±500cc. Pemeriksaan: spider nevi (+), palmar erythema (+), asites ringan. TD 95/60 mmHg, nadi 110×/menit lemah, Hb 7.8 g/dl. Endoskopi: varises esofagus grade III dengan red cherry spot.</div>
+          <div class="q-question">Apa terapi farmakologi vasoaktif PERTAMA yang paling tepat pada fase akut ini?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">A</span>Omeprazole 80mg IV bolus lalu infus</button>
+            <button class="q-opt" onclick="ans(this,'q5',true)"><span class="ol">B</span>Terlipressin atau Octreotide IV</button>
+            <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">C</span>Propranolol oral</button>
+            <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">D</span>Transfusi PRC saja</button>
+            <button class="q-opt" onclick="ans(this,'q5',false)"><span class="ol">E</span>Antibiotik profilaksis</button>
+          </div>
+          <div class="q-exp" id="eq5">✅ <strong>B — Terlipressin / Octreotide IV</strong><br><br>Ini perdarahan varises esofagus → vasoaktif IV adalah farmakologi pertama. Terlipressin atau Somatostatin/Octreotide → turunkan tekanan vena porta → kurangi perdarahan.<br><br>Terlipressin keunggulannya: SPESIFIK untuk vena porta, tidak turunkan tekanan sistemik. Penting karena kalau syok, tidak boleh gunakan vasopressin (turunkan sistemik juga).<br><br>PPI (A) → untuk non-variseal bleeding. Propranolol (C) → profilaksis jangka panjang, bukan akut. Transfusi (D) perlu tapi setelah vasoaktif. Antibiotik memang dianjurkan tapi bukan vasoaktif.</div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="qcard" id="q6">
+          <div class="q-num">SOAL 06 · DISPEPSIA</div>
+          <div class="q-vignette">Wanita 55 tahun datang dengan keluhan nyeri ulu hati dan rasa tidak nyaman setelah makan sejak 2 bulan. Ini keluhan pertama kali dalam hidupnya. BB turun 5 kg tanpa diet. Tidak ada riwayat NSAID. Pemeriksaan fisik: nyeri tekan epigastrium ringan, tidak ada massa.</div>
+          <div class="q-question">Apa langkah selanjutnya yang paling tepat?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">A</span>Berikan PPI empiris 4 minggu, evaluasi ulang</button>
+            <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">B</span>Lakukan UBT (Urea Breath Test) untuk H. pylori</button>
+            <button class="q-opt" onclick="ans(this,'q6',true)"><span class="ol">C</span>Rujuk untuk endoskopi segera</button>
+            <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">D</span>Berikan antasida dan edukasi modifikasi diet</button>
+            <button class="q-opt" onclick="ans(this,'q6',false)"><span class="ol">E</span>Pemeriksaan USG abdomen</button>
+          </div>
+          <div class="q-exp" id="eq6">✅ <strong>C — Endoskopi segera!</strong><br><br>Ada 2 alarm symptoms di sini: (1) <strong>Onset baru pada usia >50 tahun</strong>, (2) <strong>BB turun progresif</strong>. Salah satu saja sudah cukup untuk LANGSUNG endoskopi — harus menyingkirkan Ca gaster!<br><br>Ini adalah momen kritis yang dr. Sumarjo tekankan: "Kalau pasien >50 tahun dan sebelumnya tidak pernah ada keluhan serupa → ALARM SYMPTOM → endoskopi!"<br><br>PPI empiris (A) dan antasida (D) tidak boleh dilakukan kalau ada alarm symptoms tanpa endoskopi dulu.</div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="qcard" id="q7">
+          <div class="q-num">SOAL 07 · INTUSUSEPSI</div>
+          <div class="q-vignette">Anak laki-laki 18 bulan dibawa ibunya dengan tangisan keras mendadak, bolak-balik tenang lalu menangis lagi (kolik), dan mengeluarkan feses berwarna merah seperti jeli. Perut tampak sedikit kembung. Pada palpasi teraba massa lunak berbentuk sosis di perut kanan atas.</div>
+          <div class="q-question">Pemeriksaan penunjang pertama yang paling tepat dan gambaran khas yang diharapkan?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">A</span>CT scan abdomen → free air</button>
+            <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">B</span>Foto polos abdomen → air fluid level</button>
+            <button class="q-opt" onclick="ans(this,'q7',true)"><span class="ol">C</span>USG abdomen → doughnut sign / target sign</button>
+            <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">D</span>Kolonoskopi → cobblestone appearance</button>
+            <button class="q-opt" onclick="ans(this,'q7',false)"><span class="ol">E</span>Barium enema → bird beak sign</button>
+          </div>
+          <div class="q-exp" id="eq7">✅ <strong>C — USG → Doughnut/Target sign</strong><br><br>Ini adalah INTUSUSEPSI klasik pada anak. Trias: nyeri kolik intermitten, massa abdomen, Red Jelly Stool (darah + lendir = gambaran jeli merah).<br><br>USG adalah pemeriksaan pertama pilihan → tampak doughnut sign / target sign / bull's eye (gambaran usus di dalam usus = penampang melintang seperti donat).<br><br>Barium enema (E) juga bisa dipakai dan menunjukkan coiled spring appearance/cupping sign — tapi bukan yang PERTAMA dilakukan. Colonoskopi (D) cobblestone = Crohn's. Bird beak (E dari barium esofagus) = achalasia.</div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="qcard" id="q8">
+          <div class="q-num">SOAL 08 · MALLORY-WEISS vs BOERHAAVE</div>
+          <div class="q-vignette">Pria 40 tahun dibawa ke IGD karena sesak napas hebat setelah muntah berulang kali saat pesta. Pemeriksaan: emfisema subkutan di leher dan dada, auskultasi jantung terdengar bunyi seperti keriting/crunching, TD 90/60, SpO2 88%. Foto thorax: pneumomediastinum.</div>
+          <div class="q-question">Apa diagnosis yang paling mungkin dan apa tanda auskultasi khas yang disebut?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">A</span>Mallory-Weiss tear — Murmur aorta</button>
+            <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">B</span>Mallory-Weiss tear — Hamman's crunch</button>
+            <button class="q-opt" onclick="ans(this,'q8',true)"><span class="ol">C</span>Sindrom Boerhaave — Hamman's crunch</button>
+            <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">D</span>GERD berat — Heartburn sign</button>
+            <button class="q-opt" onclick="ans(this,'q8',false)"><span class="ol">E</span>Pneumothorax spontan — Absent breath sounds</button>
+          </div>
+          <div class="q-exp" id="eq8">✅ <strong>C — Sindrom Boerhaave, Hamman's crunch</strong><br><br>Perbedaan kunci Mallory-Weiss vs Boerhaave: Mallory-Weiss = robekan PARTIAL (mukosa-submukosa), bisa sembuh spontan. Boerhaave = robekan TRANSMURAL → perforasi → udara masuk ke mediastinum → pneumomediastinum!<br><br><strong>Hamman's crunch</strong> = bunyi crunching/keriting saat auskultasi jantung → patognomonik pneumomediastinum pada Boerhaave. Terapinya BEDAH karena risiko sepsis mediastinitis!</div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="qcard" id="q9">
+          <div class="q-num">SOAL 09 · IBS</div>
+          <div class="q-vignette">Wanita 26 tahun, mahasiswa semester akhir, mengeluh nyeri perut yang hilang timbul sejak 4 bulan dan membaik setelah BAB. BAB kadang keras, kadang cair. Keluhan memburuk saat mendekati deadline tugas akhir. Kolonoskopi: normal. Tidak ada darah, tidak ada penurunan BB, tidak ada demam.</div>
+          <div class="q-question">Apa diagnosis yang paling tepat dan apa terapi non-farmakologi utama?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">A</span>IBD — Anti-TNF therapy</button>
+            <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">B</span>Divertikulitis — Antibiotik</button>
+            <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">C</span>Kolitis infeksiosa — Antibiotik empiris</button>
+            <button class="q-opt" onclick="ans(this,'q9',true)"><span class="ol">D</span>IBS-Mixed — Edukasi manajemen stres + modifikasi diet</button>
+            <button class="q-opt" onclick="ans(this,'q9',false)"><span class="ol">E</span>Crohn's disease — Mesalazin</button>
+          </div>
+          <div class="q-exp" id="eq9">✅ <strong>D — IBS-Mixed, edukasi stres + diet</strong><br><br>Memenuhi kriteria ROME IV: nyeri abdomen ≥3 bulan, membaik dengan defekasi, terkait perubahan frekuensi/konsistensi BAB. Sudah kolonoskopi (normal) → bukan organik. Predisposisi jelas: STRES (deadline tugas akhir). BAB campuran keras-cair → IBS-Mixed Pattern.<br><br>Terapi non-farmakologi utama: edukasi bahwa penyakit tidak mengancam jiwa + manajemen stres + modifikasi diet sesuai tipe. Kombinasi psikoterapi + psikofarmaka memberikan hasil terbaik!</div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="qcard" id="q10">
+          <div class="q-num">SOAL 10 · LESI KOROSIF</div>
+          <div class="q-vignette">Pria 30 tahun, ditemukan tidak sadarkan diri di kamar, diduga menelan cairan pembersih lantai (asam kuat). Saat sadar, mengeluh sangat nyeri di mulut, tenggorokan, dan dada. Bibir dan mulut tampak kemerahan dan ada erosi mukosa.</div>
+          <div class="q-question">Apa tindakan PERTAMA yang paling tepat dilakukan?</div>
+          <div class="q-opts">
+            <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">A</span>Rangsang muntah segera untuk mengeluarkan zat korosif</button>
+            <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">B</span>Berikan susu atau antasida per oral langsung</button>
+            <button class="q-opt" onclick="ans(this,'q10',true)"><span class="ol">C</span>Pasang NGT → bilas lambung lewat selang, JANGAN dimuntahkan</button>
+            <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">D</span>Langsung endoskopi untuk penilaian derajat cedera</button>
+            <button class="q-opt" onclick="ans(this,'q10',false)"><span class="ol">E</span>Berikan kortikosteroid IV segera</button>
+          </div>
+          <div class="q-exp" id="eq10">✅ <strong>C — Pasang NGT, JANGAN dimuntahkan!</strong><br><br>Ini adalah PRINSIP UTAMA yang dr. Sumarjo tekankan: JANGAN DIMUNTAHKAN! Kalau dimuntahkan → zat korosif kontak lagi dengan esofagus = kerusakan DUPLEKS.<br><br>Langkah: Pasang NGT → bilas lambung → keluarkan lewat selang NGT (bukan lewat mulut). Setelah itu baru netralisasi: zat asam (pembersih lantai) → netralkan dengan susu atau antasida. Kemudian PPI untuk mempercepat penyembuhan.<br><br>Endoskopi (D) dilakukan SETELAH kondisi stabil untuk penilaian derajat (Zargar classification).</div>
+        </div>
+
+        <div class="score-card" id="scoreCard">
+          <div style="font-size:36px; margin-bottom:12px;">🎉</div>
+          <div class="score-big" id="scoreBig">0</div>
+          <div style="font-size:20px; opacity:0.7; margin-top:4px;">/ 10</div>
+          <p id="scoreMsg" style="margin-top:12px; font-size:15px;"></p>
+          <button class="btn-retry" onclick="resetQuiz()">🔄 Ulangi Quiz</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end content -->
+</div><!-- end main -->
+
+<script>
+  // ===== NAV =====
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.innerWidth <= 900) {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('show');
+    }
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('show');
+  }
+
+  // ===== COLLAPSE =====
+  function toggleCollapse(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+  // ===== QUIZ =====
+  let answered = 0, score = 0;
+  const total = 10;
+
+  function initDots() {
+    const d = document.getElementById('pdots');
+    d.innerHTML = '';
+    for (let i = 1; i <= total; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'pdot';
+      dot.id = 'dot' + i;
+      d.appendChild(dot);
+    }
+  }
+
+  function ans(btn, qid, correct) {
+    const card = document.getElementById(qid);
+    if (card.dataset.done) return;
+    card.dataset.done = '1';
+
+    const allBtns = card.querySelectorAll('.q-opt');
+    allBtns.forEach(b => { b.disabled = true; });
+
+    if (correct) {
+      btn.classList.add('correct');
+      score++;
+    } else {
+      btn.classList.add('wrong');
+      allBtns.forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(',true)')) {
+          b.classList.add('correct');
+        }
+      });
+    }
+
+    const num = qid.replace('q', '');
+    document.getElementById('eq' + num).classList.add('show');
+    const dot = document.getElementById('dot' + num);
+    if (dot) dot.classList.add(correct ? 'correct' : 'wrong');
+
+    answered++;
+    document.getElementById('progText').textContent = answered + ' / ' + total + ' dijawab';
+    document.getElementById('progBar').style.width = (answered / total * 100) + '%';
+
+    if (answered === total) setTimeout(showScore, 800);
+  }
+
+  function showScore() {
+    const card = document.getElementById('scoreCard');
+    card.classList.add('show');
+    document.getElementById('scoreBig').textContent = score;
+    const pct = score / total * 100;
+    let msg = '';
+    if (pct === 100) msg = '🌟 Sempurna! Kamu benar-benar siap ujian!';
+    else if (pct >= 80) msg = '🔥 Luar biasa! Hampir perfect, review yang missed ya!';
+    else if (pct >= 60) msg = '💪 Bagus! Tapi masih ada yang perlu diperkuat!';
+    else if (pct >= 40) msg = '📚 Lumayan! Baca ulang materi yuk, bisa lebih baik!';
+    else msg = '🌱 Jangan menyerah! Review materi dan coba lagi!';
+    document.getElementById('scoreMsg').textContent = msg;
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    answered = 0; score = 0;
+    document.getElementById('progText').textContent = '0 / ' + total + ' dijawab';
+    document.getElementById('progBar').style.width = '0%';
+    document.getElementById('scoreCard').classList.remove('show');
+    for (let i = 1; i <= total; i++) {
+      const card = document.getElementById('q' + i);
+      delete card.dataset.done;
+      card.querySelectorAll('.q-opt').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct', 'wrong');
+      });
+      document.getElementById('eq' + i).classList.remove('show');
+    }
+    initDots();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  initDots();
+</script>
+</body>
+</html>
