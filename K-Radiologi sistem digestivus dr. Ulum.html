@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiologi Abdomen — dr. Ulum</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lime: #e9f056;
+  --sky: #d7efff;
+  --sage: #aeb8a0;
+  --sage-dark: #7a8a6c;
+  --sage-pale: #e8eee3;
+  --lime-dark: #b8bc2a;
+  --lime-pale: #f7facc;
+  --sky-dark: #6aaee0;
+  --sky-pale: #eef7ff;
+  --ink: #1e2318;
+  --ink-mid: #4a5240;
+  --ink-soft: #7a8870;
+  --white: #fefefe;
+  --paper: #f9faf4;
+  --warn: #e07844;
+  --warn-pale: #fdf3eb;
+  --red: #c73b2e;
+  --red-pale: #fdf0ee;
+  --green: #2d6a4f;
+  --green-pale: #e8f5ee;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 252px;
+  height: 100vh;
+  background: var(--ink);
+  overflow-y: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--sage-dark); }
+
+.sidebar-brand {
+  padding: 28px 22px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.brand-tag {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.brand-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  color: var(--white);
+  line-height: 1.2;
+}
+.brand-sub {
+  font-size: 11px;
+  color: var(--sage);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+.nav-section {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  padding: 18px 22px 6px;
+  font-weight: 600;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 400;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+.nav-link:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--lime); border-left-color: var(--lime); background: rgba(233,240,86,0.06); }
+.nav-link .nav-icon { font-size: 13px; opacity: 0.7; }
+.nav-link .nav-num { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--sage); width: 18px; }
+
+/* ===== MAIN ===== */
+.main {
+  margin-left: 252px;
+  min-height: 100vh;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--ink);
+  padding: 56px 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'X';
+  position: absolute;
+  right: -20px; top: -60px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 320px;
+  color: rgba(233,240,86,0.04);
+  font-weight: 400;
+  letter-spacing: -20px;
+  pointer-events: none;
+}
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--lime);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(36px, 5vw, 58px);
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.hero h1 em { color: var(--lime); font-style: italic; }
+.hero-desc {
+  color: rgba(255,255,255,0.5);
+  font-size: 13.5px;
+  max-width: 560px;
+  font-weight: 300;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.pill {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.pill.accent { background: rgba(233,240,86,0.12); border-color: rgba(233,240,86,0.3); color: var(--lime); }
+
+/* ===== CONTENT ===== */
+.content { padding: 48px 56px; }
+
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== SECTION HEADER ===== */
+.sec-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--sage-pale);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.sec-icon {
+  width: 48px; height: 48px;
+  background: var(--lime);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  color: var(--ink);
+}
+.sec-header h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.sec-header p { color: var(--ink-soft); font-size: 13px; margin-top: 4px; }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(174,184,160,0.25);
+  box-shadow: 0 1px 4px rgba(30,35,24,0.04);
+}
+.card-head {
+  font-family: 'Instrument Serif', serif;
+  font-size: 19px;
+  color: var(--ink);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== TAGS ===== */
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+.tag-lime { background: var(--lime); color: var(--ink); }
+.tag-sky { background: var(--sky); color: #1a4a6a; }
+.tag-warn { background: var(--warn-pale); color: var(--warn); border: 1px solid var(--warn); }
+.tag-red { background: var(--red-pale); color: var(--red); border: 1px solid var(--red); }
+.tag-sage { background: var(--sage-pale); color: var(--sage-dark); }
+.tag-green { background: var(--green-pale); color: var(--green); }
+
+/* ===== ALERTS ===== */
+.alert {
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13.5px;
+  line-height: 1.65;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.alert-lime { background: var(--lime-pale); border-left: 3px solid var(--lime-dark); color: #3a3e00; }
+.alert-sky { background: var(--sky-pale); border-left: 3px solid var(--sky-dark); color: #1a3a5a; }
+.alert-warn { background: var(--warn-pale); border-left: 3px solid var(--warn); color: #6a3010; }
+.alert-red { background: var(--red-pale); border-left: 3px solid var(--red); color: #6a1010; }
+.alert-sage { background: var(--sage-pale); border-left: 3px solid var(--sage-dark); color: var(--ink-mid); }
+
+/* ===== TABLES ===== */
+.table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid rgba(174,184,160,0.3); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--ink); color: var(--white); padding: 11px 14px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+td { padding: 10px 14px; border-bottom: 1px solid rgba(174,184,160,0.2); vertical-align: top; line-height: 1.6; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--paper); }
+tr:hover td { background: var(--lime-pale); }
+
+/* ===== GRID ===== */
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media(max-width:768px){ .cols-2,.cols-3{ grid-template-columns:1fr; } .sidebar{ display:none; } .main{ margin-left:0; } .content,.hero{ padding:28px 20px; } }
+
+/* ===== MINI CARD ===== */
+.mini { background: var(--white); border: 1px solid rgba(174,184,160,0.25); border-radius: 10px; padding: 16px 18px; }
+.mini h4 { font-family: 'Instrument Serif', serif; font-size: 15px; color: var(--ink); margin-bottom: 8px; }
+.mini p, .mini li { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+.mini ul { padding-left: 16px; }
+.mini li { margin-bottom: 3px; }
+
+/* ===== XRAY DIAGRAMS (SVG) ===== */
+.xray-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+.xray-card {
+  background: #0a0f08;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid rgba(233,240,86,0.15);
+}
+.xray-card .xray-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.xray-card svg { width: 100%; height: auto; }
+.xray-card .xray-caption {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ===== CLINICAL REASONING ===== */
+.cr-box {
+  background: linear-gradient(135deg, var(--lime-pale) 0%, var(--sky-pale) 100%);
+  border: 1.5px solid var(--sage);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.cr-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cr-steps { counter-reset: cr; list-style: none; }
+.cr-steps li {
+  counter-increment: cr;
+  padding: 8px 0 8px 36px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(174,184,160,0.2);
+  line-height: 1.65;
+}
+.cr-steps li:last-child { border-bottom: none; }
+.cr-steps li::before {
+  content: counter(cr);
+  position: absolute;
+  left: 0; top: 8px;
+  width: 22px; height: 22px;
+  background: var(--ink);
+  color: var(--lime);
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+}
+
+/* ===== COMPARISON ===== */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; border-radius: 10px; overflow: hidden; }
+.compare-col { padding: 16px 18px; }
+.compare-col.a { background: var(--lime-pale); border: 1.5px solid var(--lime-dark); border-radius: 8px 0 0 8px; }
+.compare-col.b { background: var(--sky-pale); border: 1.5px solid var(--sky-dark); border-radius: 0 8px 8px 0; }
+.compare-col h4 { font-family: 'Instrument Serif', serif; font-size: 15px; margin-bottom: 10px; }
+.compare-col.a h4 { color: #5a6000; }
+.compare-col.b h4 { color: #1a4a6a; }
+.compare-row { font-size: 12.5px; padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; gap: 8px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-row span:first-child { font-weight: 600; min-width: 90px; flex-shrink: 0; }
+
+/* ===== SIGN CARDS ===== */
+.sign-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 12px; margin: 16px 0; }
+.sign-item {
+  background: #0a0f08;
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid rgba(233,240,86,0.15);
+  text-align: center;
+}
+.sign-name { font-family: 'Instrument Serif', serif; font-size: 14px; color: var(--lime); margin-bottom: 6px; }
+.sign-desc { font-size: 11.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.sign-badge { display: inline-block; margin-top: 6px; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; }
+
+/* ===== STYLED LIST ===== */
+.slist { list-style: none; padding: 0; }
+.slist li { padding: 7px 0 7px 22px; border-bottom: 1px solid rgba(174,184,160,0.15); font-size: 13.5px; position: relative; line-height: 1.6; }
+.slist li:last-child { border-bottom: none; }
+.slist li::before { content: '▸'; position: absolute; left: 2px; color: var(--sage-dark); font-size: 11px; top: 9px; }
+
+/* ===== QUIZ ===== */
+.quiz-card {
+  background: var(--white);
+  border: 1px solid rgba(174,184,160,0.25);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.q-num {
+  position: absolute;
+  top: -13px; left: 22px;
+  background: var(--ink);
+  color: var(--lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 4px 14px;
+  border-radius: 3px;
+}
+.q-vignette {
+  background: var(--sky-pale);
+  border-left: 3px solid var(--sky-dark);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #1a3050;
+}
+.q-stem { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 14px; line-height: 1.5; }
+.q-opts { display: flex; flex-direction: column; gap: 8px; }
+.q-opt {
+  background: var(--paper);
+  border: 1.5px solid rgba(174,184,160,0.3);
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  transition: all 0.18s;
+  line-height: 1.55;
+}
+.q-opt:hover:not(:disabled) { border-color: var(--sage); background: var(--lime-pale); }
+.q-opt .ol { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 700; min-width: 18px; flex-shrink: 0; margin-top: 1px; color: var(--sage-dark); }
+.q-opt.correct { background: var(--green-pale); border-color: var(--green); }
+.q-opt.correct .ol { color: var(--green); }
+.q-opt.wrong { background: var(--red-pale); border-color: var(--red); }
+.q-opt.wrong .ol { color: var(--red); }
+.q-opt:disabled { cursor: default; }
+
+.q-exp {
+  display: none;
+  background: var(--lime-pale);
+  border: 1px solid var(--lime-dark);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+}
+.q-exp.show { display: block; animation: fadeUp 0.25s ease; }
+.q-exp strong { color: var(--ink); }
+
+/* ===== PROGRESS ===== */
+.quiz-progress { margin-bottom: 28px; }
+.prog-dots { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+.prog-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(174,184,160,0.3); transition: background 0.3s; }
+.prog-dot.ok { background: var(--green); }
+.prog-dot.err { background: var(--red); }
+
+.score-box {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  display: none;
+  margin-top: 28px;
+}
+.score-box.show { display: block; animation: fadeUp 0.4s ease; }
+.score-big { font-family: 'Instrument Serif', serif; font-size: 80px; color: var(--lime); line-height: 1; margin: 10px 0; }
+.score-msg { color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 6px; }
+.btn-retry { margin-top: 20px; background: var(--lime); color: var(--ink); border: none; padding: 12px 28px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+.btn-retry:hover { transform: translateY(-2px); }
+
+/* ===== DIVIDER ===== */
+.div { height: 1px; background: var(--sage-pale); margin: 24px 0; }
+
+/* ===== SCROLL ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
+
+/* ===== NORMAL PATTERN CHIP ===== */
+.normal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--lime-pale);
+  border: 1px solid var(--lime-dark);
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin: 3px;
+}
+.normal-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* ===== KEY POINT ===== */
+.kp { background: var(--lime-pale); border-left: 3px solid var(--lime-dark); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 13.5px; line-height: 1.65; }
+
+/* ===== MOBILE TOGGLE ===== */
+.mob-toggle { display:none; position:fixed; bottom:20px; right:20px; z-index:300; background:var(--lime); border:none; border-radius:50%; width:48px; height:48px; font-size:20px; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.3); }
+@media(max-width:768px){ .mob-toggle{display:flex;align-items:center;justify-content:center;} }
+
+/* ===== ANATOMY DIAGRAM ===== */
+.anatomy-box {
+  background: #0a0f08;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+/* ===== PROYEKSI TABLE ===== */
+.proj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.proj-card {
+  background: #0a0f08;
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid rgba(233,240,86,0.12);
+  text-align: center;
+}
+.proj-name { font-family: 'Instrument Serif', serif; font-size: 15px; color: var(--lime); margin-bottom: 6px; }
+.proj-use { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.proj-icon { font-size: 22px; margin-bottom: 6px; }
+@media(max-width:768px){ .proj-grid{grid-template-columns:1fr 1fr;} }
+
+/* ===== USG EKOGENITAS ===== */
+.eko-box { display: flex; gap: 3px; border-radius: 10px; overflow: hidden; margin: 14px 0; }
+.eko-col { flex: 1; padding: 14px 12px; text-align: center; }
+.eko-col h5 { font-size: 12px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.5px; }
+.eko-col p { font-size: 11.5px; line-height: 1.5; }
+.eko-high { background: #f0f0f0; color: #222; }
+.eko-low { background: #555; color: #ddd; }
+.eko-none { background: #111; color: #888; }
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-tag">Blok Digestif · Radiologi</div>
+    <div class="brand-title">Radiologi<br>Abdomen</div>
+    <div class="brand-sub">dr. Ulum — Semester 6</div>
+  </div>
+
+  <div class="nav-section">Materi</div>
+  <div class="nav-link active" onclick="go('intro')"><span class="nav-icon">🏠</span><span class="nav-num">00</span>Overview & Konsep Dasar</div>
+  <div class="nav-link" onclick="go('fpa')"><span class="nav-icon">📷</span><span class="nav-num">01</span>Foto Polos Abdomen</div>
+  <div class="nav-link" onclick="go('normal')"><span class="nav-icon">✅</span><span class="nav-num">02</span>Pola Normal & Proyeksi</div>
+  <div class="nav-link" onclick="go('pnemo')"><span class="nav-icon">💨</span><span class="nav-num">03</span>Pneumoperitoneum</div>
+  <div class="nav-link" onclick="go('ileus')"><span class="nav-icon">🔄</span><span class="nav-num">04</span>Ileus & Obstruksi</div>
+  <div class="nav-link" onclick="go('kontras')"><span class="nav-icon">🧪</span><span class="nav-num">05</span>Colon in Loop & OMD</div>
+  <div class="nav-link" onclick="go('usg')"><span class="nav-icon">🔊</span><span class="nav-num">06</span>USG Abdomen</div>
+
+  <div class="nav-section">Referensi</div>
+  <div class="nav-link" onclick="go('signs')"><span class="nav-icon">🏷️</span><span class="nav-num">★</span>Master Signs Cheatsheet</div>
+  <div class="nav-link" onclick="go('skdi')"><span class="nav-icon">📋</span><span class="nav-num">★</span>SKDI Penyakit Relevan</div>
+
+  <div class="nav-section">Latihan</div>
+  <div class="nav-link" onclick="go('quiz')"><span class="nav-icon">✏️</span><span class="nav-num">✦</span>Quiz Vignette</div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">📖 Blok Digestif · Radiologi Abdomen</div>
+  <h1>Radiologi<br><em>Abdomen</em></h1>
+  <p class="hero-desc">Rangkuman lengkap dari PPT & kuliah dr. Ulum — foto polos, colon in loop, OMD, dan USG. Dilengkapi diagram, clinical reasoning, dan soal latihan vignette.</p>
+  <div class="hero-pills">
+    <span class="pill accent">📸 Foto Polos Abdomen</span>
+    <span class="pill">🔄 Ileus & Obstruksi</span>
+    <span class="pill">🧪 Colon in Loop</span>
+    <span class="pill">🔊 USG</span>
+    <span class="pill accent">✏️ 10 Soal Quiz</span>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ===== INTRO ===== -->
+<div id="intro" class="section active">
+  <div class="sec-header">
+    <div class="sec-icon">🏠</div>
+    <div>
+      <h2>Overview & Konsep Dasar</h2>
+      <p>Fondasi radiologi abdomen — yang kamu harus pahami sebelum baca foto</p>
+    </div>
+  </div>
+
+  <div class="alert alert-lime">
+    <span class="alert-icon">💬</span>
+    <div><strong>Dari dr. Ulum langsung:</strong> "Radiologi abdomen itu sangat mudah — yang penting kalian tahu letak anatomi dan bisa menganalisa kira-kira organ apa yang ada di foto tersebut. Kalau ada bayangan putih-putih di setinggi L2, organ apa yang ada di situ? Ginjal!"</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🎯 Konsep Fundamental — Radiopak vs Radiolusent</div>
+    <p style="margin-bottom:14px; font-size:13.5px;">Di foto polos, gambar hanya membedakan <strong>radiopak</strong> (putih) vs <strong>radiolusent</strong> (hitam). Semakin keras/padat suatu struktur → semakin putih.</p>
+
+    <div class="cols-3">
+      <div class="mini" style="border-left:3px solid #fff; background:#1a1a1a; color:#ddd;">
+        <h4 style="color:#aaa;">⬛ Radiolusent (Hitam)</h4>
+        <p>= Udara / gas</p>
+        <p style="font-size:12px; margin-top:4px; opacity:0.6;">Sangat mudah ditembus sinar X</p>
+      </div>
+      <div class="mini" style="border-left:3px solid #888; background:#888; color:#fff;">
+        <h4 style="color:#fff;">▒ Abu-abu</h4>
+        <p>= Jaringan lunak (usus, hepar, otot)</p>
+        <p style="font-size:12px; margin-top:4px; opacity:0.8;">Semi-transparan</p>
+      </div>
+      <div class="mini" style="border-left:3px solid #ccc; background:#eee; color:#222;">
+        <h4>⬜ Radiopak (Putih)</h4>
+        <p>= Tulang, batu, metal</p>
+        <p style="font-size:12px; margin-top:4px; opacity:0.7;">Memblok sinar X</p>
+      </div>
+    </div>
+
+    <div class="alert alert-lime" style="margin-top:16px;">
+      <span class="alert-icon">💡</span>
+      <div><strong>Trik dr. Ulum:</strong> Kalau ada bayangan putih (radiopak) di area tertentu → tanya diri sendiri: organ apa yang ada di sini? Batu ginjal = setinggi L2. Batu kandung kemih = setinggi sakrum. Batu empedu = sekitar T12–L1.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">📍 Yang Dinilai dalam Foto Abdomen <span class="tag tag-lime">WAJIB HAFAL</span></div>
+    <div class="cols-2">
+      <div>
+        <ul class="slist">
+          <li><strong>Preperitoneal fat line</strong> — garis lemak di pinggir, sebelum peritoneum</li>
+          <li><strong>Psoas line</strong> — garis m. psoas kanan-kiri (dari T12 ke trokanter minor)</li>
+          <li><strong>Pola udara dalam saluran cerna</strong> — normal? meningkat? di mana?</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="slist">
+          <li><strong>Adanya udara bebas</strong> — di luar lumen usus = awas!</li>
+          <li><strong>Soft tissue mass</strong> — ada bayangan massa atau tidak?</li>
+          <li><strong>Kalsifikasi</strong> — bayangan putih (batu, kalsifikasi)</li>
+          <li><strong>Tulang</strong> — penilaian struktur tulang</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🗺️ Anatomi Orientasi di Foto Abdomen</div>
+    <div class="anatomy-box">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" style="width:100%; font-family:'DM Mono',monospace;">
+        <!-- Background grid -->
+        <rect width="520" height="320" fill="#0a0f08"/>
+        <!-- Body outline -->
+        <ellipse cx="260" cy="160" rx="180" ry="140" fill="none" stroke="#2a3020" stroke-width="1.5"/>
+        <!-- Spine -->
+        <line x1="260" y1="30" x2="260" y2="290" stroke="#555" stroke-width="2" stroke-dasharray="4,3"/>
+        <!-- Vertebral markers -->
+        <rect x="252" y="80" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="89" fill="#aeb8a0" font-size="9">T12</text>
+        <rect x="252" y="100" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="109" fill="#aeb8a0" font-size="9">L1</text>
+        <rect x="252" y="120" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="129" fill="#aeb8a0" font-size="9">L2</text>
+        <rect x="252" y="140" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="149" fill="#aeb8a0" font-size="9">L3</text>
+        <rect x="252" y="160" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="169" fill="#aeb8a0" font-size="9">L4</text>
+        <rect x="252" y="180" width="16" height="10" rx="2" fill="#4a5040"/>
+        <text x="285" y="189" fill="#aeb8a0" font-size="9">L5</text>
+
+        <!-- HEPAR (right side = patient left on film) -->
+        <ellipse cx="175" cy="100" rx="70" ry="45" fill="rgba(174,184,160,0.15)" stroke="#aeb8a0" stroke-width="1.5"/>
+        <text x="155" y="97" fill="#e9f056" font-size="10" font-weight="bold">H</text>
+        <text x="140" y="110" fill="#e9f056" font-size="8">HEPAR</text>
+
+        <!-- LIEN (left) -->
+        <ellipse cx="345" cy="105" rx="35" ry="28" fill="rgba(174,184,160,0.1)" stroke="#aeb8a0" stroke-width="1.5"/>
+        <text x="334" y="102" fill="#d7efff" font-size="10" font-weight="bold">S</text>
+        <text x="325" y="113" fill="#d7efff" font-size="8">LIEN</text>
+
+        <!-- Ren kanan -->
+        <rect x="168" y="112" width="22" height="32" rx="11" fill="rgba(233,240,86,0.12)" stroke="#e9f056" stroke-width="1.5"/>
+        <text x="163" y="145" fill="#e9f056" font-size="7">Ren Ka</text>
+
+        <!-- Ren kiri -->
+        <rect x="328" y="115" width="22" height="32" rx="11" fill="rgba(215,239,255,0.12)" stroke="#d7efff" stroke-width="1.5"/>
+        <text x="325" y="148" fill="#d7efff" font-size="7">Ren Ki</text>
+
+        <!-- Gaster -->
+        <path d="M225 85 Q240 78 255 85 Q268 95 255 110 Q240 118 225 108 Q210 98 225 85" fill="rgba(233,240,86,0.08)" stroke="#e9f056" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="228" y="99" fill="#e9f056" font-size="8">Gaster</text>
+
+        <!-- Usus halus (central) -->
+        <path d="M195 150 Q215 165 235 158 Q255 151 240 170 Q225 185 245 192 Q265 199 250 215" fill="none" stroke="#aeb8a0" stroke-width="1.5"/>
+        <text x="175" y="195" fill="#aeb8a0" font-size="8">Usus Halus</text>
+        <text x="175" y="206" fill="#aeb8a0" font-size="7">(Central)</text>
+
+        <!-- Colon (peripheral) -->
+        <!-- ascending right -->
+        <path d="M155 210 L155 160" fill="none" stroke="#888" stroke-width="2"/>
+        <!-- transverse top -->
+        <path d="M155 160 Q260 140 365 160" fill="none" stroke="#888" stroke-width="2"/>
+        <!-- descending left -->
+        <path d="M365 160 L365 210" fill="none" stroke="#888" stroke-width="2"/>
+        <!-- sigmoid -->
+        <path d="M365 210 Q340 230 310 220 Q280 210 265 240" fill="none" stroke="#888" stroke-width="2"/>
+        <!-- rectum -->
+        <path d="M265 240 L265 280" fill="none" stroke="#888" stroke-width="2"/>
+
+        <text x="128" y="185" fill="#888" font-size="7">Asc. Colon</text>
+        <text x="200" y="142" fill="#888" font-size="8">Transverse Colon</text>
+        <text x="370" y="185" fill="#888" font-size="7">Desc. Colon</text>
+        <text x="270" y="260" fill="#888" font-size="7">Sigmoid</text>
+        <text x="220" y="275" fill="#aaa" font-size="7">Rektum</text>
+
+        <!-- Psoas lines -->
+        <line x1="220" y1="80" x2="200" y2="200" stroke="#555" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <line x1="300" y1="80" x2="320" y2="200" stroke="#555" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="115" y="155" fill="#666" font-size="8" transform="rotate(-8,115,155)">Psoas line Ka</text>
+        <text x="320" y="135" fill="#666" font-size="8" transform="rotate(8,320,135)">Psoas line Ki</text>
+
+        <!-- Legend -->
+        <text x="20" y="295" fill="#555" font-size="9">← Kanan Film (= Kiri Pasien)</text>
+        <text x="380" y="295" fill="#555" font-size="9">Kiri Film →</text>
+      </svg>
+    </div>
+    <div class="alert alert-sky" style="margin-top:12px;">
+      <span class="alert-icon">📌</span>
+      <div><strong>Ingat orientasi film!</strong> Di foto abdomen, <strong>kanan film = kiri pasien</strong>. Hepar tampak di sebelah kanan foto (= sisi kanan pasien). Usus halus di tengah (central). Kolon di perifer. Rektum selalu terlihat.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FPA ===== -->
+<div id="fpa" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">📷</div>
+    <div>
+      <h2>Foto Polos Abdomen (FPA)</h2>
+      <p>Pemeriksaan awal, non-invasif, penuh informasi</p>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <div><strong>Pertanyaan khas dr. Ulum:</strong> "Kalau ada bayangan putih setinggi L2 → organ apa? → Ginjal → curiga batu ginjal (nefrolitiasis). Setinggi sakrum → kandung kemih. Sekitar T12–L1 → kandung empedu."</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">📐 4 Proyeksi FPA & Kegunaannya <span class="tag tag-lime">HAFAL INI!</span></div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-icon">🛌</div>
+        <div class="proj-name">Supine</div>
+        <div class="proj-use">Paling sering digunakan. Melihat: pola udara dalam usus, kalsifikasi/batu, soft tissue mass, tulang</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🙃</div>
+        <div class="proj-name">Prone</div>
+        <div class="proj-use">Tengkurap. Melihat: udara dalam rektum/sigmoid, udara dalam kolon ascenden & descenden</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">🧍</div>
+        <div class="proj-name">Erect</div>
+        <div class="proj-use">Berdiri. Melihat: <strong>free air</strong> (pneumoperitoneum), air-fluid level. Bisa diganti LLD!</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon">↩️</div>
+        <div class="proj-name">LLD</div>
+        <div class="proj-use">Left Lateral Decubitus. Pengganti erect. Udara bebas akan naik ke atas → kelihatan jelas</div>
+      </div>
+    </div>
+    <div class="kp">💡 <strong>Kenapa LLD bisa menggantikan Erect?</strong> Karena sifat udara selalu naik — kalau ada udara bebas di luar lumen usus, dia akan mengumpul di atas. Pada LLD, udara bebas berkumpul di sisi atas (yang sekarang kiri pasien) sehingga kelihatan jelas sebagai "decubitus abdominal sign."</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🦴 Anatomi yang Terlihat di FPA</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Marker Anatomis</th><th>Lokasi di Film</th><th>Kepentingan Klinis</th></tr>
+        <tr><td><strong>Kontur Hepar (H)</strong></td><td>Kanan atas abdomen</td><td>Membesar → hepatomegali, massa</td></tr>
+        <tr><td><strong>Kontur Lien (S)</strong></td><td>Kiri atas abdomen</td><td>Membesar → splenomegali</td></tr>
+        <tr><td><strong>Ren kanan-kiri (K)</strong></td><td>Setinggi L1–L2</td><td>Batu ginjal → kalsifikasi di sini</td></tr>
+        <tr><td><strong>Psoas line</strong></td><td>Dari T12 ke trokanter minor</td><td>Hilang → hematom retroperitoneal, abses</td></tr>
+        <tr><td><strong>Preperitoneal fat line</strong></td><td>Di pinggir abdomen</td><td>Terdorong → massa intraperitoneal</td></tr>
+        <tr><td><strong>Muskulus psoas kiri-kanan</strong></td><td>Dua garis diagonal simetris</td><td>Asimetri → curiga massa/abses retroperitoneal</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NORMAL ===== -->
+<div id="normal" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">✅</div>
+    <div>
+      <h2>Pola Normal & Cara Membaca</h2>
+      <p>Kenali yang normal dulu — baru bisa deteksi yang abnormal</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🎯 Pola Normal Udara dalam Saluran Cerna <span class="tag tag-red">SELALU KELUAR!</span></div>
+    <p style="font-size:13.5px; margin-bottom:14px; color:var(--ink-mid);">Ini yang paling sering ditanya dr. Ulum: <em>"Udara yang selalu tampak di foto abdomen normal ada di mana saja?"</em></p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+      <span class="normal-chip"><span class="dot" style="background:#e9f056"></span>Lambung — selalu ada</span>
+      <span class="normal-chip"><span class="dot" style="background:#e9f056"></span>2–3 loop usus kecil (diameter &lt;3cm)</span>
+      <span class="normal-chip"><span class="dot" style="background:#e9f056"></span>Rektum — selalu ada</span>
+      <span class="normal-chip"><span class="dot" style="background:#e9f056"></span>Sigmoid — selalu ada</span>
+    </div>
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Tidak selalu normal:</strong> Udara di kolon ascenden dan descenden kadang ada, kadang tidak. Kalau ada dan banyak → curiga sesuatu: infeksi, obstruksi, atau gangguan metabolik.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">⚖️ Membedakan Usus Halus vs Usus Besar <span class="tag tag-lime">KUNCI DIAGNOSIS!</span></div>
+    <div class="compare">
+      <div class="compare-col a">
+        <h4>🔸 Usus Halus (Small Bowel)</h4>
+        <div class="compare-row"><span>Posisi:</span><span>Central / tengah</span></div>
+        <div class="compare-row"><span>Lipatan:</span><span><strong>Valvulae conniventes</strong> (plika sirkularis) — melintang, lengkap</span></div>
+        <div class="compare-row"><span>Diameter:</span><span>&lt; 3 cm</span></div>
+        <div class="compare-row"><span>Gambaran:</span><span>Seperti "herring bone"</span></div>
+      </div>
+      <div class="compare-col b">
+        <h4>🔷 Usus Besar (Large Bowel)</h4>
+        <div class="compare-row"><span>Posisi:</span><span>Perifer / pinggir</span></div>
+        <div class="compare-row"><span>Lipatan:</span><span><strong>Haustra</strong> (plika semi lunaris) — tidak lengkap, seperti kantong</span></div>
+        <div class="compare-row"><span>Diameter:</span><span>&lt; 6 cm (caecum &lt;9 cm)</span></div>
+        <div class="compare-row"><span>Gambaran:</span><span>Kotak-kotak (haustral pattern)</span></div>
+      </div>
+    </div>
+    <div class="cr-box" style="margin-top:16px;">
+      <div class="cr-title">🧠 Clinical Reasoning — Cara Membedakan Cepat</div>
+      <ol class="cr-steps">
+        <li>Lihat posisi: tengah atau pinggir? → Tengah = usus halus, Pinggir = kolon</li>
+        <li>Lihat lipatan: melintang penuh (plika sirkularis) = usus halus. Kantong-kantong tidak penuh (haustra) = kolon</li>
+        <li>Ukur diameter: &lt;3 cm normal untuk usus halus. &lt;6 cm untuk kolon</li>
+        <li>Kalau keduanya dilatasi dan besar → pikirkan obstruksi / ileus yang lanjut</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">💧 Air-Fluid Level — Normal vs Abnormal</div>
+    <div class="cols-2">
+      <div class="mini">
+        <h4>✅ Normal</h4>
+        <ul>
+          <li>Lambung: selalu ada</li>
+          <li>Usus kecil: 2–3 air-fluid level</li>
+          <li>Usus besar: <strong>tidak terlihat</strong></li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">Terlihat hanya pada posisi erect/LLD</p>
+      </div>
+      <div class="mini">
+        <h4>⚠️ Abnormal → Curiga Obstruksi</h4>
+        <ul>
+          <li>Multipel, pendek-pendek → SBO</li>
+          <li>Multipel, panjang-panjang → Generalized ileus</li>
+          <li>Di kolon → LBO atau ileus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PNEUMOPERITONEUM ===== -->
+<div id="pnemo" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">💨</div>
+    <div>
+      <h2>Pneumoperitoneum</h2>
+      <p>Udara bebas di luar lumen usus — kegawatan abdomen!</p>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <span class="alert-icon">🚨</span>
+    <div><strong>Definisi:</strong> Udara bebas <em>intraperitoneum</em> atau <em>ekstraluminer</em> — udara yang seharusnya ada di dalam usus, tapi keluar ke rongga peritoneum. Ini adalah tanda KEGAWATAN!</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🔍 Penyebab Pneumoperitoneum</div>
+    <div class="cols-2">
+      <div>
+        <p style="font-size:12px; font-weight:600; color:var(--sage-dark); margin-bottom:8px;">PENYEBAB PATOLOGIS</p>
+        <ul class="slist">
+          <li>Robeknya dinding saluran cerna (trauma)</li>
+          <li>Perforasi ulkus peptikum</li>
+          <li>Perforasi usus (tifoid, keganasan)</li>
+          <li>Ruptur abses (gas-forming peritonitis)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:12px; font-weight:600; color:var(--sage-dark); margin-bottom:8px;">IATROGENIK</p>
+        <ul class="slist">
+          <li>Post-laparoskopi (normal sampai beberapa hari)</li>
+          <li>Endoscopic biopsy</li>
+          <li>Abdominal needle biopsy</li>
+          <li>Transperitoneal manipulation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🏷️ Signs of Pneumoperitoneum <span class="tag tag-red">SEMUA SERING KELUAR!</span></div>
+    <div class="sign-grid">
+      <div class="sign-item">
+        <div class="sign-name">Rigler Sign</div>
+        <div style="font-size:28px; margin:6px 0">▓▓</div>
+        <div class="sign-desc">Udara di <strong>dua sisi</strong> dinding usus → dinding usus tampak sebagai garis tebal. Biasanya hanya satu sisi yang terlihat.</div>
+        <span class="sign-badge" style="background:rgba(233,240,86,0.2);color:var(--lime);">= Double Wall Sign</span>
+      </div>
+      <div class="sign-item">
+        <div class="sign-name">Continuous Diaphragm Sign</div>
+        <div style="font-size:28px; margin:6px 0">⌢</div>
+        <div class="sign-desc">Udara di bawah <strong>hemidiafragma kanan</strong>. Posisi erect/semi-duduk. Normalnya di sini ada bayangan hepar — tapi ada udara hitam di bawah diafragma.</div>
+        <span class="sign-badge" style="background:rgba(233,240,86,0.2);color:var(--lime);">Posisi Erect</span>
+      </div>
+      <div class="sign-item">
+        <div class="sign-name">Decubitus Abdominal Sign</div>
+        <div style="font-size:28px; margin:6px 0">↑</div>
+        <div class="sign-desc">Udara bebas memanjang dari atas ke bawah pada posisi LLD. Udara mengumpul di sisi atas karena sifatnya yang ringan.</div>
+        <span class="sign-badge" style="background:rgba(215,239,255,0.2);color:var(--sky-dark);">Posisi LLD</span>
+      </div>
+      <div class="sign-item">
+        <div class="sign-name">Football Sign</div>
+        <div style="font-size:28px; margin:6px 0">🏈</div>
+        <div class="sign-desc">Udara sangat banyak hingga mendesak seluruh abdomen → tampak lusen oval/lonjong besar seperti bola football. Tanda pneumoperitoneum lanjut!</div>
+        <span class="sign-badge" style="background:rgba(199,59,46,0.2);color:#e07844;">Stadium Lanjut</span>
+      </div>
+    </div>
+
+    <div class="cr-box">
+      <div class="cr-title">🧠 Clinical Reasoning — Kenali Continuous Diaphragm Sign</div>
+      <ol class="cr-steps">
+        <li>Normalnya di bawah hemidiafragma kanan = kontur hepar (bayangan abu-abu/putih)</li>
+        <li>Di sisi kiri ada bayangan hitam udara = gaster — INI NORMAL</li>
+        <li>Kalau ada udara hitam di bawah diafragma kanan (yang harusnya hepar) → ABNORMAL = pneumoperitoneum</li>
+        <li>Kunci: bedakan udara gaster (intraluminal) vs udara bebas (ekstraluminal)</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ILEUS ===== -->
+<div id="ileus" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🔄</div>
+    <div>
+      <h2>Ileus & Obstruksi Usus</h2>
+      <p>Abnormalitas pola udara usus — fungsional vs mekanik</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🗂️ Klasifikasi Besar — Peta Konsep</div>
+    <div class="cr-box">
+      <div class="cr-title">🧠 Framework Berpikir</div>
+      <ol class="cr-steps">
+        <li>Lihat pola udara → ada yang abnormal? Dilatasi berlebihan?</li>
+        <li>Kalau dilatasi → fungsional (ileus paralitik) atau mekanik (obstruksi)?</li>
+        <li>Ileus paralitik: udara di rektum masih ada. Mekanik (SBO/LBO): rektum biasanya kosong</li>
+        <li>Tentukan lokasi: usus halus (SBO) atau usus besar (LBO)?</li>
+        <li>Cari tanda spesifik: herring bone (SBO) atau haustra hilang (LBO)?</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">📊 Tabel Perbandingan Lengkap <span class="tag tag-red">PALING PENTING!</span></div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Localized Ileus (Sentinel Loop)</th>
+          <th>Generalized Ileus (Adynamic)</th>
+          <th>SBO</th>
+          <th>LBO</th>
+        </tr>
+        <tr>
+          <td><strong>Udara Rektum</strong></td>
+          <td>✅ Ada</td>
+          <td>✅ Ada</td>
+          <td>❌ Minimal/tidak ada</td>
+          <td>❌ Minimal/tidak ada</td>
+        </tr>
+        <tr>
+          <td><strong>Usus Halus</strong></td>
+          <td>2–3 loop dilatasi</td>
+          <td>Multiple loop dilatasi</td>
+          <td>⚠️ Multiple dilated loop</td>
+          <td>Normal / sedikit</td>
+        </tr>
+        <tr>
+          <td><strong>Usus Besar</strong></td>
+          <td>Normal</td>
+          <td>Dilatasi</td>
+          <td>Minimal</td>
+          <td>⚠️ Dilatasi masif</td>
+        </tr>
+        <tr>
+          <td><strong>Air-Fluid Level</strong></td>
+          <td>Sedikit</td>
+          <td>Multipel, panjang</td>
+          <td>Multipel, pendek</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Tanda Khas</strong></td>
+          <td>1–2 loop isolated</td>
+          <td>Seluruh usus dilatasi</td>
+          <td>Coil spring / herring bone</td>
+          <td>Haustra jelas, dilatasi kolon</td>
+        </tr>
+        <tr>
+          <td><strong>Penyebab</strong></td>
+          <td>Kolesistitis, appendisitis, pankreatitis, ureterolithiasis</td>
+          <td>Post-operasi</td>
+          <td>Adhesi, volvulus, gallstone ileus, intususepsi</td>
+          <td>Tumor, volvulus, hernia, divertikulitis</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="cols-2" style="margin-bottom:20px;">
+    <!-- SBO Card -->
+    <div class="card" style="margin-bottom:0; border-left:4px solid var(--lime);">
+      <div class="card-head">🔸 Small Bowel Obstruction (SBO)</div>
+      <ul class="slist">
+        <li>Dilatasi <strong>usus halus</strong> (sentral)</li>
+        <li>Gambaran <strong>coil spring</strong> / <strong>herring bone</strong></li>
+        <li>Udara kolon minimal, terutama rektum <strong>(-)</strong></li>
+        <li>Air-fluid level <strong>pendek-pendek</strong>, multipel</li>
+      </ul>
+      <div class="anatomy-box" style="margin-top:12px;">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="120" fill="#0a0f08"/>
+          <text x="10" y="15" fill="#e9f056" font-size="9" font-family="DM Sans">SBO — Coil Spring Pattern</text>
+          <!-- Dilated loops central -->
+          <path d="M30 40 Q60 28 90 40 Q120 52 90 65 Q60 78 30 65 Q10 52 30 40" fill="none" stroke="#e9f056" stroke-width="2"/>
+          <path d="M95 30 Q125 18 155 30 Q175 42 155 55 Q125 68 95 55 Q75 42 95 30" fill="none" stroke="#e9f056" stroke-width="2"/>
+          <path d="M30 75 Q60 63 90 75 Q110 87 90 98 Q60 108 30 98 Q10 87 30 75" fill="none" stroke="#e9f056" stroke-width="2"/>
+          <!-- herring bone lines inside -->
+          <line x1="35" y1="50" x2="55" y2="45" stroke="rgba(233,240,86,0.4)" stroke-width="1"/>
+          <line x1="55" y1="50" x2="75" y2="45" stroke="rgba(233,240,86,0.4)" stroke-width="1"/>
+          <line x1="75" y1="50" x2="85" y2="45" stroke="rgba(233,240,86,0.4)" stroke-width="1"/>
+          <line x1="35" y1="56" x2="55" y2="61" stroke="rgba(233,240,86,0.4)" stroke-width="1"/>
+          <line x1="55" y1="56" x2="75" y2="61" stroke="rgba(233,240,86,0.4)" stroke-width="1"/>
+          <!-- air fluid levels -->
+          <line x1="25" y1="58" x2="85" y2="58" stroke="rgba(215,239,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <line x1="90" y1="48" x2="160" y2="48" stroke="rgba(215,239,255,0.5)" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="100" y="92" fill="#555" font-size="9">Rektum: kosong</text>
+          <text x="100" y="103" fill="#555" font-size="8">Valvulae terlihat</text>
+        </svg>
+      </div>
+      <div class="alert alert-lime" style="margin-top:10px;">
+        <span class="alert-icon">🎨</span>
+        <div>Bayangkan ini seperti <strong>tulang ikan (herring bone)</strong> — valvulae conniventes terlihat melintang. Atau seperti pegas (coil spring) yang tertekan.</div>
+      </div>
+    </div>
+
+    <!-- LBO Card -->
+    <div class="card" style="margin-bottom:0; border-left:4px solid var(--sky-dark);">
+      <div class="card-head">🔷 Large Bowel Obstruction (LBO)</div>
+      <ul class="slist">
+        <li>Dilatasi <strong>usus besar</strong> (perifer) — bisa masif</li>
+        <li>Haustra dan insisurae jelas terlihat</li>
+        <li>Udara rektum <strong>minimal/(-)</strong></li>
+        <li>Usus halus normal kecuali ileocecal valve incompetent</li>
+      </ul>
+      <div class="anatomy-box" style="margin-top:12px;">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="120" fill="#0a0f08"/>
+          <text x="10" y="15" fill="#d7efff" font-size="9" font-family="DM Sans">LBO — Haustra Pattern</text>
+          <!-- Large bowel peripheral -->
+          <path d="M20 80 L20 35" fill="none" stroke="#d7efff" stroke-width="3"/>
+          <path d="M20 35 Q100 15 180 35" fill="none" stroke="#d7efff" stroke-width="3"/>
+          <path d="M180 35 L180 80" fill="none" stroke="#d7efff" stroke-width="3"/>
+          <path d="M180 80 Q150 95 130 85 Q110 75 90 90 Q70 105 50 90 Q35 80 20 80" fill="none" stroke="#d7efff" stroke-width="2.5" stroke-dasharray="3,2"/>
+          <!-- Haustra marks -->
+          <line x1="20" y1="45" x2="10" y2="45" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="20" y1="55" x2="10" y2="55" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="20" y1="65" x2="10" y2="65" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="180" y1="45" x2="190" y2="45" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="180" y1="55" x2="190" y2="55" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="55" y1="15" x2="55" y2="25" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="100" y1="12" x2="100" y2="22" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <line x1="145" y1="15" x2="145" y2="25" stroke="rgba(215,239,255,0.6)" stroke-width="1.5"/>
+          <text x="70" y="58" fill="#555" font-size="8">Usus halus</text>
+          <text x="70" y="68" fill="#555" font-size="8">normal</text>
+          <text x="5" y="110" fill="#555" font-size="8">Haustra jelas terlihat</text>
+        </svg>
+      </div>
+      <div class="alert alert-sky" style="margin-top:10px;">
+        <span class="alert-icon">💡</span>
+        <div><strong>Ileocecal valve incompetent:</strong> Kalau LBO sangat berat, valve tidak kuat → udara "bocor" ke usus halus → usus halus IKUT dilatasi juga. Jangan bingung dengan SBO!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">📌 Localized Ileus (Sentinel Loop)</div>
+    <div class="cols-2">
+      <div>
+        <ul class="slist">
+          <li>Hanya <strong>1–2 loop</strong> usus yang dilatasi (isolated)</li>
+          <li>Udara rektum/sigmoid masih ada (✅)</li>
+          <li>Bukan obstruksi — tapi reaksi lokal peradangan</li>
+        </ul>
+        <div class="kp" style="margin-top:12px;"><strong>Penyebab sentinel loop:</strong> Kolesistitis → loop dekat kandung empedu. Appendisitis → loop di kuadran kanan bawah. Pankreatitis → "colon cut-off sign". Ureterolithiasis.</div>
+      </div>
+      <div>
+        <div class="anatomy-box">
+          <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="160" height="120" fill="#0a0f08"/>
+            <text x="10" y="14" fill="#aeb8a0" font-size="8">Sentinel Loop</text>
+            <!-- Body outline -->
+            <ellipse cx="80" cy="65" rx="60" ry="48" fill="none" stroke="#2a3020" stroke-width="1"/>
+            <!-- 1-2 isolated loops -->
+            <path d="M55 45 Q80 35 105 45 Q118 57 105 68 Q80 78 55 68 Q42 57 55 45" fill="rgba(233,240,86,0.08)" stroke="#e9f056" stroke-width="2"/>
+            <text x="65" y="59" fill="#e9f056" font-size="8">1–2 loop</text>
+            <!-- Rest normal -->
+            <text x="20" y="95" fill="#555" font-size="8">Sisa usus normal</text>
+            <text x="20" y="107" fill="#555" font-size="8">Rektum: ada udara ✓</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KONTRAS ===== -->
+<div id="kontras" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🧪</div>
+    <div>
+      <h2>Colon in Loop & OMD</h2>
+      <p>Pemeriksaan dengan media kontras — untuk visualisasi lumen</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🔄 Colon in Loop (Barium Enema)</div>
+    <div class="alert alert-sky">
+      <span class="alert-icon">📌</span>
+      <div><strong>Definisi:</strong> Pemeriksaan radiologi usus besar dengan memasukkan media kontras (BaSO₄ / barium) secara <strong>retrograde</strong> (dari dubur ke atas). Kontras dimasukkan lewat anus dengan kateter → diisi sampai caecum → difoto bertahap.</div>
+    </div>
+    <div class="cols-2" style="margin-top:14px;">
+      <div class="mini" style="border-left:3px solid var(--sage);">
+        <h4>✅ Indikasi</h4>
+        <ul>
+          <li>Colitis (UC, CD)</li>
+          <li>Diverticulum</li>
+          <li>Neoplasma kolon</li>
+          <li>Polip</li>
+          <li>Volvulus</li>
+          <li>Invaginasi (intususepsi)</li>
+          <li>Atresia & stenosis</li>
+        </ul>
+      </div>
+      <div class="mini" style="border-left:3px solid var(--red);">
+        <h4>❌ Kontraindikasi <span class="tag tag-red">WAJIB HAFAL!</span></h4>
+        <ul>
+          <li><strong>PERFORASI</strong> — MUTLAK! Barium masuk peritoneum → fatal!</li>
+          <li>Refleks vagal</li>
+        </ul>
+        <p style="margin-top:8px; font-size:12px; color:var(--red);">Soal dari dr. Ulum: "Kalau ada perforasi, colon in loop dikontraindikasikan!"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🍎 Gambaran Khas Colon in Loop <span class="tag tag-lime">SERING KELUAR!</span></div>
+    <div class="cols-2">
+      <div class="xray-card">
+        <div class="xray-label">Apple Core Sign</div>
+        <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+          <rect width="160" height="140" fill="#111"/>
+          <!-- Normal lumen -->
+          <path d="M40 20 L40 120" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="30"/>
+          <!-- Apple core narrowing -->
+          <path d="M40 20 L40 45" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="28"/>
+          <path d="M40 95 L40 120" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="28"/>
+          <!-- Apple core narrowing area -->
+          <path d="M40 45 L40 95" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="10"/>
+          <!-- Irregular edges = tumor -->
+          <path d="M20 45 Q15 52 18 60 Q14 68 20 75 Q16 83 20 95" fill="none" stroke="#e9f056" stroke-width="2" stroke-dasharray="2,2"/>
+          <path d="M60 45 Q65 52 62 60 Q66 68 60 75 Q64 83 60 95" fill="none" stroke="#e9f056" stroke-width="2" stroke-dasharray="2,2"/>
+          <!-- Label -->
+          <text x="75" y="65" fill="#e9f056" font-size="10" font-weight="bold">MASSA</text>
+          <text x="75" y="78" fill="#e9f056" font-size="8">TUMOR</text>
+          <text x="5" y="135" fill="#aaa" font-size="9">Seperti bekas gigitan apel</text>
+        </svg>
+        <div class="xray-caption">Penyempitan lumen kolon dengan tepi irreguler — khas karsinoma kolon</div>
+      </div>
+
+      <div class="xray-card">
+        <div class="xray-label">Lead Pipe Sign</div>
+        <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+          <rect width="160" height="140" fill="#111"/>
+          <!-- Normal colon with haustra -->
+          <path d="M30 20 L30 120" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="30"/>
+          <!-- Lead pipe - no haustra -->
+          <path d="M30 20 L30 120" fill="none" stroke="rgba(215,239,255,0.5)" stroke-width="3"/>
+          <path d="M50 20 L50 120" fill="none" stroke="rgba(215,239,255,0.5)" stroke-width="3"/>
+          <!-- No haustra marks -->
+          <text x="70" y="40" fill="#d7efff" font-size="9">Tidak ada</text>
+          <text x="70" y="52" fill="#d7efff" font-size="9">haustra!</text>
+          <text x="70" y="70" fill="#555" font-size="8">Lurus seperti pipa</text>
+          <!-- Normal for comparison -->
+          <path d="M100 20 L100 120" fill="none" stroke="rgba(174,184,160,0.3)" stroke-width="3"/>
+          <path d="M120 20 L120 120" fill="none" stroke="rgba(174,184,160,0.3)" stroke-width="3"/>
+          <line x1="100" y1="45" x2="120" y2="45" stroke="rgba(174,184,160,0.6)" stroke-width="1.5"/>
+          <line x1="100" y1="65" x2="120" y2="65" stroke="rgba(174,184,160,0.6)" stroke-width="1.5"/>
+          <line x1="100" y1="85" x2="120" y2="85" stroke="rgba(174,184,160,0.6)" stroke-width="1.5"/>
+          <text x="128" y="58" fill="#aeb8a0" font-size="7">Normal:</text>
+          <text x="128" y="68" fill="#aeb8a0" font-size="7">haustra (+)</text>
+          <text x="5" y="135" fill="#aaa" font-size="9">Khas colitis (UC)</text>
+        </svg>
+        <div class="xray-caption">Hilangnya haustra → kolon tampak lurus seperti pipa — khas kolitis</div>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:16px;">
+      <table>
+        <tr><th>Gambaran</th><th>Nama Sign</th><th>Diagnosis</th></tr>
+        <tr><td>Penyempitan lumen dengan tepi irreguler seperti bekas gigitan apel</td><td><strong>Apple Core Sign</strong></td><td>Karsinoma kolon ⭐</td></tr>
+        <tr><td>Kolon lurus memanjang, haustra hilang</td><td><strong>Lead Pipe Sign</strong></td><td>Colitis (Ulseratif) ⭐</td></tr>
+        <tr><td>Kontras seperti paruh burung</td><td><strong>Bird of Prey / Bird Beak Sign</strong></td><td>Volvulus sigmoid ⭐</td></tr>
+        <tr><td>Kolon mengisi penuh, appendiks tidak terisi kontras</td><td><strong>Non-filling appendix</strong></td><td>Appendisitis ⭐</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🥛 OMD (Oesophago-Maag-Duodenum)</div>
+    <div class="alert alert-sky">
+      <span class="alert-icon">📌</span>
+      <div>Kontras diminum (bukan dimasukkan lewat dubur). Barium sulfat dicampur air 1:1, diminum, langsung difoto saat menelan. Memvisualisasikan esofagus → gaster → duodenum.</div>
+    </div>
+    <div class="cols-2" style="margin-top:14px;">
+      <div>
+        <p style="font-weight:600; margin-bottom:10px; color:var(--ink);">Gambaran Khas OMD:</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Sign</th><th>Kondisi</th></tr>
+            <tr><td><strong>Double Bubble Sign</strong></td><td>Atresia Duodeni ⭐⭐</td></tr>
+            <tr><td><strong>Caterpillar Sign</strong></td><td>HPS (foto polos)</td></tr>
+            <tr><td><strong>String Sign</strong></td><td>HPS (barium) — pylorus menyempit</td></tr>
+            <tr><td><strong>Antral Nipple Sign</strong></td><td>HPS (USG)</td></tr>
+            <tr><td><strong>Shouldering Sign</strong></td><td>HPS (barium)</td></tr>
+            <tr><td><strong>Mushroom/Umbrella Sign</strong></td><td>HPS (barium)</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="xray-card">
+          <div class="xray-label">Double Bubble Sign — Atresia Duodeni</div>
+          <svg viewBox="0 0 140 130" xmlns="http://www.w3.org/2000/svg">
+            <rect width="140" height="130" fill="#111"/>
+            <!-- Bubble 1 = Gaster -->
+            <ellipse cx="55" cy="40" rx="42" ry="28" fill="rgba(233,240,86,0.12)" stroke="#e9f056" stroke-width="2"/>
+            <text x="38" y="38" fill="#e9f056" font-size="8">GASTER</text>
+            <text x="42" y="49" fill="#e9f056" font-size="7">(bubble 1)</text>
+            <!-- Bubble 2 = Duodenum proximal -->
+            <ellipse cx="70" cy="82" rx="28" ry="20" fill="rgba(215,239,255,0.12)" stroke="#d7efff" stroke-width="2"/>
+            <text x="50" y="80" fill="#d7efff" font-size="7">DUODENUM</text>
+            <text x="52" y="90" fill="#d7efff" font-size="7">PROKSIMAL</text>
+            <text x="40" y="100" fill="#d7efff" font-size="7">(bubble 2)</text>
+            <!-- No air below = atresia -->
+            <text x="5" y="118" fill="#555" font-size="8">Tidak ada udara di bawah →</text>
+            <text x="5" y="128" fill="#555" font-size="8">obstruksi total (atresia duodeni)</text>
+            <!-- Point of obstruction -->
+            <line x1="100" y1="65" x2="115" y2="65" stroke="rgba(199,59,46,0.8)" stroke-width="2"/>
+            <text x="105" y="60" fill="#c73b2e" font-size="9">BLOCK</text>
+          </svg>
+          <div class="xray-caption">2 gelembung udara = gaster + duodenum proksimal. Tidak ada udara di bawah = atresia total → LANGSUNG BEDAH</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-warn" style="margin-top:14px;">
+      <span class="alert-icon">⭐</span>
+      <div><strong>Dari dr. Ulum tentang Atresia Duodeni:</strong> "Kalau foto polos sudah menunjukkan obstruksi total (double bubble + tidak ada udara di bawah) → biasanya tidak perlu pemeriksaan kontras → langsung tindakan bedah!" Obstruksi parsial saja yang perlu dikonfirmasi dengan OMD.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🪱 Appendikogram — Bonus dari Kuliah!</div>
+    <p style="font-size:13.5px; color:var(--ink-mid); margin-bottom:10px;">Pemeriksaan untuk melihat appendiks — barium diminum, difoto <strong>8 jam kemudian</strong>.</p>
+    <ul class="slist">
+      <li>Normal: appendiks terisi kontras (terlihat sebagai buntut di sekum)</li>
+      <li>Appendisitis: appendiks <strong>tidak terisi kontras</strong> karena lumennya tertutup peradangan</li>
+      <li>Timing penting: kalau terlalu cepat atau terlambat → kontras sudah di kolon atau sudah hilang</li>
+    </ul>
+    <div class="alert alert-lime" style="margin-top:10px;">
+      <span class="alert-icon">💬</span>
+      <div>dr. Ulum: "Kalau kamu foto 8 jam tapi sudah telat, kontrasnya sudah kabur, sudah sampai asenden, sudah sampai rektum — sudah telat motonya." Timing = penting!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== USG ===== -->
+<div id="usg" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🔊</div>
+    <div>
+      <h2>USG Abdomen</h2>
+      <p>Ultrasonografi — melihat organ dengan gelombang suara</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">⚡ Prinsip USG & Ekogenitas <span class="tag tag-lime">KONSEP DASAR!</span></div>
+    <p style="font-size:13.5px; margin-bottom:14px; color:var(--ink-mid);">Gelombang suara frekuensi tinggi (1–10 MHz) dipancarkan → ada yang dipantulkan (terima = gambar), ada yang menembus. Semakin padat struktur → semakin banyak dipantulkan → lebih terang/putih.</p>
+    <div class="eko-box">
+      <div class="eko-col eko-high">
+        <h5>HIPEREKOIK</h5>
+        <p>Putih/terang</p>
+        <p style="margin-top:6px; font-size:12px;">Struktur padat:<br>Batu, tulang, gas (acoustic shadow ↓)</p>
+      </div>
+      <div class="eko-col eko-low">
+        <h5>HIPOEKOIK</h5>
+        <p>Abu-abu gelap</p>
+        <p style="margin-top:6px; font-size:12px;">Kurang padat:<br>Massa, soft tissue, jaringan nekrosis</p>
+      </div>
+      <div class="eko-col eko-none">
+        <h5>ANEKOIK</h5>
+        <p>Hitam</p>
+        <p style="margin-top:6px; font-size:12px;">Cairan:<br>Darah, empedu, ascites, kista</p>
+      </div>
+    </div>
+    <div class="alert alert-lime" style="margin-top:12px;">
+      <span class="alert-icon">💡</span>
+      <div><strong>Paralel dengan foto polos:</strong> Foto polos → radiopak (putih) vs radiolusent (hitam). USG → hiperekoik (putih) vs anekoik (hitam). Batu = putih di keduanya, tapi di USG ada bayangan hitam di bawahnya (acoustic shadow) yang sangat khas!</div>
+    </div>
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Keterbatasan USG:</strong> Organ berisi udara tidak bisa dicitrakan (lambung, usus bergas). Kurang baik pada obesitas. Operator dependent (tergantung keahlian dokter).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🫀 USG Hepar <span class="tag tag-lime">SELALU KELUAR!</span></div>
+    <div class="alert alert-sage">
+      <span class="alert-icon">📌</span>
+      <div><strong>Normal:</strong> Ukuran lobus kanan 13–15 cm, lobus kiri 9–10 cm. Permukaan <strong>rata</strong>, tepi <strong>reguler lancip</strong>, ekogenisitas <strong>menengah</strong> (pankreas > hepar > lien > ginjal), parenkim <strong>homogen</strong>.</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Ukuran</th><th>Permukaan</th><th>Parenkim</th><th>Ekogenitas</th></tr>
+        <tr><td><strong>Normal</strong></td><td>Normal</td><td>Rata, tepi lancip</td><td>Homogen</td><td>Menengah</td></tr>
+        <tr><td><strong>HCC (Hepatoma)</strong></td><td>⬆️ Membesar</td><td>Berbenjol-benjol, tepi tumpul</td><td>Inhomogen</td><td>⬆️ Meningkat</td></tr>
+        <tr><td><strong>Sirosis Hepatis</strong></td><td>⬇️ Mengecil</td><td>Kapsul tebal, ireguler</td><td>Homogen kasar</td><td>⬆️ Meningkat</td></tr>
+        <tr><td><strong>Metastasis</strong></td><td>Normal</td><td>—</td><td>Multipel nodul</td><td>Bervariasi</td></tr>
+      </table>
+    </div>
+    <div class="cr-box">
+      <div class="cr-title">🧠 Clinical Reasoning — Membedakan HCC vs Sirosis vs Metastasis</div>
+      <ol class="cr-steps">
+        <li><strong>HCC:</strong> Ukuran membesar + berbenjol + parenkim inhomogen → nodular hepatoma. Sering di atas background sirosis</li>
+        <li><strong>Sirosis:</strong> Ukuran mengecil + tepi ireguler + parenkim kasar → fibrosis sudah banyak. Ini yang membuat "cairan ascites" muncul di sekitarnya (anekoik)</li>
+        <li><strong>Metastasis:</strong> Multipel nodul di hepar yang ukurannya normal → selalu curiga primer di tempat lain (kolon, pankreas)</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🫧 USG Kandung Empedu (Gallbladder)</div>
+    <div class="alert alert-sage">
+      <span class="alert-icon">📌</span>
+      <div><strong>Persiapan penting:</strong> Puasa 6–8 jam → kandung empedu terdistensi maksimal agar mudah dilihat. Normal: bentuk ovoid, diameter korpus &lt;8 cm, dinding reguler tidak menebal.</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Kondisi</th><th>Gambaran USG Khas</th></tr>
+        <tr><td><strong>Kolelitiasis (Batu Empedu)</strong></td><td><span style="color:var(--warn); font-weight:600;">Hiperekoik + acoustic shadow</span> di bawahnya. Batu = padat → memantulkan semua → putih terang → di bawahnya hitam (shadow)</td></tr>
+        <tr><td><strong>Kolesistitis Akut</strong></td><td>Batu (+) + <strong>penebalan dinding</strong> + double wall sign + cairan di sekitar kandung empedu</td></tr>
+        <tr><td><strong>Kolesistitis Kronis</strong></td><td>Dinding tebal ireguler, bentuk contracted (menyusut), batu multipel</td></tr>
+        <tr><td><strong>Hydrops GB</strong></td><td>Diameter &gt;8 cm, terdistensi sangat besar karena tersumbat</td></tr>
+      </table>
+    </div>
+    <div class="kp">⭐ <strong>Acoustic shadow adalah kunci diagnosis batu empedu!</strong> Tanpa acoustic shadow → bukan batu (mungkin polip). Batu = hiperekoik dengan acoustic shadow hitam di bawahnya.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🫘 USG Pankreas & Lien</div>
+    <div class="cols-2">
+      <div>
+        <p style="font-weight:600; margin-bottom:8px;">Pankreas Normal</p>
+        <ul class="slist">
+          <li>Tebal anteroposterior ≤ 3 cm</li>
+          <li>Ekogenitas hampir sama atau sedikit lebih tinggi dari hepar</li>
+        </ul>
+        <p style="font-weight:600; margin-bottom:8px; margin-top:14px;">Karsinoma Pankreas</p>
+        <ul class="slist">
+          <li>Pembesaran parsial (satu bagian saja)</li>
+          <li>Kontur ireguler, bisa lobulated</li>
+          <li>Ekogenitas rendah (hipoekoik) / semisolid</li>
+          <li>Pendesakan v. cava, pelebaran saluran bilier</li>
+        </ul>
+        <p style="font-weight:600; margin-bottom:8px; margin-top:14px;">Pankreatitis Akut</p>
+        <ul class="slist">
+          <li>Ukuran membesar difus</li>
+          <li>Lebih hipoekoik dari hepar</li>
+          <li>Kadang ada abses/nekrosis/perdarahan</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-weight:600; margin-bottom:8px;">Lien Normal</p>
+        <ul class="slist">
+          <li>Bentuk oval</li>
+          <li>Panjang 10–11 cm, lebar 6–7 cm, tebal 3–4 cm</li>
+          <li>Ekogenitas lebih rendah dari hepar</li>
+        </ul>
+        <div class="alert alert-lime" style="margin-top:12px;">
+          <span class="alert-icon">💡</span>
+          <div><strong>Urutan ekogenitas (dari tertinggi ke terendah):</strong><br>Pankreas &gt; Hepar &gt; Lien &gt; Ginjal<br><em>Ingat: PHLIK</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">💧 Cairan Bebas Intraabdomen (FAST)</div>
+    <div class="alert alert-sky">
+      <span class="alert-icon">📌</span>
+      <div><strong>FAST = Focused Assessment with Sonography for Trauma</strong> — USG cepat untuk mendeteksi cairan bebas intraabdomen setelah trauma.</div>
+    </div>
+    <div class="cols-3">
+      <div class="mini">
+        <h4>🔍 Morrison Pouch</h4>
+        <p>Kanan atas (antara hepar dan ginjal kanan). Kantong paling tergantung di posisi supine kanan atas → cairan berkumpul di sini dulu.</p>
+      </div>
+      <div class="mini">
+        <h4>🔍 Spleno-Renal Recess</h4>
+        <p>Kiri atas (antara lien dan ginjal kiri). Dicari cairan di area ini.</p>
+      </div>
+      <div class="mini">
+        <h4>🔍 Suprapubik (Paravesica)</h4>
+        <p>Area kantong kemih. Cairan bebas tampak sebagai bayangan hitam (anekoik) di sekitar kandung kemih.</p>
+      </div>
+    </div>
+    <div class="alert alert-warn" style="margin-top:12px;">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>USG tidak bisa membedakan jenis cairan</strong> — darah, nanah (pus), cairan biasa semua tampak anekoik. Yang bisa membedakan adalah CT scan dan MRI!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SIGNS CHEATSHEET ===== -->
+<div id="signs" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">🏷️</div>
+    <div>
+      <h2>Master Signs Cheatsheet</h2>
+      <p>Semua radiological signs dalam satu halaman — untuk review cepat sebelum ujian</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🗂️ Semua Signs by Diagnosis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Sign / Gambaran</th><th>Modalitas</th><th>Diagnosis</th><th>Cara Ingat</th></tr>
+        <tr><td><strong>🍎 Apple Core Sign</strong></td><td>Colon in Loop</td><td>Karsinoma kolon</td><td>Lumen menyempit seperti bekas gigitan apel</td></tr>
+        <tr><td><strong>🪈 Lead Pipe Sign</strong></td><td>Colon in Loop</td><td>Colitis ulseratif</td><td>Kolon lurus tanpa haustra seperti pipa</td></tr>
+        <tr><td><strong>🐦 Bird of Prey Sign</strong></td><td>Colon in Loop</td><td>Volvulus sigmoid</td><td>Kontras berhenti di ujung seperti paruh burung</td></tr>
+        <tr><td><strong>🫧 Double Bubble Sign</strong></td><td>FPA / OMD</td><td>Atresia duodeni</td><td>Dua gelembung = gaster + duodenum proksimal</td></tr>
+        <tr><td><strong>🪱 Caterpillar Sign</strong></td><td>FPA</td><td>HPS (Hypertrophic Pylorus Stenosis)</td><td>Gaster dilatasi dengan incisura banyak = ulet</td></tr>
+        <tr><td><strong>🧵 String Sign</strong></td><td>OMD</td><td>HPS</td><td>Pylorus menyempit seperti benang</td></tr>
+        <tr><td><strong>🍄 Mushroom/Umbrella Sign</strong></td><td>OMD</td><td>HPS</td><td>Pylorus menonjol ke antrum</td></tr>
+        <tr><td><strong>🎯 Antral Nipple Sign</strong></td><td>USG</td><td>HPS</td><td>Pylorus menonjol ke antrum seperti puting</td></tr>
+        <tr><td><strong>🏈 Football Sign</strong></td><td>FPA</td><td>Pneumoperitoneum masif</td><td>Udara sangat banyak, oval besar</td></tr>
+        <tr><td><strong>◧ Rigler Sign</strong></td><td>FPA</td><td>Pneumoperitoneum</td><td>Dua sisi dinding usus terlihat (double wall)</td></tr>
+        <tr><td><strong>⌢ Continuous Diaphragm Sign</strong></td><td>FPA Erect</td><td>Pneumoperitoneum</td><td>Udara di bawah diafragma kanan</td></tr>
+        <tr><td><strong>↑ Decubitus Abdominal Sign</strong></td><td>FPA LLD</td><td>Pneumoperitoneum</td><td>Udara bebas naik ke sisi atas pada LLD</td></tr>
+        <tr><td><strong>🌀 Coil Spring Sign</strong></td><td>FPA</td><td>SBO</td><td>Valvulae terlihat jelas seperti per/spiral</td></tr>
+        <tr><td><strong>🐟 Herring Bone</strong></td><td>FPA</td><td>SBO</td><td>Usus halus dilatasi + valvulae = tulang ikan</td></tr>
+        <tr><td><strong>🪨 Acoustic Shadow</strong></td><td>USG</td><td>Batu (litiasis)</td><td>Batu hiperekoik → shadow hitam di bawah</td></tr>
+        <tr><td><strong>🧱 Shouldering Sign</strong></td><td>OMD</td><td>HPS</td><td>Tepi pylorus menonjol seperti bahu</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">📊 Quick Reference: Normal Values</div>
+    <div class="cols-2">
+      <div class="table-wrap">
+        <table>
+          <tr><th>Organ</th><th>Diameter Normal</th></tr>
+          <tr><td>Usus halus</td><td>&lt; 3 cm</td></tr>
+          <tr><td>Kolon</td><td>&lt; 6 cm</td></tr>
+          <tr><td>Caecum</td><td>&lt; 9 cm</td></tr>
+          <tr><td>Hepar (lobus kanan)</td><td>13–15 cm</td></tr>
+          <tr><td>Hepar (lobus kiri)</td><td>9–10 cm</td></tr>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Organ / Struktur</th><th>Nilai Normal</th></tr>
+          <tr><td>Kandung empedu</td><td>&lt; 8 cm</td></tr>
+          <tr><td>Pankreas (tebal)</td><td>&lt; 3 cm</td></tr>
+          <tr><td>Lien (panjang)</td><td>10–11 cm</td></tr>
+          <tr><td>Dinding pylorus (USG)</td><td>&lt; 4 mm (patol: &gt;6 mm)</td></tr>
+          <tr><td>Loop usus halus normal</td><td>2–3 loop</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SKDI ===== -->
+<div id="skdi" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">📋</div>
+    <div>
+      <h2>SKDI Penyakit Relevan</h2>
+      <p>Penyakit GI yang perlu dikuasai — dan modalitas radiologi utamanya</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">🗂️ SKDI + Modalitas Radiologi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Penyakit</th><th>SKDI</th><th>Modalitas Radiologi Utama</th><th>Sign Khas</th></tr>
+        <tr><td>Apendisitis akut</td><td><span class="tag tag-warn">3B</span></td><td>USG (first line), CT scan</td><td>Non-filling appendix (appendikogram), sentinel loop</td></tr>
+        <tr><td>Kolesistitis</td><td><span class="tag tag-warn">3B</span></td><td>USG (gold standard)</td><td>Penebalan dinding + batu + double wall</td></tr>
+        <tr><td>Karsinoma kolon</td><td><span class="tag tag-sage">2</span></td><td>Colon in Loop, CT scan</td><td>Apple core sign ⭐</td></tr>
+        <tr><td>Ileus obstruktif</td><td><span class="tag tag-sage">2</span></td><td>Foto Polos Abdomen</td><td>SBO: herring bone. LBO: haustra dilatasi</td></tr>
+        <tr><td>Perforasi usus</td><td><span class="tag tag-sage">2</span></td><td>FPA Erect / LLD</td><td>Pneumoperitoneum ⭐</td></tr>
+        <tr><td>Sirosis hepatis</td><td><span class="tag tag-sage">2</span></td><td>USG</td><td>Hepar mengecil, ekogenitas ↑, kapsul ireguler</td></tr>
+        <tr><td>Atresia duodeni</td><td><span class="tag tag-sage">2</span></td><td>FPA (neonatus)</td><td>Double bubble sign ⭐</td></tr>
+        <tr><td>HPS</td><td><span class="tag tag-sage">2</span></td><td>USG, OMD</td><td>Antral nipple (USG), string/caterpillar sign</td></tr>
+        <tr><td>Kolelitiasis</td><td><span class="tag tag-sage">2</span></td><td>USG</td><td>Hiperekoik + acoustic shadow ⭐</td></tr>
+        <tr><td>Perlemakan hepar (fatty liver)</td><td><span class="tag tag-lime">3A</span></td><td>USG</td><td>Echogenitas ↑↑ inhomogen seluruh parenkim</td></tr>
+        <tr><td>Pankreatitis</td><td><span class="tag tag-sage">2</span></td><td>CT scan (gold standard), USG</td><td>Pankreas membesar, hipoekoik</td></tr>
+        <tr><td>IBD (UC, CD)</td><td><span class="tag tag-sage">2 / 3A</span></td><td>Colon in Loop, CT scan</td><td>Lead pipe sign (UC), cobblestone (CD)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div id="quiz" class="section">
+  <div class="sec-header">
+    <div class="sec-icon">✏️</div>
+    <div>
+      <h2>Quiz Vignette</h2>
+      <p>10 soal berbasis skenario klinis — mirip format ujian blok</p>
+    </div>
+  </div>
+
+  <div class="quiz-progress">
+    <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--ink-soft); margin-bottom:6px;">
+      <span>Progress</span>
+      <span id="progText">0 / 10 dijawab</span>
+    </div>
+    <div style="height:5px; background:rgba(174,184,160,0.2); border-radius:4px;">
+      <div id="progBar" style="height:100%; background:var(--sage-dark); border-radius:4px; width:0%; transition:width 0.4s;"></div>
+    </div>
+    <div class="prog-dots" id="progDots"></div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="qc1">
+    <div class="q-num">SOAL 01 · FOTO POLOS</div>
+    <div class="q-vignette">Bayi laki-laki 2 hari mengeluh muntah kehijauan (bilious) sejak lahir. Perut tampak sedikit kembung di bagian atas. Foto polos abdomen menunjukkan dua bayangan udara yang besar — satu di epigastrium dan satu di hipokondrium kiri — tanpa udara di bawahnya.</div>
+    <div class="q-stem">Interpretasi radiologis yang paling tepat adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q1',false)"><span class="ol">A</span>Perforasi gaster dengan pneumoperitoneum</button>
+      <button class="q-opt" onclick="answer(this,'q1',true)"><span class="ol">B</span>Atresia duodeni — double bubble sign</button>
+      <button class="q-opt" onclick="answer(this,'q1',false)"><span class="ol">C</span>Generalized ileus paralitik</button>
+      <button class="q-opt" onclick="answer(this,'q1',false)"><span class="ol">D</span>Small bowel obstruction dengan herring bone sign</button>
+      <button class="q-opt" onclick="answer(this,'q1',false)"><span class="ol">E</span>Kolitis dengan lead pipe sign</button>
+    </div>
+    <div class="q-exp" id="exp1"><strong>✅ B. Atresia duodeni</strong><br><br>
+    <strong>Double bubble sign</strong> = 2 gelembung udara: (1) gaster + (2) duodenum proksimal. Tidak ada udara di bawahnya = obstruksi total di level duodenum. Muntah bilious (kehijauan) pada bayi baru lahir = obstruksi di bawah ampulla Vateri. Karena obstruksi total → <strong>tidak perlu OMD, langsung bedah!</strong><br><br>
+    ❌ Perforasi gaster → udara bebas di luar usus, bukan dua gelembung terlokalisir. ❌ Ileus paralitik → seluruh usus dilatasi, ada udara di rektum.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="qc2">
+    <div class="q-num">SOAL 02 · COLON IN LOOP</div>
+    <div class="q-vignette">Pria 60 tahun datang dengan perubahan pola BAB 3 bulan — feses makin kecil seperti pensil, disertai darah samar, berat badan turun 8 kg. Pemeriksaan colon in loop menunjukkan penyempitan lumen di kolon ascenden dengan gambaran tepi yang irreguler seperti sisa bekas gigitan.</div>
+    <div class="q-stem">Gambaran radiologis ini disebut?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q2',false)"><span class="ol">A</span>Lead pipe sign — khas colitis ulseratif</button>
+      <button class="q-opt" onclick="answer(this,'q2',false)"><span class="ol">B</span>Rigler sign — khas pneumoperitoneum</button>
+      <button class="q-opt" onclick="answer(this,'q2',true)"><span class="ol">C</span>Apple core sign — khas karsinoma kolon</button>
+      <button class="q-opt" onclick="answer(this,'q2',false)"><span class="ol">D</span>Bird of prey sign — khas volvulus sigmoid</button>
+      <button class="q-opt" onclick="answer(this,'q2',false)"><span class="ol">E</span>Double bubble sign — khas atresia duodeni</button>
+    </div>
+    <div class="q-exp" id="exp2"><strong>✅ C. Apple Core Sign</strong><br><br>
+    Penyempitan lumen kolon dengan tepi <strong>irreguler</strong> seperti bekas gigitan apel = gambaran khas <strong>karsinoma kolon</strong>. Massa tumor menginvasi lumen dari segala arah → lumen tersisa sedikit di tengah, tepi berbenjol-irreguler. Konteks klinis juga mendukung: usia >50, pencil-thin stool, hematosesia kronis, weight loss.<br><br>
+    ❌ Lead pipe = lurus tanpa haustra (colitis). ❌ Bird of prey = kontras berhenti seperti paruh (volvulus). ❌ Rigler = dua sisi dinding usus (pneumoperitoneum).</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="qc3">
+    <div class="q-num">SOAL 03 · POLA NORMAL</div>
+    <div class="q-vignette">Seorang mahasiswa FK diminta membaca foto polos abdomen normal oleh dosennya. Sang dosen bertanya: "Pada foto abdomen normal, di mana saja udara SELALU tampak?"</div>
+    <div class="q-stem">Jawaban yang paling tepat adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q3',false)"><span class="ol">A</span>Lambung, jejunum, dan ileum</button>
+      <button class="q-opt" onclick="answer(this,'q3',false)"><span class="ol">B</span>Kolon ascenden, transversum, descenden</button>
+      <button class="q-opt" onclick="answer(this,'q3',true)"><span class="ol">C</span>Lambung, 2–3 loop usus halus, rektum, dan sigmoid</button>
+      <button class="q-opt" onclick="answer(this,'q3',false)"><span class="ol">D</span>Lambung saja, sisanya tidak pasti</button>
+      <button class="q-opt" onclick="answer(this,'q3',false)"><span class="ol">E</span>Seluruh saluran cerna dari esofagus sampai rektum</button>
+    </div>
+    <div class="q-exp" id="exp3"><strong>✅ C. Lambung, 2–3 loop usus halus, rektum, sigmoid</strong><br><br>
+    Ini dari PPT dan yang dr. Ulum tekankan langsung di kuliah: udara normal selalu ada di <strong>lambung, 2–3 loop usus kecil (diameter &lt;3cm), rektum, dan sigmoid</strong>. Udara di kolon ascenden dan descenden → kadang ada, kadang tidak → kalau ada banyak, curiga sesuatu.<br><br>
+    ❌ Jejunum dan ileum saja tidak cukup — yang disebutkan adalah usus halus sebagai kelompok. ❌ Kolon ascenden dan descenden bukan "selalu" tampak.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="qc4">
+    <div class="q-num">SOAL 04 · PNEUMOPERITONEUM</div>
+    <div class="q-vignette">Pria 45 tahun datang ke IGD dengan nyeri perut mendadak, perut tegang seperti papan, dan nyeri lepas positif. Foto abdomen posisi erect menunjukkan gambaran udara yang tampak di kedua sisi dinding usus sehingga dinding usus tampak sebagai garis tegas yang jelas.</div>
+    <div class="q-stem">Tanda radiologis ini disebut?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q4',false)"><span class="ol">A</span>Football sign</button>
+      <button class="q-opt" onclick="answer(this,'q4',false)"><span class="ol">B</span>Decubitus abdominal sign</button>
+      <button class="q-opt" onclick="answer(this,'q4',true)"><span class="ol">C</span>Rigler sign (Double wall sign)</button>
+      <button class="q-opt" onclick="answer(this,'q4',false)"><span class="ol">D</span>Continuous diaphragm sign</button>
+      <button class="q-opt" onclick="answer(this,'q4',false)"><span class="ol">E</span>Sentinel loop sign</button>
+    </div>
+    <div class="q-exp" id="exp4"><strong>✅ C. Rigler Sign (Double Wall Sign)</strong><br><br>
+    Normalnya hanya satu sisi dinding usus yang terlihat (sisi yang menghadap udara intraluminal). Kalau ada udara bebas di <strong>dua sisi</strong> dinding usus → kedua sisi terlihat = <strong>Rigler sign / double wall sign</strong>. Ini adalah tanda pneumoperitoneum.<br><br>
+    ❌ Football sign = udara bebas sangat banyak berbentuk oval besar. ❌ Continuous diaphragm sign = udara di bawah hemidiafragma kanan. ❌ Decubitus = terlihat pada posisi LLD.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="qc5">
+    <div class="q-num">SOAL 05 · USG GALLBLADDER</div>
+    <div class="q-vignette">Wanita 45 tahun, obesitas, datang dengan nyeri perut kanan atas terutama setelah makan makanan berlemak. Dilakukan USG kandung empedu dan ditemukan gambaran hiperekoik dengan acoustic shadow di bawahnya.</div>
+    <div class="q-stem">Diagnosis paling mungkin berdasarkan gambaran USG ini adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q5',false)"><span class="ol">A</span>Kolesistitis akut</button>
+      <button class="q-opt" onclick="answer(this,'q5',false)"><span class="ol">B</span>Kolesistitis kronis</button>
+      <button class="q-opt" onclick="answer(this,'q5',true)"><span class="ol">C</span>Kolelitiasis (batu empedu)</button>
+      <button class="q-opt" onclick="answer(this,'q5',false)"><span class="ol">D</span>Polip kandung empedu</button>
+      <button class="q-opt" onclick="answer(this,'q5',false)"><span class="ol">E</span>Karsinoma kandung empedu</button>
+    </div>
+    <div class="q-exp" id="exp5"><strong>✅ C. Kolelitiasis</strong><br><br>
+    <strong>Hiperekoik + acoustic shadow</strong> = gambaran khas batu! Batu bersifat sangat padat → memantulkan semua gelombang → tampak putih (hiperekoik). Di belakangnya tidak ada yang bisa menembus → tampak hitam pekat (acoustic shadow).<br><br>
+    Kolesistitis = peradangan → penebalan dinding + double wall sign (BUKAN acoustic shadow). Polip = hiperekoik tapi TIDAK ada acoustic shadow (tidak se-padat batu). Ini perbedaan penting!</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="qc6">
+    <div class="q-num">SOAL 06 · PERFORASI</div>
+    <div class="q-vignette">Pria 38 tahun dengan riwayat peptic ulcer datang dengan nyeri perut mendadak hebat. Foto abdomen posisi erect menunjukkan adanya udara bebas di bawah diafragma kanan. Namun sisi kiri diafragma terlihat ada udara yang oleh dokter muda dikatakan "juga pneumoperitoneum." Dokter senior tidak setuju.</div>
+    <div class="q-stem">Mengapa udara di bawah hemidiafragma KIRI pada kasus ini bukan merupakan pneumoperitoneum?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q6',false)"><span class="ol">A</span>Karena pneumoperitoneum hanya bisa di kanan</button>
+      <button class="q-opt" onclick="answer(this,'q6',true)"><span class="ol">B</span>Karena di bawah diafragma kiri memang selalu ada udara gaster (intraluminal normal)</button>
+      <button class="q-opt" onclick="answer(this,'q6',false)"><span class="ol">C</span>Karena foto abdomen tidak bisa mendeteksi udara bebas di kiri</button>
+      <button class="q-opt" onclick="answer(this,'q6',false)"><span class="ol">D</span>Karena udara di kiri berasal dari limpa yang koyak</button>
+      <button class="q-opt" onclick="answer(this,'q6',false)"><span class="ol">E</span>Karena perlu foto LLD untuk konfirmasi pneumoperitoneum kiri</button>
+    </div>
+    <div class="q-exp" id="exp6"><strong>✅ B. Karena itu udara gaster — normal!</strong><br><br>
+    Ini yang dr. Ulum tekankan langsung di kuliah: "Di sisi kiri itu normal karena ada udara gaster yang selalu ada di sini (intraluminal). Tapi bedakan — kalau sudah diperbesar, ada udara gaster intraluminal DAN ada udara bebas di luar lumen."<br><br>
+    Yang abnormal adalah udara di bawah <strong>hemidiafragma KANAN</strong> — karena di sana normalnya hanya ada kontur hepar (abu-abu). Kalau ada hitam (udara) di sana → itu udara bebas = pneumoperitoneum!</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="qc7">
+    <div class="q-num">SOAL 07 · POST-OP ILEUS</div>
+    <div class="q-vignette">Wanita 35 tahun, 2 hari pasca operasi laparatomi eksplorasi, mengeluh perut sangat kembung dan belum BAB. Foto polos abdomen menunjukkan dilatasi multipel usus halus DAN usus besar, udara masih ada di rektum, disertai air-fluid level panjang-panjang multipel.</div>
+    <div class="q-stem">Diagnosis radiologis yang paling tepat adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q7',false)"><span class="ol">A</span>Small bowel obstruction (SBO)</button>
+      <button class="q-opt" onclick="answer(this,'q7',true)"><span class="ol">B</span>Generalized adynamic ileus (ileus paralitik)</button>
+      <button class="q-opt" onclick="answer(this,'q7',false)"><span class="ol">C</span>Large bowel obstruction (LBO)</button>
+      <button class="q-opt" onclick="answer(this,'q7',false)"><span class="ol">D</span>Perforasi usus</button>
+      <button class="q-opt" onclick="answer(this,'q7',false)"><span class="ol">E</span>Volvulus sigmoid</button>
+    </div>
+    <div class="q-exp" id="exp7"><strong>✅ B. Generalized Adynamic Ileus</strong><br><br>
+    Kunci perbedaan: <strong>udara di rektum masih ada</strong> = bukan obstruksi mekanik (SBO/LBO yang murni). Pada ileus paralitik, semua otot usus lumpuh → udara dan cairan menumpuk di mana-mana, tapi tidak ada blok mekanik → rektum masih terisi udara.<br><br>
+    Konteks post-operasi sangat mendukung → ileus adynamic post-op adalah diagnosis paling umum. Air-fluid level <strong>panjang</strong> = ciri khas generalized ileus. Air-fluid level <strong>pendek</strong> = SBO.<br><br>
+    ❌ SBO = rektum kosong, usus halus dilatasi saja, air-fluid pendek. ❌ LBO = kolon dilatasi masif, rektum kosong.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="qc8">
+    <div class="q-num">SOAL 08 · SBO vs LBO</div>
+    <div class="q-vignette">Pria 55 tahun datang dengan muntah berulang, perut kembung terutama bagian tengah, tidak BAB dan tidak flatus sejak 3 hari. Foto abdomen menunjukkan multipel dilatasi di area sentral/tengah dengan gambaran lipatan melintang penuh yang terlihat jelas, seperti tulang ikan. Udara di rektum sangat minimal.</div>
+    <div class="q-stem">Diagnosis paling mungkin adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q8',false)"><span class="ol">A</span>Generalized adynamic ileus</button>
+      <button class="q-opt" onclick="answer(this,'q8',true)"><span class="ol">B</span>Small bowel obstruction (SBO)</button>
+      <button class="q-opt" onclick="answer(this,'q8',false)"><span class="ol">C</span>Large bowel obstruction (LBO)</button>
+      <button class="q-opt" onclick="answer(this,'q8',false)"><span class="ol">D</span>Pneumoperitoneum</button>
+      <button class="q-opt" onclick="answer(this,'q8',false)"><span class="ol">E</span>Localized (sentinel) ileus</button>
+    </div>
+    <div class="q-exp" id="exp8"><strong>✅ B. Small Bowel Obstruction (SBO)</strong><br><br>
+    Clue: lokasi sentral/tengah (usus halus), gambaran lipatan melintang penuh = <strong>valvulae conniventes</strong> = usus halus, pola herring bone / coil spring, udara rektum minimal. Ini semua = SBO.<br><br>
+    Cara berpikir: sentral → usus halus → valvulae → SBO. Perifer → usus besar → haustra → LBO.<br><br>
+    ❌ LBO = dilatasi kolon di perifer + haustra terlihat. ❌ Generalized ileus = rektum masih berisi udara. ❌ Pneumoperitoneum = udara bebas di luar lumen.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="qc9">
+    <div class="q-num">SOAL 09 · COLON IN LOOP - SIGN</div>
+    <div class="q-vignette">Pasien wanita 28 tahun dengan riwayat bloody diarrhea kronis menjalani pemeriksaan colon in loop. Hasilnya tampak kolon yang lurus memanjang, hilangnya haustra, dan kolon tampak seperti pipa yang kaku.</div>
+    <div class="q-stem">Gambaran radiologis ini disebut? Dan diagnosis yang paling mungkin adalah?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q9',false)"><span class="ol">A</span>Apple core sign — karsinoma kolon</button>
+      <button class="q-opt" onclick="answer(this,'q9',false)"><span class="ol">B</span>Bird of prey sign — volvulus sigmoid</button>
+      <button class="q-opt" onclick="answer(this,'q9',true)"><span class="ol">C</span>Lead pipe sign — colitis (ulseratif)</button>
+      <button class="q-opt" onclick="answer(this,'q9',false)"><span class="ol">D</span>Coil spring sign — SBO</button>
+      <button class="q-opt" onclick="answer(this,'q9',false)"><span class="ol">E</span>Rigler sign — pneumoperitoneum</button>
+    </div>
+    <div class="q-exp" id="exp9"><strong>✅ C. Lead Pipe Sign — Colitis (Ulseratif)</strong><br><br>
+    Hilangnya haustra + kolon lurus seperti pipa = <strong>lead pipe sign</strong>, khas pada <strong>kolitis ulseratif</strong> (UC). Peradangan kronik menghancurkan haustra → kolon kehilangan "kantong-kantong" normalnya → terlihat lurus.<br><br>
+    Konteks klinis: muda + bloody diarrhea kronis = sangat mendukung UC. Lead pipe sign bisa juga pada Crohn's, tapi paling klasik disebut untuk UC.<br><br>
+    ❌ Apple core = penyempitan irreguler (kanker). ❌ Bird of prey = volvulus (kontras berhenti lancip). ❌ Coil spring = usus halus di SBO.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="qc10">
+    <div class="q-num">SOAL 10 · KONTRAINDIKASI</div>
+    <div class="q-vignette">Dokter IGD merencanakan pemeriksaan colon in loop untuk seorang pasien 50 tahun yang datang dengan nyeri perut hebat. Namun saat pemeriksaan fisik ditemukan defans muskuler (+), nyeri lepas (+). Foto polos abdomen sudah menunjukkan gambaran pneumoperitoneum.</div>
+    <div class="q-stem">Apa tindakan yang paling tepat terkait rencana colon in loop ini?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="answer(this,'q10',false)"><span class="ol">A</span>Tetap dilakukan colon in loop dengan barium sulfat biasa</button>
+      <button class="q-opt" onclick="answer(this,'q10',false)"><span class="ol">B</span>Dilakukan dengan water-soluble contrast sebagai pengganti barium</button>
+      <button class="q-opt" onclick="answer(this,'q10',true)"><span class="ol">C</span>Colon in loop dikontraindikasikan — langsung konsul bedah</button>
+      <button class="q-opt" onclick="answer(this,'q10',false)"><span class="ol">D</span>Menunda pemeriksaan 1 minggu sampai kondisi membaik</button>
+      <button class="q-opt" onclick="answer(this,'q10',false)"><span class="ol">E</span>Memberikan laksatif tambahan sebelum pemeriksaan</button>
+    </div>
+    <div class="q-exp" id="exp10"><strong>✅ C. Colon in Loop Dikontraindikasikan!</strong><br><br>
+    <strong>PERFORASI adalah kontraindikasi mutlak colon in loop!</strong> Jika ada perforasi dan barium dimasukkan → barium bocor ke rongga peritoneum → reaksi inflamasi hebat → peritonitis barium yang fatal.<br><br>
+    Sudah ada pneumoperitoneum (udara bebas) = perforasi sudah terjadi. Maka: <strong>JANGAN lakukan colon in loop</strong>. Langsung konsul bedah untuk laparatomi eksplorasi.<br><br>
+    ❌ Water-soluble contrast lebih aman dari barium jika bocor, tapi tetap saja memasukkan apapun ke usus yang sudah perforasi adalah risiko. Pada kondisi ini, tindakan bedah lebih prioritas dari pencitraan tambahan.</div>
+  </div>
+
+  <!-- Score -->
+  <div class="score-box" id="scoreBox">
+    <div style="color:rgba(255,255,255,0.5); font-size:13px; letter-spacing:1px; text-transform:uppercase;">Hasil Quiz</div>
+    <div class="score-big" id="scoreBig">0</div>
+    <div style="color:rgba(233,240,86,0.7); font-size:14px;">/ 10 soal</div>
+    <div class="score-msg" id="scoreMsg"></div>
+    <button class="btn-retry" onclick="retryQuiz()">🔄 Ulangi Quiz</button>
+  </div>
+
+</div><!-- end quiz section -->
+
+</div><!-- end content -->
+</div><!-- end main -->
+
+<script>
+// ===== NAVIGATION =====
+function go(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== QUIZ =====
+let answered = 0;
+let score = 0;
+const total = 10;
+const results = {};
+
+function initDots() {
+  const d = document.getElementById('progDots');
+  d.innerHTML = '';
+  for (let i = 1; i <= total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'prog-dot';
+    dot.id = 'dot' + i;
+    d.appendChild(dot);
+  }
+}
+
+function answer(btn, qId, isCorrect) {
+  const num = parseInt(qId.replace('q', ''));
+  if (results[qId] !== undefined) return;
+  results[qId] = isCorrect;
+  answered++;
+
+  const card = document.getElementById('qc' + num);
+  const allBtns = card.querySelectorAll('.q-opt');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    // Highlight correct answer
+    const onclick = b.getAttribute('onclick');
+    if (onclick && onclick.includes(',true)')) {
+      b.classList.add('correct');
+    }
+  });
+
+  if (!isCorrect) {
+    btn.classList.add('wrong');
+  }
+  if (isCorrect) score++;
+
+  const exp = document.getElementById('exp' + num);
+  if (exp) exp.classList.add('show');
+
+  const dot = document.getElementById('dot' + num);
+  if (dot) dot.classList.add(isCorrect ? 'ok' : 'err');
+
+  document.getElementById('progText').textContent = answered + ' / ' + total + ' dijawab';
+  document.getElementById('progBar').style.width = (answered / total * 100) + '%';
+
+  if (answered === total) {
+    setTimeout(showScore, 700);
+  }
+}
+
+function showScore() {
+  const box = document.getElementById('scoreBox');
+  box.classList.add('show');
+  document.getElementById('scoreBig').textContent = score;
+  const pct = score / total;
+  let msg = '';
+  if (pct === 1) msg = '🎉 Perfect! Kamu sudah siap ujian radiologi!';
+  else if (pct >= 0.8) msg = '🌟 Hampir sempurna! Sedikit review lagi dan kamu siap!';
+  else if (pct >= 0.6) msg = '💪 Lumayan! Review bagian yang masih keliru ya.';
+  else msg = '📚 Ayo review materinya lagi — kamu pasti bisa lebih baik!';
+  document.getElementById('scoreMsg').textContent = msg;
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function retryQuiz() {
+  answered = 0; score = 0;
+  Object.keys(results).forEach(k => delete results[k]);
+  document.querySelectorAll('.q-opt').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct', 'wrong');
+  });
+  document.querySelectorAll('.q-exp').forEach(e => e.classList.remove('show'));
+  document.getElementById('scoreBox').classList.remove('show');
+  document.getElementById('progText').textContent = '0 / 10 dijawab';
+  document.getElementById('progBar').style.width = '0%';
+  initDots();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+initDots();
+</script>
+</body>
+</html>
