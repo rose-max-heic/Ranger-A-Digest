@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pemeriksaan Fungsi Hepatobilier — Rangkuman PK</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a5c3a;
+    --green-mid: #2d8653;
+    --green-light: #5bb882;
+    --green-pale: #d4ede0;
+    --blue-deep: #0f3460;
+    --blue-mid: #1a6fa8;
+    --blue-light: #4a9fd4;
+    --blue-pale: #d0e9f7;
+    --teal: #1a8a7a;
+    --teal-pale: #c8ede9;
+    --bg: #f8f9fa;
+    --bg-card: #ffffff;
+    --text: #1e2c24;
+    --text-muted: #5a6e63;
+    --border: #e0ece6;
+    --highlight-yellow: #fff8c5;
+    --highlight-red: #ffeaea;
+    --shadow: 0 2px 16px rgba(26,92,58,0.08);
+    --shadow-hover: 0 8px 32px rgba(26,92,58,0.15);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--blue-deep) 60%, var(--teal) 100%);
+    color: white;
+    padding: 56px 32px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='0' cy='0' r='20'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    opacity: .7; margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero p {
+    max-width: 560px; margin: 0 auto; opacity: .85; font-size: 15px;
+  }
+  .hero-meta {
+    margin-top: 24px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px; padding: 4px 14px; font-size: 12px; backdrop-filter: blur(4px);
+  }
+
+  /* ───── NAV TABS ───── */
+  .tabs-wrapper {
+    position: sticky; top: 0; z-index: 100;
+    background: white; border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .tabs {
+    display: flex; overflow-x: auto; gap: 0;
+    max-width: 1100px; margin: 0 auto;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 14px 20px;
+    background: none; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--green-mid); }
+  .tab-btn.active {
+    color: var(--green-deep);
+    border-bottom-color: var(--green-mid);
+    font-weight: 600;
+  }
+
+  /* ───── LAYOUT ───── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { display: none; padding: 40px 0 60px; animation: fadeIn .3s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+
+  /* ───── SECTION HEADER ───── */
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--green-pale);
+  }
+  .section-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+  }
+  .icon-green { background: var(--green-pale); }
+  .icon-blue { background: var(--blue-pale); }
+  .icon-teal { background: var(--teal-pale); }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; color: var(--green-deep);
+  }
+  .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ───── CARDS ───── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--green-deep);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-title .emoji { font-size: 20px; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+  /* ───── BADGES / TAGS ───── */
+  .badge {
+    display: inline-block; padding: 2px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+  }
+  .badge-green { background: var(--green-pale); color: var(--green-deep); }
+  .badge-blue { background: var(--blue-pale); color: var(--blue-deep); }
+  .badge-red { background: #ffeaea; color: #c0392b; }
+  .badge-orange { background: #fff0e0; color: #c0621b; }
+  .badge-teal { background: var(--teal-pale); color: var(--teal); }
+
+  /* ───── HIGHLIGHT BOXES ───── */
+  .highlight {
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .hl-yellow { background: var(--highlight-yellow); border-left: 4px solid #f0c040; }
+  .hl-red { background: var(--highlight-red); border-left: 4px solid #e74c3c; }
+  .hl-green { background: var(--green-pale); border-left: 4px solid var(--green-mid); }
+  .hl-blue { background: var(--blue-pale); border-left: 4px solid var(--blue-mid); }
+  .highlight .hl-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .highlight strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+  /* ───── TABLE ───── */
+  .table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    background: linear-gradient(135deg, var(--green-deep), var(--blue-deep));
+    color: white; text-align: left; padding: 12px 16px;
+    font-weight: 600; white-space: nowrap;
+  }
+  td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--green-pale); }
+  .cell-up { color: #c0392b; font-weight: 700; }
+  .cell-down { color: #2980b9; font-weight: 700; }
+  .cell-normal { color: var(--text-muted); }
+
+  /* ───── MARKERS LIST ───── */
+  .marker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .marker-card {
+    border-radius: 10px; padding: 16px 18px;
+    border: 1px solid var(--border); background: white;
+  }
+  .marker-card .marker-name {
+    font-family: 'DM Mono', monospace; font-weight: 500;
+    font-size: 15px; color: var(--green-deep); margin-bottom: 4px;
+  }
+  .marker-card .marker-ref { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+  .marker-card .marker-note { font-size: 12.5px; }
+
+  /* ───── ALGORITHM FLOW ───── */
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-box {
+    background: white; border: 2px solid var(--green-mid);
+    border-radius: 10px; padding: 12px 24px; text-align: center;
+    font-weight: 600; font-size: 14px; min-width: 200px;
+    box-shadow: var(--shadow);
+  }
+  .flow-box.start { background: var(--green-deep); color: white; border-color: var(--green-deep); }
+  .flow-box.blue { border-color: var(--blue-mid); }
+  .flow-box.red-box { border-color: #e74c3c; color: #c0392b; }
+  .flow-arrow {
+    width: 2px; height: 24px; background: var(--green-mid);
+    position: relative;
+  }
+  .flow-arrow::after {
+    content: '▼'; position: absolute; bottom: -10px; left: -7px;
+    color: var(--green-mid); font-size: 14px;
+  }
+  .flow-split { display: flex; gap: 32px; align-items: flex-start; }
+  .flow-branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-label {
+    font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px; text-align: center;
+  }
+  .flow-connector { display: flex; align-items: center; gap: 12px; width: 100%; justify-content: center; }
+  .flow-hline { flex: 1; height: 2px; background: var(--green-mid); max-width: 100px; }
+
+  /* ───── HEPATITIS TABLE ───── */
+  .hep-card {
+    border-radius: 12px; padding: 18px 20px;
+    border-left: 5px solid;
+    background: white;
+    box-shadow: var(--shadow);
+    margin-bottom: 12px;
+  }
+  .hep-a { border-color: #f39c12; }
+  .hep-b { border-color: #e74c3c; }
+  .hep-c { border-color: #9b59b6; }
+  .hep-d { border-color: #2980b9; }
+  .hep-e { border-color: #27ae60; }
+  .hep-name { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 6px; }
+  .hep-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .hep-markers { font-size: 13px; }
+  .hep-markers li { margin-bottom: 4px; padding-left: 4px; }
+
+  /* ───── CLINICAL CASE ───── */
+  .case-box {
+    background: linear-gradient(135deg, #f0f7f4, #e8f4fd);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 28px; margin-bottom: 24px;
+  }
+  .case-box .case-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green-mid); margin-bottom: 8px; font-weight: 700;
+  }
+  .case-box .case-q {
+    font-family: 'Playfair Display', serif; font-size: 17px;
+    color: var(--green-deep); margin-bottom: 14px;
+  }
+  .reason-chain { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .reason-step {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .reason-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--green-mid); color: white;
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ───── FECES SECTION ───── */
+  .feces-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .feces-item {
+    background: white; border-radius: 10px; padding: 16px 18px;
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .feces-item .fi-head { font-weight: 700; font-size: 14px; margin-bottom: 6px; color: var(--green-deep); }
+  .feces-item .fi-body { font-size: 13px; color: var(--text-muted); }
+
+  /* ───── QUIZ ───── */
+  #quiz-section { padding: 40px 0 80px; }
+  .quiz-header {
+    text-align: center; margin-bottom: 36px;
+  }
+  .quiz-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--green-deep);
+  }
+  .quiz-header p { color: var(--text-muted); margin-top: 8px; }
+  .quiz-card {
+    background: white; border-radius: 16px; padding: 28px 32px;
+    box-shadow: var(--shadow); margin-bottom: 24px;
+    border: 1px solid var(--border);
+    transition: box-shadow .2s;
+  }
+  .quiz-card:hover { box-shadow: var(--shadow-hover); }
+  .quiz-num { font-size: 11px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .quiz-q { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--green-deep); margin-bottom: 18px; line-height: 1.4; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-opt {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: 10px;
+    border: 2px solid var(--border);
+    cursor: pointer; font-size: 14px;
+    transition: all .18s; background: var(--bg);
+    user-select: none;
+  }
+  .quiz-opt:hover { border-color: var(--green-light); background: var(--green-pale); }
+  .quiz-opt.selected { border-color: var(--blue-mid); background: var(--blue-pale); }
+  .quiz-opt.correct { border-color: var(--green-mid); background: var(--green-pale); color: var(--green-deep); font-weight: 600; }
+  .quiz-opt.wrong { border-color: #e74c3c; background: #ffeaea; color: #c0392b; }
+  .quiz-opt-letter {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--border); color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+    transition: all .18s;
+  }
+  .quiz-opt.correct .quiz-opt-letter { background: var(--green-mid); color: white; }
+  .quiz-opt.wrong .quiz-opt-letter { background: #e74c3c; color: white; }
+  .quiz-feedback {
+    margin-top: 14px; padding: 12px 16px; border-radius: 10px;
+    font-size: 14px; display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct-fb { background: var(--green-pale); color: var(--green-deep); border-left: 4px solid var(--green-mid); }
+  .quiz-feedback.wrong-fb { background: #ffeaea; color: #c0392b; border-left: 4px solid #e74c3c; }
+  .quiz-actions { display: flex; justify-content: flex-end; margin-top: 16px; }
+  .btn-check {
+    background: var(--green-deep); color: white;
+    border: none; border-radius: 8px; padding: 10px 24px;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 600; transition: background .2s;
+  }
+  .btn-check:hover { background: var(--green-mid); }
+  .btn-check:disabled { background: var(--border); color: var(--text-muted); cursor: not-allowed; }
+
+  .quiz-score-box {
+    background: linear-gradient(135deg, var(--green-deep), var(--blue-deep));
+    color: white; border-radius: 16px; padding: 36px;
+    text-align: center; display: none; margin-top: 32px;
+  }
+  .quiz-score-box.show { display: block; animation: fadeIn .4s ease; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1; }
+  .score-label { font-size: 18px; opacity: .85; margin-top: 8px; }
+  .score-msg { font-size: 14px; opacity: .7; margin-top: 12px; }
+  .btn-retry {
+    margin-top: 20px; background: white; color: var(--green-deep);
+    border: none; border-radius: 8px; padding: 12px 28px;
+    cursor: pointer; font-weight: 700; font-size: 15px;
+    transition: transform .2s;
+  }
+  .btn-retry:hover { transform: scale(1.04); }
+
+  /* ───── PROGRESS ───── */
+  .quiz-progress {
+    background: var(--border); border-radius: 99px; height: 6px;
+    margin-bottom: 28px; overflow: hidden;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-mid), var(--blue-mid));
+    border-radius: 99px; transition: width .4s ease;
+  }
+
+  /* ───── FOOTER ───── */
+  footer {
+    text-align: center; padding: 32px 20px;
+    color: var(--text-muted); font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* ───── ACCORDION ───── */
+  .accordion { margin-bottom: 10px; }
+  .accordion-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 20px; background: white;
+    border: 1px solid var(--border); border-radius: 10px;
+    cursor: pointer; font-weight: 600; font-size: 14px;
+    transition: background .2s; color: var(--green-deep);
+  }
+  .accordion-header:hover { background: var(--green-pale); }
+  .accordion-header .acc-icon { transition: transform .25s; font-size: 12px; }
+  .accordion-header.open .acc-icon { transform: rotate(180deg); }
+  .accordion-body {
+    padding: 0 20px; max-height: 0; overflow: hidden;
+    transition: max-height .3s ease, padding .3s;
+    background: #fafcfb; border: 1px solid var(--border);
+    border-top: none; border-radius: 0 0 10px 10px;
+  }
+  .accordion-body.open { max-height: 600px; padding: 16px 20px; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 36px; }
+    .card { padding: 18px 16px; }
+    .flow-split { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Blok Digestif · Patologi Klinik</div>
+  <h1>Pemeriksaan &amp; Interpretasi<br>Fungsi Hepatobilier</h1>
+  <p>Rangkuman komprehensif oleh dr. Metana Puspitasari, Sp.PK — UMS 2026</p>
+  <div class="hero-meta">
+    <span class="hero-badge">🫀 Bilirubin &amp; Urobilinogen</span>
+    <span class="hero-badge">🧪 Enzim Hepar</span>
+    <span class="hero-badge">🦠 Panel Hepatitis Virus</span>
+    <span class="hero-badge">💊 Pemeriksaan Feses</span>
+    <span class="hero-badge">🧠 Quiz Interaktif</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('overview')">📋 Overview</button>
+    <button class="tab-btn" onclick="switchTab('bilirubin')">🟡 Bilirubin</button>
+    <button class="tab-btn" onclick="switchTab('enzim')">⚗️ Enzim Hepar</button>
+    <button class="tab-btn" onclick="switchTab('sintesis')">🧬 Fungsi Sintesis</button>
+    <button class="tab-btn" onclick="switchTab('hepatitis')">🦠 Hepatitis Virus</button>
+    <button class="tab-btn" onclick="switchTab('feses')">🔬 Pemeriksaan Feses</button>
+    <button class="tab-btn" onclick="switchTab('kasus')">🏥 Kasus Klinik</button>
+    <button class="tab-btn" onclick="switchTab('quiz')">🎯 Quiz</button>
+  </div>
+</div>
+
+<!-- ══════════ OVERVIEW ══════════ -->
+<div id="overview" class="section active container">
+  <div class="section-header">
+    <div class="section-icon icon-green">📋</div>
+    <div>
+      <h2>Liver Function Test (LFT) — Gambaran Umum</h2>
+      <p>Kelompok pemeriksaan laboratorium untuk mengevaluasi fungsi hati secara komprehensif</p>
+    </div>
+  </div>
+
+  <div class="highlight hl-blue">
+    <span class="hl-icon">ℹ️</span>
+    <div><strong>Tujuan Pemeriksaan Fungsi Hepar</strong>
+    Mendeteksi kelainan hepar · Menentukan penyebab / diagnosis spesifik · Menilai derajat berat penyakit (prognosis) · Follow-up perjalanan penyakit dan terapi
+    </div>
+  </div>
+
+  <h3 style="margin:28px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">5 Kategori Marker Fungsi Hepar</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🟡</span> 1. Fungsi Detoksikasi &amp; Ekskresi</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>📌 Bilirubin serum (total, direk, indirek)</li>
+        <li>📌 Urobilinogen &amp; urobilin urin</li>
+        <li>📌 Urobilinogen tinja</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔴</span> 2. Kerusakan Hepatosit</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>📌 SGOT / AST (Aspartate Aminotransferase)</li>
+        <li>📌 SGPT / ALT (Alanine Aminotransferase) ← <span class="badge badge-red">paling spesifik</span></li>
+        <li>📌 LDH (Lactat Dehydrogenase)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔵</span> 3. Kolestasis (Obstruksi Empedu)</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>📌 Gamma GT / GGT</li>
+        <li>📌 ALP (Alkali Phosphatase)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🟢</span> 4. Fungsi Metabolisme / Sintesis</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>📌 Protein total, Albumin, Globulin</li>
+        <li>📌 Faktor koagulasi (PT, APTT)</li>
+        <li>📌 Kolesterol total</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🦠</span> 5. Etiologi</div>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>📌 Panel Hepatitis Virus (A, B, C, D, E)</li>
+        <li>📌 AFP (Alpha Fetoprotein) — marker keganasan</li>
+      </ul>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#f0f7f4,#e8f4fd)">
+      <div class="card-title"><span class="emoji">💡</span> Kunci Klinis</div>
+      <div style="font-size:14px">
+        <p>Hepar memiliki <strong>cadangan fungsional besar</strong>. Gejala klinis baru muncul ketika >70% fungsi hepar terganggu.</p>
+        <div class="highlight hl-yellow" style="margin-top:10px">
+          <span class="hl-icon">⚠️</span>
+          <div>LFT <strong>bukan</strong> "liver function test" sejati — SGOT/SGPT sebenarnya <strong>liver damage test</strong>. Fungsi sintesis (albumin, PT) lebih mencerminkan fungsi hati sebenarnya.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">Nilai Rujukan Ringkas</h3>
+  <div class="table-wrapper">
+    <table>
+      <tr><th>Pemeriksaan</th><th>Nilai Normal</th><th>Keterangan</th></tr>
+      <tr><td>Bilirubin Total</td><td>≤ 1 mg/dL</td><td>Ikterus klinis jika &gt; 2,5 mg/dL</td></tr>
+      <tr><td>Bilirubin Direk</td><td>≤ 0,25 mg/dL</td><td>Terkonjugasi (larut air)</td></tr>
+      <tr><td>Bilirubin Indirek</td><td>≤ 0,75 mg/dL</td><td>Tidak terkonjugasi, terikat albumin</td></tr>
+      <tr><td>SGOT / AST</td><td>&lt; 38 U/L</td><td>Bermakna jika ≥ 2–3× nilai normal</td></tr>
+      <tr><td>SGPT / ALT</td><td>&lt; 41 U/L</td><td>Lebih spesifik untuk hepar</td></tr>
+      <tr><td>LDH</td><td>90–210 U/L</td><td>Isoenzim LDH-5 spesifik hepar</td></tr>
+      <tr><td>ALP</td><td>♂ 40–129 · ♀ 35–104 U/L</td><td>Meningkat 3–10× pada obstruksi</td></tr>
+      <tr><td>GGT</td><td>♂ &lt;60 · ♀ &lt;40 U/L</td><td>Sensitif untuk alkohol &amp; obstruksi</td></tr>
+      <tr><td>Albumin</td><td>3,3–5,0 g/dL</td><td>Penurunan → hepatitis kronik</td></tr>
+      <tr><td>Protein Total</td><td>6,6–8,0 g/dL</td><td>—</td></tr>
+      <tr><td>PT</td><td>10–15 detik</td><td>Memanjang → gangguan sintesis F VII</td></tr>
+      <tr><td>APTT</td><td>20–40 detik</td><td>Memanjang → prognosis buruk</td></tr>
+      <tr><td>AFP</td><td>&lt; 20 ng/mL</td><td>≥ 400 ng/mL → karsinoma hepatoselular</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ BILIRUBIN ══════════ -->
+<div id="bilirubin" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-green">🟡</div>
+    <div>
+      <h2>Bilirubin &amp; Metabolisme Pigmen Empedu</h2>
+      <p>Kunci pemahaman ikterus: prehepatik, hepatik, posthepatik</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="emoji">🔄</span> Jalur Metabolisme Bilirubin</div>
+    <div style="font-size:14px; line-height:1.9">
+      <p><strong>1. Eritrosit dihancurkan</strong> oleh makrofag (RES) setelah 120 hari → Hemoglobin dipecah</p>
+      <p><strong>2. Heme → Biliverdin → Bilirubin <em>indirek</em></strong> (tidak terkonjugasi, larut lemak, terikat albumin dalam plasma)</p>
+      <p><strong>3. Di hepar:</strong> Bilirubin indirek + Asam glukoronat (via glukoronil transferase) → <strong>Bilirubin <em>direk</em></strong> (terkonjugasi, larut air)</p>
+      <p><strong>4. Bilirubin direk</strong> disekresikan ke duktus bilier → usus → Urobilinogen</p>
+      <p><strong>5. Urobilinogen:</strong> sebagian diserap → urin; sebagian diubah bakteri → <strong>Sterkobilinogen</strong> (warna kuning feses)</p>
+    </div>
+    <div class="highlight hl-yellow" style="margin-top:12px">
+      <span class="hl-icon">⭐</span>
+      <div><strong>Poin Khas!</strong> Feses dempul/pucat = tidak ada sterkobilinogen = bilirubin direk tidak sampai di usus = obstruksi saluran empedu!</div>
+    </div>
+  </div>
+
+  <h3 style="margin:28px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">Klasifikasi Ikterus</h3>
+  <div class="table-wrapper">
+    <table>
+      <tr>
+        <th>Tipe</th><th>Bili. Indirek</th><th>Bili. Direk</th><th>Urobilinogen Urin</th><th>Bilirubin Urin</th><th>Warna Feses</th>
+      </tr>
+      <tr>
+        <td><strong>Prehepatik (Hemolitik)</strong></td>
+        <td class="cell-up">↑↑↑</td>
+        <td class="cell-up">↑ (sedikit)</td>
+        <td class="cell-up">+++ (meningkat)</td>
+        <td class="cell-normal">Normal (–)</td>
+        <td>Normal / kuning</td>
+      </tr>
+      <tr>
+        <td><strong>Hepatik (Hepatitis)</strong></td>
+        <td class="cell-up">↑↑↑</td>
+        <td class="cell-up">↑↑↑</td>
+        <td>++ (meningkat)</td>
+        <td class="cell-up">+ / –</td>
+        <td>Bervariasi</td>
+      </tr>
+      <tr>
+        <td><strong>Posthepatik (Obstruksi)</strong></td>
+        <td class="cell-normal">Normal</td>
+        <td class="cell-up">↑↑↑</td>
+        <td class="cell-normal">Normal (–)</td>
+        <td class="cell-up">+++ (meningkat)</td>
+        <td><strong>Dempul/Pucat</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grid-2" style="margin-top:24px">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔴</span> Penyebab ↑ Bilirubin Indirek</div>
+      <ul style="font-size:14px;padding-left:18px;display:flex;flex-direction:column;gap:5px">
+        <li>Anemia hemolitik (autoimun, hemolitik lainnya)</li>
+        <li>Penyakit Gilbert (gangguan konjugasi)</li>
+        <li>Hemoglobinopati</li>
+        <li>Reaksi transfusi</li>
+        <li>Eritroblastosis fetalis</li>
+        <li>Ikterus neonatus (hepar belum matur)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔵</span> Penyebab ↑ Bilirubin Direk</div>
+      <ul style="font-size:14px;padding-left:18px;display:flex;flex-direction:column;gap:5px">
+        <li>Obstruksi duktus bilier (batu, tumor)</li>
+        <li>Hepatitis virus akut/kronik</li>
+        <li>Sirosis hati</li>
+        <li>Kolestasis intrahepatik</li>
+        <li>Penyakit Dubin-Johnson</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight hl-red" style="margin-top:12px">
+    <span class="hl-icon">🚨</span>
+    <div><strong>Klinis Penting!</strong> Bilirubin total &gt; 2,5 mg/dL = IKTERUS klinis (kuning pada sklera, mukosa, kulit). Nilai normal bilirubin total ≤ 1 mg/dL.</div>
+  </div>
+</div>
+
+<!-- ══════════ ENZIM ══════════ -->
+<div id="enzim" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-blue">⚗️</div>
+    <div>
+      <h2>Enzim Penanda Kerusakan &amp; Kolestasis</h2>
+      <p>SGOT, SGPT, LDH, ALP, GGT — lokasi, spesifisitas, dan implikasi klinis</p>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:16px; color:var(--green-deep); font-family:'Playfair Display',serif">A. Penanda Kerusakan Hepatosit</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔴</span> SGOT / AST</div>
+      <div class="badge badge-orange" style="margin-bottom:10px">Aspartate Aminotransferase</div>
+      <div style="font-size:14px;display:flex;flex-direction:column;gap:6px">
+        <p>📍 <strong>Lokasi:</strong> Terutama mitokondria, sebagian kecil sitoplasma</p>
+        <p>🏠 <strong>Organ:</strong> Jantung, hati, otot skelet, ginjal, pankreas, eritrosit</p>
+        <p>📏 <strong>Nilai rujukan:</strong> &lt; 38 U/L</p>
+        <p>⚡ <strong>Bermakna:</strong> ≥ 2–3× nilai normal</p>
+      </div>
+      <div class="highlight hl-yellow" style="margin-top:10px">
+        <span class="hl-icon">⚠️</span>
+        <div>Tidak spesifik hepar! Juga meningkat pada AMI, kerusakan otot. Dulu digunakan sebagai penanda AMI (kini digantikan troponin).</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🟢</span> SGPT / ALT <span class="badge badge-green">Paling Spesifik</span></div>
+      <div class="badge badge-green" style="margin-bottom:10px">Alanine Aminotransferase</div>
+      <div style="font-size:14px;display:flex;flex-direction:column;gap:6px">
+        <p>📍 <strong>Lokasi:</strong> Sebagian besar sitoplasma hepar</p>
+        <p>🏠 <strong>Organ:</strong> Terutama hepar (paling spesifik!)</p>
+        <p>📏 <strong>Nilai rujukan:</strong> &lt; 41 U/L</p>
+        <p>⚡ <strong>Bermakna:</strong> ≥ 2–3× nilai normal</p>
+      </div>
+      <div class="highlight hl-green" style="margin-top:10px">
+        <span class="hl-icon">✅</span>
+        <div><strong>Hepatitis akut:</strong> ALT bisa meningkat hingga 500–1000 U/L (10× lipat). Pada hepatitis kronik, bisa kembali normal karena hepatosit sudah tidak bisa memproduksi enzim.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title"><span class="emoji">🟠</span> LDH (Lactat Dehydrogenase)</div>
+    <div style="font-size:14px;display:flex;flex-direction:column;gap:6px">
+      <p>📍 Lokasi terbanyak: miokardium, otot skelet, hepar, ginjal</p>
+      <p>🔬 Terdapat <strong>5 isoenzim</strong> — <strong>LDH-5 spesifik untuk hepar</strong></p>
+      <p>📏 Nilai normal: 90–210 U/L</p>
+      <p>⬆️ Meningkat pada: infark jantung, penyakit hati, anemia hemolitik, keganasan, infark paru</p>
+    </div>
+  </div>
+
+  <div class="highlight hl-red" style="margin-top:8px">
+    <span class="hl-icon">🔑</span>
+    <div><strong>Rasio AST:ALT (De Ritis Ratio)</strong> — Jika AST:ALT &gt; 2 → curiga hepatitis alkoholik atau sirosis. Jika ALT &gt; AST → hepatitis viral akut.</div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">B. Penanda Kolestasis</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔵</span> ALP (Alkali Phosphatase)</div>
+      <div style="font-size:14px;display:flex;flex-direction:column;gap:6px">
+        <p>📍 <strong>Lokasi:</strong> Bile canaliculi hepar, tulang (osteoblast), intestin, ginjal, plasenta</p>
+        <p>📏 ♂: 40–129 U/L · ♀: 35–104 U/L</p>
+      </div>
+      <div style="margin-top:10px;font-size:13.5px">
+        <p style="font-weight:700;margin-bottom:6px">Peningkatan ALP:</p>
+        <ul style="padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <li><strong>Obstruksi saluran empedu:</strong> 3–10× batas normal</li>
+          <li><strong>Gangguan hepatoselular:</strong> &lt;3× batas normal</li>
+          <li><strong>Non-hepar:</strong> Penyakit tulang, kehamilan TM3, ginjal kronik, limfoma</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🟣</span> GGT (Gamma Glutamyl Transpeptidase)</div>
+      <div style="font-size:14px;display:flex;flex-direction:column;gap:6px">
+        <p>📍 <strong>Lokasi:</strong> Terutama hepar &amp; ginjal; sedikit di prostat, limfa, jantung</p>
+        <p>📏 ♂: &lt;60 U/L · ♀: &lt;40 U/L (IFCC)</p>
+      </div>
+      <div style="margin-top:10px;font-size:13.5px">
+        <p style="font-weight:700;margin-bottom:6px">Peningkatan GGT:</p>
+        <ul style="padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <li><strong>Obstruksi traktus biliaris:</strong> 5–30×</li>
+          <li><strong>Alkoholisme:</strong> 2–3×</li>
+          <li><strong>Obat (warfarin, fenobarbital, fenitoin):</strong> hingga 4×</li>
+          <li><strong>Gangguan pankreas:</strong> 5–15×</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">Algoritme Interpretasi LFT Abnormal</h3>
+  <div class="card" style="text-align:center">
+    <div class="flow">
+      <div class="flow-box start">LFT Abnormal</div>
+      <div class="flow-arrow"></div>
+      <div style="height:16px"></div>
+      <div class="flow-split">
+        <div class="flow-branch">
+          <div class="flow-label">ALT &gt; 3× &amp; ALP &lt; 3×</div>
+          <div class="flow-box">Hepatoselular</div>
+          <div class="flow-arrow"></div>
+          <div style="height:16px"></div>
+          <div class="flow-split">
+            <div class="flow-branch">
+              <div class="flow-label">Albumin normal</div>
+              <div class="flow-box" style="font-size:13px">Hepatitis Akut</div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-label">Albumin ↓</div>
+              <div class="flow-box" style="font-size:13px;border-color:#e74c3c;color:#c0392b">Hepatitis Kronik</div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-branch">
+          <div class="flow-label">ALP &gt; 3× &amp; ALT &lt; 3×</div>
+          <div class="flow-box blue">Kolestatik</div>
+          <div class="flow-arrow"></div>
+          <div style="height:16px"></div>
+          <div class="flow-split">
+            <div class="flow-branch">
+              <div class="flow-label">Albumin normal</div>
+              <div class="flow-box" style="font-size:13px">Kolestasis Akut</div>
+            </div>
+            <div class="flow-branch">
+              <div class="flow-label">Albumin ↓</div>
+              <div class="flow-box" style="font-size:13px;border-color:#e74c3c;color:#c0392b">Kolestasis Kronik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:13px;color:var(--text-muted)">▼ Kolestasis lanjut → USG / kolangiografi perkutan → intrahepatic vs ekstrahepatic</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SINTESIS ══════════ -->
+<div id="sintesis" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-teal">🧬</div>
+    <div>
+      <h2>Fungsi Sintesis Hepar</h2>
+      <p>Protein darah dan faktor koagulasi sebagai cermin kapasitas sintesis hati</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🧪</span> Protein Total &amp; Albumin</div>
+      <div style="font-size:14px">
+        <p style="margin-bottom:10px">Albumin disintesis eksklusif oleh hepar. Fungsinya:</p>
+        <ul style="padding-left:18px;display:flex;flex-direction:column;gap:4px;margin-bottom:12px">
+          <li>Mempertahankan tekanan onkotik koloid</li>
+          <li>Transpor: ion, bilirubin, hormon, enzim, obat</li>
+        </ul>
+        <div class="table-wrapper">
+          <table>
+            <tr><th>Parameter</th><th>Nilai</th></tr>
+            <tr><td>Protein total</td><td>6,6–8,0 g/dL</td></tr>
+            <tr><td>Albumin</td><td>3,3–5,0 g/dL</td></tr>
+            <tr><td>Alfa-1 globulin</td><td>0,1–0,4 g/dL</td></tr>
+            <tr><td>Alfa-2 globulin</td><td>0,5–1,0 g/dL</td></tr>
+            <tr><td>Beta globulin</td><td>0,7–1,2 g/dL</td></tr>
+            <tr><td>Gamma globulin</td><td>0,5–1,6 g/dL</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">📉</span> Interpretasi Protein</div>
+      <div style="font-size:14px">
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAcc(this)">Albumin ↓ (Hipoalbuminemia) <span class="acc-icon">▼</span></div>
+          <div class="accordion-body">Malnutrisi, sindroma absorpsi, hipertiroid, kehamilan, <strong>gangguan fungsi hepar</strong>, infeksi kronik, luka bakar, edema, asites, <strong>sirosis</strong>, sindroma nefrotik, SIADH, perdarahan.</div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAcc(this)">Albumin ↑ (Hiperalbuminemia) <span class="acc-icon">▼</span></div>
+          <div class="accordion-body">Dehidrasi (hemokonsentrasi) — satu-satunya penyebab umum.</div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAcc(this)">Globulin ↑ <span class="acc-icon">▼</span></div>
+          <div class="accordion-body">Penyakit kolagen, Hodgkin, tuberkulosis, penyakit autoimun, inflamasi akut.</div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAcc(this)">Protein Total ↓ <span class="acc-icon">▼</span></div>
+          <div class="accordion-body">Gangguan hati, malabsorpsi, malnutrisi, syok.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">Faktor Koagulasi &amp; Hepar</h3>
+  <div class="card">
+    <div class="card-title"><span class="emoji">🩸</span> Sintesis Faktor Koagulasi di Hepar</div>
+    <div class="highlight hl-blue">
+      <span class="hl-icon">💡</span>
+      <div><strong>Mengapa faktor koagulasi mencerminkan fungsi hepar?</strong> Hampir semua faktor koagulasi (I, II, V, VII, IX, X, XI, XII, XIII) diproduksi di hepar dan sebagian bergantung pada vitamin K.</div>
+    </div>
+    <div class="table-wrapper" style="margin-top:16px">
+      <table>
+        <tr><th>Parameter</th><th>Nilai Normal</th><th>Faktor yang Dinilai</th><th>Klinis</th></tr>
+        <tr>
+          <td><strong>PT (Protrombin Time)</strong></td><td>10–15 detik</td>
+          <td>F VII (awal terganggu)</td>
+          <td>Memanjang lebih awal → sensitif untuk disfungsi hepar akut</td>
+        </tr>
+        <tr>
+          <td><strong>APTT (Activated PTT)</strong></td><td>20–40 detik</td>
+          <td>F XII, XI, IX, VIII, X, V, II</td>
+          <td>Memanjang belakangan → <span class="badge badge-red">prognosis buruk</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="highlight hl-yellow" style="margin-top:14px">
+      <span class="hl-icon">⚠️</span>
+      <div><strong>Jangan langsung simpulkan hemofili!</strong> APTT memanjang bisa karena hepatitis kronik (sintesis faktor menurun), bukan hanya karena hemofili. Nilai PT &gt; 5× kontrol yang tidak terkoreksi dengan vitamin K parenteral = prognosis sangat buruk.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title"><span class="emoji">🎯</span> AFP (Alpha Fetoprotein)</div>
+    <div style="font-size:14px">
+      <p>Glikoprotein yang diproduksi hepar janin, menurun setelah lahir, ditekan pada orang dewasa.</p>
+      <div class="grid-2" style="margin-top:12px">
+        <div class="highlight hl-green">
+          <span class="hl-icon">✅</span>
+          <div><strong>Normal:</strong> &lt; 20 ng/mL</div>
+        </div>
+        <div class="highlight hl-red">
+          <span class="hl-icon">🚨</span>
+          <div><strong>≥ 400 ng/mL → Karsinoma Hepatoselular (HCC)</strong><br>Skrining pada pasien hepatitis B kronik dan sirosis!</div>
+        </div>
+      </div>
+      <p style="margin-top:10px">Hepatitis B kronik → Sirosis → Regenerasi sel abnormal → Peningkatan AFP → <strong>Risiko HCC tinggi</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ HEPATITIS ══════════ -->
+<div id="hepatitis" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-blue">🦠</div>
+    <div>
+      <h2>Panel Hepatitis Virus</h2>
+      <p>A, B, C, D, E — karakteristik, marker serologi, dan interpretasi</p>
+    </div>
+  </div>
+
+  <div class="highlight hl-blue">
+    <span class="hl-icon">📌</span>
+    <div><strong>Ingat!</strong> Semua hepatitis virus = RNA kecuali <strong>Hepatitis B = DNA virus (Hepadnavirus)</strong>. Secara klinis mirip, berbeda dalam imunologi, epidemiologi, prognosis, dan profilaksis.</div>
+  </div>
+
+  <div style="margin-top:24px">
+    <h3 style="margin-bottom:16px; color:var(--green-deep); font-family:'Playfair Display',serif">Perbandingan Hepatitis A–E</h3>
+    <div class="table-wrapper">
+      <table>
+        <tr><th>Karakteristik</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr>
+        <tr>
+          <td>Tipe virus</td><td>RNA</td><td><strong>DNA</strong></td><td>RNA</td><td>RNA</td><td>RNA</td>
+        </tr>
+        <tr>
+          <td>Transmisi</td><td>Fekal-oral</td><td>Perkutan/mukosa</td><td>Perkutan/mukosa</td><td>Perkutan/mukosa</td><td>Fekal-oral</td>
+        </tr>
+        <tr>
+          <td>Infeksi kronik?</td><td class="cell-normal">❌ Tidak</td><td class="cell-up">✅ Ya</td><td class="cell-up">✅ Ya</td><td class="cell-up">✅ Ya</td><td class="cell-normal">❌ Tidak</td>
+        </tr>
+        <tr>
+          <td>Inkubasi</td><td>15–45 hr</td><td>15–180 hr</td><td>15–160 hr</td><td>4–7 minggu</td><td>~40 hr</td>
+        </tr>
+        <tr>
+          <td>Vaksin tersedia?</td><td>✅</td><td>✅</td><td>❌</td><td>✅ (via HBV)</td><td>❌</td>
+        </tr>
+        <tr>
+          <td>Marker utama</td><td>IgM anti-HAV</td><td>HBsAg, HBeAg, HBV DNA</td><td>Anti-HCV, HCV RNA</td><td>Anti-HDV, HDV RNA</td><td>IgM anti-HEV</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">Detail Serologi per Hepatitis</h3>
+
+  <!-- HAV -->
+  <div class="hep-card hep-a">
+    <div class="hep-name">🅰️ Hepatitis A (HAV)</div>
+    <div class="hep-meta">
+      <span class="badge badge-orange">Akut / Self-limited</span>
+      <span class="badge badge-green">Bisa sembuh sendiri</span>
+      <span class="badge badge-blue">Fekal-oral</span>
+    </div>
+    <div class="hep-markers">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>🔹 <strong>IgM anti-HAV (+)</strong> = Infeksi akut aktif (pemeriksaan pilihan)</li>
+        <li>🔹 <strong>IgG anti-HAV (+)</strong> = Pernah terinfeksi / imunitas (protektif, menetap seumur hidup)</li>
+        <li>🔹 <strong>Total anti-HAV (+)</strong> = IgG+IgM; bisa berarti sedang kena atau pernah kena → perlu cek IgM untuk konfirmasi</li>
+        <li>🔹 IgG(–), IgM(–) = Belum pernah terpapar, rentan terinfeksi</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HBV -->
+  <div class="hep-card hep-b">
+    <div class="hep-name">🅱️ Hepatitis B (HBV) <span style="font-size:14px;font-weight:400">— paling penting &amp; kompleks</span></div>
+    <div class="hep-meta">
+      <span class="badge badge-red">Bisa kronik</span>
+      <span class="badge badge-red">→ Sirosis → HCC</span>
+      <span class="badge badge-blue">Darah/mukosa</span>
+      <span class="badge badge-green">DNA Virus</span>
+    </div>
+    <div class="table-wrapper">
+      <table style="font-size:13px">
+        <tr><th>Marker</th><th>Makna</th></tr>
+        <tr><td><strong>HBsAg (+)</strong></td><td>Penanda umum infeksi aktif (surface antigen)</td></tr>
+        <tr><td><strong>Anti-HBs (+)</strong></td><td>Antibodi protektif → sudah recovery ATAU pasca vaksinasi</td></tr>
+        <tr><td><strong>Anti-HBc IgM (+)</strong></td><td>Infeksi akut</td></tr>
+        <tr><td><strong>Anti-HBc IgG (+)</strong></td><td>Infeksi lampau atau kronik</td></tr>
+        <tr><td><strong>HBeAg (+)</strong></td><td><span class="badge badge-red">Aktif replikasi</span> — sangat infeksius! HBV DNA tinggi</td></tr>
+        <tr><td><strong>Anti-HBe (+)</strong></td><td>Virus tidak lagi aktif bereplikasi (tapi HBsAg bisa masih +)</td></tr>
+        <tr><td><strong>HBV DNA</strong></td><td>Kuantifikasi replikasi, <strong>target monitoring terapi</strong> (goal: not detected)</td></tr>
+      </table>
+    </div>
+    <div class="table-wrapper" style="margin-top:12px">
+      <table style="font-size:13px">
+        <tr><th>HBsAg</th><th>Anti-HBs</th><th>Anti-HBc</th><th>HBeAg</th><th>Interpretasi</th></tr>
+        <tr><td class="cell-up">+</td><td>–</td><td>IgM</td><td class="cell-up">+</td><td><strong>Hepatitis B akut, infektivitas tinggi</strong></td></tr>
+        <tr><td class="cell-up">+</td><td>–</td><td>IgG</td><td class="cell-up">+</td><td><strong>Hepatitis B kronik, infektivitas tinggi</strong></td></tr>
+        <tr><td>–</td><td class="cell-up">+</td><td>IgG</td><td>–</td><td>Recovery dari hepatitis B</td></tr>
+        <tr><td>–</td><td class="cell-up">+</td><td>–</td><td>–</td><td>Pasca vaksinasi / hepatitis B masa lalu</td></tr>
+        <tr><td>–</td><td>–</td><td>–</td><td>–</td><td>Belum pernah terpapar, belum imun</td></tr>
+      </table>
+    </div>
+    <div class="highlight hl-red" style="margin-top:12px">
+      <span class="hl-icon">🚨</span>
+      <div><strong>Kriteria WHO Hepatitis B Kronik:</strong> Infeksi &gt;6 bulan, HBsAg menetap, IgG anti-HBc menetap, <strong>tidak ditemukan anti-HBs</strong>, HBeAg dan HBV DNA konsentrasi tinggi.</div>
+    </div>
+  </div>
+
+  <!-- HCV -->
+  <div class="hep-card hep-c">
+    <div class="hep-name">🅲 Hepatitis C (HCV)</div>
+    <div class="hep-meta">
+      <span class="badge badge-red">Sering kronik</span>
+      <span class="badge badge-blue">Darah/mukosa</span>
+      <span class="badge badge-teal">Flavivirus, RNA</span>
+    </div>
+    <div class="hep-markers">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px">
+        <li>🔹 <strong>Anti-HCV total</strong> = Uji saring (screening)</li>
+        <li>🔹 <strong>Anti-HCV IgM (+)</strong> = Infeksi akut atau reaktivasi kronik</li>
+        <li>🔹 <strong>HCV RNA</strong> = Indikator replikasi aktif + <strong>monitoring keberhasilan terapi</strong> (target: not detected)</li>
+        <li>🔹 Anti-HCV (+) → lanjut HCV RNA untuk konfirmasi infeksi aktif</li>
+      </ul>
+    </div>
+    <div class="highlight hl-yellow" style="margin-top:8px">
+      <span class="hl-icon">💡</span>
+      <div>HCV RNA adalah penanda pertama yang terdeteksi, <strong>mendahului</strong> kenaikan ALT dan munculnya anti-HCV. Penting untuk deteksi dini!</div>
+    </div>
+  </div>
+
+  <!-- HDV -->
+  <div class="hep-card hep-d">
+    <div class="hep-name">🅳 Hepatitis D (HDV)</div>
+    <div class="hep-meta">
+      <span class="badge badge-red">Koinfeksi / Superinfeksi HBV</span>
+      <span class="badge badge-blue">RNA, "defective virus"</span>
+    </div>
+    <div class="hep-markers">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;font-size:14px">
+        <li>🔹 HDV hanya bisa menginfeksi individu dengan <strong>HBV</strong> (butuh HBsAg sebagai selubung)</li>
+        <li>🔹 <strong>Anti-HDV IgG (+)</strong> = Pernah terekspos HDV, menetap setelah viral clearance</li>
+        <li>🔹 <strong>Anti-HDV IgM (+)</strong> = Infeksi akut; menetap pada infeksi kronik</li>
+        <li>🔹 <strong>HDV RNA</strong> = Marker replikasi, monitoring terapi</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HEV -->
+  <div class="hep-card hep-e">
+    <div class="hep-name">🅴 Hepatitis E (HEV)</div>
+    <div class="hep-meta">
+      <span class="badge badge-green">Akut / Self-limited</span>
+      <span class="badge badge-blue">Fekal-oral</span>
+      <span class="badge badge-orange">Berbahaya pada ibu hamil</span>
+    </div>
+    <div class="hep-markers">
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:5px;font-size:14px">
+        <li>🔹 <strong>IgM anti-HEV (+)</strong> = Infeksi akut</li>
+        <li>🔹 <strong>IgG anti-HEV (+)</strong> = Infeksi lampau / imunitas</li>
+        <li>🔹 Mirip HAV — self-limited pada imunokompeten, berbahaya pada ibu hamil (mortalitas tinggi)</li>
+        <li>🔹 Pencegahan: pastikan air minum aman</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FESES ══════════ -->
+<div id="feses" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-green">🔬</div>
+    <div>
+      <h2>Pemeriksaan Feses Rutin</h2>
+      <p>Makroskopis, mikroskopis, dan kimia feses dalam diagnosis GI</p>
+    </div>
+  </div>
+
+  <div class="highlight hl-blue" style="margin-bottom:20px">
+    <span class="hl-icon">📋</span>
+    <div><strong>Indikasi:</strong> Diare dan konstipasi · Darah dalam feses · Lendir dalam feses · Ikterus · Gangguan pencernaan · Suspect penyakit GI</div>
+  </div>
+
+  <h3 style="margin-bottom:16px; color:var(--green-deep); font-family:'Playfair Display',serif">A. Pemeriksaan Makroskopis</h3>
+  <div class="feces-grid">
+    <div class="feces-item">
+      <div class="fi-head">🟡 Warna Kuning Normal</div>
+      <div class="fi-body">Berasal dari sterkobilinogen (degradasi pigmen empedu oleh bakteri).</div>
+    </div>
+    <div class="feces-item">
+      <div class="fi-head">⬜ Dempul / Pucat</div>
+      <div class="fi-body"><strong>Curiga obstruksi saluran empedu!</strong> Bilirubin direk tidak sampai usus → tidak terbentuk sterkobilinogen.</div>
+    </div>
+    <div class="feces-item">
+      <div class="fi-head">🔴 Merah Segar</div>
+      <div class="fi-body">Perdarahan traktus GI <strong>bawah</strong> (kolon, rektum). Darah tidak melewati asam lambung.</div>
+    </div>
+    <div class="feces-item">
+      <div class="fi-head">⬛ Hitam / Melena</div>
+      <div class="fi-body">Perdarahan traktus GI <strong>atas</strong> (lambung, duodenum). Darah teroksidasi oleh asam lambung → hitam.</div>
+    </div>
+    <div class="feces-item">
+      <div class="fi-head">🫧 Berlendir</div>
+      <div class="fi-body">Inflamasi mukosa usus, disentri ameba, kolitis.</div>
+    </div>
+    <div class="feces-item">
+      <div class="fi-head">🍖 Sisa Makanan</div>
+      <div class="fi-body">Bila banyak → lanjut pemeriksaan serat otot (gangguan absorpsi/pencernaan).</div>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">B. Pemeriksaan Mikroskopis</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="emoji">🔬</span> Leukosit Feses</div>
+      <div style="font-size:14px">
+        <p style="margin-bottom:8px">Pewarnaan: methylene blue / Wright / Gram stain</p>
+        <p><strong>Leukosit ↑ (neutrofil dominan):</strong></p>
+        <ul style="padding-left:18px;margin-top:6px;display:flex;flex-direction:column;gap:4px">
+          <li>Shigellosis (disentri basiler)</li>
+          <li>Salmonellosis</li>
+          <li>E. coli invasif</li>
+        </ul>
+        <div class="highlight hl-yellow" style="margin-top:10px">
+          <span class="hl-icon">⚠️</span>
+          <div><strong>Tidak ada leukosit feses:</strong> Diare karena toksin — Staphylococcus aureus, Vibrio spp, virus!</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="emoji">🥩</span> Serat Otot (Kreatorrhea)</div>
+      <div style="font-size:14px">
+        <p><strong>Persiapan:</strong> Pasien makan daging merah sebelum sampling</p>
+        <p style="margin-top:8px"><strong>Pewarnaan:</strong> Eosin alkohol 10% → serat otot berwarna merah</p>
+        <p style="margin-top:8px"><strong>Abnormal:</strong> &gt;10 serat otot tidak tercerna per lapang pandang</p>
+        <p style="margin-top:8px"><strong>Makna:</strong> Insufisiensi pankreas, fibrosis kistik, obstruksi bilier, fistula gastrokolik, hipermotilitas</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title"><span class="emoji">🫧</span> Lemak Feses (Steatorrhea)</div>
+    <div style="font-size:14px">
+      <p><strong>Pewarnaan:</strong> Sudan III → trigliserida tampak sebagai droplet oranye-merah besar</p>
+      <p style="margin-top:8px"><strong>Abnormal:</strong> &gt;60 droplet/LPB = steatorrhea</p>
+      <div class="grid-2" style="margin-top:12px">
+        <div>
+          <p style="font-weight:700;margin-bottom:6px">Maldigesti lemak:</p>
+          <ul style="padding-left:18px;font-size:13px;display:flex;flex-direction:column;gap:3px">
+            <li>Fibrosis kistik</li>
+            <li>Insufisiensi pankreas</li>
+            <li>Pankreatitis</li>
+            <li>Karsinoma pankreas</li>
+            <li>Tidak ada garam empedu</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:700;margin-bottom:6px">Malabsorpsi lemak:</p>
+          <ul style="padding-left:18px;font-size:13px;display:flex;flex-direction:column;gap:3px">
+            <li>Pertumbuhan bakteri berlebih</li>
+            <li>Reseksi usus</li>
+            <li>Celiac disease</li>
+            <li>Penyakit Crohn</li>
+            <li>Limfoma</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px; color:var(--green-deep); font-family:'Playfair Display',serif">C. Pemeriksaan Kimia: Darah Samar (FOBT)</h3>
+  <div class="card">
+    <div class="card-title"><span class="emoji">🩸</span> Fecal Occult Blood Test</div>
+    <div style="font-size:14px">
+      <p>Perdarahan &lt; 2,5 mL/150g feses/hari = <strong>patologis tapi tidak terlihat secara makroskopis</strong></p>
+      <div class="highlight hl-red" style="margin-top:12px">
+        <span class="hl-icon">🎗️</span>
+        <div><strong>Skrining Kanker Kolorektal!</strong> Di AS, semua usia ≥50 tahun diskrining FOBT. Di Indonesia digunakan untuk deteksi dini kanker kolorektal dan evaluasi anemia tidak jelas penyebabnya.</div>
+      </div>
+      <div style="margin-top:12px">
+        <p style="font-weight:700;margin-bottom:8px">Metode Pemeriksaan:</p>
+        <div class="marker-grid">
+          <div class="marker-card"><div class="marker-name">Guaiak (gFOBT)</div><div class="marker-note">Paling umum, berbasis peroksidase hemoglobin</div></div>
+          <div class="marker-card"><div class="marker-name">Imunokimia (FIT)</div><div class="marker-note">Lebih akurat, spesifik untuk hemoglobin manusia</div></div>
+          <div class="marker-card"><div class="marker-name">Hematest / Benzidine</div><div class="marker-note">Metode lama</div></div>
+          <div class="marker-card"><div class="marker-name">Porfirin Fluorometrik</div><div class="marker-note">Kuantifikasi porfirin, deteksi perdarahan GI atas</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ KASUS KLINIK ══════════ -->
+<div id="kasus" class="section container">
+  <div class="section-header">
+    <div class="section-icon icon-teal">🏥</div>
+    <div>
+      <h2>Penalaran Kasus Klinik</h2>
+      <p>Clinical reasoning step-by-step untuk interpretasi LFT</p>
+    </div>
+  </div>
+
+  <!-- Case 1 -->
+  <div class="case-box">
+    <div class="case-label">Kasus 1 · Prehepatik</div>
+    <div class="case-q">Bayi 3 hari, kuning seluruh tubuh. Lab: Bilirubin total 15 mg/dL, indirek dominan, Hb 8 g/dL. Golongan darah ibu O, bayi A.</div>
+    <div class="reason-chain">
+      <div class="reason-step">
+        <div class="reason-num">1</div>
+        <div><strong>Kuning + bilirubin total tinggi</strong> → ikterus. Perlu tentukan pre/hepatik/posthepatik</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">2</div>
+        <div><strong>Bilirubin indirek dominan</strong> → kerusakan sebelum mencapai hepar (prehepatik) = hemolisis</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">3</div>
+        <div><strong>Hb rendah + ketidakcocokan golongan darah ABO</strong> → anemia hemolitik karena inkompabilitas ABO</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">4</div>
+        <div><strong>Diagnosis:</strong> Hiperbilirubinemia prehepatik (hemolitik) ec inkompabilitas ABO</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">5</div>
+        <div><strong>Manajemen:</strong> Fototerapi, pertimbangkan transfusi tukar jika bilirubin sangat tinggi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2 -->
+  <div class="case-box">
+    <div class="case-label">Kasus 2 · Hepatoselular Akut</div>
+    <div class="case-q">Laki-laki 25th, kuning 1 minggu, mual, tidak nafsu makan. Lab: SGPT 820 U/L, SGOT 550 U/L, bilirubin total 8 mg/dL, albumin normal, HBsAg (+), IgM anti-HBc (+).</div>
+    <div class="reason-chain">
+      <div class="reason-step">
+        <div class="reason-num">1</div>
+        <div><strong>SGPT &gt;&gt; SGOT, keduanya sangat tinggi (&gt;10×)</strong> → kerusakan hepatoselular akut</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">2</div>
+        <div><strong>Albumin masih normal</strong> → fungsi sintesis masih baik → belum kronik</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">3</div>
+        <div><strong>HBsAg (+) + IgM anti-HBc (+)</strong> → hepatitis B akut</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">4</div>
+        <div><strong>Diagnosis:</strong> Hepatitis B Akut. Monitor apakah sembuh dalam 6 bulan atau menjadi kronik.</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">5</div>
+        <div><strong>Follow-up:</strong> Cek HBsAg, Anti-HBs setelah 6 bulan. Bila HBsAg menetap → hepatitis B kronik → cek HBV DNA, HBeAg.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3 -->
+  <div class="case-box">
+    <div class="case-label">Kasus 3 · Obstruksi Bilier</div>
+    <div class="case-q">Wanita 55th, kuning, feses dempul, urin gelap seperti teh. Lab: bilirubin total 12 mg/dL (direk dominan), ALP 5× normal, GGT meningkat, SGPT normal.</div>
+    <div class="reason-chain">
+      <div class="reason-step">
+        <div class="reason-num">1</div>
+        <div><strong>Feses dempul</strong> → obstruksi (bilirubin direk tidak sampai usus)</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">2</div>
+        <div><strong>Urin gelap</strong> → bilirubin direk larut air, diekskresi di urin</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">3</div>
+        <div><strong>ALP &gt;3× + GGT meningkat, SGPT normal</strong> → pola kolestatik bukan hepatoselular</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">4</div>
+        <div><strong>Bilirubin direk dominan</strong> → konfirmasi obstruksi posthepatik</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">5</div>
+        <div><strong>Langkah selanjutnya:</strong> USG abdomen → lokasi obstruksi → batu empedu? Tumor pankreas/ampula?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 4 -->
+  <div class="case-box">
+    <div class="case-label">Kasus 4 · Hepatitis Kronik</div>
+    <div class="case-q">Pria 45th, terdeteksi HBsAg positif 10 tahun lalu. Kini datang dengan cepat lelah, perut membesar. Lab: SGPT 85 U/L, albumin 2,8 g/dL, PT memanjang, HBeAg (+), HBV DNA 10^6 IU/mL, AFP 350 ng/mL.</div>
+    <div class="reason-chain">
+      <div class="reason-step">
+        <div class="reason-num">1</div>
+        <div><strong>SGPT hanya sedikit meningkat (kronik)</strong> — pada kronik SGPT bisa bahkan normal karena hepatosit sudah tidak bisa memproduksi enzim</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">2</div>
+        <div><strong>Albumin ↓ + PT memanjang</strong> → fungsi sintesis sudah terganggu → kronik lanjut / sirosis</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">3</div>
+        <div><strong>HBeAg (+) + HBV DNA tinggi</strong> → virus masih aktif bereplikasi, sangat infeksius</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">4</div>
+        <div><strong>AFP 350 ng/mL</strong> (mendekati 400) → waspadai HCC! Perlu konfirmasi imaging (USG/CT scan)</div>
+      </div>
+      <div class="reason-step">
+        <div class="reason-num">5</div>
+        <div><strong>Tatalaksana:</strong> Antiviral (tenofovir/entecavir), target HBV DNA not detected. Monitor AFP berkala untuk deteksi dini HCC.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div id="quiz" class="section">
+  <div class="container">
+    <div class="quiz-header">
+      <h2>🎯 Quiz Interaktif</h2>
+      <p>Uji pemahaman materi pemeriksaan fungsi hepatobilier</p>
+    </div>
+    <div class="quiz-progress">
+      <div class="quiz-progress-bar" id="quizProgress" style="width:0%"></div>
+    </div>
+    <div id="quizContainer"></div>
+    <div class="quiz-score-box" id="scoreBox">
+      <div class="score-num" id="scoreNum">0/10</div>
+      <div class="score-label">Jawaban Benar</div>
+      <div class="score-msg" id="scoreMsg"></div>
+      <button class="btn-retry" onclick="resetQuiz()">🔄 Coba Lagi</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>📚 Rangkuman Kuliah Blok Digestif · Pemeriksaan Fungsi Hepatobilier</p>
+  <p style="margin-top:4px">dr. Metana Puspitasari, Sp.PK · Fakultas Kedokteran UMS 2026</p>
+  <p style="margin-top:4px; font-size:11px; opacity:.6">Dibuat sebagai bahan belajar mandiri — selalu verifikasi dengan sumber primer</p>
+</footer>
+
+<script>
+// ── TABS ──
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── ACCORDION ──
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  header.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+// ── QUIZ DATA ──
+const questions = [
+  {
+    q: "Pasien datang dengan ikterus, feses dempul, dan urin berwarna teh. Bilirubin direk meningkat signifikan. Apa yang terjadi?",
+    opts: ["Hemolisis intravaskular", "Obstruksi saluran empedu (posthepatik)", "Hepatitis akut", "Defisiensi G6PD"],
+    ans: 1,
+    exp: "Feses dempul = bilirubin direk tidak sampai usus = obstruksi. Bilirubin direk meningkat + bilirubin urin (+) = tanda khas obstruksi posthepatik."
+  },
+  {
+    q: "Enzim manakah yang PALING SPESIFIK untuk kerusakan sel hati (hepatosit)?",
+    opts: ["SGOT / AST", "LDH", "SGPT / ALT", "ALP"],
+    ans: 2,
+    exp: "SGPT/ALT paling spesifik karena terletak terutama di sitoplasma hepar. SGOT/AST juga ada di jantung dan otot skelet; LDH sangat tidak spesifik."
+  },
+  {
+    q: "Seorang pasien hepatitis B kronik menunjukkan HBeAg (+) dan HBV DNA sangat tinggi. Apa makna klinisnya?",
+    opts: ["Virus sudah tidak aktif", "Pasien sudah imun", "Virus aktif bereplikasi, sangat infeksius", "Pasien sudah pernah vaksinasi"],
+    ans: 2,
+    exp: "HBeAg = penanda aktif replikasi virus. HBV DNA tinggi mengkonfirmasi replikasi aktif. Pasien sangat infeksius dan perlu terapi antiviral."
+  },
+  {
+    q: "Pada hepatitis B akut yang sembuh sempurna, pola serologi yang diharapkan setelah 6 bulan adalah:",
+    opts: ["HBsAg (+), Anti-HBs (–)", "HBsAg (–), Anti-HBs (+), Anti-HBc IgG (+)", "HBsAg (+), HBeAg (+)", "Semua marker negatif"],
+    ans: 1,
+    exp: "Setelah recovery: HBsAg hilang, muncul Anti-HBs (antibodi protektif), Anti-HBc IgG menetap seumur hidup sebagai tanda pernah terinfeksi."
+  },
+  {
+    q: "Pasien dengan hepatitis kronik menunjukkan albumin 2,5 g/dL dan PT memanjang. Interpretasi terbaik adalah:",
+    opts: ["Defisiensi vitamin K saja", "Fungsi sintesis hepar terganggu berat", "Infeksi akut baru saja", "Hemolisis aktif"],
+    ans: 1,
+    exp: "Albumin ↓ + PT memanjang = gangguan fungsi sintesis hepar berat. Hepar tidak mampu mensintesis protein dan faktor koagulasi. Ini menandakan penyakit kronik lanjut."
+  },
+  {
+    q: "GGT meningkat 3× dan ALP meningkat 6× pada pasien tanpa kelainan tulang atau kehamilan. Kemungkinan diagnosis adalah:",
+    opts: ["Hepatitis akut viral", "Obstruksi saluran empedu / kolestasis", "Anemia hemolitik", "Insufisiensi pankreas"],
+    ans: 1,
+    exp: "ALP dan GGT meningkat signifikan (ALP >3×) = pola kolestatik = obstruksi saluran empedu atau kolestasis intrahepatik. Bukan pola hepatoselular."
+  },
+  {
+    q: "Total anti-HAV positif tetapi IgM anti-HAV negatif. Interpretasi yang tepat adalah:",
+    opts: ["Infeksi hepatitis A akut saat ini", "Pernah terinfeksi / punya imunitas (IgG)", "Belum pernah terpapar", "Pasca vaksinasi hepatitis B"],
+    ans: 1,
+    exp: "Total anti-HAV (+) dengan IgM anti-HAV (–) = komponen yang tersisa adalah IgG anti-HAV = pernah terinfeksi atau sudah imun. BUKAN infeksi aktif saat ini."
+  },
+  {
+    q: "AFP ≥ 400 ng/mL pada pasien sirosis hepatitis B. Apa langkah selanjutnya?",
+    opts: ["Ulangi tes setelah 1 tahun", "Segera evaluasi untuk karsinoma hepatoselular (HCC)", "Pertimbangkan transfusi albumin", "Mulai terapi antiviral pertama kali"],
+    ans: 1,
+    exp: "AFP ≥ 400 ng/mL = kuat curiga karsinoma hepatoselular (HCC). Perlu konfirmasi segera dengan imaging (USG/CT triphasic/MRI). Pada sirosis, skrining AFP berkala sangat penting."
+  },
+  {
+    q: "Pemeriksaan feses menunjukkan feses berwarna hitam (melena). Lokasi perdarahan yang paling mungkin adalah:",
+    opts: ["Rektum dan anus", "Kolon sigmoid", "Lambung atau duodenum (GI atas)", "Kolon transversum"],
+    ans: 2,
+    exp: "Melena (hitam) = darah teroksidasi oleh asam lambung → perdarahan GI atas (lambung, duodenum, esofagus). Darah merah segar = GI bawah (tidak melewati asam lambung)."
+  },
+  {
+    q: "Virus hepatitis mana yang HANYA bisa menginfeksi individu yang sudah terinfeksi HBV?",
+    opts: ["Hepatitis A", "Hepatitis C", "Hepatitis D", "Hepatitis E"],
+    ans: 2,
+    exp: "Hepatitis D adalah 'defective virus' yang membutuhkan HBsAg dari HBV sebagai selubungnya. HDV hanya bisa menginfeksi koinfeksi atau superinfeksi bersama HBV."
+  }
+];
+
+let selected = new Array(questions.length).fill(null);
+let checked = new Array(questions.length).fill(false);
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = questions.map((q, i) => `
+    <div class="quiz-card" id="qcard-${i}">
+      <div class="quiz-num">Soal ${i+1} dari ${questions.length}</div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="quiz-options" id="opts-${i}">
+        ${q.opts.map((opt, j) => `
+          <div class="quiz-opt" onclick="selectOpt(${i}, ${j})" id="opt-${i}-${j}">
+            <div class="quiz-opt-letter">${'ABCD'[j]}</div>
+            <span>${opt}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback" id="feedback-${i}"></div>
+      <div class="quiz-actions">
+        <button class="btn-check" onclick="checkAnswer(${i})" id="btn-${i}" disabled>Periksa Jawaban</button>
+      </div>
+    </div>
+  `).join('');
+  updateProgress();
+}
+
+function selectOpt(qi, oi) {
+  if (checked[qi]) return;
+  selected[qi] = oi;
+  document.querySelectorAll(`#opts-${qi} .quiz-opt`).forEach((el, j) => {
+    el.classList.toggle('selected', j === oi);
+  });
+  document.getElementById(`btn-${qi}`).disabled = false;
+}
+
+function checkAnswer(qi) {
+  if (checked[qi]) return;
+  checked[qi] = true;
+  const q = questions[qi];
+  const fb = document.getElementById(`feedback-${qi}`);
+  document.getElementById(`btn-${qi}`).disabled = true;
+
+  document.querySelectorAll(`#opts-${qi} .quiz-opt`).forEach((el, j) => {
+    el.onclick = null;
+    if (j === q.ans) el.classList.add('correct');
+    else if (j === selected[qi] && selected[qi] !== q.ans) el.classList.add('wrong');
+  });
+
+  const correct = selected[qi] === q.ans;
+  fb.className = `quiz-feedback show ${correct ? 'correct-fb' : 'wrong-fb'}`;
+  fb.innerHTML = `<strong>${correct ? '✅ Benar!' : '❌ Salah.'}</strong> ${q.exp}`;
+
+  updateProgress();
+  checkAllDone();
+}
+
+function updateProgress() {
+  const done = checked.filter(Boolean).length;
+  document.getElementById('quizProgress').style.width = (done / questions.length * 100) + '%';
+}
+
+function checkAllDone() {
+  if (!checked.every(Boolean)) return;
+  const score = questions.reduce((acc, q, i) => acc + (selected[i] === q.ans ? 1 : 0), 0);
+  const box = document.getElementById('scoreBox');
+  document.getElementById('scoreNum').textContent = `${score}/${questions.length}`;
+  const pct = Math.round(score/questions.length*100);
+  let msg = pct >= 90 ? '🏆 Luar biasa! Kamu siap ujian.' :
+            pct >= 70 ? '👍 Bagus! Ulangi materi yang salah.' :
+            pct >= 50 ? '📚 Perlu belajar lebih giat. Review materi dan coba lagi.' :
+                        '💪 Jangan menyerah! Baca kembali materi dari awal.';
+  document.getElementById('scoreMsg').textContent = msg;
+  box.classList.add('show');
+  box.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function resetQuiz() {
+  selected = new Array(questions.length).fill(null);
+  checked = new Array(questions.length).fill(false);
+  document.getElementById('scoreBox').classList.remove('show');
+  renderQuiz();
+  document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
