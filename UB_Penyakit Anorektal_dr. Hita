@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penyakit Anorektal — dr. Hitaputra Agung Wardhana, Sp.B, FINACS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #F0FDF4;
+    --forest:     #14532D;
+    --green:      #16A34A;
+    --green-mid:  #22C55E;
+    --green-pale: #DCFCE7;
+    --green-soft: #F0FDF4;
+    --accent:     #059669;
+    --teal:       #0D9488;
+    --teal-pale:  #CCFBF1;
+    --lime:       #A3E635;
+    --lime-pale:  #ECFCCB;
+    --text:       #14532D;
+    --text-body:  #1C3B2A;
+    --muted:      #4B7A5E;
+    --border:     #BBF7D0;
+    --white:      #FFFFFF;
+    --warn:       #D97706;
+    --warn-pale:  #FEF3C7;
+    --danger:     #DC2626;
+    --danger-pale:#FEE2E2;
+    --blue:       #2563EB;
+    --blue-pale:  #DBEAFE;
+    --purple:     #7C3AED;
+    --purple-pale:#EDE9FE;
+    --sky:        #7DD3FC;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text-body);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--forest) 0%, #1a6b3a 45%, #0d7a47 100%);
+    color: white;
+    padding: 56px 44px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-100px; right:-80px;
+    width:380px; height:380px; border-radius:50%;
+    background:rgba(163,230,53,0.1);
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:-60px; left:15%;
+    width:220px; height:220px; border-radius:50%;
+    background:rgba(255,255,255,0.05);
+  }
+  .hero-tag {
+    display:inline-block;
+    background:rgba(163,230,53,0.2);
+    color:#A3E635;
+    font-size:11px; font-weight:600;
+    letter-spacing:2px; text-transform:uppercase;
+    padding:5px 14px; border-radius:20px; margin-bottom:18px;
+    border:1px solid rgba(163,230,53,0.3);
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(26px,5vw,50px);
+    font-weight:900; line-height:1.1; margin-bottom:12px;
+  }
+  .hero h1 span { color: #A3E635; }
+  .hero-sub { font-size:14px; opacity:.8; font-weight:300; max-width:620px; }
+  .hero-meta { margin-top:26px; display:flex; gap:12px; flex-wrap:wrap; }
+  .hero-badge {
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    padding:6px 14px; border-radius:30px;
+    font-size:12px; font-weight:500; letter-spacing:.4px;
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position:sticky; top:0; z-index:100;
+    background:var(--forest);
+    padding:0 28px; display:flex; gap:2px;
+    overflow-x:auto; scrollbar-width:none;
+    box-shadow:0 3px 18px rgba(20,83,45,0.35);
+  }
+  .sticky-nav::-webkit-scrollbar { display:none; }
+  .nav-btn {
+    background:none; border:none;
+    color:rgba(255,255,255,0.55);
+    font-family:'DM Sans',sans-serif;
+    font-size:12px; font-weight:500; letter-spacing:.4px;
+    padding:14px 14px; cursor:pointer;
+    white-space:nowrap; transition:all .2s;
+    border-bottom:2px solid transparent;
+  }
+  .nav-btn:hover,.nav-btn.active { color:white; border-bottom-color:#A3E635; }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width:940px; margin:0 auto; padding:40px 24px; }
+
+  /* ===== SECTIONS ===== */
+  .section { display:none; animation:fadeIn .3s ease; }
+  .section.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-title {
+    font-family:'Playfair Display',serif;
+    font-size:28px; font-weight:700;
+    color:var(--forest); margin-bottom:6px;
+  }
+  .section-desc {
+    color:var(--muted); font-size:13px;
+    margin-bottom:30px; padding-bottom:18px;
+    border-bottom:2px solid var(--border);
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background:white; border-radius:16px;
+    padding:24px 28px; margin-bottom:20px;
+    border:1px solid var(--border);
+    box-shadow:0 2px 12px rgba(20,83,45,0.07);
+    transition:box-shadow .2s, transform .2s;
+  }
+  .card:hover { box-shadow:0 6px 24px rgba(20,83,45,0.12); transform:translateY(-1px); }
+
+  .card-title {
+    font-family:'DM Serif Display',serif;
+    font-size:18px; color:var(--forest);
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .card-title .icon {
+    width:32px; height:32px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+
+  /* ===== TAGS ===== */
+  .tag {
+    display:inline-block; padding:3px 10px;
+    border-radius:12px; font-size:11px; font-weight:600;
+    letter-spacing:.5px; margin:2px;
+  }
+  .tag-green  { background:var(--green-pale); color:var(--forest); }
+  .tag-teal   { background:var(--teal-pale);  color:var(--teal); }
+  .tag-lime   { background:var(--lime-pale);  color:#3F6212; }
+  .tag-warn   { background:var(--warn-pale);  color:#92400E; }
+  .tag-danger { background:var(--danger-pale);color:var(--danger); }
+  .tag-blue   { background:var(--blue-pale);  color:var(--blue); }
+  .tag-purple { background:var(--purple-pale);color:var(--purple); }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x:auto; border-radius:12px; border:1px solid var(--border); margin-bottom:20px; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th {
+    background:var(--forest); color:white;
+    padding:11px 14px; text-align:left;
+    font-size:12px; font-weight:600; letter-spacing:.4px;
+  }
+  td { padding:10px 14px; border-bottom:1px solid #DCFCE7; vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#F7FEF9; }
+  tr:hover td { background:var(--green-pale); transition:.15s; }
+
+  /* ===== MNEMONIC ===== */
+  .mnemonic {
+    background:linear-gradient(135deg,#F0FDF4,#DCFCE7);
+    border:2px solid #86EFAC;
+    border-radius:14px; padding:18px 22px; margin:16px 0;
+  }
+  .mnemonic-title {
+    font-size:12px; font-weight:700;
+    letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--forest); margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .mnemonic-letter {
+    display:inline-block; width:26px; height:26px;
+    background:var(--green); color:white;
+    border-radius:6px; text-align:center;
+    line-height:26px; font-size:13px; font-weight:700;
+    margin-right:6px; flex-shrink:0;
+  }
+  .mnemonic-row { display:flex; align-items:baseline; gap:8px; margin:5px 0; font-size:14px; }
+  .mnemonic-meaning { color:var(--muted); font-size:13px; }
+
+  /* ===== ALERTS ===== */
+  .alert {
+    border-radius:12px; padding:14px 18px;
+    margin:14px 0; font-size:14px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .alert-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .alert-danger { background:var(--danger-pale); border-left:4px solid var(--danger); }
+  .alert-warn   { background:var(--warn-pale);   border-left:4px solid var(--warn); }
+  .alert-info   { background:var(--blue-pale);   border-left:4px solid var(--blue); }
+  .alert-green  { background:var(--green-pale);  border-left:4px solid var(--green); }
+  .alert-teal   { background:var(--teal-pale);   border-left:4px solid var(--teal); }
+
+  /* ===== COLLAPSE ===== */
+  .collapse-btn {
+    width:100%; background:none; border:none;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:13px 18px; cursor:pointer;
+    background:var(--green-soft); border-radius:10px;
+    font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600;
+    color:var(--forest); margin-bottom:2px; transition:background .2s;
+  }
+  .collapse-btn:hover { background:var(--green-pale); }
+  .collapse-btn::after { content:'▸'; font-size:13px; color:var(--green); transition:transform .25s; }
+  .collapse-btn.open::after { transform:rotate(90deg); }
+  .collapse-content { display:none; padding:16px 18px 4px; }
+  .collapse-content.open { display:block; }
+
+  /* ===== STEP LIST ===== */
+  .step-list { list-style:none; }
+  .step-list li {
+    display:flex; gap:14px; padding:10px 0;
+    border-bottom:1px solid var(--green-soft); font-size:14px;
+  }
+  .step-list li:last-child { border-bottom:none; }
+  .step-num {
+    min-width:28px; height:28px;
+    background:var(--green); color:white;
+    border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:12px; font-weight:700;
+    flex-shrink:0; margin-top:1px;
+  }
+
+  /* ===== BULLET LIST ===== */
+  .bullet-list { list-style:none; }
+  .bullet-list li {
+    padding:6px 0; font-size:14px;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .bullet-list li::before { content:'◆'; color:var(--green-mid); font-size:9px; flex-shrink:0; margin-top:2px; }
+
+  /* ===== GRADE BOX ===== */
+  .grade-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:12px 0; }
+  @media(max-width:640px){ .grade-grid{ grid-template-columns:1fr 1fr; } }
+  .grade-box {
+    border-radius:12px; padding:14px 16px; text-align:center;
+    border:1px solid var(--border);
+  }
+  .grade-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--green); }
+  .grade-label { font-size:11px; font-weight:600; color:var(--muted); margin-top:4px; }
+  .grade-desc { font-size:12px; margin-top:6px; color:var(--text-body); }
+
+  /* ===== TWO-COL ===== */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:600px){ .two-col { grid-template-columns:1fr; } }
+
+  /* ===== SKDI BADGE ===== */
+  .skdi { display:inline-flex; align-items:center; gap:4px; padding:3px 10px; border-radius:10px; font-size:11px; font-weight:700; margin-left:6px; }
+  .skdi-3b { background:#FEF3C7; color:#92400E; }
+  .skdi-3a { background:var(--green-pale); color:var(--forest); }
+  .skdi-4a { background:var(--blue-pale); color:var(--blue); }
+  .skdi-2  { background:var(--purple-pale); color:var(--purple); }
+
+  /* ===== QUIZ ===== */
+  .progress-bar { background:var(--green-pale); border-radius:30px; height:8px; overflow:hidden; margin-bottom:8px; }
+  .progress-fill { height:100%; background:linear-gradient(90deg,var(--accent),var(--green-mid)); border-radius:30px; transition:width .4s ease; width:0%; }
+  .progress-text { font-size:12px; color:var(--muted); margin-bottom:24px; }
+
+  .quiz-card {
+    background:white; border-radius:16px;
+    padding:24px 28px; margin-bottom:20px;
+    border:1px solid var(--border);
+    box-shadow:0 2px 10px rgba(20,83,45,.07);
+  }
+  .quiz-num { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+  .quiz-vignette {
+    background:var(--green-soft); border-left:4px solid var(--green);
+    border-radius:0 8px 8px 0; padding:14px 16px;
+    font-size:14px; margin-bottom:14px; line-height:1.65;
+  }
+  .quiz-question { font-weight:600; font-size:14.5px; margin-bottom:14px; }
+  .quiz-options { display:flex; flex-direction:column; gap:8px; }
+  .quiz-option {
+    background:white; border:1.5px solid var(--border);
+    border-radius:10px; padding:11px 16px;
+    text-align:left; cursor:pointer; font-size:13.5px;
+    font-family:'DM Sans',sans-serif;
+    display:flex; align-items:center; gap:12px;
+    transition:all .15s;
+  }
+  .quiz-option:hover:not(.disabled) { background:var(--green-pale); border-color:var(--green); }
+  .quiz-option.correct { background:#D1FAE5; border-color:#34D399; }
+  .quiz-option.wrong   { background:var(--danger-pale); border-color:#F87171; }
+  .quiz-option.disabled { cursor:default; opacity:.8; }
+  .opt-letter {
+    min-width:26px; height:26px; background:var(--green-pale);
+    color:var(--forest); border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; flex-shrink:0;
+  }
+  .explanation {
+    display:none; margin-top:16px;
+    background:var(--green-soft); border-radius:10px;
+    padding:16px 18px; font-size:13.5px; line-height:1.65;
+    border-left:4px solid var(--green);
+  }
+  .explanation.show { display:block; }
+  .quiz-score-card {
+    display:none; text-align:center;
+    background:linear-gradient(135deg,var(--forest),#1a6b3a);
+    border-radius:20px; padding:44px 32px; color:white; margin-top:24px;
+  }
+  .quiz-score-card.show { display:block; }
+  .score-num { font-family:'Playfair Display',serif; font-size:72px; font-weight:900; color:#A3E635; }
+
+  /* ===== FAB ===== */
+  .fab {
+    position:fixed; bottom:28px; right:28px;
+    background:var(--green); color:white; border:none;
+    padding:14px 22px; border-radius:50px;
+    font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600;
+    cursor:pointer; box-shadow:0 6px 20px rgba(22,163,74,.45);
+    transition:all .2s; z-index:200;
+  }
+  .fab:hover { background:var(--forest); transform:translateY(-2px); }
+
+  strong { color:var(--forest); }
+
+  @media print {
+    .section { display:block !important; }
+    .sticky-nav,.fab { display:none; }
+    .card { break-inside:avoid; }
+  }
+
+  /* ===== ALUR FLOW ===== */
+  .flow-box {
+    background:var(--green-pale); border:1px solid #86EFAC;
+    border-radius:10px; padding:12px 16px;
+    font-size:13.5px; margin:6px 0; text-align:center;
+    font-weight:500; color:var(--forest);
+  }
+  .flow-arrow { text-align:center; font-size:20px; color:var(--green); margin:2px 0; }
+
+  /* ===== COMPARE ===== */
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0; }
+  .compare-card { border-radius:12px; padding:16px 18px; border:1px solid var(--border); }
+  .compare-card.left  { background:var(--green-pale); border-color:#86EFAC; }
+  .compare-card.right { background:var(--teal-pale);  border-color:#5EEAD4; }
+  .compare-head { font-weight:700; font-size:13px; margin-bottom:10px; text-transform:uppercase; letter-spacing:.6px; }
+  @media(max-width:640px){ .compare-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Digestif Block · Bedah</div>
+  <h1>Penyakit <span>Anorektal</span></h1>
+  <p class="hero-sub">Proktitis · Abses &amp; Fistula Ani · Prolaps Rektum · Hemoroid · Alur Diagnostik — Panduan Belajar Komprehensif UKMPPD</p>
+  <div class="hero-meta">
+    <span class="hero-badge">dr. Hitaputra Agung Wardhana, Sp.B, FINACS</span>
+    <span class="hero-badge">🩺 Kuliah Pakar 5 + PPT Anorektal</span>
+    <span class="hero-badge">🎯 SKDI-Based</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <button class="nav-btn active" onclick="showSection('overview',this)">📋 Overview</button>
+  <button class="nav-btn" onclick="showSection('proktitis',this)">🔴 Proktitis</button>
+  <button class="nav-btn" onclick="showSection('abses',this)">💢 Abses Ani</button>
+  <button class="nav-btn" onclick="showSection('fistula',this)">🔗 Fistula Ani</button>
+  <button class="nav-btn" onclick="showSection('prolaps',this)">📉 Prolaps Rekti</button>
+  <button class="nav-btn" onclick="showSection('hemoroid',this)">🩸 Hemoroid</button>
+  <button class="nav-btn" onclick="showSection('alur',this)">🗺️ Alur Diagnosis</button>
+  <button class="nav-btn" onclick="showSection('diagbanding',this)">⚖️ Diag Banding</button>
+  <button class="nav-btn" onclick="showSection('quiz',this)">🧠 Latihan Soal</button>
+</nav>
+
+<div class="container">
+
+<!-- ===== OVERVIEW ===== -->
+<div class="section active" id="overview">
+  <h2 class="section-title">Overview Penyakit Anorektal</h2>
+  <p class="section-desc">Daftar penyakit, keluhan utama relevan, dan kompetensi SKDI 2012 — orientasi sebelum masuk materi.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📋</span>Daftar Penyakit Anorektal (SKDI 2012)</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Penyakit</th><th>Kompetensi</th><th>Artinya</th></tr>
+        <tr><td><strong>Proktitis</strong></td><td><span class="skdi skdi-3a">3A</span></td><td>Tatalaksana awal, kemudian rujuk</td></tr>
+        <tr><td><strong>Abses Perianal</strong></td><td><span class="skdi skdi-3a">3A</span></td><td>Tatalaksana awal, kemudian rujuk</td></tr>
+        <tr><td><strong>Hemoroid Grade 1–2</strong></td><td><span class="skdi skdi-4a">4A</span></td><td>Diagnosis + terapi definitif di FKTP</td></tr>
+        <tr><td><strong>Hemoroid Grade 3–4</strong></td><td><span class="skdi skdi-3a">3A</span></td><td>Tatalaksana awal, rujuk untuk intervensi</td></tr>
+        <tr><td><strong>Fistula Ani</strong></td><td><span class="skdi skdi-2">2</span></td><td>Diagnosis saja → rujuk ke Sp.B</td></tr>
+        <tr><td><strong>Fisura Ani</strong></td><td><span class="skdi skdi-2">2</span></td><td>Diagnosis saja → rujuk</td></tr>
+        <tr><td><strong>Prolaps Rektum/Anus</strong></td><td><span class="skdi skdi-2">2</span></td><td>Diagnosis saja → rujuk</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🚨</span>Keluhan Utama &amp; DD Utama Penyakit Anorektal</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">🩸 BAB Berdarah</p>
+        <ul class="bullet-list">
+          <li><strong>Hemoroid</strong>: darah segar menetes, tidak nyeri</li>
+          <li><strong>Proktitis</strong>: bercampur lendir + diare + riwayat anal seks</li>
+          <li><strong>Keganasan anorektal</strong>: darah + lendir + perubahan pola BAB</li>
+          <li><strong>Fisura ani</strong>: darah + nyeri hebat saat BAB</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">😣 Nyeri di Dubur</p>
+        <ul class="bullet-list">
+          <li><strong>Abses perianal</strong>: nyeri berdenyut + demam + bengkak</li>
+          <li><strong>Fisura ani</strong>: nyeri tajam saat BAB</li>
+          <li><strong>Hemoroid trombosis</strong>: nyeri mendadak + benjolan biru</li>
+          <li><strong>Proktalgia fugaks</strong>: kram 1–30 menit, hilang sendiri</li>
+        </ul>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top:12px;">
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">🔵 Benjolan di Dubur</p>
+        <ul class="bullet-list">
+          <li><strong>Hemoroid</strong>: lunak, merah, saat BAB</li>
+          <li><strong>Hemoroid trombosis eksterna</strong>: biru ungu, nyeri mendadak</li>
+          <li><strong>Prolaps rektum</strong>: cincin konsentrik, sering pada lansia/anak</li>
+          <li><strong>Abses perianal</strong>: bengkak merah, fluktuatif, demam</li>
+          <li><strong>Polip/Ca anorektal</strong>: keras, irregular, tidak nyeri</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">💧 Discharge Dubur</p>
+        <ul class="bullet-list">
+          <li><strong>Fistula ani</strong>: discharge purulen kronik dari lubang kulit perianal</li>
+          <li><strong>Proktitis</strong>: lendir + nanah dari rektum</li>
+          <li><strong>Abses pecah</strong>: nanah tiba-tiba keluar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--lime-pale)">📍</span>Anatomi Anorektal — Poin Kunci</div>
+    <ul class="bullet-list">
+      <li><strong>Linea dentata (linea pectinata)</strong>: batas antara epitel kolumnar (atas) dan epitel skuamosa (bawah). Kunci klasifikasi hemoroid, abses, dan fistula.</li>
+      <li><strong>Pleksus hemoroidalis interna</strong>: di atas linea dentata (dari arteri rektalis superior). Hemoroid interna.</li>
+      <li><strong>Pleksus hemoroidalis eksterna</strong>: di bawah linea dentata (dari arteri pudenda). Hemoroid eksterna.</li>
+      <li><strong>Sfingter ani internus</strong>: otot polos involunter. <strong>Sfingter ani eksternus</strong>: otot lurik volunter.</li>
+      <li><strong>Ruang perianal, iskiorektal, intersfingterik, supralevator</strong>: lokasi abses.</li>
+      <li><strong>Levator ani</strong>: otot dasar panggul — kelemahan → faktor risiko prolaps rektum.</li>
+    </ul>
+    <div class="alert alert-green" style="margin-top:12px;">
+      <span class="alert-icon">💡</span>
+      <div><strong>Kunci Linea Dentata di Soal:</strong> Hemoroid interna di atas dentata → tidak nyeri (innervasi otonom); Hemoroid eksterna di bawah dentata → nyeri (innervasi somatik/somatic pain).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROKTITIS ===== -->
+<div class="section" id="proktitis">
+  <h2 class="section-title">Proktitis <span class="skdi skdi-3a">3A</span></h2>
+  <p class="section-desc">Inflamasi mukosa rektum 10–15 cm proksimal anus — etiologi beragam, diagnosis kunci pada anamnesis riwayat seksual dan radioterapi.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📖</span>Definisi &amp; Klasifikasi Etiologi</div>
+    <p style="font-size:14px;margin-bottom:14px;">Proktitis = inflamasi mukosa rektum (10–15 cm proksimal anus). Bisa akut atau kronis.</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Etiologi</th><th>Penyebab Spesifik</th><th>Klue Anamnesis</th></tr>
+        <tr><td><strong>Infeksi</strong></td><td>N. gonorrhoeae, C. trachomatis, HSV, Shigella, Campylobacter</td><td>Riwayat hubungan seks anal (anal intercourse)</td></tr>
+        <tr><td><strong>IBD</strong></td><td>Kolitis ulseratif, Penyakit Crohn</td><td>Episode berulang, muda, riwayat keluarga</td></tr>
+        <tr><td><strong>Radiasi</strong></td><td>Post-radioterapi pelvis (Ca serviks, Ca prostat)</td><td>Muncul 3–12 bulan post-radiasi</td></tr>
+        <tr><td><strong>Iskemia</strong></td><td>Gangguan vaskular</td><td>Usia tua, aterosklerosis</td></tr>
+        <tr><td><strong>Idiopatik</strong></td><td>Trauma, zat kimia, alergi</td><td>Riwayat penggunaan enema kimia</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Manifestasi Klinis</div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Gejala Proktitis: <strong>"TUNDN"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">T</span><div><strong>Tenesmus</strong> — sensasi ingin BAB terus tapi tidak keluar</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">U</span><div><strong>Urgensi defekasi</strong> — tiba-tiba ingin BAB, tidak bisa ditahan</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nyeri rektal</strong></div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">D</span><div><strong>Diare lendir-darah</strong></div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nanah / discharge purulen</strong> (pada infeksi gonore/klamidia)</div></div>
+    </div>
+    <div class="two-col" style="margin-top:12px;">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:6px;">Tanda Khusus per Etiologi:</p>
+        <ul class="bullet-list">
+          <li><strong>Gonore/Klamidia</strong>: discharge purulen, riwayat seks anal</li>
+          <li><strong>HSV</strong>: vesikel, ulkus nyeri hebat di perianal</li>
+          <li><strong>Radiasi</strong>: onset 3–12 bulan post-radioterapi pelvis</li>
+          <li><strong>IBD</strong>: episode berulang, mungkin ada manifestasi ekstraintestinal</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:6px;">Colok Dubur (RT):</p>
+        <ul class="bullet-list">
+          <li>Nyeri tekan rektum</li>
+          <li>Sarung tangan: lendir-darah (+)</li>
+          <li>Proktoskopi: mukosa hiperemis, edematosa, ulkus, mudah berdarah</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔬</span>Diagnosis &amp; Penunjang</div>
+    <ol class="step-list">
+      <li><span class="step-num">1</span><strong>Anamnesis</strong>: riwayat seksual, radioterapi, IBD — <em>ini kunci!</em></li>
+      <li><span class="step-num">2</span><strong>Colok dubur</strong>: nyeri, darah, massa</li>
+      <li><span class="step-num">3</span><strong>Proktoskopi</strong>: mukosa hiperemis, edema, ulkus, mudah berdarah</li>
+      <li><span class="step-num">4</span><strong>Penunjang</strong>:<br>• Swab PCR/kultur: gonore, klamidia, HSV<br>• Feses: leukosit, kultur bakteri<br>• Biopsi: bedakan IBD vs Infeksi vs Radiasi (kunci diagnosis pasti)</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Etiologi</th><th>Tatalaksana Spesifik</th></tr>
+        <tr><td><strong>Gonore/Klamidia</strong></td><td>Seftriakson 500mg IM dosis tunggal + Azitromisin 1g oral dosis tunggal</td></tr>
+        <tr><td><strong>HSV</strong></td><td>Asiklovir 400mg 3x/hari selama 7–10 hari</td></tr>
+        <tr><td><strong>IBD</strong></td><td>Mesalamin (5-ASA), kortikosteroid topikal/sistemik, imunosupresan</td></tr>
+        <tr><td><strong>Radiasi</strong></td><td>Mesalamin, formalin 4% topikal, oksigen hiperbarik; jika striktur/perforasi → operasi</td></tr>
+        <tr><td><strong>Iskemia</strong></td><td>Koreksi aliran darah; reseksi jika nekrosis</td></tr>
+        <tr><td><strong>Simtomatik (semua)</strong></td><td>Analgesik, kortikosteroid supositoria, diet rendah serat saat akut, hidrasi adekuat</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Komplikasi Proktitis:</strong> Abses perianal, fistula ani, striktur rektum (→ obstruksi), perforasi, perdarahan kronis → anemia, transformasi maligna (jarang).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABSES ANOREKTAL ===== -->
+<div class="section" id="abses">
+  <h2 class="section-title">Abses Anorektal <span class="skdi skdi-3a">3A</span></h2>
+  <p class="section-desc">Kumpulan pus di ruang sekitar anus — 90% berasal dari infeksi kriptoglandular. Prinsip utama: insisi dan drainase adekuat.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">⚙️</span>Patofisiologi — Teori Kriptoglandular</div>
+    <div class="flow-box">Sumbatan kelenjar anal di linea dentata</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Bakteri masuk → infeksi kelenjar anal di ruang intersfingterik</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Abses terbentuk → menyebar ke ruang lain (least resistance)</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Pecah spontan → saluran tetap terbuka → <strong>Fistula Ani</strong> (30–50% kasus)</div>
+
+    <div class="alert alert-info" style="margin-top:14px;">
+      <span class="alert-icon">📊</span>
+      <div><strong>Etiologi lain (selain kriptoglandular 90%):</strong> IBD (Crohn, Kolitis ulseratif), Trauma (benda asing, seks anal), Infeksi spesifik (TBC, aktinomikosis), Imunosupresi (DM, HIV, kemoterapi).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">📍</span>Klasifikasi Berdasar Lokasi</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Frekuensi</th><th>Klinis Khas</th><th>Drainase</th></tr>
+        <tr><td><strong>Perianal</strong></td><td>60% (paling sering)</td><td>Paling superfisial; bengkak, merah, nyeri hebat, fluktuatif terlihat dari luar</td><td>Insisi radial 1 cm dari anus</td></tr>
+        <tr><td><strong>Iskiorektal</strong></td><td>20%</td><td>Dalam; nyeri dalam, demam tinggi; tidak ada tanda pada kulit luar</td><td>Insisi di titik paling fluktuatif + pasang drain</td></tr>
+        <tr><td><strong>Intersfingterik</strong></td><td>5%</td><td>Susah diraba; nyeri tekan saat colok dubur</td><td>Drainase transanal atau transperineal</td></tr>
+        <tr><td><strong>Supralevator</strong></td><td>1–5%</td><td>Nyeri perut bawah, tenesmus; tidak ada tanda kulit luar; sulit diagnosis</td><td>Transabdominal atau transrektal; perlu kolaborasi bedah digestif</td></tr>
+        <tr><td><strong>Pelvirektal</strong></td><td>1%</td><td>Paling jarang; sekunder dari penyakit lain</td><td>Kompleks, konsultasi SpB</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Urutan Frekuensi Abses: <strong>"PIISS"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Perianal</strong> 60% — paling sering, paling superfisial</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">I</span><div><strong>Iskiorektal</strong> 20% — dalam, demam tinggi</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">I</span><div><strong>Intersfingterik</strong> 5% — nyeri saat colok dubur</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">S</span><div><strong>Supralevator</strong> 1–5% — nyeri perut bawah, sulit diagnosis</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">S</span><div><strong>Suprasfingterik/Pelvirektal</strong> 1% — paling jarang</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🩺</span>Manifestasi Klinis &amp; Pemeriksaan</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Gejala Umum:</p>
+        <ul class="bullet-list">
+          <li>Nyeri anus/dubur (berdenyut)</li>
+          <li>Demam, malaise</li>
+          <li>Sulit duduk, sulit BAB</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Pemeriksaan Fisik:</p>
+        <ul class="bullet-list">
+          <li>Inspeksi: bengkak, eritema, discharge</li>
+          <li>Palpasi: nyeri tekan, fluktuasi</li>
+          <li>Colok dubur: massa nyeri, fluktuatif di dinding rektum</li>
+          <li>Anoskopi: cari opening internal</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:12px;">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Tanda Bahaya:</strong> Krepitasi pada palpasi → gas gangren. Nekrosis cepat + sepsis → <strong>Fournier Gangrene</strong> (necrotizing fasciitis perineum) — mortalitas tinggi, operasi SEGERA.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana</div>
+    <div class="alert alert-warn">
+      <span class="alert-icon">🔑</span>
+      <div><strong>Prinsip Utama:</strong> INSISI dan DRAINASE ADEKUAT + cari opening internal. <strong>Antibiotik saja TIDAK CUKUP</strong> → akan rekuren. Tujuan: cegah sepsis dan pembentukan fistula.</div>
+    </div>
+    <ol class="step-list">
+      <li><span class="step-num">1</span>Drainase sesuai lokasi (lihat tabel klasifikasi di atas)</li>
+      <li><span class="step-num">2</span>Antibiotik: adjuvan (bukan terapi tunggal)</li>
+      <li><span class="step-num">3</span>Anestesi spinal/umum untuk drainase dalam (intersfingterik, supralevator)</li>
+      <li><span class="step-num">4</span>Cari opening internal (dengan probing hati-hati di OK)</li>
+    </ol>
+    <p style="font-size:13px;font-weight:600;color:var(--muted);margin-top:10px;">Komplikasi:</p>
+    <ul class="bullet-list">
+      <li><strong>Rekurensi</strong> 10–30% jika drainase tidak adekuat</li>
+      <li><strong>Fistula ani</strong> 30–50% kasus post-abses</li>
+      <li><strong>Inkontinensia alvi</strong>: jika sfingter cedera saat drainase</li>
+      <li><strong>Fournier Gangrene</strong>: pada imunokompromais</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FISTULA ANI ===== -->
+<div class="section" id="fistula">
+  <h2 class="section-title">Fistula Ani <span class="skdi skdi-2">2</span></h2>
+  <p class="section-desc">Saluran abnormal antara epitel anorektal dan kulit perianal — 90% sekuel abses anorektal yang pecah spontan.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📖</span>Definisi &amp; Patofisiologi</div>
+    <p style="font-size:14px;margin-bottom:12px;">Fistula ani = saluran abnormal (traktus) antara <strong>opening internal</strong> (di linea dentata, dalam rektum) dan <strong>opening eksternal</strong> (di kulit perianal).</p>
+    <div class="flow-box">Abses anorektal terbentuk</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Pecah spontan → drainase tidak adekuat → saluran tetap terbuka</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-box">Epitelisasi saluran → Fistula kronik terbentuk</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">📊</span>Klasifikasi Parks — Berdasar Hubungan dengan Sfingter</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Frekuensi</th><th>Jalur Traktus</th><th>Risiko Inkontinensia</th></tr>
+        <tr><td><strong>Intersfingterik</strong></td><td>70%</td><td>Dari ruang intersfingterik → ke kulit (tidak menembus sfingter eksternus)</td><td>Rendah</td></tr>
+        <tr><td><strong>Transsfingterik</strong></td><td>25%</td><td>Menembus sfingter ani eksternus ke fossa iskiorektal</td><td>Sedang–Tinggi</td></tr>
+        <tr><td><strong>Suprasfingterik</strong></td><td>4%</td><td>Naik ke atas sfingter → melingkar turun ke kulit</td><td>Tinggi</td></tr>
+        <tr><td><strong>Ekstrasfingterik</strong></td><td>1%</td><td>Dari rektum langsung ke kulit (lewat levator ani)</td><td>Sangat Tinggi</td></tr>
+      </table>
+    </div>
+    <div class="alert alert-info">
+      <span class="alert-icon">📐</span>
+      <div><strong>Goodsall Rule (Hukum Goodsall):</strong> Opening eksternal di posterior (belakang garis transversal anus) → opening internal di garis tengah posterior. Opening eksternal di anterior → traktus langsung ke anterior linea dentata. Penting untuk memprediksi traktus sebelum operasi.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Manifestasi Klinis &amp; Diagnosis</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Gejala Utama:</p>
+        <ul class="bullet-list">
+          <li><strong>Discharge purulen/berbau</strong> dari lubang kulit perianal (kronis, berulang)</li>
+          <li>Nyeri intermiten saat abses rekuren</li>
+          <li>Pruritus, iritasi kulit perianal</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Pemeriksaan:</p>
+        <ul class="bullet-list">
+          <li>Inspeksi: opening eksternal di kulit perianal</li>
+          <li>Palpasi: traktus teraba seperti tali keras</li>
+          <li>Probing: di OK dengan anestesi (<em>jangan di poli!</em>)</li>
+          <li>Anoskopi: cari opening internal di linea dentata</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--forest);margin:12px 0 8px;">Pemeriksaan Penunjang:</p>
+    <ul class="bullet-list">
+      <li><strong>MRI pelvis</strong>: gold standard untuk fistula kompleks/rekuren — nilai traktus, abses, hubungan dengan sfingter</li>
+      <li><strong>Endoanal USG</strong>: alternatif MRI, operator-dependent</li>
+      <li><strong>Fistulogrfi</strong>: lihat variasi traktus</li>
+      <li><strong>Kolonoskopi</strong>: jika curiga IBD (Crohn)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana Operatif</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe Fistula</th><th>Operasi Pilihan</th></tr>
+        <tr><td>Intersfingterik rendah</td><td>Fistulotomi (buka traktus)</td></tr>
+        <tr><td>Transsfingterik rendah</td><td>Fistulotomi / Seton cutting</td></tr>
+        <tr><td>Transsfingterik tinggi</td><td>Loose seton → 2-stage fistulotomi</td></tr>
+        <tr><td>Kompleks / rekuren</td><td>Seton drainase, LIFT (ligation of intersphincteric fistula tract), VRAFT, Fistula plug</td></tr>
+        <tr><td>Crohn's fistula</td><td>Seton + terapi biologis; <strong>hindari fistulotomi</strong></td></tr>
+      </table>
+    </div>
+    <div class="alert alert-danger">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Prinsip Terpenting:</strong> Tujuan operasi = eradikasi fistula SAMBIL menjaga kontinensia. Jangan potong terlalu banyak sfingter → risiko inkontinensia alvi permanen 5–15%.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROLAPS REKTUM ===== -->
+<div class="section" id="prolaps">
+  <h2 class="section-title">Prolaps Rektum <span class="skdi skdi-3a">3A</span></h2>
+  <p class="section-desc">Penonjolan dinding rektum keluar melalui anus — bedakan dari prolaps mukosa/hemoroid prolaps.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📖</span>Definisi &amp; Epidemiologi</div>
+    <ul class="bullet-list">
+      <li><strong>Prolaps Rektum (Rectal Procidentia)</strong>: penonjolan seluruh lapisan rektum keluar melalui anus</li>
+      <li>Lebih sering pada <strong>wanita &gt;50 tahun</strong> (rasio F:M = 6:1)</li>
+      <li>Pada <strong>anak &lt;4 tahun</strong>: terkait konstipasi kronik, sering sembuh spontan</li>
+      <li>Faktor risiko: persalinan multipara, konstipasi kronik, neuropati, disfungsi dasar panggul</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">📊</span>Klasifikasi Derajat</div>
+    <div class="grade-grid">
+      <div class="grade-box" style="background:#F7FEF9;border-color:#86EFAC;">
+        <div class="grade-num">I</div>
+        <div class="grade-label">Intususepsi Mukosa</div>
+        <div class="grade-desc">Tidak keluar dari anus; hanya terlihat pada defekografi</div>
+      </div>
+      <div class="grade-box" style="background:#DCFCE7;border-color:#4ADE80;">
+        <div class="grade-num">II</div>
+        <div class="grade-label">Prolaps saat Defekasi</div>
+        <div class="grade-desc">Keluar saat mengejan, <strong>reduksi spontan</strong></div>
+      </div>
+      <div class="grade-box" style="background:#BBF7D0;border-color:#22C55E;">
+        <div class="grade-num">III</div>
+        <div class="grade-label">Perlu Reduksi Manual</div>
+        <div class="grade-desc">Prolaps tidak bisa masuk sendiri, perlu dibantu tangan</div>
+      </div>
+      <div class="grade-box" style="background:#86EFAC;border-color:var(--green);">
+        <div class="grade-num">IV</div>
+        <div class="grade-label">Prolaps Menetap</div>
+        <div class="grade-desc">Tidak dapat direduksi sama sekali → darurat jika iskemia</div>
+      </div>
+    </div>
+    <div class="alert alert-green" style="margin-top:12px;">
+      <span class="alert-icon">🔑</span>
+      <div><strong>Kunci Bedakan Prolaps Rektum vs Hemoroid Prolaps:</strong><br>
+      ✓ Prolaps rektum = <strong>lipatan KONSENTRIK</strong> (cincin melingkar) — seluruh lapisan dinding<br>
+      ✓ Hemoroid prolaps = <strong>lipatan RADIAL</strong> (seperti jari-jari) — hanya mukosa/vaskular</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Manifestasi Klinis &amp; Pemeriksaan</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Gejala:</p>
+        <ul class="bullet-list">
+          <li>Benjolan keluar saat peningkatan tekanan abdominal (batuk, mengejan)</li>
+          <li>Discharge mukus/darah</li>
+          <li><strong>Inkontinensia alvi</strong> 50–70% kasus (sfingter melemah)</li>
+          <li>Konstipasi/obstipasi</li>
+          <li>Rasa tidak tuntas saat BAB</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Pemeriksaan Fisik:</p>
+        <ul class="bullet-list">
+          <li>Pasien diminta mengejan → tampak cincin konsentrik</li>
+          <li>Colok dubur: tonus sfingter lemah, ampula rektum kosong</li>
+          <li>Tes perineal descent: turun &gt;3–4 cm saat mengejan = abnormal</li>
+          <li>Pemeriksaan ginekologi wanita: nilai prolaps uteri/vagina bersamaan</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:13px;font-weight:600;color:var(--forest);margin:12px 0 8px;">Penunjang:</p>
+    <ul class="bullet-list">
+      <li><strong>Defekografi</strong>: gold standard — nilai intususepsi, rektokel, enterokel</li>
+      <li><strong>MRI defekografi</strong>: dinamis, tanpa radiasi</li>
+      <li><strong>Kolonoskopi</strong>: singkirkan tumor, IBD</li>
+      <li><strong>Manometri anorektal</strong>: nilai fungsi sfingter</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana</div>
+    <div class="compare-grid">
+      <div class="compare-card left">
+        <div class="compare-head" style="color:var(--forest)">Non-Operatif</div>
+        <ul class="bullet-list">
+          <li>Untuk: anak / pasien risiko tinggi operasi</li>
+          <li>Diet tinggi serat + pelunak tinja</li>
+          <li>Atasi konstipasi dan inkontinensia</li>
+          <li>Anak &gt;90% sembuh dengan konservatif</li>
+        </ul>
+      </div>
+      <div class="compare-card right">
+        <div class="compare-head" style="color:var(--teal)">Operatif Definitif</div>
+        <ul class="bullet-list">
+          <li>Untuk: dewasa dengan prolaps komplit</li>
+          <li><strong>Transanal</strong>: reseksi anastomosis (Altemeier)</li>
+          <li><strong>Transabdominal</strong>: Rectopexy ± Reseksi (Frykman-Goldberg)</li>
+          <li>Abdominal approach = rekurensi &lt;5%</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:12px;">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Nekrosis Prolaps</strong> = darurat bedah — prolaps yang tidak dapat direduksi + iskemia → operasi segera.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEMOROID ===== -->
+<div class="section" id="hemoroid">
+  <h2 class="section-title">Hemoroid <span class="skdi skdi-4a">4A</span> (Gr 1–2) / <span class="skdi skdi-3a">3A</span> (Gr 3–4)</h2>
+  <p class="section-desc">Bantalan vaskular normal kanal ani yang mengalami pembesaran dan gejala — bukan penyakit jika tidak simtomatik.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">📖</span>Definisi &amp; Patofisiologi</div>
+    <p style="font-size:14px;margin-bottom:12px;">Hemoroid = bantalan vaskular normal di kanal ani yang mengalami <strong>pembesaran, pergeseran, dan menimbulkan gejala</strong>. Bukan penyakit jika asimtomatik.</p>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Faktor Risiko:</p>
+        <ul class="bullet-list">
+          <li>BAB disertai mengejan berkepanjangan</li>
+          <li>Sembelit (diet rendah serat)</li>
+          <li>Diare kronis</li>
+          <li>Kehamilan dan persalinan</li>
+          <li>Herediter</li>
+          <li>Pekerjaan (duduk/berdiri lama)</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;">Teori Pembentukan:</p>
+        <ul class="bullet-list">
+          <li><strong>Cushion sliding theory</strong>: bantalan hemoroid bergeser ke bawah → prolaps (paling diterima)</li>
+          <li>Vascular hyperplasia theory</li>
+          <li>Varicose vein theory</li>
+          <li>Internal sphincter hyperactivity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">📊</span>Klasifikasi Hemoroid</div>
+    <div class="compare-grid">
+      <div class="compare-card left">
+        <div class="compare-head" style="color:var(--forest)">🔴 Hemoroid Interna</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:8px;">Dari pleksus hemoroidalis superior. Di atas linea dentata. <strong>Tidak nyeri</strong> (innervasi otonom).</p>
+        <ul class="bullet-list">
+          <li><strong>Grade 1</strong>: Belum prolaps / tidak ada benjolan</li>
+          <li><strong>Grade 2</strong>: Prolaps saat mengejan, kembali spontan</li>
+          <li><strong>Grade 3</strong>: Prolaps saat mengejan, dapat dimasukkan dengan jari</li>
+          <li><strong>Grade 4</strong>: Prolaps menetap, tidak dapat dimasukkan</li>
+        </ul>
+      </div>
+      <div class="compare-card right">
+        <div class="compare-head" style="color:var(--teal)">🔵 Hemoroid Eksterna</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:8px;">Dari pleksus hemoroidalis inferior. Di bawah linea dentata. <strong>Nyeri</strong> jika ada trombosis (innervasi somatik).</p>
+        <ul class="bullet-list">
+          <li>Benjolan di pinggir anus, berwarna biru-ungu jika trombosis</li>
+          <li>Nyeri hebat mendadak → trombosis hemoroid eksterna</li>
+          <li>Tidak ada gradasi seperti interna</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-info" style="margin-top:12px;">
+      <span class="alert-icon">⏰</span>
+      <div><strong>Lokasi Khas Hemoroid Interna:</strong> Jam 3, 7, 11 posisi litotomi (sering disebut sebagai "the primary hemorrhoids" sesuai anatomi pembuluh darah terminal a. rektalis superior). Bisa melingkar pada kasus berat.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">🩺</span>Gambaran Klinis</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Tipe</th><th>Gejala</th><th>Tanda</th></tr>
+        <tr><td><strong>Hemoroid Interna</strong></td><td>Perdarahan merah segar <strong>tanpa nyeri</strong>, prolaps, sensasi mengganjal, discharge mukus, pruritus</td><td>Massa di jam 3,7,11; Grade 1–2 hanya terlihat dengan anoskopi</td></tr>
+        <tr><td><strong>Hemoroid Eksterna</strong></td><td><strong>Nyeri hebat</strong> jika ada trombosis, benjolan biru di pinggir anus</td><td>Benjolan biru-ungu, edematosa, nyeri tekan hebat</td></tr>
+      </table>
+    </div>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Gejala Hemoroid Interna: <strong>"PPGD"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Perdarahan</strong> segar menetes saat BAB, tidak nyeri</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Prolaps</strong> benjolan saat mengejan (sesuai grade)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">G</span><div><strong>Gatal</strong> (pruritus ani) karena discharge mukus</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">D</span><div><strong>Discharge</strong> mukus (sensasi basah / lembab di anus)</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">🔬</span>Pemeriksaan &amp; Penunjang</div>
+    <ol class="step-list">
+      <li><span class="step-num">1</span><strong>Inspeksi posisi litotomi</strong>: lihat prolaps, trombosis, fisura</li>
+      <li><span class="step-num">2</span><strong>Anoskopi/Proktoskopi</strong>: gold standard untuk hemoroid interna — lihat lokasi dan grade</li>
+      <li><span class="step-num">3</span><strong>Colok dubur</strong>: nilai tonus sfingter, massa tumor (singkirkan keganasan)</li>
+      <li><span class="step-num">4</span><strong>Kolonoskopi</strong>: WAJIB jika usia &gt;45 tahun, perdarahan signifikan, anemia, riwayat keluarga Ca kolorektal</li>
+    </ol>
+    <div class="alert alert-danger">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>"Perdarahan anorektal TIDAK PASTI hemoroid."</strong> Usia &gt;45 tahun + BAB berdarah → kolonoskopi sampai terbukti bukan keganasan kolorektal!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">💊</span>Tatalaksana Berdasar Grade</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Grade</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Grade 1–2</strong> <span class="skdi skdi-4a">4A</span></td><td>
+          <strong>Konservatif:</strong><br>
+          • Diet tinggi serat 25–30g/hari + air 2–3L/hari<br>
+          • Pelunak tinja, hindari alkohol, hindari mengejan lama<br>
+          • Sitz bath air hangat 10–15 menit, 2–3x/hari<br>
+          • Medikamentosa: venotonik (diosmin, hesperidin), topikal kortikosteroid/anestesi lokal, analgesik oral
+        </td></tr>
+        <tr><td><strong>Grade 2–3 (gagal konservatif)</strong></td><td>
+          <strong>Prosedur Ambulatoar:</strong><br>
+          • <strong>Rubber Band Ligation (RBL)</strong>: Gold standard grade 2–3, efektivitas 80–90%<br>
+          • Skleroterapi: injeksi sklerosan, grade 1–2<br>
+          • Infrared Coagulation: koagulasi pembuluh darah
+        </td></tr>
+        <tr><td><strong>Grade 3–4</strong> <span class="skdi skdi-3a">3A</span></td><td>
+          <strong>Operatif:</strong><br>
+          • <strong>Hemoroidektomi Milligan-Morgan</strong>: eksisi terbuka, gold standard<br>
+          • Ferguson: hemoroidektomi tertutup<br>
+          • Stapled Hemorrhoidectomy: grade 3–4 sirkular, nyeri post-op lebih ringan<br>
+          • Laser/THD: minimal invasif, biaya lebih tinggi
+        </td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ALUR DIAGNOSIS ===== -->
+<div class="section" id="alur">
+  <h2 class="section-title">Alur Diagnosis Penyakit Anorektal (Kuliah Pakar 5)</h2>
+  <p class="section-desc">Pendekatan sistematis berdasarkan keluhan utama — BAB berdarah, nyeri dubur, dan benjolan di dubur.</p>
+
+  <!-- BAB BERDARAH -->
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--danger-pale)">🩸</span>Alur: BAB Disertai Darah</div>
+    <div class="alert alert-warn" style="margin-bottom:14px;">
+      <span class="alert-icon">🔑</span>
+      <div><strong>Langkah 1 — Bedakan Hematochezia vs Melena:</strong><br>
+      <strong>Hematochezia</strong> = darah merah segar → sumber kolon/anorektal<br>
+      <strong>Melena</strong> = feses hitam lengket, bau khas → sumber atas (lambung–duodenum–varises esofagus)</div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">Anamnesis 6P untuk Hematochezia:</p>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Anamnesis Hematochezia: <strong>"6P"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Perdarahan</strong>: merah segar/tua, jumlah, bercampur feses atau menetes</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Penyerta</strong>: nyeri saat BAB, tenesmus, lendir, diare/konstipasi</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Pencetus</strong>: mengejan, alkohol, NSAID, diet pedas</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Pola BAB</strong>: perubahan pola &gt;6 minggu = WASPADA keganasan</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Penurunan BB</strong>, anemia, demam: <strong>Alarm Symptom!</strong></div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Penyakit dahulu &amp; keluarga</strong>: IBD, Ca kolorektal</div></div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin:14px 0 8px;">Tentukan Lokasi Perdarahan dari Karakter Darah:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Karakter Darah</th><th>Kemungkinan Sumber</th></tr>
+        <tr><td>Merah segar menetes, <strong>tidak nyeri</strong></td><td>Hemoroid interna</td></tr>
+        <tr><td>Merah + <strong>nyeri hebat</strong> saat BAB</td><td>Fisura ani akut</td></tr>
+        <tr><td>Bercampur feses + diare kronis</td><td>IBD, kolitis infeksiosa</td></tr>
+        <tr><td>Darah + lendir + <strong>perubahan pola BAB</strong></td><td>Ca kolorektal, polip</td></tr>
+        <tr><td>Merah banyak <strong>tanpa nyeri</strong></td><td>Divertikulosis, angiodisplasia</td></tr>
+      </table>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin:14px 0 8px;">Tatalaksana Awal Berdasar Berat Perdarahan:</p>
+    <ol class="step-list">
+      <li><span class="step-num">1</span><strong>Stabil, ringan</strong>: rawat jalan, tatalaksana sesuai penyebab</li>
+      <li><span class="step-num">2</span><strong>Tidak stabil, masif</strong>: resusitasi cairan, transfusi, rujuk bedah/GE segera</li>
+      <li><span class="step-num">3</span>Hentikan NSAID/antiplatelet jika memungkinkan</li>
+    </ol>
+    <div class="alert alert-danger">
+      <span class="alert-icon">🚨</span>
+      <div><strong>PERHATIAN:</strong> Usia &gt;45 tahun + BAB berdarah → <strong>kolonoskopi wajib</strong> sampai terbukti bukan keganasan kolorektal!</div>
+    </div>
+  </div>
+
+  <!-- NYERI DUBUR -->
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--warn-pale)">😣</span>Alur: Nyeri pada Dubur</div>
+    <div class="table-wrap" style="margin-bottom:14px;">
+      <table>
+        <tr><th>Pola Nyeri</th><th>Kemungkinan Diagnosis</th></tr>
+        <tr><td>Nyeri hebat mendadak, sulit duduk</td><td>Trombosis hemoroid eksterna, abses perianal</td></tr>
+        <tr><td>Nyeri tajam saat BAB + darah sedikit</td><td>Fisura ani akut</td></tr>
+        <tr><td>Nyeri tumpul berdenyut + demam</td><td>Abses iskiorektal/pelvis</td></tr>
+        <tr><td>Nyeri kram mendadak 1–30 menit, hilang sendiri, tidak ada temuan fisik</td><td>Proktalgia fugaks</td></tr>
+      </table>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px;">Anamnesis Fokus 4P:</p>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Anamnesis Nyeri Dubur: <strong>"4P"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Pemicu</strong>: BAB keras, diare, hubungan seksual anal, trauma</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Penyerta</strong>: demam, keluar nanah/darah, gatal, inkontinensia</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Perjalanan</strong>: akut &lt;2 minggu vs kronik &gt;6 minggu</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Pengobatan sebelumnya</strong>: salep apa, membaik atau tidak</div></div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:12px;">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Nyeri + bengkak + demam → anggap ABSES sampai terbukti bukan.</strong> Jangan tunda, risiko sepsis tinggi. Jika fluktuasi (+) dan demam → jangan colok dubur dalam, segera rujuk bedah untuk insisi drainase.</div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin:12px 0 8px;">Tatalaksana di FKTP:</p>
+    <ul class="bullet-list">
+      <li><strong>Fisura ani akut</strong>: diet serat, sitz bath, salep nitrat/CCB topikal</li>
+      <li><strong>Hemoroid trombosis &lt;72 jam</strong>: eksisi di poli bedah jika nyeri hebat</li>
+      <li><strong>Proktalgia fugaks</strong>: reassurance, sitz bath, hindari duduk lama</li>
+    </ul>
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin:10px 0 6px;">Rujuk segera ke bedah:</p>
+    <ul class="bullet-list">
+      <li>Abses perianal → insisi dan drainase</li>
+      <li>Trombosis hemoroid &gt;72 jam atau nekrosis</li>
+      <li>Curiga Ca anorektal</li>
+      <li>Fisura kronik &gt;8 minggu tidak membaik</li>
+    </ul>
+  </div>
+
+  <!-- BENJOLAN DUBUR -->
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--blue-pale)">🔵</span>Alur: Benjolan di Dubur</div>
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:10px;">Karakterisasi benjolan dengan 4 pertanyaan:</p>
+    <div class="mnemonic">
+      <div class="mnemonic-title">🧠 Mnemonic — Karakterisasi Benjolan Dubur: <strong>"MBNP"</strong></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">M</span><div><strong>Munculnya</strong>: tiba-tiba atau pelan-pelan? Saat BAB saja atau menetap?</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">B</span><div><strong>Bisa masuk</strong>: kembali spontan (hemoroid gr 2–3) vs tidak bisa masuk (gr 4/prolaps)</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">N</span><div><strong>Nyeri atau tidak</strong>: nyeri → trombosis/abses; tidak nyeri → hemoroid biasa/prolaps/polip</div></div>
+      <div class="mnemonic-row"><span class="mnemonic-letter">P</span><div><strong>Perdarahan</strong>: merah segar menetes → hemoroid/fisura; darah + feses → waspada Ca</div></div>
+    </div>
+
+    <p style="font-size:13px;font-weight:700;color:var(--forest);margin:14px 0 8px;">Red Flag yang Harus Dicari:</p>
+    <ul class="bullet-list">
+      <li>Penurunan berat badan tidak disengaja</li>
+      <li>Perubahan pola BAB &gt;6 minggu</li>
+      <li>Darah gelap bercampur lendir</li>
+      <li>Riwayat keluarga Ca kolorektal</li>
+      <li>Massa keras, tidak rata, fix pada colok dubur</li>
+    </ul>
+    <div class="alert alert-warn">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>"Semua benjolan di dubur bukan hemoroid."</strong> Usia &gt;40 tahun, ada red flag, atau tidak membaik dengan terapi konservatif → <strong>kolonoskopi wajib</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DIAGNOSIS BANDING ===== -->
+<div class="section" id="diagbanding">
+  <h2 class="section-title">Tabel Diagnosis Banding Penyakit Anorektal</h2>
+  <p class="section-desc">Perbandingan sistematis — wajib hafal untuk membedakan di soal UKMPPD.</p>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--green-pale)">⚖️</span>DD: Benjolan Anorektal</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Diagnosis</th><th>Onset</th><th>Nyeri</th><th>Ciri Khas</th><th>PF Khas</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Hemoroid Interna Prolaps</strong></td><td>Bertahap</td><td>Tidak nyeri</td><td>Lunak merah, keluar saat BAB, dapat masuk lagi (gr 2–3)</td><td>Lipatan radial, anoskopi grade</td><td>Konservatif/RBL/operatif sesuai grade</td></tr>
+        <tr><td><strong>Hemoroid Eksterna Trombosis</strong></td><td>Mendadak</td><td>Nyeri hebat</td><td>Benjolan biru-ungu di pinggir anus, muncul tiba-tiba</td><td>Massa eksternus nyeri, tidak bisa masuk</td><td>Eksisi &lt;72j / konservatif &gt;72j</td></tr>
+        <tr><td><strong>Prolaps Rektum</strong></td><td>Progresif</td><td>Minimal</td><td>Sering pada lansia/anak; cincin konsentrik; inkontinensia</td><td>Lipatan konsentrik saat mengejan; tonus sfingter lemah</td><td>Operatif (rectopexy / Altemeier)</td></tr>
+        <tr><td><strong>Abses Perianal</strong></td><td>Akut</td><td>Sangat nyeri</td><td>Bengkak merah, berdenyut, fluktuatif, demam</td><td>Fluktuasi, eritema, nyeri tekan hebat</td><td>Insisi dan drainase segera</td></tr>
+        <tr><td><strong>Polip/Ca Anorektal</strong></td><td>Kronik, progresif</td><td>Tidak nyeri awal</td><td>Perubahan pola BAB, darah + lendir, penurunan BB</td><td>Keras, irregular, fix pada colok dubur</td><td>Biopsi, reseksi</td></tr>
+        <tr><td><strong>Skin Tag</strong></td><td>Kronik</td><td>Tidak nyeri</td><td>Lipatan kulit lunak tidak nyeri, sisa hemoroid/fisura lama</td><td>Jaringan kulit lunak, tidak fluktuatif</td><td>Eksisi jika simtomatik</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--teal-pale)">⚖️</span>DD: Nyeri Dubur Akut</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Diagnosis</th><th>Onset</th><th>Karakter Nyeri</th><th>Tanda Khas</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Trombosis Hemoroid Eksterna</strong></td><td>Mendadak</td><td>Nyeri hebat saat duduk, terus-menerus</td><td>Benjolan biru-ungu di pinggir anus, tidak ada demam</td><td>Eksisi &lt;72j; sitz bath + analgesik &gt;72j</td></tr>
+        <tr><td><strong>Fisura Ani Akut</strong></td><td>Saat BAB keras</td><td>Nyeri robek/bakar saat BAB, mereda setelah BAB</td><td>Fisura linier di garis posterior jam 6; sedikit darah segar</td><td>Diet serat, sitz bath, salep nitrat/CCB, anestesi lokal</td></tr>
+        <tr><td><strong>Abses Perianal</strong></td><td>Progresif 2–5 hari</td><td>Nyeri berdenyut, tidak hilang, bertambah berat</td><td>Bengkak eritema fluktuatif + demam</td><td>Insisi drainase SEGERA</td></tr>
+        <tr><td><strong>Proktalgia Fugaks</strong></td><td>Episodik mendadak</td><td>Kram/kejang 1–30 menit, hilang sendiri tanpa pemicu</td><td>Tidak ada temuan fisik abnormal</td><td>Reassurance, sitz bath hangat, diltiazem topikal</td></tr>
+        <tr><td><strong>Abses Iskiorektal</strong></td><td>Progresif</td><td>Nyeri dalam, tumpul, demam tinggi</td><td>Tidak ada tanda luar, nyeri dalam pada colok dubur</td><td>Insisi drainase (di RS, butuh anestesi)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon" style="background:var(--lime-pale)">⚖️</span>DD: Discharge &amp; Massa Kronis Perianal</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Diagnosis</th><th>Karakter Discharge</th><th>Ciri Khas</th><th>Penunjang</th><th>Tatalaksana</th></tr>
+        <tr><td><strong>Fistula Ani</strong></td><td>Purulen/berbau kronik dari opening eksternal</td><td>Traktus teraba seperti tali; riwayat abses sebelumnya</td><td>MRI pelvis, endoanal USG</td><td>Fistulotomi / Seton / LIFT sesuai tipe</td></tr>
+        <tr><td><strong>Hidradenitis Supurativa</strong></td><td>Purulen dari multipel sinus</td><td>Multipel sinus di kulit perianal, ketiak, selangkangan</td><td>Klinis, kultur</td><td>Antibiotik jangka panjang, wide excision</td></tr>
+        <tr><td><strong>Kista Pilonidal</strong></td><td>Discharge dari garis tengah sakrokoksigeus</td><td>Di garis tengah posterior, bukan di perianal; sering pada pria muda berbulu</td><td>MRI</td><td>Eksisi + marsupialisasi / flap</td></tr>
+        <tr><td><strong>Proktitis</strong></td><td>Lendir + nanah dari rektum</td><td>Tenesmus, diare, riwayat seks anal atau radioterapi</td><td>Proktoskopi + biopsi + PCR</td><td>Sesuai etiologi</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div class="section" id="quiz">
+  <h2 class="section-title">Latihan Soal UKMPPD — Anorektal</h2>
+  <p class="section-desc">10 soal tipe CBT bergaya UKMPPD — materi Hemoroid, Abses, Fistula, Prolaps, Proktitis, dan Alur Diagnosis.</p>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-text" id="progressText">0 / 10 dijawab</div>
+
+  <!-- Q1 -->
+  <div class="quiz-card" id="q1">
+    <div class="quiz-num">Soal 1</div>
+    <div class="quiz-vignette">Seorang laki-laki 35 tahun datang dengan keluhan BAB berdarah merah segar, menetes setelah BAB, tidak nyeri, sejak 3 bulan. Riwayat konstipasi kronik. Pemeriksaan: inspeksi perianal normal. Colok dubur tidak teraba massa. Anoskopi: tampak bantalan vaskular membesar di atas linea dentata, belum ada prolaps.</div>
+    <p class="quiz-question">Apakah diagnosis dan tatalaksana yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q1',false,'A')"><span class="opt-letter">A</span>Hemoroid eksterna — eksisi</button>
+      <button class="quiz-option" onclick="answer(this,'q1',true,'B')"><span class="opt-letter">B</span>Hemoroid interna grade 1 — modifikasi diet + venotonik</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'C')"><span class="opt-letter">C</span>Hemoroid interna grade 3 — rubber band ligation</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'D')"><span class="opt-letter">D</span>Hemoroid interna grade 4 — hemoroidektomi</button>
+      <button class="quiz-option" onclick="answer(this,'q1',false,'E')"><span class="opt-letter">E</span>Fisura ani — salep nitrat</button>
+    </div>
+    <div class="explanation" id="exp-q1">✅ <strong>B. Hemoroid Interna Grade 1 — Modifikasi diet + venotonik</strong><br><br>
+    Kunci grade: hemoroid terlihat di anoskopi tapi <strong>belum ada prolaps</strong> = Grade 1. Tatalaksana grade 1 = <strong>konservatif</strong>: diet tinggi serat, banyak minum, venotonik (diosmin-hesperidin), pelunak tinja. <strong>Kompetensi 4A</strong> → dokter umum bisa tangani sendiri.<br><br>
+    ❌ Grade 3 = prolaps saat mengejan, bisa masuk dengan jari → RBL. ❌ Grade 4 = prolaps menetap → operasi. ❌ Fisura = nyeri hebat saat BAB.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" id="q2">
+    <div class="quiz-num">Soal 2</div>
+    <div class="quiz-vignette">Seorang perempuan 28 tahun datang ke IGD dengan nyeri hebat di dubur mendadak sejak tadi pagi setelah habis BAB keras. Tidak ada demam. Dari inspeksi perianal: tampak benjolan biru-ungu sebesar kelereng di pinggir anus kanan, keras, nyeri tekan (+). Colok dubur tidak dilakukan karena nyeri sangat berat.</div>
+    <p class="quiz-question">Apakah diagnosis dan penanganan yang paling tepat pada kasus ini?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q2',false,'A')"><span class="opt-letter">A</span>Abses perianal — insisi drainase segera</button>
+      <button class="quiz-option" onclick="answer(this,'q2',true,'B')"><span class="opt-letter">B</span>Trombosis hemoroid eksterna — eksisi &lt;72 jam</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'C')"><span class="opt-letter">C</span>Hemoroid interna grade 4 — hemoroidektomi</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'D')"><span class="opt-letter">D</span>Prolaps rektum — reduksi manual</button>
+      <button class="quiz-option" onclick="answer(this,'q2',false,'E')"><span class="opt-letter">E</span>Fisura ani — salep CCB</button>
+    </div>
+    <div class="explanation" id="exp-q2">✅ <strong>B. Trombosis Hemoroid Eksterna — Eksisi &lt;72 jam</strong><br><br>
+    Kunci: benjolan <strong>biru-ungu</strong> di <strong>pinggir anus</strong> (di bawah linea dentata = eksterna) + nyeri <strong>hebat mendadak</strong> + tidak ada demam. Ini adalah trombosis hemoroid eksterna. Karena &lt;72 jam, pilihan terbaik adalah <strong>eksisi torombus</strong> di poli bedah (anestesi lokal) → nyeri langsung reda. Jika &gt;72 jam → konservatif (sitz bath, analgesik, venotonik) karena trombus sudah mulai resolusi.<br><br>
+    ❌ Abses = ada demam + fluktuasi + eritema. ❌ Prolaps rektum = benjolan besar, cincin konsentrik, bukan biru-ungu kecil.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" id="q3">
+    <div class="quiz-num">Soal 3</div>
+    <div class="quiz-vignette">Seorang laki-laki 32 tahun datang dengan keluhan keluar nanah berbau dari lubang kecil di kulit perianal kanan sejak 2 bulan. Riwayat 4 bulan lalu pernah operasi insisi drainase abses di dubur. Tidak ada demam saat ini. Pemeriksaan: tampak opening eksternal di posisi jam 5 (posterior-lateral kanan), teraba traktus seperti tali menuju anus.</div>
+    <p class="quiz-question">Apakah diagnosis yang paling tepat dan kompetensi SKDI-nya?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q3',false,'A')"><span class="opt-letter">A</span>Abses perianal rekuren — SKDI 3A, insisi drainase</button>
+      <button class="quiz-option" onclick="answer(this,'q3',true,'B')"><span class="opt-letter">B</span>Fistula ani — SKDI 2, rujuk ke Sp.B</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'C')"><span class="opt-letter">C</span>Fistula ani — SKDI 3A, fistulotomi di FKTP</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'D')"><span class="opt-letter">D</span>Kista pilonidal — SKDI 2, eksisi di Sp.B</button>
+      <button class="quiz-option" onclick="answer(this,'q3',false,'E')"><span class="opt-letter">E</span>Hidradenitis supurativa — antibiotik jangka panjang</button>
+    </div>
+    <div class="explanation" id="exp-q3">✅ <strong>B. Fistula Ani — SKDI 2, rujuk ke Sp.B</strong><br><br>
+    Fistula ani adalah <strong>sekuel abses anorektal</strong> (90% kasus). Riwayat abses + operasi drainase + discharge purulen kronik dari opening eksternal + traktus teraba seperti tali → <strong>fistula ani</strong>. Kompetensi SKDI = <strong>2</strong> → dokter umum hanya diagnosis + rujuk, tidak boleh melakukan fistulotomi sendiri.<br><br>
+    ❌ Kista pilonidal = di garis tengah sakrokoksigeus (bukan perianal), sering pada pria berbulu. ❌ Hidradenitis supurativa = multipel sinus di berbagai lokasi (ketiak, selangkangan, perianal).</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" id="q4">
+    <div class="quiz-num">Soal 4</div>
+    <div class="quiz-vignette">Seorang perempuan 55 tahun datang dengan keluhan benjolan di dubur yang keluar saat BAB sudah 2 tahun. Awalnya bisa masuk sendiri, sekarang harus dibantu tangan. Sering merasa tidak tuntas BAB. Ada inkontinensia alvi ringan. Dari pemeriksaan saat pasien diminta mengejan: tampak benjolan besar dengan lipatan-lipatan konsentrik melingkar.</div>
+    <p class="quiz-question">Apakah diagnosis yang paling tepat dan perbedaan kunci dengan hemoroid prolaps?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q4',false,'A')"><span class="opt-letter">A</span>Hemoroid interna grade 4 — lipatan konsentrik</button>
+      <button class="quiz-option" onclick="answer(this,'q4',true,'B')"><span class="opt-letter">B</span>Prolaps rektum grade 3 — lipatan konsentrik (hemoroid = radial)</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'C')"><span class="opt-letter">C</span>Prolaps mukosa rektum — hanya mukosa yang keluar</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'D')"><span class="opt-letter">D</span>Hemoroid interna grade 3 — bisa masuk dengan jari</button>
+      <button class="quiz-option" onclick="answer(this,'q4',false,'E')"><span class="opt-letter">E</span>Polip rektum prolaps — keras, tidak nyeri</button>
+    </div>
+    <div class="explanation" id="exp-q4">✅ <strong>B. Prolaps Rektum Grade 3 — Lipatan Konsentrik</strong><br><br>
+    Dua kunci diagnosis: (1) Lipatan <strong>KONSENTRIK</strong> = prolaps rektum (seluruh lapisan dinding); (2) Grade 3 = prolaps saat mengejan, perlu <strong>dimasukkan manual</strong>.<br><br>
+    <strong>Pembeda utama Prolaps Rektum vs Hemoroid Prolaps:</strong><br>
+    ✓ Prolaps rektum = lipatan <strong>KONSENTRIK</strong> (melingkar)<br>
+    ✓ Hemoroid prolaps = lipatan <strong>RADIAL</strong> (seperti jari-jari roda)<br><br>
+    ❌ Grade 4 = tidak bisa masuk sama sekali. ❌ Polip = keras, permukaan irregular.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" id="q5">
+    <div class="quiz-num">Soal 5</div>
+    <div class="quiz-vignette">Seorang laki-laki 25 tahun datang dengan demam 38,8°C, nyeri berdenyut di dubur sejak 5 hari, sulit duduk dan sulit BAB. Pemeriksaan: tampak bengkak merah di perianal kanan, nyeri tekan hebat, fluktuatif. Tidak ada riwayat DM.</div>
+    <p class="quiz-question">Apakah tatalaksana yang paling tepat dan yang TIDAK BOLEH dilakukan?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q5',false,'A')"><span class="opt-letter">A</span>Antibiotik oral saja selama 7 hari</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'B')"><span class="opt-letter">B</span>Antibiotik IV + observasi 48 jam</button>
+      <button class="quiz-option" onclick="answer(this,'q5',true,'C')"><span class="opt-letter">C</span>Insisi dan drainase segera (antibiotik saja tidak cukup)</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'D')"><span class="opt-letter">D</span>Sitz bath + analgesik + rujuk 1 minggu</button>
+      <button class="quiz-option" onclick="answer(this,'q5',false,'E')"><span class="opt-letter">E</span>CT scan pelvis sebelum tindakan</button>
+    </div>
+    <div class="explanation" id="exp-q5">✅ <strong>C. Insisi dan Drainase Segera</strong><br><br>
+    Abses perianal = <strong>insisi dan drainase</strong> adalah tatalaksana utama. <strong>Antibiotik saja TIDAK CUKUP</strong> — pus tidak bisa dieliminasi dengan antibiotik, harus dikeluarkan secara fisik. Jika hanya antibiotik → abses akan rekuren dan risiko pembentukan fistula makin tinggi.<br><br>
+    Risiko jika tidak ditangani: sepsis, fistula ani (30–50%), Fournier gangrene pada pasien DM/imunokompromais. Abses perianal superfisial bisa di-drain dengan anestesi lokal di poli/IGD; abses dalam (iskiorektal, supralevator) perlu anestesi spinal/umum di OK.</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" id="q6">
+    <div class="quiz-num">Soal 6</div>
+    <div class="quiz-vignette">Seorang laki-laki 30 tahun dengan riwayat anal seks datang dengan keluhan tenesmus, nyeri rektal, dan diare berlendir darah sejak 1 minggu. Pemeriksaan colok dubur: nyeri tekan, sarung tangan: lendir purulen (+). Proktoskopi: mukosa hiperemis, edematosa, mudah berdarah.</div>
+    <p class="quiz-question">Apakah diagnosis dan pemeriksaan penunjang yang paling tepat untuk konfirmasi?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q6',false,'A')"><span class="opt-letter">A</span>Hemoroid interna — anoskopi + grading</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'B')"><span class="opt-letter">B</span>Kolitis ulseratif — kolonoskopi + biopsi</button>
+      <button class="quiz-option" onclick="answer(this,'q6',true,'C')"><span class="opt-letter">C</span>Proktitis infeksi (gonore/klamidia) — swab PCR/kultur</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'D')"><span class="opt-letter">D</span>Fistula ani — MRI pelvis</button>
+      <button class="quiz-option" onclick="answer(this,'q6',false,'E')"><span class="opt-letter">E</span>Ca rektum — biopsi</button>
+    </div>
+    <div class="explanation" id="exp-q6">✅ <strong>C. Proktitis Infeksi (Gonore/Klamidia) — Swab PCR/Kultur</strong><br><br>
+    Kunci: (1) Riwayat <strong>anal seks</strong> — ini trigger utama proktitis infeksi; (2) Gejala: tenesmus + nyeri rektal + diare lendir purulen; (3) Proktoskopi: mukosa hiperemis, edema. Pemeriksaan konfirmasi = <strong>swab anorektal PCR/kultur</strong> untuk N. gonorrhoeae dan C. trachomatis.<br><br>
+    Tatalaksana: Seftriakson 500mg IM + Azitromisin 1g oral (sesuai panduan IMS). ❌ Kolitis ulseratif = lebih kronis, tidak ada riwayat seks anal. ❌ Ca rektum = massa keras, tidak ada discharge akut.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" id="q7">
+    <div class="quiz-num">Soal 7</div>
+    <div class="quiz-vignette">Seorang laki-laki 50 tahun datang dengan BAB berdarah merah segar + lendir sejak 3 bulan, disertai penurunan berat badan 5 kg tidak disengaja, dan perubahan pola BAB menjadi lebih sering dengan konsistensi lebih encer. Tidak ada nyeri dubur. Colok dubur: massa keras, irregular, di dinding rektum posterior.</div>
+    <p class="quiz-question">Apakah langkah diagnostik yang paling tepat selanjutnya?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q7',false,'A')"><span class="opt-letter">A</span>Terapi hemoroid konservatif dulu selama 4 minggu</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'B')"><span class="opt-letter">B</span>USG abdomen</button>
+      <button class="quiz-option" onclick="answer(this,'q7',true,'C')"><span class="opt-letter">C</span>Kolonoskopi + biopsi</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'D')"><span class="opt-letter">D</span>Rubber band ligation</button>
+      <button class="quiz-option" onclick="answer(this,'q7',false,'E')"><span class="opt-letter">E</span>Cek darah lengkap saja</button>
+    </div>
+    <div class="explanation" id="exp-q7">✅ <strong>C. Kolonoskopi + Biopsi</strong><br><br>
+    Ada <strong>multiple red flags</strong>: usia &gt;45 tahun + darah + lendir + perubahan pola BAB + penurunan BB + <strong>massa keras irregular di colok dubur</strong>. Ini sangat mengarah ke <strong>adenokarsinoma rektum</strong>. Pemeriksaan definitif = <strong>kolonoskopi + biopsi</strong> untuk konfirmasi histopatologi.<br><br>
+    ❌ JANGAN terapi hemoroid dulu — ada red flag yang harus dieliminasi. Keganasan kolorektal sering terlambat didiagnosis karena dikira hemoroid. "Semua perdarahan dubur bukan hemoroid sampai terbukti sebaliknya pada usia &gt;45 tahun."</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" id="q8">
+    <div class="quiz-num">Soal 8</div>
+    <div class="quiz-vignette">Seorang wanita 45 tahun post-radioterapi pelvis 8 bulan lalu (karena Ca serviks stadium II) datang dengan tenesmus, diare lendir-darah, dan nyeri rektal sejak 2 bulan terakhir. Proktoskopi: mukosa rektum hiperemis, telangiektasia, mudah berdarah, tidak ada massa.</div>
+    <p class="quiz-question">Apakah diagnosis yang paling tepat dan tatalaksana lini pertamanya?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q8',false,'A')"><span class="opt-letter">A</span>Rekurensi Ca serviks — kemoterapi</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'B')"><span class="opt-letter">B</span>Kolitis ulseratif — mesalamin + steroid</button>
+      <button class="quiz-option" onclick="answer(this,'q8',true,'C')"><span class="opt-letter">C</span>Proktitis radiasi — mesalamin + formalin 4% topikal</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'D')"><span class="opt-letter">D</span>Proktitis infeksi — antibiotik</button>
+      <button class="quiz-option" onclick="answer(this,'q8',false,'E')"><span class="opt-letter">E</span>Hemoroid interna — rubber band ligation</button>
+    </div>
+    <div class="explanation" id="exp-q8">✅ <strong>C. Proktitis Radiasi — Mesalamin + Formalin 4% Topikal</strong><br><br>
+    Kunci: riwayat <strong>radioterapi pelvis</strong> + gejala muncul <strong>3–12 bulan post-radiasi</strong> + telangiektasia pada proktoskopi (khas proktitis radiasi). Tatalaksana: mesalamin (5-ASA), formalin 4% aplikasi topikal untuk perdarahan, oksigen hiperbarik jika tersedia. Biopsi diperlukan untuk menyingkirkan rekurensi tumor.<br><br>
+    ❌ Rekurensi Ca serviks = perlu CT scan/MRI staging, tidak cukup hanya proktoskopi. ❌ Infeksi = tidak ada riwayat anal seks, tidak ada discharge purulen akut.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" id="q9">
+    <div class="quiz-num">Soal 9</div>
+    <div class="quiz-vignette">Seorang laki-laki 40 tahun datang dengan hemoroid yang sudah diketahui sejak 3 tahun. Selama ini diobati dengan modifikasi diet dan venotonik. Saat ini mengeluh hemoroid prolaps saat BAB dan harus dimasukkan manual dengan jari setiap kali. Tidak ada perdarahan aktif, tidak ada nyeri.</div>
+    <p class="quiz-question">Apakah grade hemoroid dan tatalaksana yang paling tepat?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q9',false,'A')"><span class="opt-letter">A</span>Grade 2 — rubber band ligation</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'B')"><span class="opt-letter">B</span>Grade 2 — lanjutkan konservatif</button>
+      <button class="quiz-option" onclick="answer(this,'q9',true,'C')"><span class="opt-letter">C</span>Grade 3 — rubber band ligation atau hemoroidektomi</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'D')"><span class="opt-letter">D</span>Grade 4 — hemoroidektomi Milligan-Morgan</button>
+      <button class="quiz-option" onclick="answer(this,'q9',false,'E')"><span class="opt-letter">E</span>Grade 3 — lanjutkan konservatif saja</button>
+    </div>
+    <div class="explanation" id="exp-q9">✅ <strong>C. Grade 3 — Rubber Band Ligation atau Hemoroidektomi</strong><br><br>
+    <strong>Grade 3</strong> = prolaps saat mengejan, <strong>perlu dimasukkan manual dengan jari</strong> (tidak bisa masuk sendiri). Grade 2 = kembali spontan sendiri. Grade 4 = tidak bisa masuk sama sekali.<br><br>
+    Tatalaksana grade 3: <strong>Rubber Band Ligation (RBL)</strong> sebagai prosedur ambulatoar (efektivitas 80–90%) atau <strong>hemoroidektomi</strong> (Milligan-Morgan/Ferguson). Konservatif saja sudah tidak adekuat untuk grade 3. Kompetensi SKDI 3A → dokter umum lakukan tatalaksana awal (edukasi, analgesik, sitz bath) + rujuk untuk RBL/operasi.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" id="q10">
+    <div class="quiz-num">Soal 10</div>
+    <div class="quiz-vignette">Seorang laki-laki 38 tahun datang dengan keluhan discharge purulen dari lubang kecil di perianal kiri yang muncul tiba-tiba, disertai nyeri ringan dan gatal sejak 6 minggu. Sebelumnya tidak ada keluhan serius. Pada pemeriksaan: opening eksternal di posisi jam 9 (lateral kiri), traktus teraba menuju ke arah garis tengah posterior anus.</div>
+    <p class="quiz-question">Berdasarkan Goodsall Rule, di mana letak opening internal yang paling mungkin?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="answer(this,'q10',false,'A')"><span class="opt-letter">A</span>Di linea dentata posisi jam 9 (lateral kiri, langsung lurus)</button>
+      <button class="quiz-option" onclick="answer(this,'q10',true,'B')"><span class="opt-letter">B</span>Di linea dentata garis tengah posterior (jam 6)</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'C')"><span class="opt-letter">C</span>Di linea dentata garis tengah anterior (jam 12)</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'D')"><span class="opt-letter">D</span>Tidak ada opening internal (fistula blind)</button>
+      <button class="quiz-option" onclick="answer(this,'q10',false,'E')"><span class="opt-letter">E</span>Di rektum proksimal (di atas linea dentata jauh)</button>
+    </div>
+    <div class="explanation" id="exp-q10">✅ <strong>B. Di linea dentata garis tengah posterior (jam 6)</strong><br><br>
+    <strong>Goodsall Rule:</strong><br>
+    ✓ Opening eksternal di <strong>posterior</strong> (belakang garis transversal yang melintasi anus) → traktus melengkung ke garis tengah <strong>posterior</strong> (jam 6)<br>
+    ✓ Opening eksternal di <strong>anterior</strong> → traktus langsung lurus ke anterior<br><br>
+    Jam 9 berada di lateral — karena soal menyebut traktus menuju ke arah garis tengah posterior, ini sesuai Goodsall Rule untuk opening posterior-lateral yang kurvaturanya menuju jam 6. Penting diingat saat probing intraoperatif atau merencanakan fistulotomi.</div>
+  </div>
+
+  <!-- Score Card -->
+  <div class="quiz-score-card" id="scoreCard">
+    <div style="font-size:32px;margin-bottom:12px;">🎉</div>
+    <div class="score-num" id="finalScore">0</div>
+    <div style="font-size:18px;margin:8px 0;opacity:.8;">/ 10</div>
+    <div id="scoreMessage" style="font-size:15px;opacity:.85;margin-top:8px;line-height:1.6;"></div>
+    <button onclick="resetQuiz()" style="margin-top:24px;background:white;color:var(--forest);border:none;padding:12px 28px;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">🔁 Ulangi Quiz</button>
+  </div>
+</div><!-- end quiz -->
+
+</div><!-- end container -->
+
+<button class="fab" onclick="window.print()">📥 Download PDF</button>
+
+<script>
+  function showSection(id,btn){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function toggleCollapse(btn){
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+
+  let score=0, answered=0;
+  function answer(btn,qId,isCorrect,letter){
+    const card=document.getElementById(qId);
+    if(card.dataset.answered)return;
+    card.dataset.answered='true';
+    const allBtns=card.querySelectorAll('.quiz-option');
+    allBtns.forEach(b=>{b.classList.add('disabled');b.onclick=null;});
+    if(isCorrect){btn.classList.add('correct');score++;}
+    else{btn.classList.add('wrong');}
+    document.getElementById('exp-'+qId).classList.add('show');
+    answered++;
+    document.getElementById('progressText').textContent=answered+' / 10 dijawab';
+    document.getElementById('progressFill').style.width=(answered*10)+'%';
+    if(answered===10)setTimeout(showScore,600);
+  }
+  function showScore(){
+    const card=document.getElementById('scoreCard');
+    card.classList.add('show');
+    document.getElementById('finalScore').textContent=score;
+    let msg='';
+    if(score>=9)msg='Luar biasa! Siap menghadapi UKMPPD! 🔥';
+    else if(score>=7)msg='Bagus! Sedikit lagi sempurna. Review yang salah ya! 💪';
+    else if(score>=5)msg='Lumayan! Masih perlu belajar lebih dalam. 📚';
+    else msg='Jangan patah semangat! Baca ulang rangkumannya. Kamu pasti bisa! 🌱';
+    document.getElementById('scoreMessage').textContent=msg;
+    card.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function resetQuiz(){
+    score=0;answered=0;
+    document.getElementById('progressText').textContent='0 / 10 dijawab';
+    document.getElementById('progressFill').style.width='0%';
+    document.getElementById('scoreCard').classList.remove('show');
+    for(let i=1;i<=10;i++){
+      const card=document.getElementById('q'+i);
+      delete card.dataset.answered;
+      card.querySelectorAll('.quiz-option').forEach(b=>{b.classList.remove('correct','wrong','disabled');});
+      document.getElementById('exp-q'+i).classList.remove('show');
+    }
+    rebindQuiz();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function rebindQuiz(){
+    const bindings=[
+      ['q1',[false,true,false,false,false]],
+      ['q2',[false,true,false,false,false]],
+      ['q3',[false,true,false,false,false]],
+      ['q4',[false,true,false,false,false]],
+      ['q5',[false,false,true,false,false]],
+      ['q6',[false,false,true,false,false]],
+      ['q7',[false,false,true,false,false]],
+      ['q8',[false,false,true,false,false]],
+      ['q9',[false,false,true,false,false]],
+      ['q10',[false,true,false,false,false]],
+    ];
+    const letters=['A','B','C','D','E'];
+    bindings.forEach(([qId,correctArr])=>{
+      const card=document.getElementById(qId);
+      const btns=card.querySelectorAll('.quiz-option');
+      btns.forEach((btn,i)=>{btn.onclick=()=>answer(btn,qId,correctArr[i],letters[i]);});
+    });
+  }
+  window.addEventListener('beforeprint',()=>{document.querySelectorAll('.section').forEach(s=>s.style.display='block');});
+  window.addEventListener('afterprint',()=>{document.querySelectorAll('.section').forEach(s=>s.style.display='');document.querySelector('.section.active').style.display='block';});
+  rebindQuiz();
+</script>
+</body>
+</html>
