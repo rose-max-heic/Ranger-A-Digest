@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Portal UB Digestif - Ranger</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f6f8fa;
+            color: #24292e;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 35px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+        
+        .section-box {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #e1e4e8;
+        }
+        
+        /* Heading Styles & Color Coding Priorities */
+        .sec-title {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .title-p5 { color: #dc2626; border-bottom: 3px solid #fee2e2; }
+        .title-p4 { color: #ea580c; border-bottom: 3px solid #ffedd5; }
+        .title-p3 { color: #16a34a; border-bottom: 3px solid #dcfce7; }
+        .title-p2 { color: #2563eb; border-bottom: 3px solid #dbeafe; }
+
+        /* Grid System Responsif */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        
+        /* Card Styles */
+        .materi-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            border-left: 6px solid #cbd5e1;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .materi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            background: #ffffff;
+        }
+        
+        /* Border Left Per Priority */
+        .border-p5 { border-left-color: #ef4444; }
+        .border-p4 { border-left-color: #f97316; }
+        .border-p3 { border-left-color: #22c55e; }
+        .border-p2 { border-left-color: #3b82f6; }
+
+        .materi-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.05rem;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+        .materi-card p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .doctor-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🎯 Dashboard Rangkuman Blok Digestif Ranger</h1>
+        <p>Sistem Manajemen Belajar Mandiri • Siap Tempur Nilai A 🩺✨</p>
+    </div>
+
+    <div class="section-box">
+        <h2 class="sec-title title-p5">🔥 Prioritas Utama (Keluar 5 Soal / Kuliah)</h2>
+        <div class="grid-container">
+            
+            <a href="K-Penyakit rongga mulut dr. Sumarjo.html" class="materi-card border-p5">
+                <div>
+                    <h3>👄 Penyakit Rongga Mulut</h3>
+                    <p>Stomatitis, gangguan kelenjar saliva, lesi oral pre-kanker, dan manifestasi klinis lokal.</p>
+                </div>
+                <div class="doctor-tag">dr. Sumarjo, Sp.PD, KGEH</div>
+            </a>
+
+            <a href="K. Kelainan Kongenital Orofasia dan GIT Atas - dr. Aji.html" class="materi-card border-p5">
+                <div>
+                    <h3>👶 Kelainan Kongenital Orofasia & GIT Atas</h3>
+                    <p>Labiopalatoskizis, Atresia Esofagus, Hypertrophic Pyloric Stenosis (HPS), tatalaksana awal.</p>
+                </div>
+                <div class="doctor-tag">dr. Linda Jana / dr. Aji</div>
+            </a>
+
+            <a href="K. DIARE KONSTIPASI DEHIDRASI - dr. Medita.html" class="materi-card border-p5">
+                <div>
+                    <h3>💧 Diare, Konstipasi, & Dehidrasi</h3>
+                    <p>Derajat dehidrasi anak/dewasa, rehidrasi WHO, Bristol Stool Chart, patofisiologi diare osmotik/sekretorik.</p>
+                </div>
+                <div class="doctor-tag">dr. Medita Prasetyo, Sp.A</div>
+            </a>
+
+            <a href="K-penyakit esofagus dan lambung dr. sumarjo.html" class="materi-card border-p5">
+                <div>
+                    <h3>🤢 Penyakit Esofagus & Lambung</h3>
+                    <p>GERD, Gastritis, Peptic Ulker Disease (PUD), kegawatdaruratan perdarahan lambung non-varises.</p>
+                </div>
+                <div class="doctor-tag">dr. Sumarjo, Sp.PD, KGEH</div>
+            </a>
+
+            <a href="K. Biliary & Pancreatic Diseases - dr. Ari.html" class="materi-card border-p5">
+                <div>
+                    <h3>🟡 Biliary & Pancreatic Diseases</h3>
+                    <p>Kolelitiasis, Kolesistitis, Kolangitis (Charcot triad), Pankreatitis Akut (Cullen & Grey-Turner sign).</p>
+                </div>
+                <div class="doctor-tag">dr. Ari Prasetyo, Sp.PD, KGEH(K)</div>
+            </a>
+
+            <a href="K-Penyakit Hepar dr. Sumarjo.html" class="materi-card border-p5">
+                <div>
+                    <h3>🩸 Penyakit Hepar</h3>
+                    <p>Hepatitis Virus Akut/Kronis, Sirosis Hepatis (Child-Pugh score), Ensefalopati Hepatikum, HCC.</p>
+                </div>
+                <div class="doctor-tag">dr. Sumarjo, Sp.PD, KGEH</div>
+            </a>
+
+            <a href="K-Penyakit usus dr. Ari.html" class="materi-card border-p5">
+                <div>
+                    <h3>🌀 Penyakit Usus (Non-Hepatobilier)</h3>
+                    <p>Inflammatory Bowel Disease (UC vs Crohn's), Malabsorbsi, Ileus Obstruktif vs Paralitik.</p>
+                </div>
+                <div class="doctor-tag">dr. Ari Prasetyo, Sp.PD, KGEH(K)</div>
+            </a>
+
+            <a href="K. Anorektal - dr. Hitaputra.html" class="materi-card border-p5">
+                <div>
+                    <h3>🍑 Penyakit Anorektal</h3>
+                    <p>Hemoroid Grade I-IV, Fisura Ani, Fistula Perianal, Abses Anorektal, pendekatan bedah.</p>
+                </div>
+                <div class="doctor-tag">dr. Hitaputra Agung, Sp.B</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2 class="sec-title title-p4">⚡ Prioritas Tinggi (Keluar 4 Soal / Kuliah)</h2>
+        <div class="grid-container">
+            
+            <a href="K-Pemeriksaan Mikrobiologi Digest dr. Syita.html" class="materi-card border-p4">
+                <div>
+                    <h3>🧫 Pemeriksaan Mikrobiologi Digestivus</h3>
+                    <p>Kultur feses, pewarnaan Gram, identifikasi bakteri penyebab gastroenteritis invasif/toksigenik.</p>
+                </div>
+                <div class="doctor-tag">dr. Listiana / dr. Syita</div>
+            </a>
+
+            <a href="K. PA - dr. Yuni.html" class="materi-card border-p4">
+                <div>
+                    <h3>🔬 Neoplasma & Patologi Anatomi (PA)</h3>
+                    <p>Histopatologi karsinoma lambung, adenocarcinoma kolon, gambaran seluler polip dan tumor digestif.</p>
+                </div>
+                <div class="doctor-tag">dr. Yuni Prastyo, Sp.PA</div>
+            </a>
+
+            <a href="K. PK - dr. Metana.html" class="materi-card border-p4">
+                <div>
+                    <h3>🧪 Pemeriksaan Lab PK Digestivus</h3>
+                    <p>Feses lengkap, interpretasi SGOT/SGPT, Bilirubin total/direk/indirek, Tumor Marker (CEA).</p>
+                </div>
+                <div class="doctor-tag">dr. Metana Puspitasari, Sp.PK</div>
+            </a>
+
+            <a href="K. Penyakit Gigi dan Gingiva - dr Adityawan.html" class="materi-card border-p4">
+                <div>
+                    <h3>🦷 Penyakit Gigi dan Gingiva</h3>
+                    <p>Karies gigi, Gingivitis, Periodontitis, abses periapikal, dampaknya pada sistem pencernaan.</p>
+                </div>
+                <div class="doctor-tag">drg. Adityawan P, Sp.Perio</div>
+            </a>
+
+            <a href="K-Radiologi sistem digestivus dr. Ulum.html" class="materi-card border-p4">
+                <div>
+                    <h3>🩻 Radiologi Sistem Digestivus</h3>
+                    <p>Barium meal, Barium enema, foto polos 3 posisi, tanda perforasi (pneumoperitoneum), string sign.</p>
+                </div>
+                <div class="doctor-tag">dr. M. Ulum Mahfud, Sp.Rad</div>
+            </a>
+
+            <a href="K. PARASIT - dr. Dina.html" class="materi-card border-p4">
+                <div>
+                    <h3>🪱 Parasitologi: Trematoda & Cestoda</h3>
+                    <p>Siklus hidup Taenia saginata/solium, Schistosoma, Fasciola hepatica, gejala klinis dan identifikasi telur.</p>
+                </div>
+                <div class="doctor-tag">dr. Rochmadina (dr. Dina)</div>
+            </a>
+
+            <a href="K. HELMINTHIASIS - dr. Medita.html" class="materi-card border-p4">
+                <div>
+                    <h3>🐛 Infeksi Helmintiasis Anak</h3>
+                    <p>Ascariasis, Trichuriasis, Hookworm infection, Enterobiasis, tatalaksana dosis obat cacing anak.</p>
+                </div>
+                <div class="doctor-tag">dr. Medita Prasetyo, Sp.A</div>
+            </a>
+
+            <a href="K. FARMAKO DIGEST - Prof Em.html" class="materi-card border-p4">
+                <div>
+                    <h3>💊 Obat-obatan Sistem Digestivus</h3>
+                    <p>Mekanisme kerja PPI, H2 blocker, Antasida, Antiemetik, Laksatif, Antidiare farmakologis.</p>
+                </div>
+                <div class="doctor-tag">Prof. Dr. dr. Em Sutrisna, M.Kes</div>
+            </a>
+
+            <a href="K. Abdomen Akut - dr. Hitaputra.html" class="materi-card border-p4">
+                <div>
+                    <h3>🚨 Abdomen Akut (Obstruktif & Inflamasi)</h3>
+                    <p>Peritonitis, Appendicitis acuta, tanda McBurney, Rovsing sign, nyeri alih, indikasi operasi cito.</p>
+                </div>
+                <div class="doctor-tag">dr. Hitaputra Agung, Sp.B</div>
+            </a>
+
+            <a href="K-Hernia dr. Linda.html" class="materi-card border-p4">
+                <div>
+                    <h3>🎗️ Hernia Abdominalis</h3>
+                    <p>Hernia Inguinalis Lateralis/Medialis, reponibel vs irreponibel, inkarserata, strangulata (iskemik).</p>
+                </div>
+                <div class="doctor-tag">dr. Linda Jana, Sp.B</div>
+            </a>
+
+            <a href="K-infeksi saluran cerna dr. Restu.html" class="materi-card border-p4">
+                <div>
+                    <h3>🦠 Penyakit Infeksi Saluran Cerna Anak</h3>
+                    <p>Gastroenteritis Akut (GEA) karena Rotavirus, Demam Tifoid anak, Disentri Basil, komplikasi dehidrasi.</p>
+                </div>
+                <div class="doctor-tag">dr. Restu Tri Wulandari, Sp.A</div>
+            </a>
+
+            <a href="K. GIT Bawah - dr. Linda Jana.html" class="materi-card border-p4">
+                <div>
+                    <h3>👶 Kelainan Kongenital GIT Bawah</h3>
+                    <p>Malformasi Anorektal (Atresia Ani), Hirschsprung Disease (megakolon kongenital), trias gejala klinis.</p>
+                </div>
+                <div class="doctor-tag">dr. Linda Jana, Sp.B</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2 class="sec-title title-p3">📚 Prioritas Menengah (Keluar 3 Soal / Kuliah)</h2>
+        <div class="grid-container">
+            
+            <a href="K. Adab Makan Halal Haram - dr. Erna Herawati.html" class="materi-card border-p3">
+                <div>
+                    <h3>⚖️ Adab Makan Halal Haram</h3>
+                    <p>Tinjauan bioetika medis Islam, zat Thoyyib, kriteria makanan/minuman halal haram, aplikasi klinis hukum medis.</p>
+                </div>
+                <div class="doctor-tag">dr. Erna Herawati</div>
+            </a>
+
+            <a href="K. Managemen Nutrisi pada Pasien Penyakit Sistem Digestivus - dr. Shoim.html" class="materi-card border-p3">
+                <div>
+                    <h3>🥗 Manajemen Nutrisi Klinis</h3>
+                    <p>Malnutrisi Energi Protein (MEP), nutrisi enteral vs parenteral, modifikasi diet untuk sirosis/gagal organ.</p>
+                </div>
+                <div class="doctor-tag">dr. Shoim</div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h2 class="sec-title title-p2">🌱 Prioritas Dasar (Keluar 2 Soal / Kuliah)</h2>
+        <div class="grid-container">
+            
+            <a href="K. Kedokteran Keluarga Digestive n Bioetik - dr. Yusuf.html" class="materi-card border-p2">
+                <div>
+                    <h3>🏡 Kedokteran Keluarga & Bioetika</h3>
+                    <p>Pendekatan holistik Five Stars Doctor pada penyakit digestif kronis di layanan primer, aspek bioetika kedokteran.</p>
+                </div>
+                <div class="doctor-tag">dr. Yusuf</div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
